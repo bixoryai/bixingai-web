@@ -1,25 +1,4 @@
-// Hero section features
-"customSolutions.hero.feature1": "AI Data Services",
-"customSolutions.hero.feature2": "Model Training & Deployment",
-"customSolutions.hero.feature3": "Specialized AI Agents/Apps",
-
-// Solutions section
-"customSolutions.solutions.title": "Our Specialties",
-
-// Core Services section
-"customSolutions.coreServices.data.title": "AI Data Services",
-"customSolutions.coreServices.model.title": "Model Training & Deployment",
-"customSolutions.coreServices.applications.title": "Specialized AI Agents/Apps",// Hero section features
-"customSolutions.hero.feature1": "AI数据服务",
-"customSolutions.hero.feature2": "模型训练与部署",
-"customSolutions.hero.feature3": "专业AI代理/应用",
-
-// Solutions section
-"customSolutions.solutions.title": "我们的专长",
-
-// Core Services section
-"customSolutions.coreServices.data.title": "AI数据服务",
-"customSolutions.coreServices.applications.title": "专业AI代理/应用",/**
+/**
  * Internationalization (i18n) functionality for Bixing Technology website
  * Handles language switching between English and Chinese
  */
@@ -41,6 +20,20 @@ const translations = {
     "nav.about": "About Us",
     "nav.careers": "Careers",
     "nav.contact": "Contact Us",
+    
+    // Custom Solutions Page
+    // Hero section features
+    "customSolutions.hero.feature1": "AI Data Services",
+    "customSolutions.hero.feature2": "Model Training & Deployment",
+    "customSolutions.hero.feature3": "Specialized AI Agents/Apps",
+
+    // Solutions section
+    "customSolutions.solutions.title": "Our Specialties",
+
+    // Core Services section
+    "customSolutions.coreServices.data.title": "AI Data Services",
+    "customSolutions.coreServices.model.title": "Model Training & Deployment",
+    "customSolutions.coreServices.applications.title": "Specialized AI Agents/Apps",
     
     // Hero Section
     "hero.title": "Empowering Enterprises with AI Innovation",
@@ -600,7 +593,7 @@ const translations = {
     "education.faq.q3": "培训可以远程进行还是必须面对面？",
     "education.faq.a3": "我们提供面对面和远程培训选项。我们的虚拟课程使用互动平台确保参与度和实际应用，而面对面课程提供更多动手合作机会。",
     "education.faq.q4": "您如何衡量培训的有效性？",
-    "education.faq.a4": "我们在开始时确立明确的学习目标，并在整个课程中使用各种评估方法。我们还进行后续评估，以衡量知识保留和在工作场所的实际应用情况。",
+    "education.faq.a4": "我们建立明确的学习目标，并在整个课程中使用各种评估方法。我们还进行后续评估，以衡量知识保留和在工作场所的实际应用情况。",
     "education.faq.q5": "您能将我们公司的数据和用例整合到培训中吗？",
     "education.faq.a5": "是的，我们强烈鼓励这种方法。使用您组织的实际数据和业务挑战使培训更相关且立即可应用。我们与您合作识别适当的用例，同时尊重数据隐私要求。",
     "education.cta.title": "准备好用AI知识赋能您的团队了吗？",
