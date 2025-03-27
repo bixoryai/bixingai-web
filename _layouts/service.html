@@ -1,0 +1,373 @@
+---
+layout: default
+---
+
+<div class="service-header bg-gradient">
+    <div class="container">
+        <div class="breadcrumb-nav">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ site.baseurl }}/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{{ site.baseurl }}/pages/services.html">Services</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row align-items-center">
+            <div class="col-lg-6" data-aos="fade-right">
+                <h1 class="service-title">{{ page.title }}</h1>
+                <p class="service-subtitle">{{ page.subtitle }}</p>
+            </div>
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="service-header-image">
+                    {% if page.header_image %}
+                    <img src="{{ site.baseurl }}/assets/images/{{ page.header_image }}" alt="{{ page.title }}" class="img-fluid">
+                    {% else %}
+                    <img src="{{ site.baseurl }}/assets/images/service-placeholder.jpg" alt="{{ page.title }}" class="img-fluid">
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="service-overview section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8" data-aos="fade-up">
+                <div class="service-description">
+                    <h2>Overview</h2>
+                    {{ content }}
+                </div>
+                
+                {% if page.benefits %}
+                <div class="service-benefits">
+                    <h2>Key Benefits</h2>
+                    <div class="row">
+                        {% for benefit in page.benefits %}
+                        <div class="col-md-6">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="benefit-icon-placeholder">{{ benefit.icon }}</i>
+                                </div>
+                                <h3>{{ benefit.title }}</h3>
+                                <p>{{ benefit.description }}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Our Services</h3>
+                        <ul class="service-list">
+                            <li {% if page.url contains 'education' %}class="active"{% endif %}>
+                                <a href="{{ site.baseurl }}/pages/services/education.html">AI Education/Training</a>
+                            </li>
+                            <li {% if page.url contains 'custom-solutions' %}class="active"{% endif %}>
+                                <a href="{{ site.baseurl }}/pages/services/custom-solutions.html">AI Custom Solutions</a>
+                            </li>
+                            <li {% if page.url contains 'consultation' %}class="active"{% endif %}>
+                                <a href="{{ site.baseurl }}/pages/services/consultation.html">Enterprise AI Consultation</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="sidebar-widget">
+                        <h3>Get in Touch</h3>
+                        <p>Interested in our {{ page.title }} service? Contact us today for a consultation.</p>
+                        <a href="{{ site.baseurl }}/pages/contact.html" class="btn btn-primary btn-block">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if page.process %}
+<section class="service-process section-padding bg-light">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Our Process</h2>
+            <p class="section-subtitle">How we deliver {{ page.title }}</p>
+        </div>
+        <div class="process-timeline" data-aos="fade-up">
+            {% for step in page.process %}
+            <div class="process-step">
+                <div class="process-number">{{ forloop.index }}</div>
+                <div class="process-content">
+                    <h3>{{ step.title }}</h3>
+                    <p>{{ step.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if page.technologies %}
+<section class="service-technologies section-padding">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Technologies We Use</h2>
+            <p class="section-subtitle">Cutting-edge tools and frameworks for optimal results</p>
+        </div>
+        <div class="row justify-content-center">
+            {% for tech in page.technologies %}
+            <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+                <div class="technology-item">
+                    <div class="technology-icon">
+                        <img src="{{ site.baseurl }}/assets/images/technologies/{{ tech.icon }}" alt="{{ tech.name }}" class="img-fluid">
+                    </div>
+                    <h4>{{ tech.name }}</h4>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if page.features %}
+<section class="service-features section-padding bg-gradient">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Key Features</h2>
+            <p class="section-subtitle">What makes our {{ page.title }} service stand out</p>
+        </div>
+        <div class="row">
+            {% for feature in page.features %}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="feature-icon-placeholder">{{ feature.icon }}</i>
+                    </div>
+                    <h3>{{ feature.title }}</h3>
+                    <p>{{ feature.description }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if page.case_studies %}
+<section class="service-case-studies section-padding">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Case Studies</h2>
+            <p class="section-subtitle">Real-world applications and results</p>
+        </div>
+        <div class="row">
+            {% for case in page.case_studies %}
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+                <div class="case-study-card">
+                    <div class="case-study-image">
+                        <img src="{{ site.baseurl }}/assets/images/case-studies/{{ case.image }}" alt="{{ case.title }}" class="img-fluid">
+                    </div>
+                    <div class="case-study-content">
+                        <h3>{{ case.title }}</h3>
+                        <p>{{ case.description }}</p>
+                        <div class="case-study-results">
+                            <h4>Results:</h4>
+                            <ul>
+                                {% for result in case.results %}
+                                <li>{{ result }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% if case.link %}
+                        <a href="{{ case.link }}" class="btn btn-sm btn-outline-primary">Read Full Case Study</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if page.demo_id %}
+<section class="service-demo section-padding bg-light">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Interactive Demo</h2>
+            <p class="section-subtitle">Experience our {{ page.title }} capabilities firsthand</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up">
+                <div class="demo-container" id="demo-{{ page.demo_id }}">
+                    <iframe 
+                        src="https://huggingface.co/spaces/bixing/{{ page.demo_id }}" 
+                        frameborder="0" 
+                        width="100%" 
+                        height="450">
+                    </iframe>
+                </div>
+                <div class="demo-description text-center mt-4">
+                    <p>{{ page.demo_description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if page.faq %}
+<section class="service-faq section-padding">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Common questions about our {{ page.title }} service</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10" data-aos="fade-up">
+                <div class="accordion" id="faqAccordion">
+                    {% for item in page.faq %}
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faqHeading{{ forloop.index }}">
+                            <button class="accordion-button {% if forloop.first %}{% else %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse{{ forloop.index }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="faqCollapse{{ forloop.index }}">
+                                {{ item.question }}
+                            </button>
+                        </h2>
+                        <div id="faqCollapse{{ forloop.index }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="faqHeading{{ forloop.index }}" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {{ item.answer }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if page.pricing %}
+<section class="service-pricing section-padding bg-gradient">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Pricing & Packages</h2>
+            <p class="section-subtitle">Flexible options to meet your needs</p>
+        </div>
+        <div class="row justify-content-center">
+            {% for plan in page.pricing %}
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="{{ forloop.index | times: 100 }}">
+                <div class="pricing-card {% if plan.featured %}featured{% endif %}">
+                    {% if plan.featured %}
+                    <div class="featured-badge">Popular</div>
+                    {% endif %}
+                    <div class="pricing-header">
+                        <h3>{{ plan.name }}</h3>
+                        <div class="pricing-price">
+                            <span class="currency">{{ plan.currency }}</span>
+                            <span class="amount">{{ plan.price }}</span>
+                            <span class="period">{{ plan.period }}</span>
+                        </div>
+                        <p class="pricing-description">{{ plan.description }}</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            {% for feature in plan.features %}
+                            <li {% if feature.included == false %}class="not-included"{% endif %}>
+                                <span class="feature-icon">{% if feature.included %}✓{% else %}✕{% endif %}</span>
+                                {{ feature.text }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="{{ site.baseurl }}/pages/contact.html?plan={{ plan.name | slugify }}" class="btn {% if plan.featured %}btn-primary{% else %}btn-outline-primary{% endif %} btn-block">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="related-services section-padding bg-light">
+    <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+            <h2 class="section-title">Related Services</h2>
+            <p class="section-subtitle">Explore our other AI solutions</p>
+        </div>
+        <div class="row">
+            {% assign current_service = page.url | split: '/' | last | split: '.' | first %}
+            {% if current_service != 'education' %}
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="service-icon-placeholder">🎓</i>
+                    </div>
+                    <h3 class="service-title">AI Education & Training</h3>
+                    <p class="service-description">Empower your team with AI knowledge through customized training programs and workshops.</p>
+                    <ul class="service-features">
+                        <li>Customized learning paths</li>
+                        <li>Hands-on workshops</li>
+                        <li>Expert-led training</li>
+                    </ul>
+                    <a href="{{ site.baseurl }}/pages/services/education.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if current_service != 'custom-solutions' %}
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="service-icon-placeholder">🔧</i>
+                    </div>
+                    <h3 class="service-title">AI Custom Solutions</h3>
+                    <p class="service-description">From data services to model training and deployment, we build tailored AI solutions for your unique challenges.</p>
+                    <ul class="service-features">
+                        <li>Data preparation & analysis</li>
+                        <li>Custom model development</li>
+                        <li>AI application integration</li>
+                    </ul>
+                    <a href="{{ site.baseurl }}/pages/services/custom-solutions.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if current_service != 'consultation' %}
+            <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="service-icon-placeholder">💼</i>
+                    </div>
+                    <h3 class="service-title">Enterprise AI Consultation</h3>
+                    <p class="service-description">Strategic guidance for implementing AI across your organization to drive innovation and efficiency.</p>
+                    <ul class="service-features">
+                        <li>AI readiness assessment</li>
+                        <li>Implementation roadmap</li>
+                        <li>Technology selection</li>
+                    </ul>
+                    <a href="{{ site.baseurl }}/pages/services/consultation.html" class="btn btn-outline-primary">Learn More</a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<section class="contact-cta-section section-padding bg-gradient">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <h2>Ready to Get Started with {{ page.title }}?</h2>
+                <p>Contact us today to discuss how our {{ page.title }} service can address your specific challenges and drive innovation.</p>
+                <a href="{{ site.baseurl }}/pages/contact.html" class="btn btn-light btn-lg">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Custom Solutions | Bixing Technology</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
+                        <span>Bixing Technology</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
+                                    Services
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                    <li><a class="dropdown-item" href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
+                                    <li><a class="dropdown-item active" href="custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                                    <li><a class="dropdown-item" href="consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="insights.html" data-i18n="nav.insights">Industry Insights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html" data-i18n="nav.about">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="careers.html" data-i18n="nav.careers">Careers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="language-toggle">
+                                    <button id="language-toggle-btn" class="btn btn-sm">
+                                        <span class="lang-text">EN</span>
+                                        <i class="fas fa-globe ms-1"></i>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="hero-content">
+                        <h1 class="hero-title" data-i18n="customSolutions.hero.title">AI Custom Solutions</h1>
+                        <div class="hero-divider"></div>
+                        <p class="hero-description mb-4" data-i18n="customSolutions.overview.paragraph1">In today's competitive landscape, off-the-shelf AI solutions often fall short of addressing the unique challenges and opportunities specific to your business. Bixing Technology specializes in developing custom AI solutions that are precisely engineered to meet your organization's unique requirements and objectives.</p>
+                        <p class="hero-description mb-4" data-i18n="customSolutions.overview.paragraph2">Our team of AI engineers, data scientists, and domain experts work collaboratively with your stakeholders to understand your business context, identify high-value opportunities, and develop AI solutions that deliver measurable results.</p>
+                        
+                        <div class="hero-cta">
+                            <a href="#solutions" class="btn btn-primary btn-lg" data-i18n="customSolutions.hero.exploreSolutions">Explore Our Solutions</a>
+                            <a href="contact.html" class="btn btn-outline-light btn-lg ms-3" data-i18n="customSolutions.hero.contactUs">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="overview-image">
+                        <img src="assets/images/custom-ai-overview.svg" alt="Custom AI Development" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="customSolutions.overview.title">Our AI Technologies</h2>
+                    <p class="section-subtitle" data-i18n="customSolutions.overview.subtitle">Transforming your business with purpose-built AI solutions</p>
+                </div>
+            </div>
+            <div class="row mt-5 align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <p data-i18n="customSolutions.hero.combinedDescription">From data preparation to model deployment, we build tailored AI solutions that drive innovation and efficiency in your organization, addressing your unique business challenges.</p>
+                    
+                    <div class="hero-features-showcase">
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-card-icon blue-gradient">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h3 class="feature-card-title" data-i18n="customSolutions.hero.feature1">AI Data Services</h3>
+                            <p class="feature-card-text" data-i18n="customSolutions.hero.feature1Description">Transform raw data into valuable assets</p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-card-icon purple-gradient">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3 class="feature-card-title" data-i18n="customSolutions.hero.feature2">Model Training & Deployment</h3>
+                            <p class="feature-card-text" data-i18n="customSolutions.hero.feature2Description">Custom AI models for your needs</p>
+                        </div>
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-card-icon teal-gradient">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <h3 class="feature-card-title" data-i18n="customSolutions.hero.feature3">Specialized AI Agents/Apps</h3>
+                            <p class="feature-card-text" data-i18n="customSolutions.hero.feature3Description">End-to-end AI applications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image-container">
+                        <div class="hero-image-glow"></div>
+                        <img src="assets/images/custom-solutions-hero.svg" alt="AI Custom Solutions" class="hero-image img-fluid">
+                        <div class="hero-tech-elements">
+                            <div class="hero-floating-element">
+                                <i class="fas fa-brain"></i>
+                                <span>AI</span>
+                            </div>
+                            <div class="hero-floating-element">
+                                <i class="fas fa-code-branch"></i>
+                                <span>ML</span>
+                            </div>
+                            <div class="hero-floating-element">
+                                <i class="fas fa-robot"></i>
+                                <span>NLP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Services Section -->
+    <section class="section-padding bg-gradient-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="customSolutions.coreServices.title">Our Core Services</h2>
+                    <p class="section-subtitle" data-i18n="customSolutions.coreServices.subtitle">End-to-end AI development capabilities</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="core-service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 data-i18n="customSolutions.coreServices.data.title">AI Data Services</h3>
+                        <p data-i18n="customSolutions.coreServices.data.description">We transform raw data into valuable assets through comprehensive data preparation, cleaning, and engineering services.</p>
+                        <ul class="service-features">
+                            <li data-i18n="customSolutions.coreServices.data.feature1">Data collection & integration</li>
+                            <li data-i18n="customSolutions.coreServices.data.feature2">Data cleaning & preprocessing</li>
+                            <li data-i18n="customSolutions.coreServices.data.feature3">Feature engineering</li>
+                            <li data-i18n="customSolutions.coreServices.data.feature4">Data pipeline development</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="core-service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3 data-i18n="customSolutions.coreServices.model.title">Model Training & Deployment</h3>
+                        <p data-i18n="customSolutions.coreServices.model.description">We develop, train, and deploy custom AI models tailored to your specific business requirements and use cases.</p>
+                        <ul class="service-features">
+                            <li data-i18n="customSolutions.coreServices.model.feature1">Algorithm selection & customization</li>
+                            <li data-i18n="customSolutions.coreServices.model.feature2">Model training & validation</li>
+                            <li data-i18n="customSolutions.coreServices.model.feature3">Hyperparameter optimization</li>
+                            <li data-i18n="customSolutions.coreServices.model.feature4">Scalable deployment solutions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="core-service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 data-i18n="customSolutions.coreServices.applications.title">Specialized AI Agents/Apps</h3>
+                        <p data-i18n="customSolutions.coreServices.applications.description">We build end-to-end AI applications that integrate seamlessly with your existing systems and workflows.</p>
+                        <ul class="service-features">
+                            <li data-i18n="customSolutions.coreServices.applications.feature1">User-friendly interfaces</li>
+                            <li data-i18n="customSolutions.coreServices.applications.feature2">API development & integration</li>
+                            <li data-i18n="customSolutions.coreServices.applications.feature3">Monitoring & analytics dashboards</li>
+                            <li data-i18n="customSolutions.coreServices.applications.feature4">Continuous improvement systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="section-padding bg-gradient-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="customSolutions.solutions.title">Our Specialties</h2>
+                    <p class="section-subtitle" data-i18n="customSolutions.solutions.subtitle">Specialized AI applications for diverse business needs</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 data-i18n="customSolutions.solutions.predictive.title">Predictive Analytics</h3>
+                        <p data-i18n="customSolutions.solutions.predictive.description">Harness the power of your data to forecast trends, anticipate customer behavior, and make proactive business decisions.</p>
+                        <ul class="feature-list">
+                            <li data-i18n="customSolutions.solutions.predictive.feature1">Sales forecasting</li>
+                            <li data-i18n="customSolutions.solutions.predictive.feature2">Demand prediction</li>
+                            <li data-i18n="customSolutions.solutions.predictive.feature3">Risk assessment</li>
+                            <li data-i18n="customSolutions.solutions.predictive.feature4">Resource optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 data-i18n="customSolutions.solutions.vision.title">Computer Vision</h3>
+                        <p data-i18n="customSolutions.solutions.vision.description">Enable machines to interpret and understand visual information from the world, automating visual inspection and analysis.</p>
+                        <ul class="feature-list">
+                            <li data-i18n="customSolutions.solutions.vision.feature1">Object detection & recognition</li>
+                            <li data-i18n="customSolutions.solutions.vision.feature2">Quality control automation</li>
+                            <li data-i18n="customSolutions.solutions.vision.feature3">Visual search capabilities</li>
+                            <li data-i18n="customSolutions.solutions.vision.feature4">Medical image analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 data-i18n="customSolutions.solutions.nlp.title">Natural Language Processing</h3>
+                        <p data-i18n="customSolutions.solutions.nlp.description">Build systems that understand, interpret, and generate human language, enabling more natural human-computer interactions.</p>
+                        <ul class="feature-list">
+                            <li data-i18n="customSolutions.solutions.nlp.feature1">Intelligent chatbots & assistants</li>
+                            <li data-i18n="customSolutions.solutions.nlp.feature2">Sentiment analysis</li>
+                            <li data-i18n="customSolutions.solutions.nlp.feature3">Document processing</li>
+                            <li data-i18n="customSolutions.solutions.nlp.feature4">Multilingual support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 data-i18n="customSolutions.solutions.automation.title">Intelligent Automation</h3>
+                        <p data-i18n="customSolutions.solutions.automation.description">Combine AI with robotic process automation to create systems that can learn, adapt, and handle complex business processes.</p>
+                        <ul class="feature-list">
+                            <li data-i18n="customSolutions.solutions.automation.feature1">Workflow optimization</li>
+                            <li data-i18n="customSolutions.solutions.automation.feature2">Intelligent document processing</li>
+                            <li data-i18n="customSolutions.solutions.automation.feature3">Decision automation</li>
+                            <li data-i18n="customSolutions.solutions.automation.feature4">Adaptive learning systems</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <h3 data-i18n="customSolutions.solutions.recommendation.title">Recommendation Systems</h3>
+                        <p data-i18n="customSolutions.solutions.recommendation.description">Deliver personalized experiences by predicting user preferences and suggesting relevant products, content, or actions.</p>
+                        <ul class="feature-list">
+                            <li data-i18n="customSolutions.solutions.recommendation.feature1">Product recommendations</li>
+                            <li data-i18n="customSolutions.solutions.recommendation.feature2">Content personalization</li>
+                            <li data-i18n="customSolutions.solutions.recommendation.feature3">Cross-selling opportunities</li>
+                            <li data-i18n="customSolutions.solutions.recommendation.feature4">User experience optimization</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 data-i18n="customSolutions.solutions.data.title">Data Services</h3>
+                        <p data-i18n="customSolutions.solutions.data.description">Transform raw data into valuable insights with our comprehensive data preparation, analysis, and management services.</p>
+                        <ul class="feature-list">
+                            <li data-i18n="customSolutions.solutions.data.feature1">Data cleaning & preparation</li>
+                            <li data-i18n="customSolutions.solutions.data.feature2">Feature engineering</li>
+                            <li data-i18n="customSolutions.solutions.data.feature3">Data pipeline development</li>
+                            <li data-i18n="customSolutions.solutions.data.feature4">Data visualization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Process Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="customSolutions.process.title">Our Development Process</h2>
+                    <p class="section-subtitle" data-i18n="customSolutions.process.subtitle">A systematic approach to building custom AI solutions</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="process-flowchart">
+                        <div class="process-row">
+                            <div class="process-step" data-aos="fade-right" data-aos-delay="100">
+                                <div class="process-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="customSolutions.process.step1.title">Discovery & Requirements</h3>
+                                    <p data-i18n="customSolutions.process.step1.description">We work closely with your team to understand your business challenges, objectives, and technical requirements.</p>
+                                </div>
+                            </div>
+                            <div class="process-step" data-aos="fade-left" data-aos-delay="200">
+                                <div class="process-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="customSolutions.process.step2.title">Data Assessment</h3>
+                                    <p data-i18n="customSolutions.process.step2.description">Evaluate available data sources, quality, and structure to determine feasibility and identify any data preparation needs.</p>
+                                </div>
+                            </div>
+                            <div class="connector-horizontal"></div>
+                        </div>
+                        <div class="connector-vertical right"></div>
+                        <div class="process-row">
+                            <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+                                <div class="process-icon">
+                                    <i class="fas fa-drafting-compass"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="customSolutions.process.step3.title">Solution Design</h3>
+                                    <p data-i18n="customSolutions.process.step3.description">Create a comprehensive solution architecture and development roadmap tailored to your specific requirements.</p>
+                                </div>
+                            </div>
+                            <div class="process-step" data-aos="fade-left" data-aos-delay="400">
+                                <div class="process-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="customSolutions.process.step4.title">Development & Training</h3>
+                                    <p data-i18n="customSolutions.process.step4.description">Build and train AI models using your data, implementing algorithms and techniques best suited to your use case.</p>
+                                </div>
+                            </div>
+                            <div class="connector-horizontal"></div>
+                        </div>
+                        <div class="connector-vertical left"></div>
+                        <div class="process-row">
+                            <div class="process-step" data-aos="fade-right" data-aos-delay="500">
+                                <div class="process-icon">
+                                    <i class="fas fa-vial"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="customSolutions.process.step5.title">Testing & Validation</h3>
+                                    <p data-i18n="customSolutions.process.step5.description">Rigorously test the solution to ensure accuracy, performance, and reliability in real-world scenarios.</p>
+                                </div>
+                            </div>
+                            <div class="process-step" data-aos="fade-left" data-aos-delay="600">
+                                <div class="process-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="customSolutions.process.step6.title">Deployment & Integration</h3>
+                                    <p data-i18n="customSolutions.process.step6.description">Seamlessly integrate the AI solution into your existing systems and workflows.</p>
+                                </div>
+                            </div>
+                            <div class="connector-horizontal"></div>
+                        </div>
+                        <div class="connector-vertical right"></div>
+                        <div class="process-row">
+                            <div class="process-step" data-aos="fade-right" data-aos-delay="700">
+                                <div class="process-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="customSolutions.process.step7.title">Monitoring & Optimization</h3>
+                                    <p data-i18n="customSolutions.process.step7.description">Continuously monitor performance and refine the solution to ensure optimal results over time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section class="section-padding bg-gradient-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="customSolutions.caseStudies.title">Case Studies</h2>
+                    <p class="section-subtitle" data-i18n="customSolutions.caseStudies.subtitle">Real-world AI solutions delivering measurable results</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4" data-aos="fade-up">
+                    <div class="case-study-card">
+                        <div class="case-study-image">
+                            <img src="assets/images/case-study-1-placeholder.svg" alt="Retail AI Solution" class="img-fluid">
+                        </div>
+                        <div class="case-study-content">
+                            <span class="industry-tag" data-i18n="customSolutions.caseStudies.retail.tag">Retail</span>
+                            <h3 data-i18n="customSolutions.caseStudies.retail.title">Inventory Optimization System</h3>
+                            <p data-i18n="customSolutions.caseStudies.retail.description">Developed a predictive analytics solution for a major retail chain that reduced inventory costs by 23% while maintaining product availability.</p>
+                            <ul class="result-list">
+                                <li><strong data-i18n="customSolutions.caseStudies.challenge">Challenge:</strong> <span data-i18n="customSolutions.caseStudies.retail.challenge">Balancing inventory levels across 200+ stores</span></li>
+                                <li><strong data-i18n="customSolutions.caseStudies.solution">Solution:</strong> <span data-i18n="customSolutions.caseStudies.retail.solution">Custom ML model integrating sales data, seasonality, and external factors</span></li>
+                                <li><strong data-i18n="customSolutions.caseStudies.result">Result:</strong> <span data-i18n="customSolutions.caseStudies.retail.result">23% reduction in inventory costs, 15% decrease in stockouts</span></li>
+                            </ul>
+                            <a href="#" class="btn btn-outline btn-sm mt-3" data-i18n="customSolutions.caseStudies.readMore">Read Full Case Study</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="case-study-card">
+                        <div class="case-study-image">
+                            <img src="assets/images/case-study-2-placeholder.svg" alt="Healthcare AI Solution" class="img-fluid">
+                        </div>
+                        <div class="case-study-content">
+                            <span class="industry-tag" data-i18n="customSolutions.caseStudies.healthcare.tag">Healthcare</span>
+                            <h3 data-i18n="customSolutions.caseStudies.healthcare.title">Medical Imaging Analysis</h3>
+                            <p data-i18n="customSolutions.caseStudies.healthcare.description">Created a computer vision system for a healthcare provider that improved diagnostic accuracy and reduced analysis time for medical imaging.</p>
+                            <ul class="result-list">
+                                <li><strong data-i18n="customSolutions.caseStudies.challenge">Challenge:</strong> <span data-i18n="customSolutions.caseStudies.healthcare.challenge">Accelerating analysis of diagnostic images</span></li>
+                                <li><strong data-i18n="customSolutions.caseStudies.solution">Solution:</strong> <span data-i18n="customSolutions.caseStudies.healthcare.solution">Deep learning model for anomaly detection in radiological images</span></li>
+                                <li><strong data-i18n="customSolutions.caseStudies.result">Result:</strong> <span data-i18n="customSolutions.caseStudies.healthcare.result">92% accuracy in preliminary screening, 60% reduction in analysis time</span></li>
+                            </ul>
+                            <a href="#" class="btn btn-outline btn-sm mt-3" data-i18n="customSolutions.caseStudies.readMore">Read Full Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="customSolutions.cta.title">Ready to Transform Your Business with AI?</h2>
+                    <p class="section-subtitle" data-i18n="customSolutions.cta.subtitle">Let's discuss how our custom AI solutions can address your unique challenges</p>
+                    <div class="mt-5">
+                        <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="customSolutions.cta.scheduleConsultation">Schedule a Consultation</a>
+                        <a href="#" class="btn btn-outline-primary btn-lg ms-3" data-i18n="customSolutions.cta.viewPortfolio">View Our Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-brand">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="footer-logo">
+                        <h3>Bixing Technology</h3>
+                    </div>
+                    <p class="footer-description">Empowering organizations with innovative AI solutions to transform industries and drive growth.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="education.html">AI Education/Training</a></li>
+                        <li><a href="custom-solutions.html">AI Custom Solutions</a></li>
+                        <li><a href="consultation.html">Enterprise AI Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="insights.html">Industry Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> <span>123 AI Innovation Center, Silicon Valley, CA 94000</span></li>
+                        <li><i class="fas fa-phone"></i> <span>+1 (555) 123-4567</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>info@bixingtechnology.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="copyright"> 2025 Bixing Technology. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <ul class="footer-legal">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>

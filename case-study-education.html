@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page.title">Siemens AI Education Case Study | Bixing Technology</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Language Selector Styles */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+        
+        .language-toggle {
+            display: flex;
+            align-items: center;
+            padding: 5px 8px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle:hover {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .language-toggle.active {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.15);
+            font-weight: 500;
+        }
+        
+        .language-toggle span {
+            margin-left: 5px;
+        }
+        
+        @media (max-width: 991px) {
+            .language-selector {
+                margin: 10px 0;
+            }
+        }
+        
+        /* Case Study Specific Styles */
+        .case-study-hero {
+            background: linear-gradient(rgba(10, 15, 30, 0.8), rgba(10, 15, 30, 0.9)), url('assets/images/ai-education-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+        
+        .case-study-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/images/grid-pattern.png');
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .case-study-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .case-study-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+        
+        .meta-item {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px 15px;
+        }
+        
+        .meta-item h4 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            color: var(--accent-blue);
+        }
+        
+        .meta-item p {
+            font-size: 16px;
+            margin: 0;
+        }
+        
+        .results-box {
+            background-color: rgba(var(--accent-blue-rgb), 0.1);
+            border-left: 4px solid var(--accent-blue);
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .results-box h3 {
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-box {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .testimonial-box::before {
+            content: '"';
+            font-size: 120px;
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            color: rgba(var(--accent-blue-rgb), 0.2);
+            font-family: serif;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            padding-left: 30px;
+        }
+        
+        .approach-step {
+            margin-bottom: 40px;
+            padding-left: 30px;
+            border-left: 2px solid var(--accent-blue);
+            position: relative;
+        }
+        
+        .approach-step::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background-color: var(--accent-blue);
+            border-radius: 50%;
+        }
+        
+        .approach-step h4 {
+            margin-bottom: 15px;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, var(--accent-blue), var(--accent-purple));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 16px;
+            color: var(--light-gray);
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .gallery-image {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .gallery-image img {
+            width: 100%;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .image-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .meta-item {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
+                        <span data-i18n="footer.company">Bixing Technology</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
+                                    Services
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                    <li><a class="dropdown-item" href="services.html" data-i18n="nav.allServices">All Services</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item active" href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
+                                    <li><a class="dropdown-item" href="custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                                    <li><a class="dropdown-item" href="consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="insights.html" data-i18n="nav.insights">Industry Insights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html" data-i18n="nav.about">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="careers.html" data-i18n="nav.careers">Careers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="language-selector">
+                                    <div class="language-toggle" id="languageToggle">
+                                        <i class="fas fa-globe"></i>
+                                        <span id="currentLanguage">EN</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Case Study Hero Section -->
+    <section class="case-study-hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="hero-title mb-4" data-i18n="casestudy.education.title">Transforming Siemens with Enterprise-Wide AI Education</h1>
+                    <p class="hero-subtitle" data-i18n="casestudy.education.subtitle">A comprehensive AI training program that upskilled 200+ professionals across technical and business teams</p>
+                </div>
+            </div>
+            
+            <div class="case-study-meta">
+                <div class="meta-item">
+                    <h4 data-i18n="casestudy.client">Client</h4>
+                    <p>Siemens</p>
+                </div>
+                <div class="meta-item">
+                    <h4 data-i18n="casestudy.industry">Industry</h4>
+                    <p data-i18n="casestudy.education.industry">Industrial Manufacturing & Technology</p>
+                </div>
+                <div class="meta-item">
+                    <h4 data-i18n="casestudy.service">Service Provided</h4>
+                    <p data-i18n="casestudy.education.service">AI Education & Training</p>
+                </div>
+                <div class="meta-item">
+                    <h4 data-i18n="casestudy.duration">Duration</h4>
+                    <p data-i18n="casestudy.education.duration">6 Months</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Case Study Overview Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <h2 class="section-title" data-i18n="casestudy.overview">Project Overview</h2>
+                    <p class="mb-4" data-i18n="casestudy.education.overview1">Siemens, a global technology leader, recognized the need to integrate AI capabilities across their organization to maintain competitive advantage and drive innovation. They partnered with Bixing Technology to develop and deliver a comprehensive AI education program that would upskill their workforce from basic AI literacy to advanced application development.</p>
+                    
+                    <p class="mb-4" data-i18n="casestudy.education.overview2">The program needed to address diverse learning needs across technical and business teams, provide practical hands-on experience, and align with Siemens' specific industry applications and use cases.</p>
+                    
+                    <div class="results-box">
+                        <h3 data-i18n="casestudy.keyresults">Key Results</h3>
+                        <ul>
+                            <li data-i18n="casestudy.education.result1">Trained over 200 professionals across engineering, product development, and business units</li>
+                            <li data-i18n="casestudy.education.result2">94% of participants reported confidence in applying AI concepts to their daily work</li>
+                            <li data-i18n="casestudy.education.result3">12 internal AI projects initiated within 3 months of program completion</li>
+                            <li data-i18n="casestudy.education.result4">Reduced external AI consultancy costs by 40% through internal capability building</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-box">
+                        <div class="testimonial-content">
+                            <p data-i18n="casestudy.education.testimonial">"Bixing Technology's AI education program has been transformative for our organization. Their ability to tailor content to both technical and non-technical audiences while maintaining practical relevance to our industry challenges was exceptional. The hands-on workshops and real-world applications have accelerated our AI adoption journey significantly."</p>
+                            <p class="mt-4"><strong data-i18n="casestudy.education.testimonialName">Dr. Thomas Weber</strong><br><span data-i18n="casestudy.education.testimonialTitle">Chief Digital Officer, Siemens</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Challenge Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title" data-i18n="casestudy.challenge">The Challenge</h2>
+                    <p class="mb-4" data-i18n="casestudy.education.challenge1">Siemens faced several challenges in their AI transformation journey:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 bg-dark border-0">
+                                <div class="card-body">
+                                    <h4 class="card-title" data-i18n="casestudy.education.challenge1title">Diverse Technical Backgrounds</h4>
+                                    <p class="card-text" data-i18n="casestudy.education.challenge1text">Participants ranged from data scientists with advanced degrees to business managers with limited technical exposure, requiring highly adaptable training approaches.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 bg-dark border-0">
+                                <div class="card-body">
+                                    <h4 class="card-title" data-i18n="casestudy.education.challenge2title">Industry-Specific Applications</h4>
+                                    <p class="card-text" data-i18n="casestudy.education.challenge2text">Generic AI training wouldn't suffice; content needed to be relevant to manufacturing, automation, and industrial IoT contexts.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 bg-dark border-0">
+                                <div class="card-body">
+                                    <h4 class="card-title" data-i18n="casestudy.education.challenge3title">Practical Application Gap</h4>
+                                    <p class="card-text" data-i18n="casestudy.education.challenge3text">Previous training initiatives had failed to bridge the gap between theoretical knowledge and practical implementation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 bg-dark border-0">
+                                <div class="card-body">
+                                    <h4 class="card-title" data-i18n="casestudy.education.challenge4title">Global Coordination</h4>
+                                    <p class="card-text" data-i18n="casestudy.education.challenge4text">Training needed to be delivered across multiple time zones and locations while maintaining consistent quality and engagement.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Approach Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title" data-i18n="casestudy.approach">Our Approach</h2>
+                    <p class="mb-5" data-i18n="casestudy.education.approachIntro">Bixing Technology developed a multi-tiered, customized approach to address Siemens' specific needs:</p>
+                    
+                    <div class="approach-step">
+                        <h4 data-i18n="casestudy.education.approach1title">1. Comprehensive Needs Assessment</h4>
+                        <p data-i18n="casestudy.education.approach1text">We began with a thorough analysis of Siemens' existing AI capabilities, interviewing stakeholders across departments to identify specific knowledge gaps and learning objectives. This allowed us to create targeted learning paths for different roles and departments.</p>
+                    </div>
+                    
+                    <div class="approach-step">
+                        <h4 data-i18n="casestudy.education.approach2title">2. Customized Curriculum Development</h4>
+                        <p data-i18n="casestudy.education.approach2text">We designed a modular curriculum with three distinct tracks: AI Fundamentals for business teams, Applied AI for technical implementers, and Advanced AI Development for specialized technical teams. Each module incorporated Siemens-specific use cases and industry applications.</p>
+                    </div>
+                    
+                    <div class="approach-step">
+                        <h4 data-i18n="casestudy.education.approach3title">3. Hands-On Learning Environment</h4>
+                        <p data-i18n="casestudy.education.approach3text">We created a secure, cloud-based learning environment with pre-configured tools and datasets relevant to Siemens' operations. This allowed participants to immediately apply concepts through guided exercises and mini-projects without complex setup requirements.</p>
+                    </div>
+                    
+                    <div class="approach-step">
+                        <h4 data-i18n="casestudy.education.approach4title">4. Expert-Led Live Sessions</h4>
+                        <p data-i18n="casestudy.education.approach4text">Our team of AI specialists with industry experience delivered interactive live sessions that combined theory with practical demonstrations. These sessions included real-time coding exercises, model building, and problem-solving workshops.</p>
+                    </div>
+                    
+                    <div class="approach-step">
+                        <h4 data-i18n="casestudy.education.approach5title">5. Capstone Projects</h4>
+                        <p data-i18n="casestudy.education.approach5text">Participants worked in cross-functional teams on real business challenges identified by Siemens leadership. These projects served as both learning vehicles and potential solutions for actual business needs, creating immediate ROI from the training program.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <h3 class="mb-4" data-i18n="casestudy.education.programStructure">Program Structure</h3>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="stat-box">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label" data-i18n="casestudy.education.weeks">Weeks</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-box">
+                                <div class="stat-number">3</div>
+                                <div class="stat-label" data-i18n="casestudy.education.learningTracks">Learning Tracks</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="stat-box">
+                                <div class="stat-number">36</div>
+                                <div class="stat-label" data-i18n="casestudy.education.liveWorkshops">Live Workshops</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Training Modules Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title" data-i18n="casestudy.education.trainingModules">Training Modules</h2>
+                    <p class="mb-5" data-i18n="casestudy.education.modulesIntro">Our comprehensive curriculum covered the full spectrum of AI knowledge and skills:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 bg-dark border-0">
+                                <div class="card-body">
+                                    <h4 class="card-title" data-i18n="casestudy.education.module1">AI Fundamentals</h4>
+                                    <ul>
+                                        <li data-i18n="casestudy.education.module1.1">Introduction to AI, ML, and Deep Learning</li>
+                                        <li data-i18n="casestudy.education.module1.2">Data Literacy and Analytics Foundations</li>
+                                        <li data-i18n="casestudy.education.module1.3">AI Use Cases in Manufacturing and Industry 4.0</li>
+                                        <li data-i18n="casestudy.education.module1.4">Ethical Considerations and Responsible AI</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 bg-dark border-0">
+                                <div class="card-body">
+                                    <h4 class="card-title" data-i18n="casestudy.education.module2">Applied AI</h4>
+                                    <ul>
+                                        <li data-i18n="casestudy.education.module2.1">Machine Learning Algorithms and Model Selection</li>
+                                        <li data-i18n="casestudy.education.module2.2">Data Preparation and Feature Engineering</li>
+                                        <li data-i18n="casestudy.education.module2.3">Model Evaluation and Performance Metrics</li>
+                                        <li data-i18n="casestudy.education.module2.4">Practical Python for Data Science</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 bg-dark border-0">
+                                <div class="card-body">
+                                    <h4 class="card-title" data-i18n="casestudy.education.module3">Advanced AI Development</h4>
+                                    <ul>
+                                        <li data-i18n="casestudy.education.module3.1">Deep Learning Architectures and Neural Networks</li>
+                                        <li data-i18n="casestudy.education.module3.2">Computer Vision for Quality Control</li>
+                                        <li data-i18n="casestudy.education.module3.3">Natural Language Processing for Documentation</li>
+                                        <li data-i18n="casestudy.education.module3.4">Time Series Analysis for Predictive Maintenance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 bg-dark border-0">
+                                <div class="card-body">
+                                    <h4 class="card-title" data-i18n="casestudy.education.module4">AI Implementation</h4>
+                                    <ul>
+                                        <li data-i18n="casestudy.education.module4.1">Model Deployment and MLOps</li>
+                                        <li data-i18n="casestudy.education.module4.2">AI Integration with Existing Systems</li>
+                                        <li data-i18n="casestudy.education.module4.3">Scaling AI Solutions</li>
+                                        <li data-i18n="casestudy.education.module4.4">Monitoring and Maintaining AI Systems</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Results Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="section-title" data-i18n="casestudy.results">Results & Impact</h2>
+                    <p class="mb-5" data-i18n="casestudy.education.resultsIntro">The comprehensive AI education program delivered significant measurable outcomes for Siemens:</p>
+                    
+                    <div class="row">
+                        <div class="col-md-3 mb-4">
+                            <div class="stat-box">
+                                <div class="stat-number">200+</div>
+                                <div class="stat-label" data-i18n="casestudy.education.stat1">Professionals Trained</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="stat-box">
+                                <div class="stat-number">94%</div>
+                                <div class="stat-label" data-i18n="casestudy.education.stat2">Confidence Rate</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="stat-box">
+                                <div class="stat-number">12</div>
+                                <div class="stat-label" data-i18n="casestudy.education.stat3">New AI Projects</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="stat-box">
+                                <div class="stat-number">40%</div>
+                                <div class="stat-label" data-i18n="casestudy.education.stat4">Cost Reduction</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-5">
+                        <div class="col-lg-6">
+                            <h3 class="mb-4" data-i18n="casestudy.education.businessImpact">Business Impact</h3>
+                            <ul>
+                                <li data-i18n="casestudy.education.impact1">Accelerated AI adoption across multiple business units</li>
+                                <li data-i18n="casestudy.education.impact2">Reduced dependency on external AI consultants by building internal capabilities</li>
+                                <li data-i18n="casestudy.education.impact3">Improved cross-functional collaboration on AI initiatives</li>
+                                <li data-i18n="casestudy.education.impact4">Created a common AI language and framework across the organization</li>
+                                <li data-i18n="casestudy.education.impact5">Established a pipeline of AI talent and champions within the company</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <h3 class="mb-4" data-i18n="casestudy.education.projectOutcomes">Project Outcomes</h3>
+                            <ul>
+                                <li data-i18n="casestudy.education.outcome1">Developed a predictive maintenance system that reduced equipment downtime by 27%</li>
+                                <li data-i18n="casestudy.education.outcome2">Created an automated quality inspection system using computer vision</li>
+                                <li data-i18n="casestudy.education.outcome3">Implemented an NLP solution to streamline technical documentation analysis</li>
+                                <li data-i18n="casestudy.education.outcome4">Built an AI-powered supply chain optimization tool that reduced inventory costs by 15%</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section section-padding bg-gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title text-white mb-4" data-i18n="casestudy.education.ctaTitle">Transform Your Organization with AI Education</h2>
+                    <p class="text-white mb-5" data-i18n="casestudy.education.ctaText">Ready to empower your team with the AI skills needed to drive innovation and competitive advantage? Contact us to discuss how our customized AI education programs can address your specific business challenges.</p>
+                    <a href="contact.html" class="btn btn-light btn-lg" data-i18n="casestudy.education.ctaButton">Start Your AI Journey Today</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="footer-info">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="footer-logo">
+                        <h3 data-i18n="footer.company">Bixing Technology</h3>
+                        <p data-i18n="footer.description">Empowering enterprises with innovative AI solutions to drive growth and efficiency.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-medium"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer-links">
+                        <h4 data-i18n="footer.quicklinks">Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                            <li><a href="services.html" data-i18n="footer.services">Services</a></li>
+                            <li><a href="insights.html" data-i18n="footer.insights">Insights</a></li>
+                            <li><a href="about.html" data-i18n="footer.about">About Us</a></li>
+                            <li><a href="careers.html" data-i18n="footer.careers">Careers</a></li>
+                            <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-links">
+                        <h4 data-i18n="footer.services">Services</h4>
+                        <ul>
+                            <li><a href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
+                            <li><a href="custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                            <li><a href="consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer-contact">
+                        <h4 data-i18n="footer.connect">Connect With Us</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">123 AI Innovation Center, Silicon Valley, CA 94000</span></p>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@bixingtechnology.com" data-i18n="footer.email">info@bixingtechnology.com</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+15551234567" data-i18n="footer.phone">+1 (555) 123-4567</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p data-i18n="footer.copyright"> 2023 Bixing Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>

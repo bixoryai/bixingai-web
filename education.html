@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="education.page.title">AI Education & Training | Bixing Technology</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Language Selector Styles */
+        .language-selector {
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+        }
+        
+        .language-toggle {
+            display: flex;
+            align-items: center;
+            padding: 5px 8px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle:hover {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .language-toggle.active {
+            color: var(--white);
+            background-color: rgba(255, 255, 255, 0.15);
+            font-weight: 500;
+        }
+        
+        .language-toggle span {
+            margin-left: 5px;
+        }
+        
+        /* Service Page Specific Styles */
+        .service-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/images/grid-pattern.png');
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .service-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .benefit-card {
+            background-color: var(--dark-surface);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            height: 100%;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-md);
+            font-size: 2rem;
+            color: var(--white);
+        }
+        
+        .process-flowchart {
+            display: flex;
+            flex-direction: column;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px 0;
+            counter-reset: step-counter;
+        }
+        
+        .process-row {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .process-step {
+            display: flex;
+            align-items: center;
+            background: rgba(14, 67, 119, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            width: 48%;
+            position: relative;
+            border-left: 4px solid var(--accent-blue);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+            counter-increment: step-counter;
+        }
+        
+        .process-step:before {
+            content: counter(step-counter);
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-teal) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 168, 255, 0.5);
+            z-index: 3;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: rgba(14, 67, 119, 0.3);
+        }
+        
+        .process-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-teal) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            margin-right: 20px;
+            font-size: 1.25rem;
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+        
+        .process-content {
+            flex: 1;
+        }
+        
+        .process-content h3 {
+            margin-bottom: 10px;
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+        
+        .process-content p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        .process-connector {
+            position: relative;
+        }
+        
+        /* Horizontal connector between steps in a row */
+        .connector-horizontal {
+            position: absolute;
+            top: 50%;
+            left: 48%; 
+            right: 48%;
+            height: 2px;
+            background: linear-gradient(to right, var(--accent-blue), var(--accent-teal));
+            z-index: 1;
+        }
+        
+        /* Vertical connector between rows */
+        .connector-vertical {
+            position: absolute;
+            height: 50px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent-blue), var(--accent-teal));
+            z-index: 1;
+        }
+        
+        .connector-vertical.left {
+            left: 24%;
+            bottom: -25px;
+            top: auto;
+        }
+        
+        .connector-vertical.right {
+            right: 24%;
+            bottom: -25px;
+            top: auto;
+        }
+        
+        /* Arrow indicators for flow direction */
+        .connector-vertical:after,
+        .connector-horizontal:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+        }
+        
+        .connector-horizontal:after {
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            border-width: 6px 0 6px 8px;
+            border-color: transparent transparent transparent var(--accent-teal);
+        }
+        
+        .connector-vertical.right:after {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px 6px 0 6px;
+            border-color: var(--accent-teal) transparent transparent transparent;
+        }
+        
+        .connector-vertical.left:after {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px 6px 0 6px;
+            border-color: var(--accent-teal) transparent transparent transparent;
+        }
+        
+        /* Responsive styles for the process flowchart */
+        @media (max-width: 992px) {
+            .process-row {
+                flex-direction: column;
+                margin-bottom: 20px;
+            }
+            
+            .process-step {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            
+            .connector-horizontal,
+            .connector-vertical,
+            .connector-vertical.left {
+                display: none;
+            }
+            
+            .process-content h3 {
+                font-size: 1.1rem;
+            }
+            
+            .process-content p {
+                font-size: 0.9rem;
+            }
+            
+            .process-step:before {
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+        .program-card {
+            background: rgba(14, 67, 119, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            height: 100%;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .program-image {
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(14, 67, 119, 0.8) 0%, rgba(0, 168, 255, 0.4) 100%);
+            padding: 20px;
+        }
+        
+        .program-image img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .program-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .program-content h3 {
+            color: rgba(255, 240, 150, 0.95);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-box {
+            background-color: var(--dark-surface);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            border-left: 4px solid var(--accent-blue);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .faq-item {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .faq-question {
+            background-color: var(--dark-surface);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: var(--spacing-md);
+            padding-top: 0;
+            display: none;
+        }
+        
+        .faq-question.active + .faq-answer {
+            display: block;
+        }
+        
+        @media (max-width: 991px) {
+            .language-selector {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
+                        <span data-i18n="footer.company">Bixing Technology</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html" data-i18n="nav.home">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
+                                    Services
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                    <li><a class="dropdown-item" href="services.html" data-i18n="nav.allServices">All Services</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item active" href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
+                                    <li><a class="dropdown-item" href="custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                                    <li><a class="dropdown-item" href="consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="insights.html" data-i18n="nav.insights">Industry Insights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html" data-i18n="nav.about">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="careers.html" data-i18n="nav.careers">Careers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <div class="language-selector">
+                                    <div class="language-toggle" id="languageToggle">
+                                        <i class="fas fa-globe"></i>
+                                        <span id="currentLanguage">EN</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="hero-title" data-i18n="education.hero.title">AI Education & Training</h1>
+                    <p class="hero-subtitle" data-i18n="education.hero.subtitle">Empower your team with the knowledge and skills to leverage AI effectively</p>
+                    <p class="mb-4" data-i18n="education.hero.description">Our customized training programs bridge the knowledge gap and prepare your organization for the AI-driven future.</p>
+                    <a href="#programs" class="btn btn-primary" data-i18n="education.hero.explorePrograms">Explore Our Programs</a>
+                    <a href="contact.html" class="btn btn-outline-primary ms-2" data-i18n="education.hero.contactUs">Contact Us</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image">
+                        <img src="assets/images/education-hero.svg" alt="AI Education" class="img-fluid" data-i18n-alt="education.hero.imageAlt">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="education.overview.title">Bridging the AI Knowledge Gap</h2>
+                    <p class="section-subtitle" data-i18n="education.overview.subtitle">Comprehensive AI education tailored to your organization's needs</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <p data-i18n="education.overview.paragraph1">In today's rapidly evolving technological landscape, AI literacy has become a critical competitive advantage. Bixing Technology's AI Education and Training programs are designed to empower your teams with the practical knowledge and skills needed to leverage AI effectively in your specific industry context.</p>
+                    <p data-i18n="education.overview.paragraph2">Whether you're looking to upskill technical teams, help business leaders make informed AI decisions, or create organization-wide AI literacy, our customized programs deliver practical, actionable knowledge that can be immediately applied to real-world challenges.</p>
+                    <p data-i18n="education.overview.paragraph3">Our approach combines theoretical foundations with hands-on experience, ensuring participants not only understand AI concepts but can apply them confidently in their daily work.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="overview-image">
+                        <img src="assets/images/ai-education-overview.svg" alt="AI Education Overview" class="img-fluid" data-i18n-alt="education.overview.imageAlt">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section-padding bg-gradient-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="education.benefits.title">Key Benefits</h2>
+                    <p class="section-subtitle" data-i18n="education.benefits.subtitle">Why choose our AI education programs</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 data-i18n="education.benefits.customized.title">Customized Learning Paths</h3>
+                        <p data-i18n="education.benefits.customized.description">Programs tailored to your team's specific needs and skill levels, ensuring relevant and impactful learning.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 data-i18n="education.benefits.handson.title">Hands-on Experience</h3>
+                        <p data-i18n="education.benefits.handson.description">Practical exercises and real-world projects that reinforce concepts and build confidence.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h3 data-i18n="education.benefits.experts.title">Expert Instructors</h3>
+                        <p data-i18n="education.benefits.experts.description">Learn from industry professionals with extensive AI experience and proven teaching abilities.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3 data-i18n="education.benefits.support.title">Continuous Support</h3>
+                        <p data-i18n="education.benefits.support.description">Ongoing assistance and resources after training completion to ensure successful application.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="education.process.title">Our Training Process</h2>
+                    <p class="section-subtitle" data-i18n="education.process.subtitle">A methodical approach to effective AI education</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12">
+                    <div class="process-flowchart">
+                        <div class="process-row">
+                            <div class="process-step" data-aos="fade-right" data-aos-delay="100">
+                                <div class="process-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="education.process.assessment.title">Assessment</h3>
+                                    <p data-i18n="education.process.assessment.description">We evaluate your team's current knowledge and identify specific learning needs to create a targeted educational plan.</p>
+                                </div>
+                            </div>
+                            <div class="process-step" data-aos="fade-left" data-aos-delay="200">
+                                <div class="process-icon">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="education.process.curriculum.title">Curriculum Design</h3>
+                                    <p data-i18n="education.process.curriculum.description">Custom development of training materials and learning paths aligned with your organization's goals and industry context.</p>
+                                </div>
+                            </div>
+                            <div class="connector-horizontal"></div>
+                        </div>
+                        <div class="connector-vertical right"></div>
+                        <div class="process-row">
+                            <div class="process-step" data-aos="fade-right" data-aos-delay="300">
+                                <div class="process-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="education.process.training.title">Interactive Training</h3>
+                                    <p data-i18n="education.process.training.description">Engaging workshops combining theory and hands-on practice to ensure knowledge retention and skill development.</p>
+                                </div>
+                            </div>
+                            <div class="process-step" data-aos="fade-left" data-aos-delay="400">
+                                <div class="process-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="education.process.projects.title">Applied Projects</h3>
+                                    <p data-i18n="education.process.projects.description">Real-world applications to reinforce learning and demonstrate practical value to your organization.</p>
+                                </div>
+                            </div>
+                            <div class="connector-horizontal"></div>
+                        </div>
+                        <div class="connector-vertical left"></div>
+                        <div class="process-row">
+                            <div class="process-step" data-aos="fade-right" data-aos-delay="500">
+                                <div class="process-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="education.process.evaluation.title">Evaluation & Feedback</h3>
+                                    <p data-i18n="education.process.evaluation.description">Measuring progress and gathering insights for continuous improvement of both participants and our programs.</p>
+                                </div>
+                            </div>
+                            <div class="process-step" data-aos="fade-left" data-aos-delay="600">
+                                <div class="process-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <div class="process-content">
+                                    <h3 data-i18n="education.process.ongoing.title">Ongoing Support</h3>
+                                    <p data-i18n="education.process.ongoing.description">Resources and assistance to continue the learning journey and address challenges as they arise in implementation.</p>
+                                </div>
+                            </div>
+                            <div class="connector-horizontal"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="section-padding bg-gradient-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="education.programs.title">Our Training Programs</h2>
+                    <p class="section-subtitle" data-i18n="education.programs.subtitle">Comprehensive AI education for every level</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="assets/images/executive-briefing.svg" alt="Executive AI Briefing">
+                        </div>
+                        <div class="program-content">
+                            <h3 data-i18n="education.programs.executive.title">Executive AI Briefing</h3>
+                            <ul class="feature-list">
+                                <li data-i18n="education.programs.executive.feature1">AI landscape and strategic implications</li>
+                                <li data-i18n="education.programs.executive.feature2">Decision-making frameworks for AI adoption</li>
+                                <li data-i18n="education.programs.executive.feature3">Industry-specific case studies and applications</li>
+                            </ul>
+                            <p><strong data-i18n="education.programs.duration">Duration:</strong> <span data-i18n="education.programs.executive.duration">Half-day to full-day</span></p>
+                            <a href="contact.html" class="btn btn-outline btn-sm mt-3" data-i18n="education.programs.inquire">Inquire Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="assets/images/ai-fundamentals.svg" alt="AI Fundamentals Workshop">
+                        </div>
+                        <div class="program-content">
+                            <h3 data-i18n="education.programs.fundamentals.title">AI Fundamentals Workshop</h3>
+                            <ul class="feature-list">
+                                <li data-i18n="education.programs.fundamentals.feature1">Core AI concepts and terminology</li>
+                                <li data-i18n="education.programs.fundamentals.feature2">Machine learning fundamentals</li>
+                                <li data-i18n="education.programs.fundamentals.feature3">Hands-on exercises with AI tools</li>
+                            </ul>
+                            <p><strong data-i18n="education.programs.duration">Duration:</strong> <span data-i18n="education.programs.fundamentals.duration">2-3 days</span></p>
+                            <a href="contact.html" class="btn btn-outline btn-sm mt-3" data-i18n="education.programs.inquire">Inquire Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="program-card">
+                        <div class="program-image">
+                            <img src="assets/images/ai-bootcamp.svg" alt="AI Technical Bootcamp">
+                        </div>
+                        <div class="program-content">
+                            <h3 data-i18n="education.programs.bootcamp.title">AI Technical Bootcamp</h3>
+                            <ul class="feature-list">
+                                <li data-i18n="education.programs.bootcamp.feature1">Data preparation and analysis</li>
+                                <li data-i18n="education.programs.bootcamp.feature2">Model development and training</li>
+                                <li data-i18n="education.programs.bootcamp.feature3">Deployment and integration strategies</li>
+                            </ul>
+                            <p><strong data-i18n="education.programs.duration">Duration:</strong> <span data-i18n="education.programs.bootcamp.duration">1-4 weeks</span></p>
+                            <a href="contact.html" class="btn btn-outline btn-sm mt-3" data-i18n="education.programs.inquire">Inquire Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="education.testimonials.title">Client Success Stories</h2>
+                    <p class="section-subtitle" data-i18n="education.testimonials.subtitle">Hear from organizations we've helped</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4" data-aos="fade-up">
+                    <div class="testimonial-box">
+                        <p class="testimonial-text" data-i18n="education.testimonials.quote1">"Bixing Technology's AI training program transformed our team's capabilities. The customized curriculum addressed our specific needs, and the hands-on approach ensured our team could immediately apply what they learned. Within months, we implemented our first AI project that significantly improved our operational efficiency."</p>
+                        <div class="testimonial-author">
+                            <h4 data-i18n="education.testimonials.author1">Sarah Johnson</h4>
+                            <p data-i18n="education.testimonials.position1">CTO, HealthTech Innovations</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-box">
+                        <p class="testimonial-text" data-i18n="education.testimonials.quote2">"The executive briefing provided by Bixing Technology gave our leadership team the clarity we needed to make informed decisions about our AI strategy. Their ability to translate complex technical concepts into business value was impressive and helped align our entire organization around our AI initiatives."</p>
+                        <div class="testimonial-author">
+                            <h4 data-i18n="education.testimonials.author2">Michael Chen</h4>
+                            <p data-i18n="education.testimonials.position2">CEO, Global Retail Solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section-padding bg-gradient-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="education.faq.title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle" data-i18n="education.faq.subtitle">Common questions about our AI education programs</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3 data-i18n="education.faq.q1">Who should attend your AI training programs?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p data-i18n="education.faq.a1">Our programs are designed for various audiences, from technical teams (data scientists, engineers, developers) to business professionals (managers, analysts, executives) who need to understand and leverage AI. We tailor the content to match the participants' roles and existing knowledge.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3 data-i18n="education.faq.q2">How long do your training programs typically last?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p data-i18n="education.faq.a2">Program duration varies based on depth and scope. We offer everything from executive briefings (half-day), foundational workshops (2-3 days), to comprehensive bootcamps (1-4 weeks). We can also design extended learning journeys with spaced sessions over several months.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3 data-i18n="education.faq.q3">Do you offer virtual training options?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p data-i18n="education.faq.a3">Yes, all our programs are available in-person, virtual, or hybrid formats. Our virtual training maintains the interactive and hands-on nature of our in-person sessions through collaborative tools and virtual lab environments.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3 data-i18n="education.faq.q4">How do you customize programs for our specific industry?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p data-i18n="education.faq.a4">We begin with a thorough assessment of your industry context, challenges, and goals. Our curriculum designers then adapt our core content with industry-specific examples, case studies, and exercises. We can also incorporate your organization's own data and use cases when appropriate.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title" data-i18n="education.cta.title">Ready to Empower Your Team?</h2>
+                    <p class="section-subtitle" data-i18n="education.cta.subtitle">Let's discuss how our AI education programs can benefit your organization</p>
+                    <div class="mt-5">
+                        <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="education.cta.contact">Contact Us</a>
+                        <a href="#" class="btn btn-outline-primary btn-lg ms-3" data-i18n="education.cta.download">Download Brochure</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-brand">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="footer-logo">
+                        <h3 data-i18n="footer.company">Bixing Technology</h3>
+                    </div>
+                    <p class="footer-description" data-i18n="footer.description">Empowering organizations with innovative AI solutions to transform industries and drive growth.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-title" data-i18n="footer.services">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="education.html" data-i18n="footer.education">AI Education/Training</a></li>
+                        <li><a href="custom-solutions.html" data-i18n="footer.customSolutions">AI Custom Solutions</a></li>
+                        <li><a href="consultation.html" data-i18n="footer.consultation">Enterprise AI Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-title" data-i18n="footer.company">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html" data-i18n="footer.about">About Us</a></li>
+                        <li><a href="careers.html" data-i18n="footer.careers">Careers</a></li>
+                        <li><a href="insights.html" data-i18n="footer.insights">Industry Insights</a></li>
+                        <li><a href="contact.html" data-i18n="footer.contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-title" data-i18n="footer.contact">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">123 AI Innovation Center, Silicon Valley, CA 94000</span></li>
+                        <li><i class="fas fa-phone"></i> <span data-i18n="footer.phone">+1 (555) 123-4567</span></li>
+                        <li><i class="fas fa-envelope"></i> <span data-i18n="footer.email">info@bixingtechnology.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="copyright" data-i18n="footer.copyright"> 2025 Bixing Technology. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <ul class="footer-legal">
+                            <li><a href="#" data-i18n="footer.privacy">Privacy Policy</a></li>
+                            <li><a href="#" data-i18n="footer.terms">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                if (question.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                } else {
+                    answer.style.maxHeight = 0;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

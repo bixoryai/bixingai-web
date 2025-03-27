@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1a365d" stroke-width="1" opacity="0.2"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="#0a1929"/>
+  <rect width="100%" height="100%" fill="url(#grid)"/>
+  
+  <!-- Digital dots at intersections -->
+  <g fill="#4285f4" opacity="0.3">
+    <circle cx="0" cy="0" r="2" />
+    <circle cx="40" cy="0" r="2" />
+    <circle cx="80" cy="0" r="2" />
+    <circle cx="120" cy="0" r="2" />
+    <circle cx="160" cy="0" r="2" />
+    <circle cx="200" cy="0" r="2" />
+    <circle cx="240" cy="0" r="2" />
+    <circle cx="280" cy="0" r="2" />
+    <circle cx="320" cy="0" r="2" />
+    <circle cx="360" cy="0" r="2" />
+    <circle cx="400" cy="0" r="2" />
+    
+    <circle cx="0" cy="40" r="2" />
+    <circle cx="40" cy="40" r="2" />
+    <circle cx="80" cy="40" r="2" />
+    <circle cx="120" cy="40" r="2" />
+    <circle cx="160" cy="40" r="2" />
+    <circle cx="200" cy="40" r="2" />
+    <circle cx="240" cy="40" r="2" />
+    <circle cx="280" cy="40" r="2" />
+    <circle cx="320" cy="40" r="2" />
+    <circle cx="360" cy="40" r="2" />
+    <circle cx="400" cy="40" r="2" />
+    
+    <circle cx="0" cy="80" r="2" />
+    <circle cx="40" cy="80" r="2" />
+    <circle cx="80" cy="80" r="2" />
+    <circle cx="120" cy="80" r="2" />
+    <circle cx="160" cy="80" r="2" />
+    <circle cx="200" cy="80" r="2" />
+    <circle cx="240" cy="80" r="2" />
+    <circle cx="280" cy="80" r="2" />
+    <circle cx="320" cy="80" r="2" />
+    <circle cx="360" cy="80" r="2" />
+    <circle cx="400" cy="80" r="2" />
+    
+    <circle cx="0" cy="120" r="2" />
+    <circle cx="40" cy="120" r="2" />
+    <circle cx="80" cy="120" r="2" />
+    <circle cx="120" cy="120" r="2" />
+    <circle cx="160" cy="120" r="2" />
+    <circle cx="200" cy="120" r="2" />
+    <circle cx="240" cy="120" r="2" />
+    <circle cx="280" cy="120" r="2" />
+    <circle cx="320" cy="120" r="2" />
+    <circle cx="360" cy="120" r="2" />
+    <circle cx="400" cy="120" r="2" />
+    
+    <circle cx="0" cy="160" r="2" />
+    <circle cx="40" cy="160" r="2" />
+    <circle cx="80" cy="160" r="2" />
+    <circle cx="120" cy="160" r="2" />
+    <circle cx="160" cy="160" r="2" />
+    <circle cx="200" cy="160" r="2" />
+    <circle cx="240" cy="160" r="2" />
+    <circle cx="280" cy="160" r="2" />
+    <circle cx="320" cy="160" r="2" />
+    <circle cx="360" cy="160" r="2" />
+    <circle cx="400" cy="160" r="2" />
+    
+    <circle cx="0" cy="200" r="2" />
+    <circle cx="40" cy="200" r="2" />
+    <circle cx="80" cy="200" r="2" />
+    <circle cx="120" cy="200" r="2" />
+    <circle cx="160" cy="200" r="2" />
+    <circle cx="200" cy="200" r="2" />
+    <circle cx="240" cy="200" r="2" />
+    <circle cx="280" cy="200" r="2" />
+    <circle cx="320" cy="200" r="2" />
+    <circle cx="360" cy="200" r="2" />
+    <circle cx="400" cy="200" r="2" />
+    
+    <circle cx="0" cy="240" r="2" />
+    <circle cx="40" cy="240" r="2" />
+    <circle cx="80" cy="240" r="2" />
+    <circle cx="120" cy="240" r="2" />
+    <circle cx="160" cy="240" r="2" />
+    <circle cx="200" cy="240" r="2" />
+    <circle cx="240" cy="240" r="2" />
+    <circle cx="280" cy="240" r="2" />
+    <circle cx="320" cy="240" r="2" />
+    <circle cx="360" cy="240" r="2" />
+    <circle cx="400" cy="240" r="2" />
+    
+    <circle cx="0" cy="280" r="2" />
+    <circle cx="40" cy="280" r="2" />
+    <circle cx="80" cy="280" r="2" />
+    <circle cx="120" cy="280" r="2" />
+    <circle cx="160" cy="280" r="2" />
+    <circle cx="200" cy="280" r="2" />
+    <circle cx="240" cy="280" r="2" />
+    <circle cx="280" cy="280" r="2" />
+    <circle cx="320" cy="280" r="2" />
+    <circle cx="360" cy="280" r="2" />
+    <circle cx="400" cy="280" r="2" />
+    
+    <circle cx="0" cy="320" r="2" />
+    <circle cx="40" cy="320" r="2" />
+    <circle cx="80" cy="320" r="2" />
+    <circle cx="120" cy="320" r="2" />
+    <circle cx="160" cy="320" r="2" />
+    <circle cx="200" cy="320" r="2" />
+    <circle cx="240" cy="320" r="2" />
+    <circle cx="280" cy="320" r="2" />
+    <circle cx="320" cy="320" r="2" />
+    <circle cx="360" cy="320" r="2" />
+    <circle cx="400" cy="320" r="2" />
+    
+    <circle cx="0" cy="360" r="2" />
+    <circle cx="40" cy="360" r="2" />
+    <circle cx="80" cy="360" r="2" />
+    <circle cx="120" cy="360" r="2" />
+    <circle cx="160" cy="360" r="2" />
+    <circle cx="200" cy="360" r="2" />
+    <circle cx="240" cy="360" r="2" />
+    <circle cx="280" cy="360" r="2" />
+    <circle cx="320" cy="360" r="2" />
+    <circle cx="360" cy="360" r="2" />
+    <circle cx="400" cy="360" r="2" />
+    
+    <circle cx="0" cy="400" r="2" />
+    <circle cx="40" cy="400" r="2" />
+    <circle cx="80" cy="400" r="2" />
+    <circle cx="120" cy="400" r="2" />
+    <circle cx="160" cy="400" r="2" />
+    <circle cx="200" cy="400" r="2" />
+    <circle cx="240" cy="400" r="2" />
+    <circle cx="280" cy="400" r="2" />
+    <circle cx="320" cy="400" r="2" />
+    <circle cx="360" cy="400" r="2" />
+    <circle cx="400" cy="400" r="2" />
+  </g>
+</svg>

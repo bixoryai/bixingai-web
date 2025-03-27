@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise AI Consultation | Bixing Technology</title>
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        /* Service Page Specific Styles */
+        .service-hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/images/grid-pattern.png');
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .service-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .consultation-card {
+            background-color: var(--dark-surface);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            height: 100%;
+            transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .consultation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .consultation-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            font-size: 2rem;
+            color: var(--white);
+        }
+        
+        .approach-item {
+            display: flex;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+        }
+        
+        .approach-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            margin-right: var(--spacing-md);
+            flex-shrink: 0;
+        }
+        
+        .approach-content {
+            flex-grow: 1;
+        }
+        
+        .industry-card {
+            background-color: var(--dark-surface);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            height: 200px;
+            position: relative;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .industry-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-normal);
+            opacity: 0.7;
+        }
+        
+        .industry-card:hover img {
+            transform: scale(1.1);
+        }
+        
+        .industry-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: var(--spacing-md);
+        }
+        
+        .industry-title {
+            color: var(--white);
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        
+        .testimonial-card {
+            background-color: var(--dark-surface);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-lg);
+            border-left: 4px solid var(--accent-blue);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            position: relative;
+        }
+        
+        .testimonial-content::before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: var(--spacing-sm);
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        .author-info p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: var(--gray-light);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
+                        <span>Bixing Technology</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Services
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                    <li><a class="dropdown-item" href="services.html">All Services</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="education.html">AI Education/Training</a></li>
+                                    <li><a class="dropdown-item" href="custom-solutions.html">AI Custom Solutions</a></li>
+                                    <li><a class="dropdown-item active" href="consultation.html">Enterprise AI Consultation</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="insights.html">Industry Insights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="careers.html">Careers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="hero-title">Enterprise AI Consultation</h1>
+                    <p class="hero-subtitle">Strategic guidance for implementing AI across your organization</p>
+                    <p class="mb-4">Navigate the complex AI landscape with expert guidance to drive innovation, efficiency, and competitive advantage for your business.</p>
+                    <a href="#services" class="btn btn-primary">Explore Our Services</a>
+                    <a href="contact.html" class="btn btn-outline-primary ms-2">Schedule a Consultation</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image">
+                        <img src="assets/images/consultation-hero.svg" alt="Enterprise AI Consultation" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Strategic AI Implementation</h2>
+                    <p class="section-subtitle">Transforming your business with a comprehensive AI strategy</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <p>In today's rapidly evolving technological landscape, implementing AI effectively requires more than just technical expertise—it demands a strategic approach that aligns with your business objectives and organizational culture.</p>
+                    <p>Bixing Technology's Enterprise AI Consultation services provide comprehensive guidance to help your organization navigate the complexities of AI adoption and implementation. Our team of experienced consultants combines deep technical knowledge with business acumen to develop tailored strategies that drive measurable results.</p>
+                    <p>Whether you're just beginning your AI journey or looking to optimize existing initiatives, our consultative approach ensures that your AI investments deliver maximum value and competitive advantage.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="overview-image">
+                        <img src="assets/images/ai-strategy-overview.svg" alt="AI Strategy Overview" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-gradient-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Our Consultation Services</h2>
+                    <p class="section-subtitle">Comprehensive support for your AI journey</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="consultation-card">
+                        <div class="consultation-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3>AI Readiness Assessment</h3>
+                        <p>Evaluate your organization's current capabilities, infrastructure, and culture to determine AI readiness and identify key opportunity areas.</p>
+                        <ul class="feature-list">
+                            <li>Technical infrastructure evaluation</li>
+                            <li>Data maturity assessment</li>
+                            <li>Organizational capability analysis</li>
+                            <li>Opportunity identification</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="consultation-card">
+                        <div class="consultation-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <h3>AI Strategy Development</h3>
+                        <p>Create a comprehensive roadmap for AI implementation aligned with your business objectives and organizational capabilities.</p>
+                        <ul class="feature-list">
+                            <li>Business objective alignment</li>
+                            <li>Use case prioritization</li>
+                            <li>Implementation roadmap</li>
+                            <li>Resource planning</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="consultation-card">
+                        <div class="consultation-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Technology Selection</h3>
+                        <p>Navigate the complex AI technology landscape to identify and select the optimal tools, platforms, and solutions for your specific needs.</p>
+                        <ul class="feature-list">
+                            <li>Vendor evaluation</li>
+                            <li>Technology stack assessment</li>
+                            <li>Build vs. buy analysis</li>
+                            <li>Integration planning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="consultation-card">
+                        <div class="consultation-icon">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h3>Change Management</h3>
+                        <p>Develop strategies to facilitate organizational adoption of AI, addressing cultural challenges and fostering a data-driven mindset.</p>
+                        <ul class="feature-list">
+                            <li>Stakeholder engagement</li>
+                            <li>Communication planning</li>
+                            <li>Training needs assessment</li>
+                            <li>Adoption measurement</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="consultation-card">
+                        <div class="consultation-icon">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <h3>ROI & Value Assessment</h3>
+                        <p>Develop frameworks to measure and maximize the return on your AI investments, ensuring tangible business impact.</p>
+                        <ul class="feature-list">
+                            <li>Value identification</li>
+                            <li>KPI development</li>
+                            <li>ROI modeling</li>
+                            <li>Performance measurement</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="consultation-card">
+                        <div class="consultation-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>AI Governance & Ethics</h3>
+                        <p>Establish frameworks for responsible AI use, addressing ethical considerations, regulatory compliance, and risk management.</p>
+                        <ul class="feature-list">
+                            <li>Ethical guidelines development</li>
+                            <li>Regulatory compliance assessment</li>
+                            <li>Risk management frameworks</li>
+                            <li>Governance structure design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Our Consultative Approach</h2>
+                    <p class="section-subtitle">A methodical process for successful AI implementation</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="approach-steps">
+                        <div class="approach-item">
+                            <div class="approach-number">1</div>
+                            <div class="approach-content">
+                                <h3>Discovery</h3>
+                                <p>We begin by understanding your business objectives, challenges, and current state through stakeholder interviews, data assessment, and technical infrastructure evaluation.</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">2</div>
+                            <div class="approach-content">
+                                <h3>Opportunity Identification</h3>
+                                <p>Based on our discovery findings, we identify and prioritize AI opportunities that align with your business goals and offer the highest potential value.</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">3</div>
+                            <div class="approach-content">
+                                <h3>Strategy Development</h3>
+                                <p>We develop a comprehensive AI strategy and implementation roadmap tailored to your organization's specific needs, capabilities, and objectives.</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">4</div>
+                            <div class="approach-content">
+                                <h3>Implementation Planning</h3>
+                                <p>We create detailed plans for technology selection, resource allocation, change management, and governance to ensure successful execution.</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">5</div>
+                            <div class="approach-content">
+                                <h3>Execution Support</h3>
+                                <p>We provide ongoing guidance and support during implementation, helping you navigate challenges and adapt to changing circumstances.</p>
+                            </div>
+                        </div>
+                        <div class="approach-item">
+                            <div class="approach-number">6</div>
+                            <div class="approach-content">
+                                <h3>Measurement & Optimization</h3>
+                                <p>We help you establish metrics and processes to measure success, identify improvement opportunities, and continuously optimize your AI initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="approach-image">
+                        <img src="assets/images/consultation-approach.svg" alt="Consultative Approach" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="section-padding bg-gradient-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Industries We Serve</h2>
+                    <p class="section-subtitle">Specialized AI consultation across diverse sectors</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="industry-card">
+                        <img src="assets/images/healthcare-industry.jpg" alt="Healthcare">
+                        <div class="industry-overlay">
+                            <h3 class="industry-title">Healthcare</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="industry-card">
+                        <img src="assets/images/finance-industry.jpg" alt="Finance">
+                        <div class="industry-overlay">
+                            <h3 class="industry-title">Finance</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="industry-card">
+                        <img src="assets/images/retail-industry.jpg" alt="Retail">
+                        <div class="industry-overlay">
+                            <h3 class="industry-title">Retail</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="industry-card">
+                        <img src="assets/images/manufacturing-industry.jpg" alt="Manufacturing">
+                        <div class="industry-overlay">
+                            <h3 class="industry-title">Manufacturing</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="industry-card">
+                        <img src="assets/images/logistics-industry.jpg" alt="Logistics">
+                        <div class="industry-overlay">
+                            <h3 class="industry-title">Logistics</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="industry-card">
+                        <img src="assets/images/energy-industry.jpg" alt="Energy">
+                        <div class="industry-overlay">
+                            <h3 class="industry-title">Energy</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Client Success Stories</h2>
+                    <p class="section-subtitle">Hear from organizations we've helped transform</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-6 mb-4" data-aos="fade-up">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Bixing Technology's consultation services were instrumental in helping us develop a comprehensive AI strategy. Their methodical approach, deep expertise, and focus on business outcomes enabled us to identify high-value opportunities and implement AI solutions that have significantly improved our operational efficiency."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="assets/images/testimonial-author-1.jpg" alt="David Wilson">
+                            </div>
+                            <div class="author-info">
+                                <h4>David Wilson</h4>
+                                <p>CIO, Global Manufacturing Corp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The AI readiness assessment conducted by Bixing Technology provided invaluable insights into our organization's capabilities and gaps. Their strategic guidance helped us prioritize initiatives, allocate resources effectively, and establish a governance framework that ensures responsible AI use. We're now seeing tangible results from our AI investments."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="assets/images/testimonial-author-2.jpg" alt="Jennifer Lee">
+                            </div>
+                            <div class="author-info">
+                                <h4>Jennifer Lee</h4>
+                                <p>VP of Innovation, Financial Services Inc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section-padding bg-gradient-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Ready to Transform Your Organization with AI?</h2>
+                    <p class="section-subtitle">Let's discuss how our consultation services can help you navigate the AI landscape</p>
+                    <div class="mt-5">
+                        <a href="contact.html" class="btn btn-primary btn-lg">Schedule a Consultation</a>
+                        <a href="#" class="btn btn-outline-primary btn-lg ms-3">Download Capabilities Brief</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <div class="footer-brand">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="footer-logo">
+                        <h3>Bixing Technology</h3>
+                    </div>
+                    <p class="footer-description">Empowering organizations with innovative AI solutions to transform industries and drive growth.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="education.html">AI Education/Training</a></li>
+                        <li><a href="custom-solutions.html">AI Custom Solutions</a></li>
+                        <li><a href="consultation.html">Enterprise AI Consultation</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h4 class="footer-title">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="insights.html">Industry Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> <span>123 AI Innovation Center, Silicon Valley, CA 94000</span></li>
+                        <li><i class="fas fa-phone"></i> <span>+1 (555) 123-4567</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>info@bixingtechnology.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="copyright"> 2025 Bixing Technology. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <ul class="footer-legal">
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>

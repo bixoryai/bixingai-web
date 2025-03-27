@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<div class="page-header bg-gradient">
+    <div class="container">
+        <div class="breadcrumb-nav">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ site.baseurl }}/">Home</a></li>
+                    {% if page.parent_page %}
+                    <li class="breadcrumb-item"><a href="{{ site.baseurl }}/pages/{{ page.parent_page }}.html">{{ page.parent_title }}</a></li>
+                    {% endif %}
+                    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                </ol>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center" data-aos="fade-up">
+                <h1 class="page-title">{{ page.title }}</h1>
+                {% if page.subtitle %}
+                <p class="page-subtitle">{{ page.subtitle }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="page-content section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" data-aos="fade-up">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% if page.show_cta %}
+<section class="cta-section section-padding bg-gradient">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center" data-aos="fade-up">
+                <h2>{{ page.cta_title | default: "Ready to transform your business with AI?" }}</h2>
+                <p>{{ page.cta_text | default: "Contact us today to discuss how our AI solutions can help your business grow." }}</p>
+                <a href="{{ site.baseurl }}/pages/contact.html" class="btn btn-light btn-lg">{{ page.cta_button_text | default: "Get in Touch" }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}

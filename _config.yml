@@ -1,0 +1,54 @@
+# Bixing Technology Website Configuration
+title: Bixing Technology
+description: AI Education, Custom Solutions Development, and Enterprise Consultation services
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: kramdown
+permalink: /insights/:title/
+
+# Collections
+collections:
+  services:
+    output: true
+    permalink: /services/:name/
+  team:
+    output: false
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Bixing Team"
+  - scope:
+      path: ""
+      type: "services"
+    values:
+      layout: "service"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - .github
+  - README.md
+  - LICENSE
+  - starting-info.md
+  - "Project Requirement Document.md"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
