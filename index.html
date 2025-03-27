@@ -91,10 +91,65 @@
             100% { transform: scale(1); }
         }
         
+        /* Golden-Orange Navigation Styles */
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            background: linear-gradient(to right, #FFB800, #FF8A00) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            font-weight: 600 !important;
+        }
+        
+        .dropdown-item:hover,
+        .dropdown-item:focus,
+        .dropdown-item.active {
+            background-color: rgba(255, 184, 0, 0.1) !important;
+            color: #FFB800 !important;
+            font-weight: 500 !important;
+        }
+        
         @media (max-width: 991px) {
             .language-selector {
                 margin: 10px 0;
             }
+        }
+        
+        /* Override styles for the tag buttons - more aggressive approach */
+        .insight-date, .insight-category {
+            padding: 0 4px !important;
+            font-size: 10px !important;
+            line-height: 1.2 !important;
+            height: 14px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-height: 0 !important;
+            max-height: 14px !important;
+            box-sizing: border-box !important;
+            margin: 0 !important;
+            border: none !important;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                margin: 10px 0;
+            }
+        }
+        
+        /* Compact tag styling */
+        .tag-compact {
+            padding: 1px 6px !important;
+            font-size: 11px !important;
+            line-height: 1.2 !important;
+            border-radius: 8px !important;
+            height: auto !important;
+            display: inline-block !important;
         }
     </style>
 </head>
@@ -113,9 +168,6 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.html" data-i18n="nav.home">Home</a>
-                            </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
                                     Services
@@ -129,7 +181,7 @@
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="insights.html" data-i18n="nav.insights">Industry Insights</a>
+                                <a class="nav-link" href="insights.html" data-i18n="nav.industryInsights">Industry Insights</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="about.html" data-i18n="nav.about">About Us</a>
@@ -142,10 +194,9 @@
                             </li>
                             <li class="nav-item">
                                 <div class="language-selector">
-                                    <div class="language-toggle" id="languageToggle" onclick="toggleLanguage()">
-                                        <i class="fas fa-globe"></i>
+                                    <button onclick="toggleLanguage()" class="btn btn-sm btn-outline-light rounded-pill px-3">
                                         <span id="currentLanguage">EN</span>
-                                    </div>
+                                    </button>
                                 </div>
                             </li>
                         </ul>
@@ -168,12 +219,14 @@
                         <a href="#contact" class="btn btn-outline-primary" data-i18n="hero.contactUs">Contact Us</a>
                     </div>
                     <div class="trusted-by mt-5">
-                        <p class="text-muted mb-2">Trusted by innovative companies</p>
+                        <p class="text-white mb-2" data-i18n="hero.empoweredBy">Empowered by</p>
                         <div class="client-logos">
-                            <img src="assets/images/clients/client-1.svg" alt="Client 1" class="client-logo">
-                            <img src="assets/images/clients/client-2.svg" alt="Client 2" class="client-logo">
-                            <img src="assets/images/clients/client-3.svg" alt="Client 3" class="client-logo">
-                            <img src="assets/images/clients/client-4.svg" alt="Client 4" class="client-logo">
+                            <span class="client-logo">DEEPSEEK</span>
+                            <span class="client-logo">QWEN</span>
+                            <span class="client-logo">LLAMA</span>
+                            <span class="client-logo">CHATGPT</span>
+                            <span class="client-logo">CLAUDE</span>
+                            <span class="client-logo">GEMINI</span>
                         </div>
                     </div>
                 </div>
@@ -187,7 +240,7 @@
                                 <i class="fas fa-brain"></i>
                             </div>
                             <div class="floating-card-text">
-                                <span>AI Models</span>
+                                <span data-i18n="hero.floatingCard1">Specialized AI Models</span>
                                 <div class="floating-card-progress">
                                     <div class="progress-bar" style="width: 85%"></div>
                                 </div>
@@ -198,9 +251,42 @@
                                 <i class="fas fa-chart-line"></i>
                             </div>
                             <div class="floating-card-text">
-                                <span>Data Analysis</span>
+                                <span data-i18n="hero.floatingCard2">AI Data Solutions</span>
                                 <div class="floating-card-progress">
                                     <div class="progress-bar" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-card floating-card-3">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span data-i18n="hero.floatingCard3">AI Agents</span>
+                                <div class="floating-card-progress">
+                                    <div class="progress-bar" style="width: 78%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-card floating-card-4">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span data-i18n="hero.floatingCard4">Custom AI Strategy</span>
+                                <div class="floating-card-progress">
+                                    <div class="progress-bar" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-card floating-card-5">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span data-i18n="hero.floatingCard5">AI Education</span>
+                                <div class="floating-card-progress">
+                                    <div class="progress-bar" style="width: 82%"></div>
                                 </div>
                             </div>
                         </div>
@@ -227,10 +313,12 @@
             <div class="row g-4">
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3 data-i18n="services.education.title">AI Education & Training</h3>
                         </div>
-                        <h3 data-i18n="services.education.title">AI Education & Training</h3>
                         <p data-i18n="services.education.description">Empower your team with AI knowledge through customized training programs and workshops.</p>
                         <ul class="service-features">
                             <li data-i18n="services.education.feature1">Customized learning paths</li>
@@ -242,10 +330,12 @@
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card featured">
-                        <div class="service-icon">
-                            <i class="fas fa-robot"></i>
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3 data-i18n="services.customSolutions.title">AI Custom Solutions</h3>
                         </div>
-                        <h3 data-i18n="services.customSolutions.title">AI Custom Solutions</h3>
                         <p data-i18n="services.customSolutions.description">From data services to model training and deployment, we build tailored AI solutions for your unique challenges.</p>
                         <ul class="service-features">
                             <li data-i18n="services.customSolutions.feature1">Data preparation & analysis</li>
@@ -257,10 +347,12 @@
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3 data-i18n="services.consultation.title">Enterprise AI Consultation</h3>
                         </div>
-                        <h3 data-i18n="services.consultation.title">Enterprise AI Consultation</h3>
                         <p data-i18n="services.consultation.description">Strategic guidance for implementing AI across your organization to drive innovation and efficiency.</p>
                         <ul class="service-features">
                             <li data-i18n="services.consultation.feature1">AI readiness assessment</li>
@@ -271,11 +363,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="service-shape">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
-                <path fill="var(--dark-bg-primary)" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,90.7C384,85,480,107,576,117.3C672,128,768,128,864,122.7C960,117,1056,107,1152,96C1248,85,1344,75,1392,69.3L1440,64L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path>
-            </svg>
         </div>
     </section>
 
@@ -449,8 +536,8 @@
                             <img src="assets/images/insights/insight1.svg" alt="AI in Enterprise">
                             <div class="insight-ai-pattern"></div>
                             <div class="insight-ai-overlay"></div>
-                            <div class="insight-date" data-i18n="insights.article1.date">October 15, 2023</div>
-                            <div class="insight-category" data-i18n="insights.article1.category">Enterprise AI</div>
+                            <div class="insight-date tag-compact" data-i18n="insights.article1.date">October 15, 2023</div>
+                            <div class="insight-category tag-compact" data-i18n="insights.article1.category">Enterprise AI</div>
                         </div>
                         <div class="insight-content">
                             <h3 data-i18n="insights.article1.title">The Future of AI in Enterprise</h3>
@@ -469,8 +556,8 @@
                             <img src="assets/images/insights/insight2.svg" alt="Machine Learning Models">
                             <div class="insight-ai-pattern"></div>
                             <div class="insight-ai-overlay"></div>
-                            <div class="insight-date" data-i18n="insights.article2.date">September 28, 2023</div>
-                            <div class="insight-category" data-i18n="insights.article2.category">Machine Learning</div>
+                            <div class="insight-date tag-compact" data-i18n="insights.article2.date">September 28, 2023</div>
+                            <div class="insight-category tag-compact" data-i18n="insights.article2.category">Machine Learning</div>
                         </div>
                         <div class="insight-content">
                             <h3 data-i18n="insights.article2.title">Advances in Machine Learning Models</h3>
@@ -489,8 +576,8 @@
                             <img src="assets/images/insights/insight3.svg" alt="AI Implementation">
                             <div class="insight-ai-pattern"></div>
                             <div class="insight-ai-overlay"></div>
-                            <div class="insight-date" data-i18n="insights.article3.date">September 10, 2023</div>
-                            <div class="insight-category" data-i18n="insights.article3.category">AI Implementation</div>
+                            <div class="insight-date tag-compact" data-i18n="insights.article3.date">September 10, 2023</div>
+                            <div class="insight-category tag-compact" data-i18n="insights.article3.category">AI Implementation</div>
                         </div>
                         <div class="insight-content">
                             <h3 data-i18n="insights.article3.title">Implementing AI in Your Business</h3>
@@ -540,73 +627,48 @@
         <div class="container footer-content">
             <div class="row">
                 <!-- Company Info -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="company-info">
-                        <div class="footer-logo">
-                            <img src="assets/images/logo-light.png" alt="Bixing Technology">
-                        </div>
-                        <p data-i18n="footer.companyDescription">Bixing Technology is a leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
-                        <div class="social-links">
-                            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        </div>
+                <div class="col-lg-3 col-md-3 px-4">
+                    <div class="footer-logo d-flex align-items-center mb-3">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img" style="height: 40px; margin-right: 10px;">
+                        <h4 class="footer-heading mb-0" data-i18n="footer.company">Bixing Technology</h4>
                     </div>
+                    <p data-i18n="footer.companyDescription">Bixing Technology is a leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
                 </div>
                 
                 <!-- Quick Links -->
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3 col-md-3 px-4">
                     <h4 class="footer-heading" data-i18n="footer.quickLinks">Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="index.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.home">Home</span></a></li>
                         <li><a href="about.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.about">About</span></a></li>
-                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.services">Services</span></a></li>
-                        <li><a href="portfolio.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.portfolio">Portfolio</span></a></li>
-                        <li><a href="insights.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.insights">Insights</span></a></li>
-                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.contact">Contact</span></a></li>
+                        <li><a href="careers.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.careers">Careers</span></a></li>
+                        <li><a href="insights.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.industryInsights">Industry Insights</span></a></li>
                     </ul>
                 </div>
                 
                 <!-- Services -->
-                <div class="col-lg-2 col-md-6">
+                <div class="col-lg-3 col-md-3 px-4">
                     <h4 class="footer-heading" data-i18n="footer.services">Services</h4>
                     <ul class="footer-links">
-                        <li><a href="services.html#ai-consulting"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsulting">AI Consulting</span></a></li>
-                        <li><a href="services.html#machine-learning"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.machineLearning">Machine Learning</span></a></li>
-                        <li><a href="services.html#data-analytics"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.dataAnalytics">Data Analytics</span></a></li>
-                        <li><a href="services.html#nlp"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.nlp">Natural Language Processing</span></a></li>
-                        <li><a href="services.html#computer-vision"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.computerVision">Computer Vision</span></a></li>
+                        <li><a href="education.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiEducation">AI Education & Training</span></a></li>
+                        <li><a href="custom-solutions.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.customSolutions">Custom AI Solutions</span></a></li>
+                        <li><a href="consultation.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span></a></li>
                     </ul>
                 </div>
                 
                 <!-- Contact Info -->
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-3 px-4">
                     <h4 class="footer-heading" data-i18n="footer.contactUs">Contact Us</h4>
                     <ul class="contact-info">
                         <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span data-i18n="footer.address">123 AI Innovation Street, Silicon Valley, CA 94000</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <span data-i18n="footer.phone">+1 (555) 123-4567</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span data-i18n="footer.email">info@bixingtech.com</span>
+                            <i class="fab fa-weixin" style="color: #4CAF50; font-size: 24px; margin-right: 10px;"></i>
+                            <span id="contact-email" data-i18n="footer.wechatId">bixingai</span>
                         </li>
                     </ul>
                     
-                    <!-- Newsletter -->
-                    <h4 class="footer-heading mt-4" data-i18n="footer.newsletter">Newsletter</h4>
-                    <p data-i18n="footer.newsletterDesc">Subscribe to our newsletter to receive the latest updates and news.</p>
-                    <form class="newsletter-form">
-                        <input type="email" class="newsletter-input" placeholder="Your Email" data-i18n-placeholder="footer.emailPlaceholder" required>
-                        <button type="submit" class="newsletter-btn">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
+                    <div class="wechat-container mt-4">
+                        <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr" width="100" height="100" style="border-radius: 5px; border: 3px solid #4CAF50;">
+                    </div>
                 </div>
             </div>
             
@@ -627,6 +689,26 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
+        // Force update email and WeChat QR code
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force update email
+            document.getElementById('contact-email').innerText = 'develop@bixory.ai';
+            
+            // Force update QR code
+            const qrCode = document.getElementById('wechat-qrcode');
+            if (qrCode) {
+                qrCode.src = 'assets/images/qrcode/qrcode-wechat.jpg';
+                qrCode.width = 100;
+                qrCode.height = 100;
+            }
+            
+            // Ensure translations don't override our changes
+            if (window.translations) {
+                if (window.translations.en) window.translations.en['footer.email'] = 'develop@bixory.ai';
+                if (window.translations.zh) window.translations.zh['footer.email'] = 'develop@bixory.ai';
+            }
+        });
+        
         // Initialize AOS
         AOS.init({
             duration: 800,
@@ -746,7 +828,7 @@
             }
         });
         
-        // Simple language toggle functionality
+        // Translations
         const translations = {
             'en': {
                 "page.title": "Bixing Technology - AI Solutions for Enterprise",
@@ -756,7 +838,7 @@
                 "nav.education": "AI Education/Training",
                 "nav.customSolutions": "AI Custom Solutions",
                 "nav.consultation": "Enterprise AI Consultation",
-                "nav.insights": "Industry Insights",
+                "nav.industryInsights": "Industry Insights",
                 "nav.about": "About Us",
                 "nav.careers": "Careers",
                 "nav.contact": "Contact Us",
@@ -764,6 +846,14 @@
                 "hero.subtitle": "Custom AI solutions, education, and consultation services to transform your business",
                 "hero.exploreServices": "Explore Services",
                 "hero.contactUs": "Contact Us",
+                "hero.empoweredBy": "Empowered by",
+                "hero.floatingCard1": "Specialized AI Models",
+                "hero.floatingCard2": "AI Data Solutions",
+                "hero.floatingCard3": "AI Agents",
+                "hero.floatingCard4": "Custom AI Strategy",
+                "hero.floatingCard5": "AI Education",
+                
+                // Services Section
                 "services.title": "Our Services",
                 "services.subtitle": "Comprehensive AI solutions tailored to your business needs",
                 "services.education.title": "AI Education & Training",
@@ -782,6 +872,8 @@
                 "services.consultation.feature2": "Implementation roadmap",
                 "services.consultation.feature3": "Technology selection",
                 "services.learnMore": "Learn More",
+                
+                // Demo Section
                 "demo.title": "Interactive AI Demos",
                 "demo.subtitle": "Experience our AI capabilities firsthand",
                 "demo.heading": "See AI in Action",
@@ -790,6 +882,8 @@
                 "demo.placeholder": "Interactive AI Demo",
                 "demo.placeholderSmall": "Click to experience AI in action",
                 "demo.viewAll": "View All Demos",
+                
+                // Portfolio Section
                 "portfolio.title": "Success Stories",
                 "portfolio.subtitle": "Real-world AI implementations that delivered results",
                 "portfolio.education.title": "AI Education for Siemens",
@@ -802,6 +896,8 @@
                 "portfolio.financial.description": "Created a fraud detection system that reduced false positives by 42% while increasing detection accuracy for a financial institution.",
                 "portfolio.financial.readMore": "Read Case Study",
                 "portfolio.viewAll": "View All Case Studies",
+                
+                // Testimonials Section
                 "testimonials.title": "Client Testimonials",
                 "testimonials.subtitle": "What our clients say about working with us",
                 "testimonials.quote1": "Bixing Technology transformed our approach to data analysis. Their custom AI solution has given us insights we never thought possible.",
@@ -810,6 +906,8 @@
                 "testimonials.quote2": "The AI training program developed by Bixing has significantly accelerated our team's capabilities. Highly recommended!",
                 "testimonials.author2": "Michael Johnson",
                 "testimonials.position2": "Director of Innovation, Tech Solutions Inc.",
+                
+                // Insights Section
                 "insights.title": "Latest Industry Insights",
                 "insights.subtitle": "Stay updated with trends and innovations in AI",
                 "insights.article1.title": "The Future of AI in Enterprise",
@@ -828,24 +926,35 @@
                 "insights.article3.category": "AI Implementation",
                 "insights.article3.readMore": "Read More",
                 "insights.viewAll": "View All Insights",
+                
+                // CTA Section
                 "cta.title": "Ready to Transform Your Business with AI?",
                 "cta.subtitle": "Get in touch with our experts to discuss your specific needs and challenges",
                 "cta.contactUs": "Contact Us Today",
+                
+                // Footer
                 "footer.company": "Bixing Technology",
-                "footer.description": "Empowering enterprises with innovative AI solutions to drive growth and efficiency.",
+                "footer.companyDescription": "Bixing Technology is a leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.",
                 "footer.quickLinks": "Quick Links",
+                "footer.home": "Home",
+                "footer.about": "About",
                 "footer.services": "Services",
-                "footer.about": "About Us",
                 "footer.careers": "Careers",
+                "footer.industryInsights": "Industry Insights",
                 "footer.contact": "Contact",
-                "footer.insights": "Insights",
-                "footer.legal": "Legal",
-                "footer.privacy": "Privacy Policy",
-                "footer.terms": "Terms of Service",
-                "footer.address": "123 AI Innovation Center, Silicon Valley, CA 94000",
-                "footer.email": "info@bixingtechnology.com",
-                "footer.phone": "+1 (555) 123-4567",
-                "footer.copyright": " 2023 Bixing Technology. All rights reserved."
+                "footer.aiEducation": "AI Education & Training",
+                "footer.customSolutions": "Custom AI Solutions",
+                "footer.aiConsultation": "AI Strategy Consultation",
+                "footer.contactUs": "Contact Us",
+                "footer.email": "develop@bixory.ai",
+                "footer.wechat": "WeChat",
+                "footer.wechatId": "bixingai",
+                "footer.newsletter": "Newsletter",
+                "footer.newsletterDesc": "Subscribe to our newsletter to receive the latest updates and news.",
+                "footer.emailPlaceholder": "Your Email",
+                "footer.copyright": " 2023 Bixing Technology. All Rights Reserved.",
+                "footer.privacyPolicy": "Privacy Policy",
+                "footer.termsOfService": "Terms of Service"
             },
             'zh': {
                 "page.title": "成都毕行科技有限公司 - 企业AI解决方案",
@@ -855,14 +964,22 @@
                 "nav.education": "AI教育培训",
                 "nav.customSolutions": "AI定制解决方案",
                 "nav.consultation": "企业AI咨询",
-                "nav.insights": "行业洞察",
+                "nav.industryInsights": "行业洞察",
                 "nav.about": "关于我们",
-                "nav.careers": "招贤纳士",
+                "nav.careers": "职业发展",
                 "nav.contact": "联系我们",
-                "hero.title": "用AI创新赋能企业",
-                "hero.subtitle": "定制AI解决方案、教育和咨询服务，助力业务转型",
+                "hero.title": "AI创新赋能企业",
+                "hero.subtitle": "成都毕行科技有限公司提供定制AI解决方案、教育和咨询服务，助力企业转型",
                 "hero.exploreServices": "探索服务",
                 "hero.contactUs": "联系我们",
+                "hero.empoweredBy": "技术支持",
+                "hero.floatingCard1": "专业AI模型",
+                "hero.floatingCard2": "AI数据解决方案",
+                "hero.floatingCard3": "AI智能代理",
+                "hero.floatingCard4": "定制AI策略",
+                "hero.floatingCard5": "AI教育培训",
+                
+                // Services Section
                 "services.title": "我们的服务",
                 "services.subtitle": "全面AI解决方案，满足您的企业需求",
                 "services.education.title": "AI教育培训",
@@ -881,6 +998,8 @@
                 "services.consultation.feature2": "实施路线图",
                 "services.consultation.feature3": "技术选择",
                 "services.learnMore": "了解更多",
+                
+                // Demo Section
                 "demo.title": "互动AI演示",
                 "demo.subtitle": "亲身体验我们的AI能力",
                 "demo.heading": "查看AI在行动",
@@ -889,9 +1008,11 @@
                 "demo.placeholder": "互动AI演示",
                 "demo.placeholderSmall": "点击体验AI",
                 "demo.viewAll": "查看所有演示",
+                
+                // Portfolio Section
                 "portfolio.title": "成功案例",
                 "portfolio.subtitle": "真实世界的AI实施，带来了成果",
-                "portfolio.education.title": "AI教育为西门子",
+                "portfolio.education.title": "西门子AI教育",
                 "portfolio.education.description": "为西门子提供全面AI培训计划，提升200多名专业人员从基础到高级AI应用开发和部署。",
                 "portfolio.education.readMore": "阅读案例研究",
                 "portfolio.healthcare.title": "医疗创新",
@@ -901,6 +1022,8 @@
                 "portfolio.financial.description": "为一家金融机构创建了一个欺诈检测系统，减少了42%的误报，同时提高了检测准确率。",
                 "portfolio.financial.readMore": "阅读案例研究",
                 "portfolio.viewAll": "查看所有案例研究",
+                
+                // Testimonials Section
                 "testimonials.title": "客户评价",
                 "testimonials.subtitle": "我们的客户对我们的评价",
                 "testimonials.quote1": "成都毕行科技有限公司改变了我们对数据分析的方法。他们的定制化AI解决方案给我们带来了意想不到的见解。",
@@ -909,8 +1032,10 @@
                 "testimonials.quote2": "成都毕行科技有限公司开发的AI培训计划显著加快了我们的团队能力。强烈推荐！",
                 "testimonials.author2": "Michael Johnson",
                 "testimonials.position2": "创新总监，科技解决方案公司",
+                
+                // Insights Section
                 "insights.title": "最新行业洞察",
-                "insights.subtitle": "保持对AI趋势和创新",
+                "insights.subtitle": "保持对AI趋势和创新的了解",
                 "insights.article1.title": "企业AI的未来",
                 "insights.article1.excerpt": "探索人工智能如何重塑企业运营和决策过程。",
                 "insights.article1.date": "2023年10月15日",
@@ -927,54 +1052,45 @@
                 "insights.article3.category": "AI实施",
                 "insights.article3.readMore": "阅读更多",
                 "insights.viewAll": "查看所有洞察",
+                
+                // CTA Section
                 "cta.title": "准备好用AI转变您的企业吗？",
                 "cta.subtitle": "与我们的专家联系，讨论您的具体需求和挑战",
-                "cta.contactUs": "联系我们",
+                "cta.contactUs": "立即联系我们",
+                
+                // Footer
                 "footer.company": "成都毕行科技有限公司",
-                "footer.description": "赋能企业，推动增长和效率。",
+                "footer.companyDescription": "成都毕行科技有限公司是AI解决方案的领先提供商。我们帮助组织利用人工智能的力量推动增长和创新。",
                 "footer.quickLinks": "快速链接",
-                "footer.services": "服务",
+                "footer.home": "首页",
                 "footer.about": "关于我们",
-                "footer.careers": "招贤纳士",
-                "footer.contact": "联系",
-                "footer.insights": "洞察",
-                "footer.legal": "法律",
-                "footer.privacy": "隐私政策",
-                "footer.terms": "服务条款",
-                "footer.address": "成都高新区天府软件园",
-                "footer.email": "info@bixingtechnology.com",
-                "footer.phone": "+86 028 12345678",
-                "footer.copyright": " 2023 成都毕行科技有限公司。保留所有权利。"
+                "footer.services": "服务",
+                "footer.careers": "职业发展",
+                "footer.industryInsights": "行业洞察",
+                "footer.contact": "联系我们",
+                "footer.aiEducation": "AI教育培训",
+                "footer.customSolutions": "AI定制解决方案",
+                "footer.aiConsultation": "AI战略咨询",
+                "footer.contactUs": "联系我们",
+                "footer.email": "develop@bixory.ai",
+                "footer.wechat": "微信",
+                "footer.wechatId": "bixingai",
+                "footer.newsletter": "新闻通讯",
+                "footer.newsletterDesc": "订阅我们的新闻通讯，获取最新动态和消息。",
+                "footer.emailPlaceholder": "您的电子邮箱",
+                "footer.copyright": " 2023 成都毕行科技有限公司。保留所有权利。",
+                "footer.privacyPolicy": "隐私政策",
+                "footer.termsOfService": "服务条款"
             }
         };
         
         // Current language (default to English)
-        let currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
+        let currentLanguage = localStorage.getItem('language') || 'en';
         
-        // Apply translations on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            applyTranslations();
-            updateLanguageToggle();
-        });
-        
-        // Toggle language function
-        function toggleLanguage() {
-            currentLanguage = currentLanguage === 'en' ? 'zh' : 'en';
-            localStorage.setItem('bixingLanguage', currentLanguage);
-            applyTranslations();
-            updateLanguageToggle();
-        }
-        
-        // Update language toggle UI
-        function updateLanguageToggle() {
-            const currentLanguageElement = document.getElementById('currentLanguage');
-            if (currentLanguageElement) {
-                currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
-            }
-        }
-        
-        // Apply translations to all elements with data-i18n attribute
+        // Function to apply translations
         function applyTranslations() {
+            const currentLanguage = localStorage.getItem('language') || 'en';
+            
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLanguage] && translations[currentLanguage][key]) {
@@ -982,15 +1098,67 @@
                 }
             });
             
-            // Update page title
-            const titleElement = document.querySelector('title');
-            if (titleElement && titleElement.hasAttribute('data-i18n')) {
-                const titleKey = titleElement.getAttribute('data-i18n');
-                if (translations[currentLanguage] && translations[currentLanguage][titleKey]) {
-                    document.title = translations[currentLanguage][titleKey];
+            // Handle placeholder translations
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.placeholder = translations[currentLanguage][key];
                 }
+            });
+            
+            // Update language toggle UI
+            const currentLanguageElement = document.getElementById('currentLanguage');
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
+            }
+            
+            // Force update specific elements
+            if (document.getElementById('contact-email')) {
+                document.getElementById('contact-email').textContent = 'bixingai';
             }
         }
+        
+        // Toggle language function
+        function toggleLanguage() {
+            const currentLanguage = localStorage.getItem('language') || 'en';
+            const newLanguage = currentLanguage === 'en' ? 'zh' : 'en';
+            localStorage.setItem('language', newLanguage);
+            
+            // Apply translations immediately
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[newLanguage] && translations[newLanguage][key]) {
+                    element.textContent = translations[newLanguage][key];
+                }
+            });
+            
+            // Handle placeholder translations
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[newLanguage] && translations[newLanguage][key]) {
+                    element.placeholder = translations[newLanguage][key];
+                }
+            });
+            
+            // Update language toggle UI
+            const currentLanguageElement = document.getElementById('currentLanguage');
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
+            }
+            
+            // Force update WeChat ID
+            if (document.getElementById('contact-email')) {
+                document.getElementById('contact-email').textContent = 'bixingai';
+            }
+            
+            // Reload the page to ensure all translations are applied
+            window.location.reload();
+        }
+        
+        // Apply translations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            applyTranslations();
+        });
     </script>
 </body>
 </html>

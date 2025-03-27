@@ -14,6 +14,8 @@
   --accent-blue: #00a8ff;
   --accent-purple: #9c27b0;
   --accent-teal: #00bcd4;
+  --gold: #FFD700;
+  --gradient-gold: linear-gradient(to right, #FFD700, #FFA07A);
   
   /* Neutral Colors */
   --dark-bg: #121212;
@@ -214,7 +216,11 @@ img {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: var(--accent-blue);
+  color: var(--gold);
+  background: var(--gradient-gold);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .contact-btn {
@@ -232,8 +238,8 @@ img {
 }
 
 .dropdown-item:hover {
-  background-color: rgba(0, 168, 255, 0.1);
-  color: var(--accent-blue);
+  background-color: rgba(255, 184, 0, 0.1);
+  color: var(--gold);
 }
 
 /* ===== Hero Section ===== */

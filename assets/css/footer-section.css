@@ -146,6 +146,38 @@
   transform: translateY(-5px);
 }
 
+/* WeChat QR Code */
+.wechat-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.wechat-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.wechat-icon i {
+  font-size: 24px;
+  color: #2DC100;
+  margin-right: 10px;
+}
+
+.wechat-qr {
+  border: 4px solid var(--white);
+  border-radius: var(--radius-sm);
+  background-color: var(--white);
+  transition: transform var(--transition-normal);
+}
+
+.wechat-qr:hover {
+  transform: scale(1.05);
+}
+
 /* Newsletter */
 .newsletter-form {
   position: relative;
