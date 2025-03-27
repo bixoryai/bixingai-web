@@ -722,6 +722,12 @@ function updateLanguageToggle() {
   if (currentLanguageElement) {
     currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
     console.log('Updated language toggle UI to:', currentLanguage === 'en' ? 'EN' : '中文');
+    
+    // Add visual feedback
+    currentLanguageElement.classList.add('language-changed');
+    setTimeout(() => {
+      currentLanguageElement.classList.remove('language-changed');
+    }, 500);
   } else {
     console.warn('Current language element not found');
   }
@@ -820,31 +826,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add click event to language toggle
   const languageToggle = document.getElementById('languageToggle');
   if (languageToggle) {
-    // Remove any existing event listeners by cloning
-    const newToggle = languageToggle.cloneNode(true);
-    languageToggle.parentNode.replaceChild(newToggle, languageToggle);
-    
-    // Add new click event listener
-    newToggle.addEventListener('click', function(e) {
+    languageToggle.addEventListener('click', function(e) {
       e.preventDefault();
       console.log('Language toggle clicked');
-      
-      // Get current language
-      const currentLang = document.documentElement.lang || 'en';
-      
-      // Switch to other language
-      const newLang = currentLang === 'en' ? 'zh' : 'en';
-      console.log(`Switching language from ${currentLang} to ${newLang}`);
-      
-      // Save to localStorage
-      localStorage.setItem('bixingLanguage', newLang);
-      
-      // Update currentLanguage
-      currentLanguage = newLang;
-      
-      // Apply the new language immediately without page reload
-      updateLanguageToggle();
-      applyTranslations();
+      toggleLanguage(); // Call the toggleLanguage function directly
     });
     
     console.log('Language toggle event listener added');
@@ -855,7 +840,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Export functions for external use
 window.bixingI18n = {
-  toggleLanguage,
-  getCurrentLanguage: () => currentLanguage,
-  getTranslation: (key) => translations[currentLanguage][key] || key
+  toggleLanguage: toggleLanguage,
+  getCurrentLanguage: function() { return currentLanguage; },
+  getTranslation: function(key) { 
+    if (translations[currentLanguage] && translations[currentLanguage][key]) {
+      return translations[currentLanguage][key]; 
+    }
+    return key;
+  }
 };

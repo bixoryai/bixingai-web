@@ -10,10 +10,30 @@
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="assets/css/hero-section.css">
+    <link rel="stylesheet" href="assets/css/services-section.css">
+    <link rel="stylesheet" href="assets/css/demo-section.css">
+    <link rel="stylesheet" href="assets/css/portfolio-section.css">
+    <link rel="stylesheet" href="assets/css/testimonials-section.css">
+    <link rel="stylesheet" href="assets/css/insights-section.css">
+    <link rel="stylesheet" href="assets/css/cta-section.css">
+    <link rel="stylesheet" href="assets/css/footer-section.css">
+    
     <style>
         /* Language Selector Styles */
         .language-selector {
@@ -48,6 +68,29 @@
             margin-left: 5px;
         }
         
+        .language-toggle {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .language-toggle:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .language-toggle i {
+            margin-right: 5px;
+        }
+        .language-changed {
+            animation: pulse 0.5s ease;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
         @media (max-width: 991px) {
             .language-selector {
                 margin: 10px 0;
@@ -69,15 +112,15 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" href="index.html" data-i18n="nav.home">Home</a>
+                                <a class="nav-link active" aria-current="page" href="index.html" data-i18n="nav.home">Home</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
                                     Services
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                                <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="services.html" data-i18n="nav.allServices">All Services</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
@@ -99,7 +142,7 @@
                             </li>
                             <li class="nav-item">
                                 <div class="language-selector">
-                                    <div class="language-toggle" id="languageToggle">
+                                    <div class="language-toggle" id="languageToggle" onclick="toggleLanguage()">
                                         <i class="fas fa-globe"></i>
                                         <span id="currentLanguage">EN</span>
                                     </div>
@@ -113,212 +156,276 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-bg"></div>
+    <section class="hero-section ai-circuit-bg">
+        <div class="hero-particles" id="hero-particles"></div>
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="hero-content" data-aos="fade-right">
-                        <h1 class="hero-title" data-i18n="hero.title">Empowering Enterprises with AI Innovation</h1>
-                        <p class="hero-subtitle" data-i18n="hero.subtitle">Custom AI solutions, education, and consultation services to transform your business</p>
-                        <div class="hero-buttons">
-                            <a href="services.html" class="btn btn-primary" data-i18n="hero.exploreServices">Explore Services</a>
-                            <a href="contact.html" class="btn btn-outline" data-i18n="hero.contactUs">Contact Us</a>
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-4 text-gradient" data-i18n="hero.title">Empowering Enterprises with AI Innovation</h1>
+                    <p class="lead mb-4" data-i18n="hero.subtitle">Custom AI solutions, education, and consultation services to transform your business</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary me-3" data-i18n="hero.exploreServices">Explore Services</a>
+                        <a href="#contact" class="btn btn-outline-primary" data-i18n="hero.contactUs">Contact Us</a>
+                    </div>
+                    <div class="trusted-by mt-5">
+                        <p class="text-muted mb-2">Trusted by innovative companies</p>
+                        <div class="client-logos">
+                            <img src="assets/images/clients/client-1.svg" alt="Client 1" class="client-logo">
+                            <img src="assets/images/clients/client-2.svg" alt="Client 2" class="client-logo">
+                            <img src="assets/images/clients/client-3.svg" alt="Client 3" class="client-logo">
+                            <img src="assets/images/clients/client-4.svg" alt="Client 4" class="client-logo">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="hero-image" data-aos="fade-left">
-                        <img src="assets/images/hero-placeholder.svg" alt="AI Innovation" class="img-fluid">
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image-container">
+                        <div class="hero-image">
+                            <img src="assets/images/hero-ai-illustration.svg" alt="AI Innovation" class="img-fluid">
+                        </div>
+                        <div class="floating-card floating-card-1">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span>AI Models</span>
+                                <div class="floating-card-progress">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="floating-card floating-card-2">
+                            <div class="floating-card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="floating-card-text">
+                                <span>Data Analysis</span>
+                                <div class="floating-card-progress">
+                                    <div class="progress-bar" style="width: 92%"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="hero-shape">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
+                <path fill="var(--dark-bg-primary)" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,90.7C384,85,480,107,576,117.3C672,128,768,128,864,122.7C960,117,1056,107,1152,96C1248,85,1344,75,1392,69.3L1440,64L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path>
+            </svg>
+        </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services-section section-padding">
+    <section id="services" class="services-section ai-nodes-bg">
         <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
-                <h2 class="section-title" data-i18n="services.title">Our Services</h2>
-                <p class="section-subtitle" data-i18n="services.subtitle">Comprehensive AI solutions tailored to your business needs</p>
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title" data-i18n="services.title">Our Services</h2>
+                    <p class="lead" data-i18n="services.subtitle">Comprehensive AI solutions tailored to your business needs</p>
+                </div>
             </div>
-            <div class="row">
-                <!-- Service 1 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card">
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h3 class="service-title" data-i18n="services.education.title">AI Education & Training</h3>
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <p class="service-description" data-i18n="services.education.description">Empower your team with AI knowledge through customized training programs and workshops.</p>
+                        <h3 data-i18n="services.education.title">AI Education & Training</h3>
+                        <p data-i18n="services.education.description">Empower your team with AI knowledge through customized training programs and workshops.</p>
                         <ul class="service-features">
                             <li data-i18n="services.education.feature1">Customized learning paths</li>
                             <li data-i18n="services.education.feature2">Hands-on workshops</li>
                             <li data-i18n="services.education.feature3">Expert-led training</li>
                         </ul>
-                        <a href="education.html" class="btn btn-outline btn-sm" data-i18n="services.learnMore">Learn More</a>
+                        <a href="education.html" class="btn btn-outline-primary mt-3" data-i18n="services.learnMore">Learn More</a>
                     </div>
                 </div>
-                
-                <!-- Service 2 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="service-card">
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-robot"></i>
-                            </div>
-                            <h3 class="service-title" data-i18n="services.customSolutions.title">AI Custom Solutions</h3>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card featured">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
                         </div>
-                        <p class="service-description" data-i18n="services.customSolutions.description">From data services to model training and deployment, we build tailored AI solutions for your unique challenges.</p>
+                        <h3 data-i18n="services.customSolutions.title">AI Custom Solutions</h3>
+                        <p data-i18n="services.customSolutions.description">From data services to model training and deployment, we build tailored AI solutions for your unique challenges.</p>
                         <ul class="service-features">
                             <li data-i18n="services.customSolutions.feature1">Data preparation & analysis</li>
                             <li data-i18n="services.customSolutions.feature2">Custom model development</li>
                             <li data-i18n="services.customSolutions.feature3">AI application integration</li>
                         </ul>
-                        <a href="custom-solutions.html" class="btn btn-outline btn-sm" data-i18n="services.learnMore">Learn More</a>
+                        <a href="custom-solutions.html" class="btn btn-primary mt-3" data-i18n="services.learnMore">Learn More</a>
                     </div>
                 </div>
-                
-                <!-- Service 3 -->
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card">
-                        <div class="service-header">
-                            <div class="service-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h3 class="service-title" data-i18n="services.consultation.title">Enterprise AI Consultation</h3>
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        <p class="service-description" data-i18n="services.consultation.description">Strategic guidance for implementing AI across your organization to drive innovation and efficiency.</p>
+                        <h3 data-i18n="services.consultation.title">Enterprise AI Consultation</h3>
+                        <p data-i18n="services.consultation.description">Strategic guidance for implementing AI across your organization to drive innovation and efficiency.</p>
                         <ul class="service-features">
                             <li data-i18n="services.consultation.feature1">AI readiness assessment</li>
                             <li data-i18n="services.consultation.feature2">Implementation roadmap</li>
                             <li data-i18n="services.consultation.feature3">Technology selection</li>
                         </ul>
-                        <a href="consultation.html" class="btn btn-outline btn-sm" data-i18n="services.learnMore">Learn More</a>
+                        <a href="consultation.html" class="btn btn-outline-primary mt-3" data-i18n="services.learnMore">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="service-shape">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
+                <path fill="var(--dark-bg-primary)" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,90.7C384,85,480,107,576,117.3C672,128,768,128,864,122.7C960,117,1056,107,1152,96C1248,85,1344,75,1392,69.3L1440,64L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path>
+            </svg>
+        </div>
     </section>
 
-    <!-- Interactive Demo Section -->
-    <section class="demo-section section-padding bg-gradient">
+    <!-- Demo Section -->
+    <section class="demo-section">
         <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title" data-i18n="demo.title">Interactive AI Demos</h2>
-                <p class="section-subtitle" data-i18n="demo.subtitle">Experience our AI capabilities firsthand</p>
+                <p class="lead" data-i18n="demo.subtitle">Experience our AI capabilities firsthand</p>
             </div>
+            
             <div class="row align-items-center">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="demo-content">
-                        <h3 data-i18n="demo.heading">See AI in Action</h3>
-                        <p data-i18n="demo.description1">Explore our interactive demos to understand how our AI solutions can transform your business processes and drive innovation.</p>
-                        <p data-i18n="demo.description2">These demos showcase just a fraction of what's possible with our custom AI development services.</p>
-                        <a href="demos.html" class="btn btn-primary" data-i18n="demo.viewAll">View All Demos</a>
-                    </div>
+                <div class="col-lg-5" data-aos="fade-right">
+                    <h3 data-i18n="demo.heading">See AI in Action</h3>
+                    <p data-i18n="demo.description1">Explore our interactive demos to understand how our AI solutions can transform your business processes and drive innovation.</p>
+                    <p data-i18n="demo.description2">These demos showcase just a fraction of what's possible with our custom AI development services.</p>
+                    <a href="demos.html" class="btn btn-primary mt-3" data-i18n="demo.viewAll">View All Demos</a>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
+                <div class="col-lg-7" data-aos="fade-left">
                     <div class="demo-placeholder">
-                        <div class="demo-placeholder-content">
-                            <h4 data-i18n="demo.placeholder">Interactive AI Demo</h4>
-                            <p data-i18n="demo.placeholderSmall">Demo will be integrated here</p>
-                        </div>
+                        <div class="demo-play-button"></div>
+                        <h4 data-i18n="demo.placeholder">Interactive AI Demo</h4>
+                        <p data-i18n="demo.placeholderSmall">Click to experience AI in action</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Portfolio/Case Studies Section -->
-    <section class="portfolio-section section-padding">
+    <!-- Portfolio Section -->
+    <section class="portfolio-section">
         <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title" data-i18n="portfolio.title">Success Stories</h2>
-                <p class="section-subtitle" data-i18n="portfolio.subtitle">Real-world AI implementations that delivered results</p>
+                <p class="lead" data-i18n="portfolio.subtitle">Real-world AI implementations that delivered results</p>
             </div>
+            
             <div class="row">
-                <!-- Case Study 1 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up">
-                    <div class="case-study-card">
-                        <div class="case-study-image">
-                            <img src="assets/images/case-study-1-placeholder.svg" alt="Manufacturing Case Study" class="img-fluid">
+                    <div class="portfolio-card">
+                        <div class="portfolio-img">
+                            <img src="assets/images/portfolio/education.svg" alt="AI Education Case Study">
+                            <div class="portfolio-category">Education</div>
+                            <div class="portfolio-ai-overlay">
+                                <i class="fas fa-graduation-cap portfolio-ai-icon"></i>
+                            </div>
                         </div>
-                        <div class="case-study-content">
-                            <h3 class="case-study-title" data-i18n="portfolio.education.title">AI Education for Siemens</h3>
-                            <p class="case-study-description" data-i18n="portfolio.education.description">Delivered comprehensive AI training program for Siemens, upskilling 200+ professionals from fundamentals to advanced AI application development and deployment.</p>
-                            <a href="case-study-education.html" class="btn btn-text" data-i18n="portfolio.education.readMore">Read Case Study <i class="fas fa-arrow-right"></i></a>
+                        <div class="portfolio-content">
+                            <h3 data-i18n="portfolio.education.title">AI Education for Siemens</h3>
+                            <p data-i18n="portfolio.education.description">Delivered comprehensive AI training program for Siemens, upskilling 200+ professionals from fundamentals to advanced AI application development and deployment.</p>
+                            <a href="#" class="read-more" data-i18n="portfolio.education.readMore">Read Case Study</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Case Study 2 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                    <div class="case-study-card">
-                        <div class="case-study-image">
-                            <img src="assets/images/case-study-2-placeholder.svg" alt="Healthcare Case Study" class="img-fluid">
+                    <div class="portfolio-card">
+                        <div class="portfolio-img">
+                            <img src="assets/images/portfolio/healthcare.svg" alt="Healthcare AI Case Study">
+                            <div class="portfolio-category">Healthcare</div>
+                            <div class="portfolio-ai-overlay">
+                                <i class="fas fa-heartbeat portfolio-ai-icon"></i>
+                            </div>
                         </div>
-                        <div class="case-study-content">
-                            <h3 class="case-study-title" data-i18n="portfolio.healthcare.title">Healthcare Innovation</h3>
-                            <p class="case-study-description" data-i18n="portfolio.healthcare.description">Developed an AI diagnostic assistant that improved early detection rates by 28% for a leading healthcare provider.</p>
-                            <a href="case-study-healthcare.html" class="btn btn-text" data-i18n="portfolio.healthcare.readMore">Read Case Study <i class="fas fa-arrow-right"></i></a>
+                        <div class="portfolio-content">
+                            <h3 data-i18n="portfolio.healthcare.title">Healthcare Innovation</h3>
+                            <p data-i18n="portfolio.healthcare.description">Developed an AI diagnostic assistant that improved early detection rates by 28% for a leading healthcare provider.</p>
+                            <a href="#" class="read-more" data-i18n="portfolio.healthcare.readMore">Read Case Study</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Case Study 3 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="case-study-card">
-                        <div class="case-study-image">
-                            <img src="assets/images/case-study-3-placeholder.svg" alt="Financial Services Case Study" class="img-fluid">
+                    <div class="portfolio-card">
+                        <div class="portfolio-img">
+                            <img src="assets/images/portfolio/financial.svg" alt="Financial Services AI Case Study">
+                            <div class="portfolio-category">Finance</div>
+                            <div class="portfolio-ai-overlay">
+                                <i class="fas fa-chart-pie portfolio-ai-icon"></i>
+                            </div>
                         </div>
-                        <div class="case-study-content">
-                            <h3 class="case-study-title" data-i18n="portfolio.financial.title">Financial Services</h3>
-                            <p class="case-study-description" data-i18n="portfolio.financial.description">Created a fraud detection system that reduced false positives by 42% while increasing detection accuracy for a financial institution.</p>
-                            <a href="case-study-financial.html" class="btn btn-text" data-i18n="portfolio.financial.readMore">Read Case Study <i class="fas fa-arrow-right"></i></a>
+                        <div class="portfolio-content">
+                            <h3 data-i18n="portfolio.financial.title">Financial Services</h3>
+                            <p data-i18n="portfolio.financial.description">Created a fraud detection system that reduced false positives by 42% while increasing detection accuracy for a financial institution.</p>
+                            <a href="#" class="read-more" data-i18n="portfolio.financial.readMore">Read Case Study</a>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="text-center mt-5" data-aos="fade-up">
-                <a href="case-studies.html" class="btn btn-outline" data-i18n="portfolio.viewAll">View All Case Studies</a>
+                <a href="case-studies.html" class="btn btn-outline-primary" data-i18n="portfolio.viewAll">View All Case Studies</a>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section section-padding bg-light">
+    <section class="testimonials-section ai-circuit-bg">
         <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title" data-i18n="testimonials.title">Client Testimonials</h2>
-                <p class="section-subtitle" data-i18n="testimonials.subtitle">What our clients say about working with us</p>
+                <p class="lead" data-i18n="testimonials.subtitle">What our clients say about working with us</p>
             </div>
-            <div class="testimonial-slider" data-aos="fade-up">
-                <!-- Testimonial 1 -->
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text" data-i18n="testimonials.quote1">"Bixing Technology transformed our approach to data analysis. Their custom AI solution has given us insights we never thought possible."</p>
+            
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-up">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                        </div>
+                        <div class="testimonial-content">
+                            <p data-i18n="testimonials.quote1">Bixing Technology transformed our approach to data analysis. Their custom AI solution has given us insights we never thought possible.</p>
+                        </div>
                         <div class="testimonial-author">
-                            <img src="assets/images/testimonial-1.jpg" alt="Jane Smith" class="testimonial-img">
-                            <div class="testimonial-author-info">
+                            <div class="testimonial-avatar">
+                                <img src="assets/images/testimonials/avatar-1.svg" alt="Jane Smith">
+                            </div>
+                            <div class="author-info">
                                 <h4 data-i18n="testimonials.author1">Jane Smith</h4>
                                 <p data-i18n="testimonials.position1">CTO, Enterprise Company</p>
+                                <img src="assets/images/clients/client-1.svg" alt="Enterprise Company" class="testimonial-company-logo">
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Testimonial 2 -->
-                <div class="testimonial-item">
-                    <div class="testimonial-content">
-                        <p class="testimonial-text" data-i18n="testimonials.quote2">"The AI training program developed by Bixing has significantly accelerated our team's capabilities. Highly recommended!"</p>
+                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                            <span class="rating-star"><i class="fas fa-star"></i></span>
+                        </div>
+                        <div class="testimonial-content">
+                            <p data-i18n="testimonials.quote2">The AI training program developed by Bixing has significantly accelerated our team's capabilities. Highly recommended!</p>
+                        </div>
                         <div class="testimonial-author">
-                            <img src="assets/images/testimonial-2.jpg" alt="Michael Johnson" class="testimonial-img">
-                            <div class="testimonial-author-info">
+                            <div class="testimonial-avatar">
+                                <img src="assets/images/testimonials/avatar-2.svg" alt="Michael Johnson">
+                            </div>
+                            <div class="author-info">
                                 <h4 data-i18n="testimonials.author2">Michael Johnson</h4>
                                 <p data-i18n="testimonials.position2">Director of Innovation, Tech Solutions Inc.</p>
+                                <img src="assets/images/clients/client-2.svg" alt="Tech Solutions Inc." class="testimonial-company-logo">
                             </div>
                         </div>
                     </div>
@@ -327,82 +434,101 @@
         </div>
     </section>
 
-    <!-- Latest Insights Section -->
-    <section class="insights-section section-padding">
+    <!-- Insights Section -->
+    <section class="insights-section ai-nodes-bg">
         <div class="container">
-            <div class="section-header text-center" data-aos="fade-up">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
                 <h2 class="section-title" data-i18n="insights.title">Latest Industry Insights</h2>
-                <p class="section-subtitle" data-i18n="insights.subtitle">Stay updated with trends and innovations in AI</p>
+                <p class="lead" data-i18n="insights.subtitle">Stay updated with trends and innovations in AI</p>
             </div>
+            
             <div class="row">
-                <!-- Insight 1 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up">
                     <div class="insight-card">
-                        <div class="insight-image">
-                            <img src="assets/images/insight-1-placeholder.svg" alt="AI in Enterprise" class="img-fluid">
-                            <div class="insight-meta">
-                                <span class="insight-date" data-i18n="insights.article1.date">October 15, 2023</span>
-                                <span class="insight-category" data-i18n="insights.article1.category">Enterprise AI</span>
-                            </div>
+                        <div class="insight-img">
+                            <img src="assets/images/insights/insight1.svg" alt="AI in Enterprise">
+                            <div class="insight-ai-pattern"></div>
+                            <div class="insight-ai-overlay"></div>
+                            <div class="insight-date" data-i18n="insights.article1.date">October 15, 2023</div>
+                            <div class="insight-category" data-i18n="insights.article1.category">Enterprise AI</div>
                         </div>
                         <div class="insight-content">
-                            <h3 class="insight-title" data-i18n="insights.article1.title">The Future of AI in Enterprise</h3>
-                            <p class="insight-excerpt" data-i18n="insights.article1.excerpt">Exploring how artificial intelligence is reshaping enterprise operations and decision-making processes.</p>
-                            <a href="insight-enterprise-ai.html" class="btn btn-text" data-i18n="insights.article1.readMore">Read More <i class="fas fa-arrow-right"></i></a>
+                            <h3 data-i18n="insights.article1.title">The Future of AI in Enterprise</h3>
+                            <div class="insight-reading-time">
+                                <i class="far fa-clock"></i> 5 min read
+                            </div>
+                            <p data-i18n="insights.article1.excerpt">Exploring how artificial intelligence is reshaping enterprise operations and decision-making processes.</p>
+                            <a href="#" class="read-more" data-i18n="insights.article1.readMore">Read More</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Insight 2 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="insight-card">
-                        <div class="insight-image">
-                            <img src="assets/images/insight-2-placeholder.svg" alt="Machine Learning Models" class="img-fluid">
-                            <div class="insight-meta">
-                                <span class="insight-date" data-i18n="insights.article2.date">September 28, 2023</span>
-                                <span class="insight-category" data-i18n="insights.article2.category">Machine Learning</span>
-                            </div>
+                        <div class="insight-img">
+                            <img src="assets/images/insights/insight2.svg" alt="Machine Learning Models">
+                            <div class="insight-ai-pattern"></div>
+                            <div class="insight-ai-overlay"></div>
+                            <div class="insight-date" data-i18n="insights.article2.date">September 28, 2023</div>
+                            <div class="insight-category" data-i18n="insights.article2.category">Machine Learning</div>
                         </div>
                         <div class="insight-content">
-                            <h3 class="insight-title" data-i18n="insights.article2.title">Advances in Machine Learning Models</h3>
-                            <p class="insight-excerpt" data-i18n="insights.article2.excerpt">Recent breakthroughs in machine learning models and what they mean for business applications.</p>
-                            <a href="insight-ml-advances.html" class="btn btn-text" data-i18n="insights.article2.readMore">Read More <i class="fas fa-arrow-right"></i></a>
+                            <h3 data-i18n="insights.article2.title">Advances in Machine Learning Models</h3>
+                            <div class="insight-reading-time">
+                                <i class="far fa-clock"></i> 7 min read
+                            </div>
+                            <p data-i18n="insights.article2.excerpt">Recent breakthroughs in machine learning models and what they mean for business applications.</p>
+                            <a href="#" class="read-more" data-i18n="insights.article2.readMore">Read More</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Insight 3 -->
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="insight-card">
-                        <div class="insight-image">
-                            <img src="assets/images/insight-3-placeholder.svg" alt="AI Implementation" class="img-fluid">
-                            <div class="insight-meta">
-                                <span class="insight-date" data-i18n="insights.article3.date">September 10, 2023</span>
-                                <span class="insight-category" data-i18n="insights.article3.category">AI Implementation</span>
-                            </div>
+                        <div class="insight-img">
+                            <img src="assets/images/insights/insight3.svg" alt="AI Implementation">
+                            <div class="insight-ai-pattern"></div>
+                            <div class="insight-ai-overlay"></div>
+                            <div class="insight-date" data-i18n="insights.article3.date">September 10, 2023</div>
+                            <div class="insight-category" data-i18n="insights.article3.category">AI Implementation</div>
                         </div>
                         <div class="insight-content">
-                            <h3 class="insight-title" data-i18n="insights.article3.title">Implementing AI in Your Business</h3>
-                            <p class="insight-excerpt" data-i18n="insights.article3.excerpt">A practical guide to successfully implementing AI solutions in various business contexts.</p>
-                            <a href="insight-implementation.html" class="btn btn-text" data-i18n="insights.article3.readMore">Read More <i class="fas fa-arrow-right"></i></a>
+                            <h3 data-i18n="insights.article3.title">Implementing AI in Your Business</h3>
+                            <div class="insight-reading-time">
+                                <i class="far fa-clock"></i> 6 min read
+                            </div>
+                            <p data-i18n="insights.article3.excerpt">A practical guide to successfully implementing AI solutions in various business contexts.</p>
+                            <a href="#" class="read-more" data-i18n="insights.article3.readMore">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="text-center mt-5" data-aos="fade-up">
-                <a href="insights.html" class="btn btn-outline" data-i18n="insights.viewAll">View All Insights</a>
+                <a href="insights.html" class="btn btn-outline-primary" data-i18n="insights.viewAll">View All Insights</a>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section section-padding bg-gradient">
+    <section class="cta-section">
+        <div class="cta-circuit"></div>
+        <div class="cta-floating-element cta-floating-1"></div>
+        <div class="cta-floating-element cta-floating-2"></div>
+        <div class="cta-floating-element cta-floating-3"></div>
+        
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8 text-center" data-aos="fade-up">
-                    <h2 class="cta-title" data-i18n="cta.title">Ready to Transform Your Business with AI?</h2>
-                    <p class="cta-subtitle" data-i18n="cta.subtitle">Get in touch with our experts to discuss your specific needs and challenges</p>
-                    <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="cta.contactUs">Contact Us Today</a>
+                <div class="col-lg-10 text-center" data-aos="fade-up">
+                    <div class="cta-border">
+                        <div class="cta-inner">
+                            <div class="cta-content">
+                                <h2 class="mb-4" data-i18n="cta.title">Ready to Transform Your Business with AI?</h2>
+                                <p class="lead mb-4" data-i18n="cta.subtitle">Get in touch with our experts to discuss your specific needs and challenges</p>
+                                <a href="contact.html" class="btn btn-light btn-lg" data-i18n="cta.contactUs">Contact Us Today</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -410,60 +536,96 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="footer-circuit-bg"></div>
+        <div class="container footer-content">
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="footer-info">
-                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="footer-logo">
-                        <h3 data-i18n="footer.company">Bixing Technology</h3>
-                        <p data-i18n="footer.description">Empowering enterprises with innovative AI solutions to drive growth and efficiency.</p>
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="company-info">
+                        <div class="footer-logo">
+                            <img src="assets/images/logo-light.png" alt="Bixing Technology">
+                        </div>
+                        <p data-i18n="footer.companyDescription">Bixing Technology is a leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
                         <div class="social-links">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#"><i class="fab fa-github"></i></a>
-                            <a href="#"><i class="fab fa-medium-m"></i></a>
+                            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-2">
-                    <div class="footer-links">
-                        <h4 data-i18n="footer.quickLinks">Quick Links</h4>
-                        <ul>
-                            <li><a href="services.html" data-i18n="footer.services">Services</a></li>
-                            <li><a href="about.html" data-i18n="footer.about">About Us</a></li>
-                            <li><a href="careers.html" data-i18n="footer.careers">Careers</a></li>
-                            <li><a href="contact.html" data-i18n="footer.contact">Contact</a></li>
-                            <li><a href="insights.html" data-i18n="footer.insights">Insights</a></li>
-                        </ul>
-                    </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-heading" data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.home">Home</span></a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.about">About</span></a></li>
+                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.services">Services</span></a></li>
+                        <li><a href="portfolio.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.portfolio">Portfolio</span></a></li>
+                        <li><a href="insights.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.insights">Insights</span></a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.contact">Contact</span></a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-2">
-                    <div class="footer-links">
-                        <h4 data-i18n="footer.legal">Legal</h4>
-                        <ul>
-                            <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
-                            <li><a href="terms.html" data-i18n="footer.terms">Terms of Service</a></li>
-                        </ul>
-                    </div>
+                
+                <!-- Services -->
+                <div class="col-lg-2 col-md-6">
+                    <h4 class="footer-heading" data-i18n="footer.services">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html#ai-consulting"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsulting">AI Consulting</span></a></li>
+                        <li><a href="services.html#machine-learning"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.machineLearning">Machine Learning</span></a></li>
+                        <li><a href="services.html#data-analytics"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.dataAnalytics">Data Analytics</span></a></li>
+                        <li><a href="services.html#nlp"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.nlp">Natural Language Processing</span></a></li>
+                        <li><a href="services.html#computer-vision"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.computerVision">Computer Vision</span></a></li>
+                    </ul>
                 </div>
-                <div class="col-lg-4">
-                    <div class="footer-contact">
-                        <h4 data-i18n="footer.contact">Contact Us</h4>
-                        <p><i class="fas fa-map-marker-alt"></i> <span data-i18n="footer.address">123 AI Innovation Center, Silicon Valley, CA 94000</span></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:info@bixingtechnology.com" data-i18n="footer.email">info@bixingtechnology.com</a></p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+15551234567" data-i18n="footer.phone">+1 (555) 123-4567</a></p>
-                    </div>
+                
+                <!-- Contact Info -->
+                <div class="col-lg-4 col-md-6">
+                    <h4 class="footer-heading" data-i18n="footer.contactUs">Contact Us</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span data-i18n="footer.address">123 AI Innovation Street, Silicon Valley, CA 94000</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span data-i18n="footer.phone">+1 (555) 123-4567</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span data-i18n="footer.email">info@bixingtech.com</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- Newsletter -->
+                    <h4 class="footer-heading mt-4" data-i18n="footer.newsletter">Newsletter</h4>
+                    <p data-i18n="footer.newsletterDesc">Subscribe to our newsletter to receive the latest updates and news.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your Email" data-i18n-placeholder="footer.emailPlaceholder" required>
+                        <button type="submit" class="newsletter-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
-            <div class="copyright">
-                <p data-i18n="footer.copyright"> 2023 Bixing Technology. All rights reserved.</p>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="copyright">
+                    <span data-i18n="footer.copyright"> 2023 Bixing Technology. All Rights Reserved.</span>
+                    <span class="separator mx-2">|</span>
+                    <a href="privacy-policy.html" data-i18n="footer.privacyPolicy">Privacy Policy</a>
+                    <span class="separator mx-2">|</span>
+                    <a href="terms-of-service.html" data-i18n="footer.termsOfService">Terms of Service</a>
+                </p>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="assets/js/i18n.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
@@ -472,6 +634,363 @@
             once: true,
             mirror: false
         });
+        
+        // Initialize particles.js for hero background
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof particlesJS !== 'undefined') {
+                particlesJS('hero-particles', {
+                    "particles": {
+                        "number": {
+                            "value": 80,
+                            "density": {
+                                "enable": true,
+                                "value_area": 800
+                            }
+                        },
+                        "color": {
+                            "value": "#0066ff"
+                        },
+                        "shape": {
+                            "type": "circle",
+                            "stroke": {
+                                "width": 0,
+                                "color": "#000000"
+                            },
+                            "polygon": {
+                                "nb_sides": 5
+                            }
+                        },
+                        "opacity": {
+                            "value": 0.3,
+                            "random": false,
+                            "anim": {
+                                "enable": false,
+                                "speed": 1,
+                                "opacity_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "size": {
+                            "value": 3,
+                            "random": true,
+                            "anim": {
+                                "enable": false,
+                                "speed": 40,
+                                "size_min": 0.1,
+                                "sync": false
+                            }
+                        },
+                        "line_linked": {
+                            "enable": true,
+                            "distance": 150,
+                            "color": "#0066ff",
+                            "opacity": 0.2,
+                            "width": 1
+                        },
+                        "move": {
+                            "enable": true,
+                            "speed": 2,
+                            "direction": "none",
+                            "random": false,
+                            "straight": false,
+                            "out_mode": "out",
+                            "bounce": false,
+                            "attract": {
+                                "enable": false,
+                                "rotateX": 600,
+                                "rotateY": 1200
+                            }
+                        }
+                    },
+                    "interactivity": {
+                        "detect_on": "canvas",
+                        "events": {
+                            "onhover": {
+                                "enable": true,
+                                "mode": "grab"
+                            },
+                            "onclick": {
+                                "enable": true,
+                                "mode": "push"
+                            },
+                            "resize": true
+                        },
+                        "modes": {
+                            "grab": {
+                                "distance": 140,
+                                "line_linked": {
+                                    "opacity": 0.5
+                                }
+                            },
+                            "bubble": {
+                                "distance": 400,
+                                "size": 40,
+                                "duration": 2,
+                                "opacity": 8,
+                                "speed": 3
+                            },
+                            "repulse": {
+                                "distance": 200,
+                                "duration": 0.4
+                            },
+                            "push": {
+                                "particles_nb": 4
+                            },
+                            "remove": {
+                                "particles_nb": 2
+                            }
+                        }
+                    },
+                    "retina_detect": true
+                });
+            }
+        });
+        
+        // Simple language toggle functionality
+        const translations = {
+            'en': {
+                "page.title": "Bixing Technology - AI Solutions for Enterprise",
+                "nav.home": "Home",
+                "nav.services": "Services",
+                "nav.allServices": "All Services",
+                "nav.education": "AI Education/Training",
+                "nav.customSolutions": "AI Custom Solutions",
+                "nav.consultation": "Enterprise AI Consultation",
+                "nav.insights": "Industry Insights",
+                "nav.about": "About Us",
+                "nav.careers": "Careers",
+                "nav.contact": "Contact Us",
+                "hero.title": "Empowering Enterprises with AI Innovation",
+                "hero.subtitle": "Custom AI solutions, education, and consultation services to transform your business",
+                "hero.exploreServices": "Explore Services",
+                "hero.contactUs": "Contact Us",
+                "services.title": "Our Services",
+                "services.subtitle": "Comprehensive AI solutions tailored to your business needs",
+                "services.education.title": "AI Education & Training",
+                "services.education.description": "Empower your team with AI knowledge through customized training programs and workshops.",
+                "services.education.feature1": "Customized learning paths",
+                "services.education.feature2": "Hands-on workshops",
+                "services.education.feature3": "Expert-led training",
+                "services.customSolutions.title": "AI Custom Solutions",
+                "services.customSolutions.description": "From data services to model training and deployment, we build tailored AI solutions for your unique challenges.",
+                "services.customSolutions.feature1": "Data preparation & analysis",
+                "services.customSolutions.feature2": "Custom model development",
+                "services.customSolutions.feature3": "AI application integration",
+                "services.consultation.title": "Enterprise AI Consultation",
+                "services.consultation.description": "Strategic guidance for implementing AI across your organization to drive innovation and efficiency.",
+                "services.consultation.feature1": "AI readiness assessment",
+                "services.consultation.feature2": "Implementation roadmap",
+                "services.consultation.feature3": "Technology selection",
+                "services.learnMore": "Learn More",
+                "demo.title": "Interactive AI Demos",
+                "demo.subtitle": "Experience our AI capabilities firsthand",
+                "demo.heading": "See AI in Action",
+                "demo.description1": "Explore our interactive demos to understand how our AI solutions can transform your business processes and drive innovation.",
+                "demo.description2": "These demos showcase just a fraction of what's possible with our custom AI development services.",
+                "demo.placeholder": "Interactive AI Demo",
+                "demo.placeholderSmall": "Click to experience AI in action",
+                "demo.viewAll": "View All Demos",
+                "portfolio.title": "Success Stories",
+                "portfolio.subtitle": "Real-world AI implementations that delivered results",
+                "portfolio.education.title": "AI Education for Siemens",
+                "portfolio.education.description": "Delivered comprehensive AI training program for Siemens, upskilling 200+ professionals from fundamentals to advanced AI application development and deployment.",
+                "portfolio.education.readMore": "Read Case Study",
+                "portfolio.healthcare.title": "Healthcare Innovation",
+                "portfolio.healthcare.description": "Developed an AI diagnostic assistant that improved early detection rates by 28% for a leading healthcare provider.",
+                "portfolio.healthcare.readMore": "Read Case Study",
+                "portfolio.financial.title": "Financial Services",
+                "portfolio.financial.description": "Created a fraud detection system that reduced false positives by 42% while increasing detection accuracy for a financial institution.",
+                "portfolio.financial.readMore": "Read Case Study",
+                "portfolio.viewAll": "View All Case Studies",
+                "testimonials.title": "Client Testimonials",
+                "testimonials.subtitle": "What our clients say about working with us",
+                "testimonials.quote1": "Bixing Technology transformed our approach to data analysis. Their custom AI solution has given us insights we never thought possible.",
+                "testimonials.author1": "Jane Smith",
+                "testimonials.position1": "CTO, Enterprise Company",
+                "testimonials.quote2": "The AI training program developed by Bixing has significantly accelerated our team's capabilities. Highly recommended!",
+                "testimonials.author2": "Michael Johnson",
+                "testimonials.position2": "Director of Innovation, Tech Solutions Inc.",
+                "insights.title": "Latest Industry Insights",
+                "insights.subtitle": "Stay updated with trends and innovations in AI",
+                "insights.article1.title": "The Future of AI in Enterprise",
+                "insights.article1.excerpt": "Exploring how artificial intelligence is reshaping enterprise operations and decision-making processes.",
+                "insights.article1.date": "October 15, 2023",
+                "insights.article1.category": "Enterprise AI",
+                "insights.article1.readMore": "Read More",
+                "insights.article2.title": "Advances in Machine Learning Models",
+                "insights.article2.excerpt": "Recent breakthroughs in machine learning models and what they mean for business applications.",
+                "insights.article2.date": "September 28, 2023",
+                "insights.article2.category": "Machine Learning",
+                "insights.article2.readMore": "Read More",
+                "insights.article3.title": "Implementing AI in Your Business",
+                "insights.article3.excerpt": "A practical guide to successfully implementing AI solutions in various business contexts.",
+                "insights.article3.date": "September 10, 2023",
+                "insights.article3.category": "AI Implementation",
+                "insights.article3.readMore": "Read More",
+                "insights.viewAll": "View All Insights",
+                "cta.title": "Ready to Transform Your Business with AI?",
+                "cta.subtitle": "Get in touch with our experts to discuss your specific needs and challenges",
+                "cta.contactUs": "Contact Us Today",
+                "footer.company": "Bixing Technology",
+                "footer.description": "Empowering enterprises with innovative AI solutions to drive growth and efficiency.",
+                "footer.quickLinks": "Quick Links",
+                "footer.services": "Services",
+                "footer.about": "About Us",
+                "footer.careers": "Careers",
+                "footer.contact": "Contact",
+                "footer.insights": "Insights",
+                "footer.legal": "Legal",
+                "footer.privacy": "Privacy Policy",
+                "footer.terms": "Terms of Service",
+                "footer.address": "123 AI Innovation Center, Silicon Valley, CA 94000",
+                "footer.email": "info@bixingtechnology.com",
+                "footer.phone": "+1 (555) 123-4567",
+                "footer.copyright": " 2023 Bixing Technology. All rights reserved."
+            },
+            'zh': {
+                "page.title": "成都毕行科技有限公司 - 企业AI解决方案",
+                "nav.home": "首页",
+                "nav.services": "服务",
+                "nav.allServices": "所有服务",
+                "nav.education": "AI教育培训",
+                "nav.customSolutions": "AI定制解决方案",
+                "nav.consultation": "企业AI咨询",
+                "nav.insights": "行业洞察",
+                "nav.about": "关于我们",
+                "nav.careers": "招贤纳士",
+                "nav.contact": "联系我们",
+                "hero.title": "用AI创新赋能企业",
+                "hero.subtitle": "定制AI解决方案、教育和咨询服务，助力业务转型",
+                "hero.exploreServices": "探索服务",
+                "hero.contactUs": "联系我们",
+                "services.title": "我们的服务",
+                "services.subtitle": "全面AI解决方案，满足您的企业需求",
+                "services.education.title": "AI教育培训",
+                "services.education.description": "通过定制化的培训计划和研讨会，赋予您的团队AI知识。",
+                "services.education.feature1": "定制化学习路径",
+                "services.education.feature2": "实践性研讨会",
+                "services.education.feature3": "专家指导培训",
+                "services.customSolutions.title": "AI定制解决方案",
+                "services.customSolutions.description": "从数据服务到模型训练和部署，我们为您的独特挑战构建定制化的AI解决方案。",
+                "services.customSolutions.feature1": "数据准备和分析",
+                "services.customSolutions.feature2": "定制模型开发",
+                "services.customSolutions.feature3": "AI应用集成",
+                "services.consultation.title": "企业AI咨询",
+                "services.consultation.description": "为您的企业提供战略指导，推动创新和效率。",
+                "services.consultation.feature1": "AI准备评估",
+                "services.consultation.feature2": "实施路线图",
+                "services.consultation.feature3": "技术选择",
+                "services.learnMore": "了解更多",
+                "demo.title": "互动AI演示",
+                "demo.subtitle": "亲身体验我们的AI能力",
+                "demo.heading": "查看AI在行动",
+                "demo.description1": "探索我们的互动演示，了解我们的AI解决方案如何转变您的业务流程和推动创新。",
+                "demo.description2": "这些演示仅展示了我们定制化AI开发服务的冰山一角。",
+                "demo.placeholder": "互动AI演示",
+                "demo.placeholderSmall": "点击体验AI",
+                "demo.viewAll": "查看所有演示",
+                "portfolio.title": "成功案例",
+                "portfolio.subtitle": "真实世界的AI实施，带来了成果",
+                "portfolio.education.title": "AI教育为西门子",
+                "portfolio.education.description": "为西门子提供全面AI培训计划，提升200多名专业人员从基础到高级AI应用开发和部署。",
+                "portfolio.education.readMore": "阅读案例研究",
+                "portfolio.healthcare.title": "医疗创新",
+                "portfolio.healthcare.description": "为一家领先的医疗保健提供商开发了一个AI诊断助手，提高了早期检测率28%。",
+                "portfolio.healthcare.readMore": "阅读案例研究",
+                "portfolio.financial.title": "金融服务",
+                "portfolio.financial.description": "为一家金融机构创建了一个欺诈检测系统，减少了42%的误报，同时提高了检测准确率。",
+                "portfolio.financial.readMore": "阅读案例研究",
+                "portfolio.viewAll": "查看所有案例研究",
+                "testimonials.title": "客户评价",
+                "testimonials.subtitle": "我们的客户对我们的评价",
+                "testimonials.quote1": "成都毕行科技有限公司改变了我们对数据分析的方法。他们的定制化AI解决方案给我们带来了意想不到的见解。",
+                "testimonials.author1": "Jane Smith",
+                "testimonials.position1": "首席技术官，企业公司",
+                "testimonials.quote2": "成都毕行科技有限公司开发的AI培训计划显著加快了我们的团队能力。强烈推荐！",
+                "testimonials.author2": "Michael Johnson",
+                "testimonials.position2": "创新总监，科技解决方案公司",
+                "insights.title": "最新行业洞察",
+                "insights.subtitle": "保持对AI趋势和创新",
+                "insights.article1.title": "企业AI的未来",
+                "insights.article1.excerpt": "探索人工智能如何重塑企业运营和决策过程。",
+                "insights.article1.date": "2023年10月15日",
+                "insights.article1.category": "企业AI",
+                "insights.article1.readMore": "阅读更多",
+                "insights.article2.title": "机器学习模型的进步",
+                "insights.article2.excerpt": "机器学习模型的最新突破及其对企业应用的意义。",
+                "insights.article2.date": "2023年9月28日",
+                "insights.article2.category": "机器学习",
+                "insights.article2.readMore": "阅读更多",
+                "insights.article3.title": "在您的企业中实施AI",
+                "insights.article3.excerpt": "成功实施AI解决方案的实用指南。",
+                "insights.article3.date": "2023年9月10日",
+                "insights.article3.category": "AI实施",
+                "insights.article3.readMore": "阅读更多",
+                "insights.viewAll": "查看所有洞察",
+                "cta.title": "准备好用AI转变您的企业吗？",
+                "cta.subtitle": "与我们的专家联系，讨论您的具体需求和挑战",
+                "cta.contactUs": "联系我们",
+                "footer.company": "成都毕行科技有限公司",
+                "footer.description": "赋能企业，推动增长和效率。",
+                "footer.quickLinks": "快速链接",
+                "footer.services": "服务",
+                "footer.about": "关于我们",
+                "footer.careers": "招贤纳士",
+                "footer.contact": "联系",
+                "footer.insights": "洞察",
+                "footer.legal": "法律",
+                "footer.privacy": "隐私政策",
+                "footer.terms": "服务条款",
+                "footer.address": "成都高新区天府软件园",
+                "footer.email": "info@bixingtechnology.com",
+                "footer.phone": "+86 028 12345678",
+                "footer.copyright": " 2023 成都毕行科技有限公司。保留所有权利。"
+            }
+        };
+        
+        // Current language (default to English)
+        let currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
+        
+        // Apply translations on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            applyTranslations();
+            updateLanguageToggle();
+        });
+        
+        // Toggle language function
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'zh' : 'en';
+            localStorage.setItem('bixingLanguage', currentLanguage);
+            applyTranslations();
+            updateLanguageToggle();
+        }
+        
+        // Update language toggle UI
+        function updateLanguageToggle() {
+            const currentLanguageElement = document.getElementById('currentLanguage');
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
+            }
+        }
+        
+        // Apply translations to all elements with data-i18n attribute
+        function applyTranslations() {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+            
+            // Update page title
+            const titleElement = document.querySelector('title');
+            if (titleElement && titleElement.hasAttribute('data-i18n')) {
+                const titleKey = titleElement.getAttribute('data-i18n');
+                if (translations[currentLanguage] && translations[currentLanguage][titleKey]) {
+                    document.title = translations[currentLanguage][titleKey];
+                }
+            }
+        }
     </script>
 </body>
 </html>

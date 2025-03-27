@@ -1,0 +1,177 @@
+/* 
+ * Hero Section Styles - Bixing Technology
+ * Modern, sleek AI-themed hero section
+ */
+
+.hero-section {
+  position: relative;
+  padding: 120px 0 100px;
+  background: var(--dark-bg);
+  color: var(--white);
+  overflow: hidden;
+}
+
+/* Text gradient effect */
+.text-gradient {
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Floating cards */
+.hero-image-container {
+  position: relative;
+  z-index: 2;
+}
+
+.floating-card {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-md);
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: float 3s ease-in-out infinite;
+  z-index: 3;
+}
+
+.floating-card-1 {
+  top: 20%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.floating-card-2 {
+  bottom: 15%;
+  right: -5%;
+  animation-delay: 1.5s;
+}
+
+.floating-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-size: 1.2rem;
+}
+
+.floating-card-text {
+  flex: 1;
+}
+
+.floating-card-text span {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.floating-card-progress {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  width: 100px;
+}
+
+.floating-card-progress .progress-bar {
+  height: 100%;
+  background: var(--gradient-blue);
+  border-radius: var(--radius-full);
+}
+
+/* Client logos */
+.trusted-by {
+  margin-top: 3rem;
+}
+
+.client-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.client-logo {
+  height: 30px;
+  opacity: 0.7;
+  transition: opacity var(--transition-normal);
+}
+
+.client-logo:hover {
+  opacity: 1;
+}
+
+/* Hero particles */
+.hero-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Hero wave shape */
+.hero-shape {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  z-index: 2;
+  transform: translateY(10px);
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .hero-section {
+    padding: 80px 0 100px;
+  }
+  
+  .floating-card {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0 100px;
+    text-align: center;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .trusted-by {
+    margin-bottom: 40px;
+  }
+  
+  .client-logos {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,40 @@
+<svg width="600" height="300" viewBox="0 0 600 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="300" fill="#121A29"/>
+  
+  <!-- AI-themed background pattern -->
+  <path d="M0 0L600 0L600 300L0 300L0 0Z" fill="#00C2FF" fill-opacity="0.05"/>
+  
+  <!-- Business implementation visualization -->
+  <!-- Central node -->
+  <circle cx="300" cy="150" r="40" fill="#00C2FF" fill-opacity="0.3" stroke="#00C2FF" stroke-width="2"/>
+  <text x="300" y="155" fill="white" text-anchor="middle" font-family="Arial" font-size="14">AI</text>
+  
+  <!-- Connected business areas -->
+  <circle cx="180" cy="80" r="30" fill="#00C2FF" fill-opacity="0.2" stroke="#00C2FF" stroke-width="2"/>
+  <text x="180" y="85" fill="white" text-anchor="middle" font-family="Arial" font-size="12">Sales</text>
+  
+  <circle cx="180" cy="220" r="30" fill="#00C2FF" fill-opacity="0.2" stroke="#00C2FF" stroke-width="2"/>
+  <text x="180" y="225" fill="white" text-anchor="middle" font-family="Arial" font-size="12">HR</text>
+  
+  <circle cx="420" cy="80" r="30" fill="#00C2FF" fill-opacity="0.2" stroke="#00C2FF" stroke-width="2"/>
+  <text x="420" y="85" fill="white" text-anchor="middle" font-family="Arial" font-size="12">Finance</text>
+  
+  <circle cx="420" cy="220" r="30" fill="#00C2FF" fill-opacity="0.2" stroke="#00C2FF" stroke-width="2"/>
+  <text x="420" y="225" fill="white" text-anchor="middle" font-family="Arial" font-size="12">Ops</text>
+  
+  <!-- Connections -->
+  <line x1="270" y1="130" x2="210" y2="90" stroke="#00C2FF" stroke-width="2" stroke-opacity="0.7"/>
+  <line x1="270" y1="170" x2="210" y2="210" stroke="#00C2FF" stroke-width="2" stroke-opacity="0.7"/>
+  <line x1="330" y1="130" x2="390" y2="90" stroke="#00C2FF" stroke-width="2" stroke-opacity="0.7"/>
+  <line x1="330" y1="170" x2="390" y2="210" stroke="#00C2FF" stroke-width="2" stroke-opacity="0.7"/>
+  
+  <!-- Data flow visualization -->
+  <path d="M210 90C230 100 250 110 270 130" stroke="#00C2FF" stroke-width="1" stroke-dasharray="4 2" stroke-opacity="0.7"/>
+  <path d="M210 210C230 200 250 190 270 170" stroke="#00C2FF" stroke-width="1" stroke-dasharray="4 2" stroke-opacity="0.7"/>
+  <path d="M390 90C370 100 350 110 330 130" stroke="#00C2FF" stroke-width="1" stroke-dasharray="4 2" stroke-opacity="0.7"/>
+  <path d="M390 210C370 200 350 190 330 170" stroke="#00C2FF" stroke-width="1" stroke-dasharray="4 2" stroke-opacity="0.7"/>
+  
+  <!-- Text overlay -->
+  <rect x="150" y="250" width="300" height="40" rx="5" fill="#00C2FF"/>
+  <text x="300" y="275" fill="white" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Implementing AI in Your Business</text>
+</svg>

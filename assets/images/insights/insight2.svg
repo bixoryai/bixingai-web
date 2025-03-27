@@ -1,0 +1,51 @@
+<svg width="600" height="300" viewBox="0 0 600 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="300" fill="#121A29"/>
+  
+  <!-- AI-themed background pattern -->
+  <path d="M0 0L600 0L600 300L0 300L0 0Z" fill="#7000FF" fill-opacity="0.05"/>
+  
+  <!-- Neural network visualization -->
+  <!-- Layer 1 -->
+  <circle cx="150" cy="100" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  <circle cx="150" cy="150" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  <circle cx="150" cy="200" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  
+  <!-- Layer 2 -->
+  <circle cx="300" cy="75" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  <circle cx="300" cy="125" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  <circle cx="300" cy="175" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  <circle cx="300" cy="225" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  
+  <!-- Layer 3 -->
+  <circle cx="450" cy="100" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  <circle cx="450" cy="150" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  <circle cx="450" cy="200" r="10" fill="#7000FF" fill-opacity="0.7"/>
+  
+  <!-- Connections Layer 1 to Layer 2 -->
+  <line x1="160" y1="100" x2="290" y2="75" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="160" y1="100" x2="290" y2="125" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="160" y1="100" x2="290" y2="175" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  
+  <line x1="160" y1="150" x2="290" y2="75" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="160" y1="150" x2="290" y2="125" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="160" y1="150" x2="290" y2="175" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="160" y1="150" x2="290" y2="225" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  
+  <line x1="160" y1="200" x2="290" y2="125" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="160" y1="200" x2="290" y2="175" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="160" y1="200" x2="290" y2="225" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  
+  <!-- Connections Layer 2 to Layer 3 -->
+  <line x1="310" y1="75" x2="440" y2="100" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="310" y1="125" x2="440" y2="100" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="310" y1="125" x2="440" y2="150" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  
+  <line x1="310" y1="175" x2="440" y2="150" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  <line x1="310" y1="175" x2="440" y2="200" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  
+  <line x1="310" y1="225" x2="440" y2="200" stroke="#7000FF" stroke-width="2" stroke-opacity="0.5"/>
+  
+  <!-- Text overlay -->
+  <rect x="150" y="250" width="300" height="40" rx="5" fill="#7000FF"/>
+  <text x="300" y="275" fill="white" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Advances in Machine Learning Models</text>
+</svg>
