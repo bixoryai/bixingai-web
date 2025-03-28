@@ -25,6 +25,7 @@ This website serves as the digital presence for Bixing Technology, a company spe
 - AOS (Animate On Scroll) for scroll animations
 - Custom internationalization (i18n) system for language switching
 - Optimized for performance and SEO
+- Automated project status tracking via Git hooks
 
 ## Pages
 
