@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page.title">Contact Us - Bixing Technology</title>
+    
+    <!-- Favicon - comprehensive approach -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <meta name="theme-color" content="#5ce1e6">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="assets/css/hero-section.css">
+    <link rel="stylesheet" href="assets/css/services-section.css">
+    <link rel="stylesheet" href="assets/css/demo-section.css">
+    <link rel="stylesheet" href="assets/css/portfolio-section.css">
+    <link rel="stylesheet" href="assets/css/testimonials-section.css">
+    <link rel="stylesheet" href="assets/css/insights-section.css">
+    <link rel="stylesheet" href="assets/css/cta-section.css">
+    <link rel="stylesheet" href="assets/css/footer-section.css">
+    
+    <style>
+        /* Contact page specific styles */
+        .contact-hero-section {
+            position: relative;
+            padding: 120px 0 100px;
+            background: var(--dark-bg);
+            color: var(--white);
+            overflow: hidden;
+        }
+        
+        .contact-hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .contact-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info-icon {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            flex-shrink: 0;
+            margin-top: 3px;
+        }
+        
+        .contact-info-text {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border-radius: 8px;
+            padding: 12px 15px;
+        }
+        
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--primary-color);
+            color: var(--white);
+            box-shadow: none;
+        }
+        
+        .form-label {
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        .submit-btn {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 30px;
+            padding: 12px 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .map-section {
+            position: relative;
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .map-container {
+            height: 100%;
+            width: 100%;
+            filter: grayscale(100%) invert(92%) contrast(83%);
+        }
+        
+        .contact-tabs .nav-link {
+            color: var(--text-medium);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            margin-right: 10px;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-tabs .nav-link:hover {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-tabs .nav-link.active {
+            color: var(--white);
+            background: var(--primary-gradient);
+            border-color: transparent;
+        }
+        
+        .wechat-qr-large {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            border: 3px solid #4CAF50;
+            margin: 0 auto 20px;
+            display: block;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-gradient);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .office-info {
+            margin-top: 30px;
+        }
+        
+        .office-title {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .office-address {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
+                        <span data-i18n="footer.company" style="font-weight: bold;">Bixing Technology</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
+                                    Products & Services
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="services.html" data-i18n="nav.allServices">All Services</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
+                                    <li><a class="dropdown-item" href="custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                                    <li><a class="dropdown-item" href="consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="insights.html" data-i18n="nav.industryInsights">Industry Insights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html" data-i18n="nav.about">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="careers.html" data-i18n="nav.careers">Careers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="contact.html" data-i18n="nav.contact">Contact Us</a>
+                            </li>
+                            <!-- Language Selector -->
+                            <li class="nav-item">
+                                <div class="language-selector">
+                                    <button onclick="toggleLanguage()" class="btn btn-sm btn-outline-light rounded-pill px-3">
+                                        <span id="currentLanguage">EN</span>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="contact-hero-section">
+        <div class="contact-hero-particles" id="contact-hero-particles"></div>
+        <div class="container contact-hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <h1 class="hero-title display-4 fw-bold text-gradient mb-4">Get in Touch</h1>
+                    <p class="hero-subtitle lead mb-5">Have questions or want to discuss how AI can transform your business? We're here to help.</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shape">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
+                <path fill="var(--dark-bg-primary)" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,90.7C384,85,480,107,576,117.3C672,128,768,128,864,122.7C960,117,1056,107,1152,96C1248,85,1344,75,1392,69.3L1440,64L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- Contact Information Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Contact Cards -->
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="mb-3">Email Us</h3>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                <a href="mailto:develop@bixory.ai" class="text-white">develop@bixory.ai</a>
+                            </div>
+                        </div>
+                        <p>For general inquiries, partnership opportunities, or any questions about our services.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <h3 class="mb-3">Connect on WeChat</h3>
+                        <div class="contact-info-item">
+                            <div class="contact-info-icon">
+                                <i class="fab fa-weixin"></i>
+                            </div>
+                            <div class="contact-info-text">
+                                WeChat ID: <strong>bixingai</strong>
+                            </div>
+                        </div>
+                        <p>Add our WeChat account for quick responses and updates about our services.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-weixin"></i>
+                        </div>
+                        <h3 class="mb-3">WeChat Service Number</h3>
+                        <div class="text-center mb-3">
+                            <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr-large">
+                        </div>
+                        <p class="text-center">Scan the QR code to connect with us on WeChat</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Links (Hidden) -->
+            <div class="row mt-4 d-none">
+                <div class="col-lg-12 text-center" data-aos="fade-up">
+                    <h3 class="mb-4">Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Form Section -->
+    <section class="py-5 ai-nodes-bg contact-form-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mb-5 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Send Us a Message</h2>
+                    <p class="lead mb-5">Fill out the form below and we'll get back to you as soon as possible</p>
+                    
+                    <!-- Contact Tabs -->
+                    <ul class="nav nav-pills mb-4 justify-content-center contact-tabs" id="contactTabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="general-tab" data-bs-toggle="pill" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true">General Inquiry</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="business-tab" data-bs-toggle="pill" data-bs-target="#business" type="button" role="tab" aria-controls="business" aria-selected="false">Business Partnership</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="support-tab" data-bs-toggle="pill" data-bs-target="#support" type="button" role="tab" aria-controls="support" aria-selected="false">Technical Support</button>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="tab-content" id="contactTabsContent">
+                        <!-- General Inquiry Form -->
+                        <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+                            <div class="contact-form">
+                                <form id="generalInquiryForm">
+                                    <div class="row mb-4">
+                                        <div class="col-md-6 mb-3 mb-md-0">
+                                            <label for="firstName" class="form-label">First Name</label>
+                                            <input type="text" class="form-control" id="firstName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="lastName" class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" id="lastName" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mb-4">
+                                        <div class="col-md-6 mb-3 mb-md-0">
+                                            <label for="email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="email" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="phone" class="form-label">Phone (Optional)</label>
+                                            <input type="tel" class="form-control" id="phone">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <input type="text" class="form-control" id="subject" required>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" rows="5" required></textarea>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <button type="submit" class="btn submit-btn">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Business Partnership Form -->
+                        <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
+                            <div class="contact-form">
+                                <form id="businessPartnershipForm">
+                                    <div class="row mb-4">
+                                        <div class="col-md-6 mb-3 mb-md-0">
+                                            <label for="businessName" class="form-label">Company Name</label>
+                                            <input type="text" class="form-control" id="businessName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="businessContact" class="form-label">Contact Person</label>
+                                            <input type="text" class="form-control" id="businessContact" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mb-4">
+                                        <div class="col-md-6 mb-3 mb-md-0">
+                                            <label for="businessEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="businessEmail" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="businessPhone" class="form-label">Phone</label>
+                                            <input type="tel" class="form-control" id="businessPhone" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="partnershipType" class="form-label">Partnership Type</label>
+                                        <select class="form-control" id="partnershipType" required>
+                                            <option value="" selected disabled>Select partnership type</option>
+                                            <option value="reseller">Reseller Partnership</option>
+                                            <option value="technology">Technology Partnership</option>
+                                            <option value="strategic">Strategic Alliance</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="businessMessage" class="form-label">Partnership Details</label>
+                                        <textarea class="form-control" id="businessMessage" rows="5" required></textarea>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <button type="submit" class="btn submit-btn">Submit Partnership Inquiry</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <!-- Technical Support Form -->
+                        <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
+                            <div class="contact-form">
+                                <form id="supportForm">
+                                    <div class="row mb-4">
+                                        <div class="col-md-6 mb-3 mb-md-0">
+                                            <label for="supportName" class="form-label">Name</label>
+                                            <input type="text" class="form-control" id="supportName" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="supportEmail" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="supportEmail" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="productService" class="form-label">Product/Service</label>
+                                        <select class="form-control" id="productService" required>
+                                            <option value="" selected disabled>Select product/service</option>
+                                            <option value="aiEducation">AI Education/Training</option>
+                                            <option value="customSolutions">AI Custom Solutions</option>
+                                            <option value="consultation">Enterprise AI Consultation</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="issueType" class="form-label">Issue Type</label>
+                                        <select class="form-control" id="issueType" required>
+                                            <option value="" selected disabled>Select issue type</option>
+                                            <option value="technical">Technical Issue</option>
+                                            <option value="billing">Billing Question</option>
+                                            <option value="feedback">Feedback</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label for="supportMessage" class="form-label">Issue Description</label>
+                                        <textarea class="form-control" id="supportMessage" rows="5" required></textarea>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <button type="submit" class="btn submit-btn">Submit Support Request</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 mb-4 text-center" data-aos="fade-up">
+                    <h2 class="section-title">Our Location</h2>
+                    <p class="lead mb-5">Visit us at our office in Chengdu, China</p>
+                </div>
+                
+                <div class="col-lg-12" data-aos="fade-up">
+                    <div class="map-section">
+                        <div class="map-overlay"></div>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3437.1751352962197!2d104.06280867605839!3d30.5486699981722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x36efc52b6aaaaaab%3A0xd5f1f0e0c5c8e5e8!2sTianfu%20Software%20Park!5e0!3m2!1sen!2sus!4v1616598862035!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-circuit-bg"></div>
+        <div class="container footer-content">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-lg-3 col-md-3 px-4">
+                    <div class="footer-logo d-flex align-items-center mb-3">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img" style="height: 40px; margin-right: 10px;">
+                        <h4 class="footer-heading mb-0" data-i18n="footer.company">Bixing Technology</h4>
+                    </div>
+                    <p data-i18n="footer.companyDescription">A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-3 px-4">
+                    <h4 class="footer-heading" data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.home">Home</span></a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.about">About</span></a></li>
+                        <li><a href="careers.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.careers">Careers</span></a></li>
+                        <li><a href="insights.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.industryInsights">Industry Insights</span></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="col-lg-3 col-md-3 px-4">
+                    <h4 class="footer-heading" data-i18n="footer.services">Products & Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="education.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiEducation">AI Education & Training</span></a></li>
+                        <li><a href="custom-solutions.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.customSolutions">Custom AI Solutions</span></a></li>
+                        <li><a href="consultation.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-3 px-4">
+                    <h4 class="footer-heading" data-i18n="footer.contactUs">Contact Us</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fab fa-weixin" style="color: #4CAF50; font-size: 24px; margin-right: 10px;"></i>
+                            <span id="contact-email" data-i18n="footer.wechatId">bixingai</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="wechat-container mt-4">
+                        <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr" width="100" height="100" style="border-radius: 5px; border: 3px solid #4CAF50;">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="copyright">
+                    <span data-i18n="footer.copyright"> 2025 Bixing Technology. All Rights Reserved.</span>
+                    <span class="separator mx-2">|</span>
+                    <a href="privacy-policy.html" data-i18n="footer.privacyPolicy">Privacy Policy</a>
+                    <span class="separator mx-2">|</span>
+                    <a href="terms-of-service.html" data-i18n="footer.termsOfService">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Initialize particles.js for hero section
+        particlesJS("contact-hero-particles", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    }
+                },
+                "opacity": {
+                    "value": 0.3,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.2,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "grab"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 140,
+                        "line_linked": {
+                            "opacity": 0.5
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+        
+        // Form submission handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your submission! We will get back to you soon.');
+                    form.reset();
+                });
+            });
+            
+            // Custom translations for Contact page
+            updateContactPageTranslations();
+        });
+        
+        // Override the toggleLanguage function for the Contact page
+        function toggleLanguage() {
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            const newLanguage = currentLang === 'en' ? 'zh' : 'en';
+            
+            localStorage.setItem('bixingLanguage', newLanguage);
+            
+            // Update the language toggle button
+            const languageToggle = document.getElementById('currentLanguage');
+            if (languageToggle) {
+                languageToggle.textContent = newLanguage.toUpperCase();
+            }
+            
+            // Apply translations from i18n.js for navigation and common elements
+            if (typeof applyTranslations === 'function') {
+                applyTranslations();
+            }
+            
+            // Apply custom translations for Contact page
+            updateContactPageTranslations();
+            
+            // Force update company description
+            const companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
+            if (companyDescElement) {
+                if (newLanguage === 'en') {
+                    companyDescElement.textContent = "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.";
+                } else {
+                    companyDescElement.innerHTML = "国际前沿AI解决方案提供商,<br>助你充满AI的力量。";
+                }
+            }
+            
+            // Ensure header navigation is properly translated
+            const navElements = document.querySelectorAll('[data-i18n^="nav."]');
+            navElements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (key && typeof translations !== 'undefined' && translations[newLanguage] && translations[newLanguage][key]) {
+                    element.textContent = translations[newLanguage][key];
+                }
+            });
+        }
+        
+        // Custom language toggle implementation for Contact page
+        function updateContactPageTranslations() {
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            
+            // Hero section translations
+            if (currentLang === 'zh') {
+                document.querySelector('.hero-title').textContent = '联系我们';
+                document.querySelector('.hero-subtitle').textContent = '有问题或想讨论AI如何转变您的业务？我们随时为您提供帮助。';
+                
+                // Contact cards translations
+                document.querySelectorAll('.contact-card h3')[0].textContent = '电子邮件';
+                document.querySelectorAll('.contact-card p')[0].textContent = '用于一般咨询、合作机会或有关我们服务的任何问题。';
+                
+                document.querySelectorAll('.contact-card h3')[1].textContent = '连接微信';
+                document.querySelectorAll('.contact-card p')[1].textContent = '添加我们的微信账号以获取快速响应和有关我们的服务的更新。';
+                
+                document.querySelectorAll('.contact-card h3')[2].textContent = '微信服务号';
+                document.querySelectorAll('.contact-card p')[2].textContent = '扫描二维码在微信上与我们联系';
+                
+                // Social links section
+                document.querySelector('.row.mt-4 h3').textContent = '关注我们';
+                
+                // Contact form section
+                document.querySelector('.contact-form-section h2').textContent = '发送消息';
+                document.querySelector('.contact-form-section .lead').textContent = '填写下面的表格，我们会尽快回复您';
+                
+                // Contact tabs
+                document.querySelector('#general-tab').textContent = '一般咨询';
+                document.querySelector('#business-tab').textContent = '商业合作';
+                document.querySelector('#support-tab').textContent = '技术支持';
+                
+                // General inquiry form
+                document.querySelectorAll('.form-label')[0].textContent = '名';
+                document.querySelectorAll('.form-label')[1].textContent = '姓';
+                document.querySelectorAll('.form-label')[2].textContent = '电子邮件';
+                document.querySelectorAll('.form-label')[3].textContent = '电话（可选）';
+                document.querySelectorAll('.form-label')[4].textContent = '主题';
+                document.querySelectorAll('.form-label')[5].textContent = '消息';
+                document.querySelector('#generalInquiryForm .submit-btn').textContent = '发送消息';
+                
+                // Business partnership form
+                document.querySelectorAll('.form-label')[6].textContent = '公司名称';
+                document.querySelectorAll('.form-label')[7].textContent = '联系人';
+                document.querySelectorAll('.form-label')[8].textContent = '电子邮件';
+                document.querySelectorAll('.form-label')[9].textContent = '电话';
+                document.querySelectorAll('.form-label')[10].textContent = '合作类型';
+                document.querySelectorAll('option')[0].textContent = '选择合作类型';
+                document.querySelectorAll('option')[1].textContent = '经销商合作';
+                document.querySelectorAll('option')[2].textContent = '技术合作';
+                document.querySelectorAll('option')[3].textContent = '战略联盟';
+                document.querySelectorAll('option')[4].textContent = '其他';
+                document.querySelectorAll('.form-label')[11].textContent = '合作详情';
+                document.querySelector('#businessPartnershipForm .submit-btn').textContent = '提交合作咨询';
+                
+                // Technical support form
+                document.querySelectorAll('.form-label')[12].textContent = '姓名';
+                document.querySelectorAll('.form-label')[13].textContent = '电子邮件';
+                document.querySelectorAll('.form-label')[14].textContent = '产品/服务';
+                document.querySelectorAll('option')[5].textContent = '选择产品/服务';
+                document.querySelectorAll('option')[6].textContent = 'AI教育/培训';
+                document.querySelectorAll('option')[7].textContent = 'AI定制解决方案';
+                document.querySelectorAll('option')[8].textContent = '企业AI咨询';
+                document.querySelectorAll('option')[9].textContent = '其他';
+                document.querySelectorAll('.form-label')[15].textContent = '问题类型';
+                document.querySelectorAll('option')[10].textContent = '选择问题类型';
+                document.querySelectorAll('option')[11].textContent = '技术问题';
+                document.querySelectorAll('option')[12].textContent = '账单问题';
+                document.querySelectorAll('option')[13].textContent = '反馈';
+                document.querySelectorAll('option')[14].textContent = '其他';
+                document.querySelectorAll('.form-label')[16].textContent = '问题描述';
+                document.querySelector('#supportForm .submit-btn').textContent = '提交支持请求';
+                
+                // Map section
+                document.querySelector('.map-section').previousElementSibling.querySelector('h2').textContent = '我们的位置';
+                document.querySelector('.map-section').previousElementSibling.querySelector('p').textContent = '欢迎访问我们位于中国成都的办公室';
+            } else {
+                document.querySelector('.hero-title').textContent = 'Get in Touch';
+                document.querySelector('.hero-subtitle').textContent = 'Have questions or want to discuss how AI can transform your business? We\'re here to help.';
+                
+                // Contact cards translations
+                document.querySelectorAll('.contact-card h3')[0].textContent = 'Email Us';
+                document.querySelectorAll('.contact-card p')[0].textContent = 'For general inquiries, partnership opportunities, or any questions about our services.';
+                
+                document.querySelectorAll('.contact-card h3')[1].textContent = 'Connect on WeChat';
+                document.querySelectorAll('.contact-card p')[1].textContent = 'Add our WeChat account for quick responses and updates about our services.';
+                
+                document.querySelectorAll('.contact-card h3')[2].textContent = 'WeChat Service Number';
+                document.querySelectorAll('.contact-card p')[2].textContent = 'Scan the QR code to connect with us on WeChat';
+                
+                // Social links section
+                document.querySelector('.row.mt-4 h3').textContent = 'Connect With Us';
+                
+                // Contact form section
+                document.querySelector('.contact-form-section h2').textContent = 'Send Us a Message';
+                document.querySelector('.contact-form-section .lead').textContent = 'Fill out the form below and we\'ll get back to you as soon as possible';
+                
+                // Contact tabs
+                document.querySelector('#general-tab').textContent = 'General Inquiry';
+                document.querySelector('#business-tab').textContent = 'Business Partnership';
+                document.querySelector('#support-tab').textContent = 'Technical Support';
+                
+                // General inquiry form
+                document.querySelectorAll('.form-label')[0].textContent = 'First Name';
+                document.querySelectorAll('.form-label')[1].textContent = 'Last Name';
+                document.querySelectorAll('.form-label')[2].textContent = 'Email';
+                document.querySelectorAll('.form-label')[3].textContent = 'Phone (Optional)';
+                document.querySelectorAll('.form-label')[4].textContent = 'Subject';
+                document.querySelectorAll('.form-label')[5].textContent = 'Message';
+                document.querySelector('#generalInquiryForm .submit-btn').textContent = 'Send Message';
+                
+                // Business partnership form
+                document.querySelectorAll('.form-label')[6].textContent = 'Company Name';
+                document.querySelectorAll('.form-label')[7].textContent = 'Contact Person';
+                document.querySelectorAll('.form-label')[8].textContent = 'Email';
+                document.querySelectorAll('.form-label')[9].textContent = 'Phone';
+                document.querySelectorAll('.form-label')[10].textContent = 'Partnership Type';
+                document.querySelectorAll('option')[0].textContent = 'Select partnership type';
+                document.querySelectorAll('option')[1].textContent = 'Reseller Partnership';
+                document.querySelectorAll('option')[2].textContent = 'Technology Partnership';
+                document.querySelectorAll('option')[3].textContent = 'Strategic Alliance';
+                document.querySelectorAll('option')[4].textContent = 'Other';
+                document.querySelectorAll('.form-label')[11].textContent = 'Partnership Details';
+                document.querySelector('#businessPartnershipForm .submit-btn').textContent = 'Submit Partnership Inquiry';
+                
+                // Technical support form
+                document.querySelectorAll('.form-label')[12].textContent = 'Name';
+                document.querySelectorAll('.form-label')[13].textContent = 'Email';
+                document.querySelectorAll('.form-label')[14].textContent = 'Product/Service';
+                document.querySelectorAll('option')[5].textContent = 'Select product/service';
+                document.querySelectorAll('option')[6].textContent = 'AI Education/Training';
+                document.querySelectorAll('option')[7].textContent = 'AI Custom Solutions';
+                document.querySelectorAll('option')[8].textContent = 'Enterprise AI Consultation';
+                document.querySelectorAll('option')[9].textContent = 'Other';
+                document.querySelectorAll('.form-label')[15].textContent = 'Issue Type';
+                document.querySelectorAll('option')[10].textContent = 'Select issue type';
+                document.querySelectorAll('option')[11].textContent = 'Technical Issue';
+                document.querySelectorAll('option')[12].textContent = 'Billing Question';
+                document.querySelectorAll('option')[13].textContent = 'Feedback';
+                document.querySelectorAll('option')[14].textContent = 'Other';
+                document.querySelectorAll('.form-label')[16].textContent = 'Issue Description';
+                document.querySelector('#supportForm .submit-btn').textContent = 'Submit Support Request';
+                
+                // Map section
+                document.querySelector('.map-section').previousElementSibling.querySelector('h2').textContent = 'Our Location';
+                document.querySelector('.map-section').previousElementSibling.querySelector('p').textContent = 'Visit us at our office in Chengdu, China';
+            }
+        }
+    </script>
+</body>
+</html>

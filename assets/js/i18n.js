@@ -11,7 +11,7 @@ const translations = {
     
     // Navigation
     "nav.home": "Home",
-    "nav.services": "Services",
+    "nav.services": "Products & Services",
     "nav.allServices": "All Services",
     "nav.education": "AI Education/Training",
     "nav.customSolutions": "AI Custom Solutions",
@@ -117,11 +117,11 @@ const translations = {
     
     // Footer
     "footer.company": "Bixing Technology",
-    "footer.companyDescription": "Bixing Technology is a leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.",
+    "footer.companyDescription": "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.",
     "footer.quickLinks": "Quick Links",
     "footer.home": "Home",
     "footer.about": "About",
-    "footer.services": "Services",
+    "footer.services": "Products & Services",
     "footer.careers": "Careers",
     "footer.industryInsights": "Industry Insights",
     "footer.contact": "Contact",
@@ -392,7 +392,7 @@ const translations = {
     
     // Navigation
     "nav.home": "首页",
-    "nav.services": "服务",
+    "nav.services": "产品服务",
     "nav.allServices": "所有服务",
     "nav.education": "AI教育培训",
     "nav.customSolutions": "AI定制解决方案",
@@ -404,7 +404,7 @@ const translations = {
     
     // Hero Section
     "hero.title": "AI创新赋能企业",
-    "hero.subtitle": "成都毕行科技有限公司提供定制AI解决方案、教育和咨询服务，助力企业转型",
+    "hero.subtitle": "定制AI解决方案、教育和咨询服务，助力企业转型",
     "hero.exploreServices": "探索服务",
     "hero.contactUs": "联系我们",
     "hero.empoweredBy": "技术支持",
@@ -498,11 +498,11 @@ const translations = {
     
     // Footer
     "footer.company": "成都毕行科技有限公司",
-    "footer.companyDescription": "成都毕行科技有限公司是AI解决方案的领先提供商。我们帮助组织利用人工智能的力量推动增长和创新。",
+    "footer.companyDescription": "国际前沿AI解决方案提供商,<br>助你充满AI的力量。",
     "footer.quickLinks": "快速链接",
     "footer.home": "首页",
     "footer.about": "关于我们",
-    "footer.services": "服务",
+    "footer.services": "产品服务",
     "footer.careers": "职业发展",
     "footer.industryInsights": "行业洞察",
     "footer.contact": "联系我们",

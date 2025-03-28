@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-i18n="page.title">Bixing Technology - AI Solutions for Enterprise</title>
     
-    <!-- Favicon - multiple formats for better compatibility -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Favicon - comprehensive approach -->
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/images/favicon.png">
+    <link rel="manifest" href="assets/images/site.webmanifest">
+    <meta name="theme-color" content="#5ce1e6">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -151,6 +153,111 @@
             height: auto !important;
             display: inline-block !important;
         }
+        
+        /* Hero Section Styles */
+        .hero-section {
+            position: relative;
+            padding-bottom: 150px; 
+        }
+        
+        /* Hero content optimization */
+        .hero-content {
+            padding-top: 2rem;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 5rem;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            margin-bottom: 2rem;
+        }
+        
+        .hero-buttons .btn {
+            padding: 0.6rem 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Enhanced title gradient */
+        .hero-title.text-gradient {
+            background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(255, 184, 0, 0.2);
+            display: inline-block;
+        }
+        
+        /* Empowered By Section Styles */
+        .empowered-by-section {
+            background-color: transparent;
+            padding: 0;
+            position: absolute;
+            bottom: 10px; 
+            left: 0;
+            right: 0;
+            z-index: 3;
+        }
+        
+        .empowered-by-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .empowered-by-text {
+            color: var(--white);
+            font-size: 20px;
+            font-weight: 700;
+            margin-right: 20px;
+        }
+        
+        .ai-models {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .ai-model {
+            color: var(--white);
+            font-size: 16px;
+            margin: 5px 10px;
+        }
+        
+        .ai-model.deepseek {
+            color: #3498db;
+        }
+        
+        .ai-model.qwen {
+            color: #f1c40f;
+        }
+        
+        .ai-model.llama {
+            color: #2ecc71;
+        }
+        
+        .ai-model.chatgpt {
+            color: #9b59b6;
+        }
+        
+        .ai-model.claude {
+            color: #1abc9c;
+        }
+        
+        .ai-model.gemini {
+            color: #16a085;
+        }
     </style>
 </head>
 <body>
@@ -161,7 +268,7 @@
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.html">
                         <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
-                        <span data-i18n="footer.company">Bixing Technology</span>
+                        <span data-i18n="footer.company" style="font-weight: bold;">Bixing Technology</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -170,7 +277,7 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
-                                    Services
+                                    Products & Services
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="services.html" data-i18n="nav.allServices">All Services</a></li>
@@ -207,26 +314,17 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section ai-circuit-bg">
+    <section class="hero-section ai-circuit-bg" style="padding-top: 20px !important;">
         <div class="hero-particles" id="hero-particles"></div>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6" data-aos="fade-right">
-                    <h1 class="display-4 fw-bold mb-4 text-gradient" data-i18n="hero.title">Empowering Enterprises with AI Innovation</h1>
-                    <p class="lead mb-4" data-i18n="hero.subtitle">Custom AI solutions, education, and consultation services to transform your business</p>
-                    <div class="hero-buttons">
-                        <a href="#services" class="btn btn-primary me-3" data-i18n="hero.exploreServices">Explore Services</a>
-                        <a href="#contact" class="btn btn-outline-primary" data-i18n="hero.contactUs">Contact Us</a>
-                    </div>
-                    <div class="trusted-by mt-5">
-                        <p class="text-white mb-2" data-i18n="hero.empoweredBy">Empowered by</p>
-                        <div class="client-logos">
-                            <span class="client-logo">DEEPSEEK</span>
-                            <span class="client-logo">QWEN</span>
-                            <span class="client-logo">LLAMA</span>
-                            <span class="client-logo">CHATGPT</span>
-                            <span class="client-logo">CLAUDE</span>
-                            <span class="client-logo">GEMINI</span>
+                    <div class="hero-content">
+                        <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="hero.title">Empowering Enterprises with AI Innovation</h1>
+                        <p class="hero-subtitle lead" data-i18n="hero.subtitle">Custom AI solutions, education, and consultation services to transform your business</p>
+                        <div class="hero-buttons">
+                            <a href="#services" class="btn btn-primary me-3" data-i18n="hero.exploreServices">Explore Services</a>
+                            <a href="#contact" class="btn btn-outline-primary" data-i18n="hero.contactUs">Contact Us</a>
                         </div>
                     </div>
                 </div>
@@ -294,13 +392,33 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Empowered By Section - Positioned in the dark space created by the wavy border -->
+        <div class="empowered-by-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <div class="empowered-by-content">
+                            <span class="empowered-by-text" data-i18n="hero.empoweredBy">Empowered by</span>
+                            <span class="ai-model deepseek">DEEPSEEK</span>
+                            <span class="ai-model qwen">QWEN</span>
+                            <span class="ai-model llama">LLAMA</span>
+                            <span class="ai-model chatgpt">CHATGPT</span>
+                            <span class="ai-model claude">CLAUDE</span>
+                            <span class="ai-model gemini">GEMINI</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="hero-shape">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
                 <path fill="var(--dark-bg-primary)" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,90.7C384,85,480,107,576,117.3C672,128,768,128,864,122.7C960,117,1056,107,1152,96C1248,85,1344,75,1392,69.3L1440,64L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path>
             </svg>
         </div>
     </section>
-
+    
     <!-- Services Section -->
     <section id="services" class="services-section ai-nodes-bg">
         <div class="container">
@@ -632,7 +750,7 @@
                         <img src="assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img" style="height: 40px; margin-right: 10px;">
                         <h4 class="footer-heading mb-0" data-i18n="footer.company">Bixing Technology</h4>
                     </div>
-                    <p data-i18n="footer.companyDescription">Bixing Technology is a leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
+                    <p data-i18n="footer.companyDescription">A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
                 </div>
                 
                 <!-- Quick Links -->
@@ -648,7 +766,7 @@
                 
                 <!-- Services -->
                 <div class="col-lg-3 col-md-3 px-4">
-                    <h4 class="footer-heading" data-i18n="footer.services">Services</h4>
+                    <h4 class="footer-heading" data-i18n="footer.services">Products & Services</h4>
                     <ul class="footer-links">
                         <li><a href="education.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiEducation">AI Education & Training</span></a></li>
                         <li><a href="custom-solutions.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.customSolutions">Custom AI Solutions</span></a></li>
@@ -702,10 +820,25 @@
                 qrCode.height = 100;
             }
             
+            // Force update company description
+            const companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
+            if (companyDescElement) {
+                const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+                if (currentLang === 'en') {
+                    companyDescElement.textContent = "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.";
+                } else {
+                    companyDescElement.innerHTML = "国际前沿AI解决方案提供商,<br>助你充满AI的力量。";
+                }
+            }
+            
             // Ensure translations don't override our changes
             if (window.translations) {
                 if (window.translations.en) window.translations.en['footer.email'] = 'develop@bixory.ai';
                 if (window.translations.zh) window.translations.zh['footer.email'] = 'develop@bixory.ai';
+                
+                // Update company descriptions in translations object
+                if (window.translations.en) window.translations.en['footer.companyDescription'] = 'A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.';
+                if (window.translations.zh) window.translations.zh['footer.companyDescription'] = '国际前沿AI解决方案提供商,<br>助你充满AI的力量。';
             }
         });
         
@@ -833,7 +966,7 @@
             'en': {
                 "page.title": "Bixing Technology - AI Solutions for Enterprise",
                 "nav.home": "Home",
-                "nav.services": "Services",
+                "nav.services": "Products & Services",
                 "nav.allServices": "All Services",
                 "nav.education": "AI Education/Training",
                 "nav.customSolutions": "AI Custom Solutions",
@@ -934,11 +1067,11 @@
                 
                 // Footer
                 "footer.company": "Bixing Technology",
-                "footer.companyDescription": "Bixing Technology is a leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.",
+                "footer.companyDescription": "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.",
                 "footer.quickLinks": "Quick Links",
                 "footer.home": "Home",
                 "footer.about": "About",
-                "footer.services": "Services",
+                "footer.services": "Products & Services",
                 "footer.careers": "Careers",
                 "footer.industryInsights": "Industry Insights",
                 "footer.contact": "Contact",
@@ -959,7 +1092,7 @@
             'zh': {
                 "page.title": "成都毕行科技有限公司 - 企业AI解决方案",
                 "nav.home": "首页",
-                "nav.services": "服务",
+                "nav.services": "产品服务",
                 "nav.allServices": "所有服务",
                 "nav.education": "AI教育培训",
                 "nav.customSolutions": "AI定制解决方案",
@@ -969,7 +1102,7 @@
                 "nav.careers": "职业发展",
                 "nav.contact": "联系我们",
                 "hero.title": "AI创新赋能企业",
-                "hero.subtitle": "成都毕行科技有限公司提供定制AI解决方案、教育和咨询服务，助力企业转型",
+                "hero.subtitle": "定制AI解决方案、教育和咨询服务，助力企业转型",
                 "hero.exploreServices": "探索服务",
                 "hero.contactUs": "联系我们",
                 "hero.empoweredBy": "技术支持",
@@ -1060,11 +1193,11 @@
                 
                 // Footer
                 "footer.company": "成都毕行科技有限公司",
-                "footer.companyDescription": "成都毕行科技有限公司是AI解决方案的领先提供商。我们帮助组织利用人工智能的力量推动增长和创新。",
+                "footer.companyDescription": "国际前沿AI解决方案提供商, 助你充满AI的力量。",
                 "footer.quickLinks": "快速链接",
                 "footer.home": "首页",
                 "footer.about": "关于我们",
-                "footer.services": "服务",
+                "footer.services": "产品服务",
                 "footer.careers": "职业发展",
                 "footer.industryInsights": "行业洞察",
                 "footer.contact": "联系我们",
@@ -1085,11 +1218,11 @@
         };
         
         // Current language (default to English)
-        let currentLanguage = localStorage.getItem('language') || 'en';
+        let currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
         
         // Function to apply translations
         function applyTranslations() {
-            const currentLanguage = localStorage.getItem('language') || 'en';
+            const currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
             
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
@@ -1120,9 +1253,9 @@
         
         // Toggle language function
         function toggleLanguage() {
-            const currentLanguage = localStorage.getItem('language') || 'en';
+            const currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
             const newLanguage = currentLanguage === 'en' ? 'zh' : 'en';
-            localStorage.setItem('language', newLanguage);
+            localStorage.setItem('bixingLanguage', newLanguage);
             
             // Apply translations immediately
             document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -1149,6 +1282,16 @@
             // Force update WeChat ID
             if (document.getElementById('contact-email')) {
                 document.getElementById('contact-email').textContent = 'bixingai';
+            }
+            
+            // Force update company description
+            const companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
+            if (companyDescElement) {
+                if (newLanguage === 'en') {
+                    companyDescElement.textContent = "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.";
+                } else {
+                    companyDescElement.innerHTML = "国际前沿AI解决方案提供商,<br>助你充满AI的力量。";
+                }
             }
             
             // Reload the page to ensure all translations are applied

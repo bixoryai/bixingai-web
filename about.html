@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="page.title">About Us - Bixing Technology</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="assets/css/hero-section.css">
+    <link rel="stylesheet" href="assets/css/services-section.css">
+    <link rel="stylesheet" href="assets/css/demo-section.css">
+    <link rel="stylesheet" href="assets/css/portfolio-section.css">
+    <link rel="stylesheet" href="assets/css/testimonials-section.css">
+    <link rel="stylesheet" href="assets/css/insights-section.css">
+    <link rel="stylesheet" href="assets/css/cta-section.css">
+    <link rel="stylesheet" href="assets/css/footer-section.css">
+    
+    <style>
+        /* About page specific styles */
+        .about-hero-section {
+            position: relative;
+            padding: 120px 0 100px;
+            background: var(--dark-bg);
+            color: var(--white);
+            overflow: hidden;
+        }
+        
+        .mission-section {
+            background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg));
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('assets/images/circuit-pattern.svg');
+            background-size: cover;
+            opacity: 0.1;
+            z-index: 1;
+        }
+        
+        .mission-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mission-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        .mission-statement {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .what-we-do-section {
+            background: var(--dark-surface);
+            padding: 80px 0;
+        }
+        
+        .service-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--primary-color);
+        }
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+        
+        .service-box:nth-child(1) .service-icon {
+            background: var(--gradient-card-1);
+        }
+        
+        .service-box:nth-child(2) .service-icon {
+            background: var(--gradient-card-2);
+        }
+        
+        .service-box:nth-child(3) .service-icon {
+            background: var(--gradient-card-3);
+        }
+        
+        .strength-section {
+            background: var(--darker-bg);
+            padding: 80px 0;
+        }
+        
+        .strength-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .strength-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .team-section {
+            background: var(--dark-bg);
+            padding: 80px 0;
+        }
+        
+        .team-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .team-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .team-info {
+            padding: 20px;
+        }
+        
+        .team-name {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .team-position {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .partners-section {
+            background: var(--dark-surface);
+            padding: 80px 0;
+        }
+        
+        .partner-logo {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        .partner-logo img {
+            max-height: 50px;
+            max-width: 100%;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+        
+        .values-section {
+            background: linear-gradient(135deg, var(--dark-bg), var(--medium-dark));
+            padding: 80px 0;
+        }
+        
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .value-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .value-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            color: var(--text-medium);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
+                        <span data-i18n="footer.company">Bixing Technology</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
+                                    Products & Services
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="services.html" data-i18n="nav.allServices">All Services</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
+                                    <li><a class="dropdown-item" href="custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                                    <li><a class="dropdown-item" href="consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="insights.html" data-i18n="nav.industryInsights">Industry Insights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="about.html" data-i18n="nav.about">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="careers.html" data-i18n="nav.careers">Careers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact Us</a>
+                            </li>
+                            <!-- Language Selector -->
+                            <li class="nav-item">
+                                <div class="language-selector">
+                                    <button onclick="toggleLanguage()" class="btn btn-sm btn-outline-light rounded-pill px-3">
+                                        <span id="currentLanguage">EN</span>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="about-hero-section">
+        <div class="hero-particles" id="about-hero-particles"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <h1 class="hero-title display-4 fw-bold text-gradient mb-4">Pioneering AI Solutions for Enterprise Innovation</h1>
+                    <p class="hero-subtitle lead mb-5">Empowering businesses through cutting-edge artificial intelligence technologies, education, and strategic implementation</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-shape">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
+                <path fill="var(--dark-bg-primary)" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,90.7C384,85,480,107,576,117.3C672,128,768,128,864,122.7C960,117,1056,107,1152,96C1248,85,1344,75,1392,69.3L1440,64L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- Mission Statement Section -->
+    <section class="mission-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mission-content" data-aos="fade-up">
+                    <h2 class="mission-title">Our Mission</h2>
+                    <p class="mission-statement">Our mission is to empower enterprises through innovative AI solutions that transform operations, enhance decision-making, and drive sustainable growth.</p>
+                    <div class="mission-visual">
+                        <div class="circuit-animation">
+                            <svg width="100%" height="100" viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg">
+                                <path class="circuit-path" d="M0,50 Q200,10 400,50 T800,50" stroke="var(--primary-color)" stroke-width="2" fill="none" />
+                                <circle class="circuit-node" cx="0" cy="50" r="5" fill="var(--gold)" />
+                                <circle class="circuit-node" cx="200" cy="10" r="5" fill="var(--primary-color)" />
+                                <circle class="circuit-node" cx="400" cy="50" r="5" fill="var(--accent-color)" />
+                                <circle class="circuit-node" cx="600" cy="90" r="5" fill="var(--secondary-color)" />
+                                <circle class="circuit-node" cx="800" cy="50" r="5" fill="var(--gold)" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- What We Do Section -->
+    <section class="what-we-do-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <h2 class="section-title">What We Do</h2>
+                    <p class="section-subtitle">Comprehensive AI solutions tailored to enterprise needs</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="mb-3">AI Education & Training</h3>
+                        <p>Comprehensive training programs designed to equip your team with the knowledge and skills needed to leverage AI effectively in your business operations.</p>
+                        <ul class="mt-3 list-unstyled">
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Executive AI literacy programs</li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Technical AI development courses</li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Customized workshops</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="mb-3">AI Custom Solutions</h3>
+                        <p>Tailored AI applications and systems developed to address your specific business challenges and unlock new opportunities for growth and efficiency.</p>
+                        <ul class="mt-3 list-unstyled">
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i>AI data services</li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Model training & deployment</li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Custom AI apps & agents</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-box">
+                        <div class="service-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="mb-3">Enterprise AI Consultation</h3>
+                        <p>Strategic guidance to help you navigate the AI landscape, identify high-value opportunities, and develop a roadmap for successful AI implementation.</p>
+                        <ul class="mt-3 list-unstyled">
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i>AI readiness assessment</li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Implementation strategy</li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i>ROI optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Strength Section -->
+    <section class="strength-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <h2 class="section-title">Our Strength</h2>
+                    <p class="section-subtitle">What sets us apart in the AI landscape</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="strength-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="me-3">
+                                <i class="fas fa-microchip fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="mb-0">Technical Expertise</h3>
+                        </div>
+                        <p>Our team comprises AI specialists with deep expertise in machine learning, natural language processing, computer vision, and other cutting-edge technologies.</p>
+                        <div class="progress mt-3" style="height: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 95%; background: var(--gradient-card-1);" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="strength-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="me-3">
+                                <i class="fas fa-building fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="mb-0">Industry Knowledge</h3>
+                        </div>
+                        <p>We understand the unique challenges and opportunities across various industries, allowing us to deliver AI solutions that address specific business needs.</p>
+                        <div class="progress mt-3" style="height: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 90%; background: var(--gradient-card-2);" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="strength-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="me-3">
+                                <i class="fas fa-cogs fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="mb-0">Customized Approach</h3>
+                        </div>
+                        <p>We don't believe in one-size-fits-all solutions. Every AI implementation is tailored to your specific goals, infrastructure, and organizational culture.</p>
+                        <div class="progress mt-3" style="height: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 100%; background: var(--gradient-card-3);" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="strength-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="me-3">
+                                <i class="fas fa-chart-line fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="mb-0">Proven Results</h3>
+                        </div>
+                        <p>Our track record speaks for itself, with successful AI implementations that have delivered measurable ROI and transformative business outcomes.</p>
+                        <div class="progress mt-3" style="height: 5px;">
+                            <div class="progress-bar" role="progressbar" style="width: 92%; background: var(--gradient-card-4);" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <h2 class="section-title">Our Team</h2>
+                    <p class="section-subtitle">Meet the experts behind our innovative AI solutions</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card">
+                        <img src="assets/images/team/team-1.svg" alt="Team Member" class="team-image">
+                        <div class="team-info">
+                            <h4 class="team-name">Dr. Wei Zhang</h4>
+                            <p class="team-position">Chief Executive Officer</p>
+                            <p class="team-bio">AI researcher with 15+ years of experience in machine learning and enterprise AI implementation.</p>
+                            <div class="team-social">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="team-card">
+                        <img src="assets/images/team/team-2.svg" alt="Team Member" class="team-image">
+                        <div class="team-info">
+                            <h4 class="team-name">Dr. Sarah Chen</h4>
+                            <p class="team-position">Chief Technology Officer</p>
+                            <p class="team-bio">Former research scientist specializing in natural language processing and large language models.</p>
+                            <div class="team-social">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="team-card">
+                        <img src="assets/images/team/team-3.svg" alt="Team Member" class="team-image">
+                        <div class="team-info">
+                            <h4 class="team-name">Michael Wang</h4>
+                            <p class="team-position">Head of AI Education</p>
+                            <p class="team-bio">Education specialist with expertise in developing AI curriculum for technical and non-technical audiences.</p>
+                            <div class="team-social">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-medium"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="team-card">
+                        <img src="assets/images/team/team-4.svg" alt="Team Member" class="team-image">
+                        <div class="team-info">
+                            <h4 class="team-name">Lisa Jiang</h4>
+                            <p class="team-position">Enterprise Solutions Director</p>
+                            <p class="team-bio">Business strategist with a background in implementing AI solutions across Fortune 500 companies.</p>
+                            <div class="team-social">
+                                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <p class="team-note">Our team extends beyond these leaders to include AI engineers, data scientists, industry specialists, and support staff dedicated to your success.</p>
+                    <a href="careers.html" class="btn btn-outline-primary mt-3">Join Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Our Partners Section -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <h2 class="section-title">Our Partners</h2>
+                    <p class="section-subtitle">Collaborating with industry leaders to deliver cutting-edge AI solutions</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/microsoft.svg" alt="Microsoft">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/aws.svg" alt="Amazon Web Services">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/google-cloud.svg" alt="Google Cloud">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/nvidia.svg" alt="NVIDIA">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/hugging-face.svg" alt="Hugging Face">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/openai.svg" alt="OpenAI">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/databricks.svg" alt="Databricks">
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
+                            <div class="partner-logo">
+                                <img src="assets/images/partners/ibm.svg" alt="IBM">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <p class="partner-desc-1">Our strategic partnerships with leading technology providers enable us to leverage the most advanced AI tools and platforms to deliver exceptional solutions for our clients.</p>
+                    <p class="partner-desc-2">We're constantly expanding our partner network to ensure access to the latest innovations in artificial intelligence and machine learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <h2 class="section-title">Our Values</h2>
+                    <p class="section-subtitle">The principles that guide our work and relationships</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="mb-3">Innovation</h3>
+                        <p>We constantly push the boundaries of what's possible with AI, exploring new approaches and technologies to solve complex challenges.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="mb-3">Excellence</h3>
+                        <p>We are committed to delivering the highest quality in everything we do, from code to customer service to educational content.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="mb-3">Integrity</h3>
+                        <p>We operate with transparency, honesty, and ethical responsibility in all our business practices and AI implementations.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="mb-3">Client-Focused</h3>
+                        <p>We prioritize understanding our clients' unique needs and delivering solutions that create genuine business value.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                    <h2 class="cta-title">Join Us on Our Mission</h2>
+                    <p class="cta-text">Ready to transform your enterprise with the power of AI? Let's start a conversation about your business needs and how our solutions can help you achieve your goals.</p>
+                    <div class="cta-buttons mt-4">
+                        <a href="contact.html" class="btn btn-primary btn-lg me-3">Contact Us</a>
+                        <a href="services.html" class="btn btn-outline-light btn-lg">Explore Services</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-circuit-bg"></div>
+        <div class="container footer-content">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-lg-3 col-md-3 px-4">
+                    <div class="footer-logo d-flex align-items-center mb-3">
+                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img" style="height: 40px; margin-right: 10px;">
+                        <h4 class="footer-heading mb-0" data-i18n="footer.company">Bixing Technology</h4>
+                    </div>
+                    <p data-i18n="footer.companyDescription">A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="col-lg-3 col-md-3 px-4">
+                    <h4 class="footer-heading" data-i18n="footer.quickLinks">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.home">Home</span></a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.about">About</span></a></li>
+                        <li><a href="careers.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.careers">Careers</span></a></li>
+                        <li><a href="insights.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.industryInsights">Industry Insights</span></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services -->
+                <div class="col-lg-3 col-md-3 px-4">
+                    <h4 class="footer-heading" data-i18n="footer.services">Products & Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="education.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiEducation">AI Education & Training</span></a></li>
+                        <li><a href="custom-solutions.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.customSolutions">Custom AI Solutions</span></a></li>
+                        <li><a href="consultation.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span></a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-3 px-4">
+                    <h4 class="footer-heading" data-i18n="footer.contactUs">Contact Us</h4>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fab fa-weixin" style="color: #4CAF50; font-size: 24px; margin-right: 10px;"></i>
+                            <span id="contact-email" data-i18n="footer.wechatId">bixingai</span>
+                        </li>
+                    </ul>
+                    
+                    <div class="wechat-container mt-4">
+                        <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr" width="100" height="100" style="border-radius: 5px; border: 3px solid #4CAF50;">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p class="copyright">
+                    <span data-i18n="footer.copyright"> 2023 Bixing Technology. All Rights Reserved.</span>
+                    <span class="separator mx-2">|</span>
+                    <a href="privacy-policy.html" data-i18n="footer.privacyPolicy">Privacy Policy</a>
+                    <span class="separator mx-2">|</span>
+                    <a href="terms-of-service.html" data-i18n="footer.termsOfService">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Particles JS -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/i18n.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+        
+        // Initialize particles for hero section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Force update company description
+            const companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
+            if (companyDescElement) {
+                const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+                if (currentLang === 'en') {
+                    companyDescElement.textContent = "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.";
+                } else {
+                    companyDescElement.innerHTML = "国际前沿AI解决方案提供商,<br>助你充满AI的力量。";
+                }
+            }
+            
+            particlesJS('about-hero-particles', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 0.5
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+        
+        // Custom language toggle implementation for About Us page
+        function updateAboutPageTranslations() {
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            
+            // Update page-specific elements based on language
+            if (currentLang === 'zh') {
+                // Hero section
+                document.querySelector('.hero-title').textContent = '企业AI创新的先驱';
+                document.querySelector('.hero-subtitle').textContent = '通过前沿人工智能技术、教育和战略实施赋能企业';
+                
+                // Mission section
+                document.querySelector('.mission-title').textContent = '我们的使命';
+                document.querySelector('.mission-statement').textContent = '通过创新AI解决方案赋能企业，推动数字化转型和可持续增长。';
+                
+                // What We Do section
+                document.querySelector('.what-we-do-section .section-title').textContent = '我们的业务';
+                document.querySelector('.what-we-do-section .section-subtitle').textContent = '我们如何帮助企业实现AI驱动的创新';
+                
+                // Services cards
+                const serviceBoxes = document.querySelectorAll('.service-box h3');
+                const serviceDescs = document.querySelectorAll('.service-box p');
+                const serviceItems = document.querySelectorAll('.service-box ul li');
+                
+                if (serviceBoxes.length >= 3) {
+                    serviceBoxes[0].textContent = 'AI教育培训';
+                    serviceDescs[0].textContent = '为您的团队提供定制化AI培训，从基础知识到高级应用，全方位提升AI能力。';
+                    serviceItems[0].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>高管AI素养课程';
+                    serviceItems[1].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>技术AI开发课程';
+                    serviceItems[2].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>定制化工作坊';
+                    
+                    serviceBoxes[1].textContent = 'AI定制解决方案';
+                    serviceDescs[1].textContent = '针对您的特定业务挑战开发量身定制的AI应用和系统，为增长和效率创造新机会。';
+                    serviceItems[3].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>AI数据服务';
+                    serviceItems[4].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>模型训练与部署';
+                    serviceItems[5].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>定制AI应用与代理';
+                    
+                    serviceBoxes[2].textContent = '企业AI咨询';
+                    serviceDescs[2].textContent = '提供战略指导，帮助您把握AI格局，识别高价值机会，并制定成功的AI实施路线图。';
+                    serviceItems[6].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>AI就绪评估';
+                    serviceItems[7].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>实施策略';
+                    serviceItems[8].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>投资回报优化';
+                }
+                
+                // Our Strength section
+                document.querySelector('.strength-section .section-title').textContent = '我们的优势';
+                document.querySelector('.strength-section .section-subtitle').textContent = '为什么选择毕行科技';
+                
+                const strengthCards = document.querySelectorAll('.strength-card h3');
+                const strengthDescs = document.querySelectorAll('.strength-card p');
+                
+                if (strengthCards.length >= 4) {
+                    strengthCards[0].textContent = '技术专长';
+                    strengthDescs[0].textContent = '我们的团队由AI专家组成，在机器学习、自然语言处理、计算机视觉和其他前沿技术方面拥有深厚专业知识。';
+                    
+                    strengthCards[1].textContent = '行业知识';
+                    strengthDescs[1].textContent = '我们了解各行业的独特挑战和机遇，能够提供针对特定业务需求的AI解决方案。';
+                    
+                    strengthCards[2].textContent = '定制化方法';
+                    strengthDescs[2].textContent = '我们不相信一刀切的解决方案。每个AI实施都根据您的特定目标、基础设施和组织文化量身定制。';
+                    
+                    strengthCards[3].textContent = '成果证明';
+                    strengthDescs[3].textContent = '我们的成功记录不言而喻，成功的AI实施为客户带来了可衡量的投资回报和变革性的业务成果。';
+                }
+                
+                // Team section
+                document.querySelector('.team-section .section-title').textContent = '我们的团队';
+                document.querySelector('.team-section .section-subtitle').textContent = '认识推动毕行科技创新的专家';
+                
+                const teamNames = document.querySelectorAll('.team-name');
+                const teamPositions = document.querySelectorAll('.team-position');
+                const teamBios = document.querySelectorAll('.team-bio');
+                
+                if (teamNames.length >= 4) {
+                    teamNames[0].textContent = '张伟博士';
+                    teamPositions[0].textContent = '首席执行官';
+                    teamBios[0].textContent = 'AI研究员，在机器学习和企业AI实施方面拥有15年以上经验。';
+                    
+                    teamNames[1].textContent = '陈莎拉博士';
+                    teamPositions[1].textContent = '首席技术官';
+                    teamBios[1].textContent = '前研究科学家，专注于自然语言处理和大型语言模型。';
+                    
+                    teamNames[2].textContent = '王迈克';
+                    teamPositions[2].textContent = 'AI教育负责人';
+                    teamBios[2].textContent = '教育专家，擅长为技术和非技术受众开发AI课程。';
+                    
+                    teamNames[3].textContent = '姜丽莎';
+                    teamPositions[3].textContent = '企业解决方案总监';
+                    teamBios[3].textContent = '商业战略家，拥有为财富500强公司实施AI解决方案的背景。';
+                }
+                
+                // Team note and button
+                document.querySelector('.team-note').textContent = '我们的团队不仅限于这些领导者，还包括AI工程师、数据科学家、行业专家和支持人员，致力于您的成功。';
+                document.querySelector('.team-section .btn').textContent = '加入我们的团队';
+                
+                // Partners section
+                document.querySelector('.partners-section .section-title').textContent = '我们的合作伙伴';
+                document.querySelector('.partners-section .section-subtitle').textContent = '与行业领导者合作，提供前沿AI解决方案';
+                
+                document.querySelector('.partner-desc-1').textContent = '我们与领先技术提供商的战略合作使我们能够利用最先进的AI工具和平台，为客户提供卓越的解决方案。';
+                document.querySelector('.partner-desc-2').textContent = '我们不断扩大合作伙伴网络，确保获取人工智能和机器学习领域的最新创新。';
+                
+                // Values section
+                document.querySelector('.values-section .section-title').textContent = '我们的价值观';
+                document.querySelector('.values-section .section-subtitle').textContent = '指导我们工作和关系的原则';
+                
+                const valueCards = document.querySelectorAll('.value-card h3');
+                const valueDescs = document.querySelectorAll('.value-card p');
+                
+                if (valueCards.length >= 4) {
+                    valueCards[0].textContent = '创新';
+                    valueDescs[0].textContent = '我们不断突破AI可能性的边界，探索新方法和技术来解决复杂挑战。';
+                    
+                    valueCards[1].textContent = '卓越';
+                    valueDescs[1].textContent = '我们致力于在所有工作中提供最高质量，从代码到客户服务再到教育内容。';
+                    
+                    valueCards[2].textContent = '诚信';
+                    valueDescs[2].textContent = '我们在所有业务实践和AI实施中以透明、诚实和道德责任为原则。';
+                    
+                    valueCards[3].textContent = '以客户为中心';
+                    valueDescs[3].textContent = '我们优先了解客户的独特需求，提供能创造真正业务价值的解决方案。';
+                }
+                
+                // CTA section
+                document.querySelector('.cta-title').textContent = '加入我们的使命';
+                document.querySelector('.cta-text').textContent = '准备好用AI的力量转变您的企业了吗？让我们开始讨论您的业务需求以及我们的解决方案如何帮助您实现目标。';
+                
+                const ctaButtons = document.querySelectorAll('.cta-buttons .btn');
+                if (ctaButtons.length >= 2) {
+                    ctaButtons[0].textContent = '联系我们';
+                    ctaButtons[1].textContent = '探索服务';
+                }
+                
+            } else {
+                // Hero section
+                document.querySelector('.hero-title').textContent = 'Pioneering AI Solutions for Enterprise Innovation';
+                document.querySelector('.hero-subtitle').textContent = 'Empowering businesses through cutting-edge artificial intelligence technologies, education, and strategic implementation';
+                
+                // Mission section
+                document.querySelector('.mission-title').textContent = 'Our Mission';
+                document.querySelector('.mission-statement').textContent = 'To empower enterprises through innovative AI solutions that drive digital transformation and sustainable growth.';
+                
+                // What We Do section
+                document.querySelector('.what-we-do-section .section-title').textContent = 'What We Do';
+                document.querySelector('.what-we-do-section .section-subtitle').textContent = 'Comprehensive AI solutions tailored to enterprise needs';
+                
+                // Services cards
+                const serviceBoxes = document.querySelectorAll('.service-box h3');
+                const serviceDescs = document.querySelectorAll('.service-box p');
+                const serviceItems = document.querySelectorAll('.service-box ul li');
+                
+                if (serviceBoxes.length >= 3) {
+                    serviceBoxes[0].textContent = 'AI Education & Training';
+                    serviceDescs[0].textContent = 'Comprehensive training programs designed to equip your team with the knowledge and skills needed to leverage AI effectively in your business operations.';
+                    serviceItems[0].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>Executive AI literacy programs';
+                    serviceItems[1].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>Technical AI development courses';
+                    serviceItems[2].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>Customized workshops';
+                    
+                    serviceBoxes[1].textContent = 'AI Custom Solutions';
+                    serviceDescs[1].textContent = 'Tailored AI applications and systems developed to address your specific business challenges and unlock new opportunities for growth and efficiency.';
+                    serviceItems[3].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>AI data services';
+                    serviceItems[4].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>Model training & deployment';
+                    serviceItems[5].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>Custom AI apps & agents';
+                    
+                    serviceBoxes[2].textContent = 'Enterprise AI Consultation';
+                    serviceDescs[2].textContent = 'Strategic guidance to help you navigate the AI landscape, identify high-value opportunities, and develop a roadmap for successful AI implementation.';
+                    serviceItems[6].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>AI readiness assessment';
+                    serviceItems[7].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>Implementation strategy';
+                    serviceItems[8].innerHTML = '<i class="fas fa-check-circle me-2 text-primary"></i>ROI optimization';
+                }
+                
+                // Our Strength section
+                document.querySelector('.strength-section .section-title').textContent = 'Our Strength';
+                document.querySelector('.strength-section .section-subtitle').textContent = 'What sets us apart in the AI landscape';
+                
+                const strengthCards = document.querySelectorAll('.strength-card h3');
+                const strengthDescs = document.querySelectorAll('.strength-card p');
+                
+                if (strengthCards.length >= 4) {
+                    strengthCards[0].textContent = 'Technical Expertise';
+                    strengthDescs[0].textContent = 'Our team comprises AI specialists with deep expertise in machine learning, natural language processing, computer vision, and other cutting-edge technologies.';
+                    
+                    strengthCards[1].textContent = 'Industry Knowledge';
+                    strengthDescs[1].textContent = 'We understand the unique challenges and opportunities across various industries, allowing us to deliver AI solutions that address specific business needs.';
+                    
+                    strengthCards[2].textContent = 'Customized Approach';
+                    strengthDescs[2].textContent = 'We don\'t believe in one-size-fits-all solutions. Every AI implementation is tailored to your specific goals, infrastructure, and organizational culture.';
+                    
+                    strengthCards[3].textContent = 'Proven Results';
+                    strengthDescs[3].textContent = 'Our track record speaks for itself, with successful AI implementations that have delivered measurable ROI and transformative business outcomes.';
+                }
+                
+                // Team section
+                document.querySelector('.team-section .section-title').textContent = 'Our Team';
+                document.querySelector('.team-section .section-subtitle').textContent = 'Meet the experts behind our innovative AI solutions';
+                
+                const teamNames = document.querySelectorAll('.team-name');
+                const teamPositions = document.querySelectorAll('.team-position');
+                const teamBios = document.querySelectorAll('.team-bio');
+                
+                if (teamNames.length >= 4) {
+                    teamNames[0].textContent = 'Dr. Wei Zhang';
+                    teamPositions[0].textContent = 'Chief Executive Officer';
+                    teamBios[0].textContent = 'AI researcher with 15+ years of experience in machine learning and enterprise AI implementation.';
+                    
+                    teamNames[1].textContent = 'Dr. Sarah Chen';
+                    teamPositions[1].textContent = 'Chief Technology Officer';
+                    teamBios[1].textContent = 'Former research scientist specializing in natural language processing and large language models.';
+                    
+                    teamNames[2].textContent = 'Michael Wang';
+                    teamPositions[2].textContent = 'Head of AI Education';
+                    teamBios[2].textContent = 'Education specialist with expertise in developing AI curriculum for technical and non-technical audiences.';
+                    
+                    teamNames[3].textContent = 'Lisa Jiang';
+                    teamPositions[3].textContent = 'Enterprise Solutions Director';
+                    teamBios[3].textContent = 'Business strategist with a background in implementing AI solutions across Fortune 500 companies.';
+                }
+                
+                // Team note and button
+                document.querySelector('.team-note').textContent = 'Our team extends beyond these leaders to include AI engineers, data scientists, industry specialists, and support staff dedicated to your success.';
+                document.querySelector('.team-section .btn').textContent = 'Join Our Team';
+                
+                // Partners section
+                document.querySelector('.partners-section .section-title').textContent = 'Our Partners';
+                document.querySelector('.partners-section .section-subtitle').textContent = 'Collaborating with industry leaders to deliver cutting-edge AI solutions';
+                
+                document.querySelector('.partner-desc-1').textContent = 'Our strategic partnerships with leading technology providers enable us to leverage the most advanced AI tools and platforms to deliver exceptional solutions for our clients.';
+                document.querySelector('.partner-desc-2').textContent = 'We\'re constantly expanding our partner network to ensure access to the latest innovations in artificial intelligence and machine learning.';
+                
+                // Values section
+                document.querySelector('.values-section .section-title').textContent = 'Our Values';
+                document.querySelector('.values-section .section-subtitle').textContent = 'The principles that guide our work and relationships';
+                
+                const valueCards = document.querySelectorAll('.value-card h3');
+                const valueDescs = document.querySelectorAll('.value-card p');
+                
+                if (valueCards.length >= 4) {
+                    valueCards[0].textContent = 'Innovation';
+                    valueDescs[0].textContent = 'We constantly push the boundaries of what\'s possible with AI, exploring new approaches and technologies to solve complex challenges.';
+                    
+                    valueCards[1].textContent = 'Excellence';
+                    valueDescs[1].textContent = 'We are committed to delivering the highest quality in everything we do, from code to customer service to educational content.';
+                    
+                    valueCards[2].textContent = 'Integrity';
+                    valueDescs[2].textContent = 'We operate with transparency, honesty, and ethical responsibility in all our business practices and AI implementations.';
+                    
+                    valueCards[3].textContent = 'Client-Focused';
+                    valueDescs[3].textContent = 'We prioritize understanding our clients\' unique needs and delivering solutions that create genuine business value.';
+                }
+                
+                // CTA section
+                document.querySelector('.cta-title').textContent = 'Join Us on Our Mission';
+                document.querySelector('.cta-text').textContent = 'Ready to transform your enterprise with the power of AI? Let\'s start a conversation about your business needs and how our solutions can help you achieve your goals.';
+                
+                const ctaButtons = document.querySelectorAll('.cta-buttons .btn');
+                if (ctaButtons.length >= 2) {
+                    ctaButtons[0].textContent = 'Contact Us';
+                    ctaButtons[1].textContent = 'Explore Services';
+                }
+            }
+        }
+        
+        // Override the toggleLanguage function for the About Us page
+        function toggleLanguage() {
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            const newLanguage = currentLang === 'en' ? 'zh' : 'en';
+            
+            localStorage.setItem('bixingLanguage', newLanguage);
+            
+            // Update the language toggle button
+            const languageToggle = document.getElementById('currentLanguage');
+            if (languageToggle) {
+                languageToggle.textContent = newLanguage.toUpperCase();
+            }
+            
+            // Apply translations from i18n.js
+            if (typeof applyTranslations === 'function') {
+                applyTranslations();
+            }
+            
+            // Apply custom translations for About Us page
+            updateAboutPageTranslations();
+            
+            // Force update company description
+            const companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
+            if (companyDescElement) {
+                if (newLanguage === 'en') {
+                    companyDescElement.textContent = "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.";
+                } else {
+                    companyDescElement.innerHTML = "国际前沿AI解决方案提供商,<br>助你充满AI的力量。";
+                }
+            }
+        }
+        
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apply custom translations for About Us page
+            updateAboutPageTranslations();
+        });
+    </script>
+</body>
+</html>
