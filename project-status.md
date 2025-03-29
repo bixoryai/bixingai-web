@@ -8,6 +8,10 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
+- Update project-status.md with header enhancement details
+
+
+### Recent Changes
 - Enhance header design across all pages with prominent company name
 
 - Added dedicated header.css file with enhanced styling
@@ -93,4 +97,5 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - Language preference is stored in localStorage
 - The site is designed with a dark/blue theme with futuristic technology elements
 - Bootstrap is used for responsive layout and components
+
 

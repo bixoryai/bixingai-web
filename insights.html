@@ -25,7 +25,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
-    <link rel="stylesheet" href="assets/css/header.css?v=20250329">
+    <link rel="stylesheet" href="assets/css/header.css?v=20250329095815">
     <link rel="stylesheet" href="assets/css/hero-section.css">
     <link rel="stylesheet" href="assets/css/services-section.css">
     <link rel="stylesheet" href="assets/css/demo-section.css">
@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="assets/css/insights-section.css">
     <link rel="stylesheet" href="assets/css/cta-section.css">
     <link rel="stylesheet" href="assets/css/footer-section.css">
+    <link rel="stylesheet" href="assets/css/secondary-hero.css">
     
     <style>
         /* Insights page specific styles */
@@ -43,10 +44,42 @@
         
         .insights-hero-section {
             position: relative;
-            padding: 180px 0 100px;
+            height: 500px; /* Fixed height */
+            min-height: auto; /* Override any min-height settings */
             background: var(--dark-bg);
             color: var(--white);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            padding: 0; /* Remove padding since we're using flex centering */
+        }
+        
+        .insights-hero-section .hero-title {
+            white-space: nowrap; /* Keep title on one line */
+            width: auto; /* Allow title to take its natural width */
+            font-size: 3.5rem; /* Slightly larger font size */
+            text-align: center; /* Ensure text is centered */
+            overflow: visible; /* Allow text to be fully visible */
+            margin-bottom: 1rem; /* Add space between title and subtitle */
+            display: inline-block; /* Use inline-block to prevent truncation */
+            max-width: none; /* Remove any max-width constraints */
+        }
+        
+        .insights-hero-section .col-12 {
+            max-width: 100%; /* Allow column to expand to full width if needed */
+            width: auto; /* Let content determine width */
+        }
+        
+        .insights-hero-section .container {
+            max-width: 1400px; /* Increase container max-width */
+            width: 95%; /* Use percentage width for responsiveness */
+        }
+        
+        .insights-hero-section .hero-subtitle {
+            font-size: 1.25rem; /* Adjust subtitle size */
+            max-width: 800px; /* Limit width for better readability */
+            margin: 0 auto; /* Center the subtitle */
         }
         
         .insights-hero-particles {
@@ -329,6 +362,7 @@
     </style>
 </head>
 <body>
+    <div class="page-wrapper">
     <!-- Header -->
     <header class="header">
         <div class="container-fluid">
@@ -385,11 +419,11 @@
     <!-- Hero Section -->
     <section class="insights-hero-section">
         <div class="insights-hero-particles" id="insights-hero-particles"></div>
-        <div class="container insights-hero-content">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-                    <h1 class="hero-title display-4 fw-bold text-gradient mb-4">Industry Insights & AI Trends</h1>
-                    <p class="hero-subtitle lead mb-5">Exploring the latest developments, strategies, and applications in artificial intelligence</p>
+        <div class="container insights-hero-content d-flex align-items-center justify-content-center h-100">
+            <div class="row align-items-center justify-content-center h-100 w-100">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="insights.page.heroTitle">Industry Insights</h1>
+                    <p class="hero-subtitle lead" data-i18n="insights.page.heroSubtitle">Exploring the latest trends, innovations, and applications in AI</p>
                 </div>
             </div>
         </div>
@@ -645,6 +679,7 @@
             </div>
         </div>
     </footer>
+    </div><!-- End page-wrapper -->
     
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

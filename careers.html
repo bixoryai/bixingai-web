@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title data-i18n="page.title">Careers - Bixing Technology</title>
     
     <!-- Favicon - comprehensive approach -->
@@ -27,7 +27,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
-    <link rel="stylesheet" href="assets/css/header.css?v=20250329">
+    <link rel="stylesheet" href="assets/css/header.css?v=20250329095815">
     <link rel="stylesheet" href="assets/css/hero-section.css">
     <link rel="stylesheet" href="assets/css/services-section.css">
     <link rel="stylesheet" href="assets/css/demo-section.css">
@@ -36,20 +36,60 @@
     <link rel="stylesheet" href="assets/css/insights-section.css">
     <link rel="stylesheet" href="assets/css/cta-section.css">
     <link rel="stylesheet" href="assets/css/footer-section.css">
+    <link rel="stylesheet" href="assets/css/secondary-hero.css">
     
     <style>
+        /* Fix for white space at bottom of page */
+        html, body {
+            background-color: #0a0e17;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
         /* Careers page specific styles */
         body {
             background-color: var(--dark-bg);
-            color: var(--white);
         }
         
         .careers-hero-section {
             position: relative;
-            padding: 180px 0 100px;
+            height: 500px; /* Fixed height */
+            min-height: auto; /* Override any min-height settings */
             background: var(--dark-bg);
             color: var(--white);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            padding: 0; /* Remove padding since we're using flex centering */
+        }
+        
+        .careers-hero-section .hero-title {
+            white-space: nowrap; /* Keep title on one line */
+            width: auto; /* Allow title to take its natural width */
+            font-size: 3.5rem; /* Slightly larger font size */
+            text-align: center; /* Ensure text is centered */
+            overflow: visible; /* Allow text to be fully visible */
+            margin-bottom: 1rem; /* Add space between title and subtitle */
+            display: inline-block; /* Use inline-block to prevent truncation */
+            max-width: none; /* Remove any max-width constraints */
+        }
+        
+        .careers-hero-section .col-12 {
+            max-width: 100%; /* Allow column to expand to full width if needed */
+            width: auto; /* Let content determine width */
+        }
+        
+        .careers-hero-section .container {
+            max-width: 1400px; /* Increase container max-width */
+            width: 95%; /* Use percentage width for responsiveness */
+        }
+        
+        .careers-hero-section .hero-subtitle {
+            font-size: 1.25rem; /* Adjust subtitle size */
+            max-width: 800px; /* Limit width for better readability */
+            margin: 0 auto; /* Center the subtitle */
         }
         
         .careers-hero-particles {
@@ -398,11 +438,11 @@
     <!-- Hero Section -->
     <section class="careers-hero-section">
         <div class="careers-hero-particles" id="careers-hero-particles"></div>
-        <div class="container careers-hero-content">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-                    <h1 class="hero-title display-4 fw-bold text-gradient mb-4">Join Our Team</h1>
-                    <p class="hero-subtitle lead mb-5">Be part of a team that's shaping the future of AI technology and making a real impact</p>
+        <div class="container careers-hero-content d-flex align-items-center justify-content-center h-100">
+            <div class="row align-items-center justify-content-center h-100 w-100">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h1 class="hero-title display-4 fw-bold text-gradient">Join Our Team</h1>
+                    <p class="hero-subtitle lead">Build the future of AI with us and transform how businesses leverage technology</p>
                 </div>
             </div>
         </div>

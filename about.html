@@ -25,7 +25,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
-    <link rel="stylesheet" href="assets/css/header.css?v=20250329">
+    <link rel="stylesheet" href="assets/css/header.css?v=20250329095815">
     <link rel="stylesheet" href="assets/css/hero-section.css">
     <link rel="stylesheet" href="assets/css/services-section.css">
     <link rel="stylesheet" href="assets/css/demo-section.css">
@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="assets/css/insights-section.css">
     <link rel="stylesheet" href="assets/css/cta-section.css">
     <link rel="stylesheet" href="assets/css/footer-section.css">
+    <link rel="stylesheet" href="assets/css/secondary-hero.css">
     
     <style>
         /* About page specific styles */
@@ -43,10 +44,42 @@
         
         .about-hero-section {
             position: relative;
-            padding: 180px 0 100px;
+            height: 500px; /* Fixed height */
+            min-height: auto; /* Override any min-height settings */
             background: var(--dark-bg);
             color: var(--white);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center content vertically */
+            padding: 0; /* Remove padding since we're using flex centering */
+        }
+        
+        .about-hero-section .hero-title {
+            white-space: nowrap; /* Keep title on one line */
+            width: auto; /* Allow title to take its natural width */
+            font-size: 3.5rem; /* Slightly larger font size */
+            text-align: center; /* Ensure text is centered */
+            overflow: visible; /* Allow text to be fully visible */
+            margin-bottom: 1rem; /* Add space between title and subtitle */
+            display: inline-block; /* Use inline-block to prevent truncation */
+            max-width: none; /* Remove any max-width constraints */
+        }
+        
+        .about-hero-section .col-12 {
+            max-width: 100%; /* Allow column to expand to full width if needed */
+            width: auto; /* Let content determine width */
+        }
+        
+        .about-hero-section .container {
+            max-width: 1400px; /* Increase container max-width */
+            width: 95%; /* Use percentage width for responsiveness */
+        }
+        
+        .about-hero-section .hero-subtitle {
+            font-size: 1.25rem; /* Adjust subtitle size */
+            max-width: 800px; /* Limit width for better readability */
+            margin: 0 auto; /* Center the subtitle */
         }
         
         .mission-section {
@@ -276,9 +309,16 @@
             margin-bottom: 3rem;
             color: var(--text-medium);
         }
+        
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
     </style>
 </head>
 <body>
+    <div class="page-wrapper">
     <!-- Header -->
     <header class="header">
         <div class="container-fluid">
@@ -335,11 +375,11 @@
     <!-- Hero Section -->
     <section class="about-hero-section">
         <div class="hero-particles" id="about-hero-particles"></div>
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-                    <h1 class="hero-title display-4 fw-bold text-gradient mb-4">Pioneering AI Solutions for Enterprise Innovation</h1>
-                    <p class="hero-subtitle lead mb-5">Empowering businesses through cutting-edge artificial intelligence technologies, education, and strategic implementation</p>
+        <div class="container d-flex align-items-center justify-content-center h-100">
+            <div class="row align-items-center justify-content-center h-100 w-100">
+                <div class="col-12 text-center" data-aos="fade-up">
+                    <h1 class="hero-title display-4 fw-bold text-gradient">Pioneering AI Solutions for Enterprise Innovation</h1>
+                    <p class="hero-subtitle lead">Empowering businesses through cutting-edge artificial intelligence technologies, education, and strategic implementation</p>
                 </div>
             </div>
         </div>
@@ -769,6 +809,7 @@
             </div>
         </div>
     </footer>
+    </div><!-- End page-wrapper -->
     
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -1008,7 +1049,7 @@
                 document.querySelector('.partners-section .section-title').textContent = '我们的合作伙伴';
                 document.querySelector('.partners-section .section-subtitle').textContent = '与行业领导者合作，提供前沿AI解决方案';
                 
-                document.querySelector('.partner-desc-1').textContent = '我们与领先技术提供商的战略合作使我们能够利用最先进的AI工具和平台，为客户提供卓越的解决方案。';
+                document.querySelector('.partner-desc-1').textContent = '我们的战略合作伙伴关系使我们能够利用最先进的AI工具和平台，为客户提供卓越的解决方案。';
                 document.querySelector('.partner-desc-2').textContent = '我们不断扩大合作伙伴网络，确保获取人工智能和机器学习领域的最新创新。';
                 
                 // Values section

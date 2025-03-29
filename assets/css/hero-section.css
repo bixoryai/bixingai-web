@@ -1,16 +1,35 @@
 /* 
  * Hero Section Styles - Bixing Technology
  * Modern, sleek AI-themed hero section
+ *
+ * This file contains all styles related to the hero section.
+ * It is the single source of truth for hero section styling.
+ * Any changes to hero section appearance should be made here.
  */
 
+/* ===== Hero Section Container ===== */
 .hero-section {
   position: relative;
-  padding: 100px 0 80px; /* Increased top padding to account for fixed header */
+  padding-top: 120px; /* Controls space between header and hero content */
+  padding-bottom: 120px;
   background: var(--dark-bg);
   color: var(--white);
   overflow: hidden;
 }
 
+/* Background gradient overlay */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: -2px; /* Overlap slightly to prevent any gap */
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, var(--dark-bg));
+  z-index: 1;
+}
+
+/* ===== Text Effects ===== */
 /* Text gradient effect */
 .text-gradient {
   background: var(--gradient-gold);
@@ -20,12 +39,66 @@
   display: inline-block;
 }
 
-/* Floating cards */
+/* Enhanced title gradient */
+.hero-title.text-gradient {
+  background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(255, 184, 0, 0.2);
+  display: inline-block;
+}
+
+/* ===== Hero Content Styles ===== */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding-right: 1rem; /* Reduced padding to spread content out */
+}
+
+/* Title styling */
+.hero-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+/* Override Bootstrap display-4 class */
+.hero-title.display-4 {
+  font-size: 2.8rem !important; /* Using !important only to override Bootstrap */
+}
+
+/* Subtitle styling */
+.hero-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--gray-light);
+  margin-bottom: 1.5rem;
+}
+
+/* Button container */
+.hero-buttons {
+  margin-top: 2rem;
+}
+
+/* Button styling */
+.hero-buttons .btn {
+  padding: 0.6rem 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Floating Cards ===== */
+/* Floating cards container */
 .hero-image-container {
   position: relative;
   z-index: 2;
+  padding-left: 1rem; /* Reduced padding to spread content out */
+  margin-left: 0; /* Removed negative margin */
 }
 
+/* Floating card styling */
 .floating-card {
   position: absolute;
   background: rgba(255, 255, 255, 0.1);
@@ -41,27 +114,28 @@
   max-width: 200px;
 }
 
+/* Floating card positions - spread out more */
 .floating-card-1 {
   top: 15%;
-  left: 5%;
+  left: 5%; /* Moved left from 15% to 5% */
   animation-delay: 0s;
 }
 
 .floating-card-2 {
   bottom: 15%;
-  right: -5%;
+  right: 0%; /* Moved right from 5% to 0% */
   animation-delay: 1.5s;
 }
 
 .floating-card-3 {
   top: 10%;
-  right: 10%;
+  right: 10%; /* Moved right from 20% to 10% */
   animation-delay: 0.8s;
 }
 
 .floating-card-4 {
   top: 50%;
-  left: 50%;
+  left: 50%; /* Moved right from 40% to 50% */
   transform: translate(-50%, -50%);
   animation-name: float-centered;
   animation-delay: 2.2s;
@@ -73,10 +147,11 @@
 
 .floating-card-5 {
   bottom: 0%;
-  left: 25%;
+  left: 25%; /* Moved right from 15% to 25% */
   animation-delay: 1.2s;
 }
 
+/* Floating card icon styling */
 .floating-card-icon {
   width: 40px;
   height: 40px;
@@ -89,6 +164,7 @@
   color: var(--white);
 }
 
+/* Floating card icon colors */
 .floating-card-1 .floating-card-icon {
   background: var(--gradient-card-1);
 }
@@ -109,6 +185,7 @@
   background: var(--gradient-card-5);
 }
 
+/* Floating card text styling */
 .floating-card-text {
   flex: 1;
 }
@@ -120,6 +197,7 @@
   margin-bottom: 5px;
 }
 
+/* Floating card progress bar styling */
 .floating-card-progress {
   height: 4px;
   background: rgba(255, 255, 255, 0.1);
@@ -153,7 +231,7 @@
   border-radius: var(--radius-full);
 }
 
-/* Client logos */
+/* ===== Client Logos ===== */
 .trusted-by {
   margin-top: 3rem;
 }
@@ -180,7 +258,7 @@
   color: var(--gold-light);
 }
 
-/* Hero particles */
+/* ===== Hero Particles ===== */
 .hero-particles {
   position: absolute;
   top: 0;
@@ -190,7 +268,7 @@
   z-index: 1;
 }
 
-/* Hero wave shape */
+/* ===== Hero Wave Shape ===== */
 .hero-shape {
   position: absolute;
   bottom: -1px;
@@ -201,7 +279,7 @@
   transform: translateY(10px);
 }
 
-/* Animations */
+/* ===== Animations ===== */
 @keyframes float {
   0% {
     transform: translateY(0);
@@ -226,10 +304,64 @@
   }
 }
 
-/* Responsive styles */
+/* ===== Responsive Styles ===== */
 @media (max-width: 992px) {
   .hero-section {
-    padding: 50px 0 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .hero-content {
+    padding-right: 0; /* Remove padding on smaller screens */
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .hero-image-container {
+    padding-left: 0; /* Remove padding on smaller screens */
+  }
+  
+  /* Center the floating cards on mobile */
+  .floating-card-1,
+  .floating-card-2,
+  .floating-card-3,
+  .floating-card-5 {
+    position: relative;
+    display: inline-flex;
+    margin: 10px;
+    position: static;
+    animation: none;
+  }
+  
+  .floating-card-4 {
+    position: relative;
+    display: inline-flex;
+    margin: 10px;
+    position: static;
+    transform: none;
+    animation: none;
+  }
+  
+  .hero-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 40px;
+    padding-bottom: 100px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    margin-bottom: 3rem;
+  }
+  
+  .hero-image-container {
+    margin-top: 2rem;
   }
   
   .floating-card {
@@ -237,22 +369,26 @@
   }
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    padding: 40px 0 100px;
-    text-align: center;
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
   }
   
-  .hero-buttons {
-    justify-content: center;
+  .hero-title.display-4 {
+    font-size: 2rem !important;
   }
   
-  .trusted-by {
-    margin-bottom: 40px;
+  .hero-subtitle {
+    font-size: 1.1rem;
   }
   
-  .client-logos {
-    justify-content: center;
-    flex-wrap: wrap;
+  .hero-buttons .btn {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-buttons .btn:last-child {
+    margin-bottom: 0;
   }
 }

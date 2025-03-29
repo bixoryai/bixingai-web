@@ -1,0 +1,31 @@
+/* 
+ * Services Hero Section Override Styles - Bixing Technology
+ * This file contains high-specificity overrides for the services hero section
+ */
+
+/* Ultra-high specificity selector to ensure these styles take precedence */
+html body .services-hero-section,
+body .site-wrapper .services-hero-section,
+.services-hero-section[class][id],
+section.services-hero-section {
+  padding-top: 80px !important;
+  padding-bottom: 40px !important;
+  min-height: auto !important;
+}
+
+/* Adjust content spacing */
+.services-hero-section .hero-title {
+  margin-bottom: 0.75rem !important;
+}
+
+.services-hero-section .hero-subtitle {
+  margin-bottom: 1rem !important;
+}
+
+/* Make sure this works across all browsers */
+@media all {
+  .services-hero-section {
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
+  }
+}

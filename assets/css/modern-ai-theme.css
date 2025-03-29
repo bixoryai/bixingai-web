@@ -363,3 +363,13 @@ p {
   padding: 0.5rem 1rem;
   border-radius: var(--radius-sm);
 }
+
+/* Fix for white space at bottom of page */
+html {
+  background-color: var(--dark-bg);
+}
+
+body {
+  background-color: var(--dark-bg);
+  min-height: 100vh;
+}
