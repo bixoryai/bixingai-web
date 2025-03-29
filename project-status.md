@@ -8,6 +8,30 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
+- Enhance header design across all pages with prominent company name
+
+- Added dedicated header.css file with enhanced styling
+- Increased company name font size to 2.2rem for better prominence
+- Added text shadow and gradient effects for emphasis
+- Implemented semi-transparent header with blur effect
+- Added scrolling effect that changes header appearance
+- Fixed hero section padding on all pages to prevent overlap
+- Fixed JavaScript in careers page for proper content display
+- Ensured consistent header implementation across all pages
+
+
+### Recent Changes
+- Enhance header design across all pages with prominent company name
+  - Added dedicated header.css file with enhanced styling
+  - Increased company name font size to 2.2rem for better prominence
+  - Added text shadow and gradient effects for emphasis
+  - Implemented semi-transparent header with blur effect
+  - Added scrolling effect that changes header appearance
+  - Fixed hero section padding on all pages to prevent overlap
+  - Fixed JavaScript in careers page for proper content display
+  - Ensured consistent header implementation across all pages
+
+### Recent Changes
 - Update Services page with improved Chinese translations and fix translation toggle
 
 
@@ -69,6 +93,4 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - Language preference is stored in localStorage
 - The site is designed with a dark/blue theme with futuristic technology elements
 - Bootstrap is used for responsive layout and components
-
-
 
