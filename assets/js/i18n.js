@@ -51,7 +51,40 @@ const translations = {
     "services.consultation.feature1": "AI readiness assessment",
     "services.consultation.feature2": "Implementation roadmap",
     "services.consultation.feature3": "Technology selection",
+    "services.consultation.feature4": "ROI analysis and business case development",
+    "services.consultation.feature5": "Change management and adoption strategies",
+    "services.consultation.learnMore": "Explore AI Consultation Services",
     "services.learnMore": "Learn More",
+    
+    // Services page specific translations
+    "services.page.title": "Products & Services - Bixing Technology",
+    "services.page.heroTitle": "Comprehensive AI Solutions",
+    "services.page.heroSubtitle": "Transforming businesses through education, custom solutions, and strategic consultation",
+    "services.heroTitle": "Comprehensive AI Solutions",
+    "services.heroSubtitle": "Transforming businesses through education, custom solutions, and strategic consultation",
+    "services.overviewTitle": "Our Service Areas",
+    "services.overviewSubtitle": "Tailored AI solutions to meet your organization's unique needs",
+    "services.education.detailDescription": "Empower your workforce with the knowledge and skills needed to leverage AI technologies effectively. Our customized training programs are designed to bridge the AI knowledge gap at all levels of your organization.",
+    "services.education.feature4": "Comprehensive curriculum covering AI fundamentals to advanced topics",
+    "services.education.feature5": "Ongoing support and resources for continuous learning",
+    "services.education.learnMore": "Explore AI Education Services",
+    "services.customSolutions.detailDescription": "From data preparation to model deployment, we develop end-to-end AI solutions tailored to your specific business challenges. Our team of experts works closely with you to create AI applications that deliver measurable results.",
+    "services.customSolutions.feature4": "Scalable solutions that grow with your business",
+    "services.customSolutions.feature5": "Ongoing maintenance and optimization",
+    "services.customSolutions.learnMore": "Explore Custom AI Solutions",
+    "services.consultation.detailDescription": "Navigate the complex AI landscape with strategic guidance from our experienced consultants. We help you identify opportunities, assess readiness, and develop a comprehensive roadmap for AI implementation across your organization.",
+    "services.consultation.feature4": "ROI analysis and business case development",
+    "services.consultation.feature5": "Change management and adoption strategies",
+    "services.consultation.learnMore": "Explore AI Consultation Services",
+    "services.stats.projects": "100+",
+    "services.stats.projectsLabel": "Successful Projects",
+    "services.stats.clients": "50+",
+    "services.stats.clientsLabel": "Enterprise Clients",
+    "services.stats.experts": "30+",
+    "services.stats.expertsLabel": "AI Experts",
+    "services.cta.title": "Ready to Transform Your Business with AI?",
+    "services.cta.description": "Contact us today to discuss how our AI solutions can address your specific challenges and opportunities.",
+    "services.cta.button": "Get Started",
     
     // Demo Section
     "demo.title": "Interactive AI Demos",
@@ -392,7 +425,7 @@ const translations = {
     
     // Navigation
     "nav.home": "首页",
-    "nav.services": "产品服务",
+    "nav.services": "产品与服务",
     "nav.allServices": "所有服务",
     "nav.education": "AI教育培训",
     "nav.customSolutions": "AI定制解决方案",
@@ -418,7 +451,7 @@ const translations = {
     "services.title": "我们的服务",
     "services.subtitle": "根据您的业务需求量身定制的全面AI解决方案",
     "services.education.title": "AI教育与培训",
-    "services.education.description": "通过定制培训计划和研讨会，为您的团队提供AI知识赋能。",
+    "services.education.description": "通过定制培训计划和研讨会，为您的团队提供AI知识。",
     "services.education.feature1": "定制学习路径",
     "services.education.feature2": "实践工作坊",
     "services.education.feature3": "专家引导培训",
@@ -432,7 +465,40 @@ const translations = {
     "services.consultation.feature1": "AI就绪评估",
     "services.consultation.feature2": "实施路线图",
     "services.consultation.feature3": "技术选择",
+    "services.consultation.feature4": "ROI分析和商业案例开发",
+    "services.consultation.feature5": "变革管理和采用策略",
+    "services.consultation.learnMore": "探索AI咨询服务",
     "services.learnMore": "了解更多",
+    
+    // Services page specific translations
+    "services.page.title": "产品与服务 - 毕行科技",
+    "services.page.heroTitle": "全面的AI解决方案",
+    "services.page.heroSubtitle": "通过教育、定制解决方案和战略咨询转变企业",
+    "services.heroTitle": "全面的AI解决方案",
+    "services.heroSubtitle": "通过教育、定制解决方案和战略咨询转变企业",
+    "services.overviewTitle": "我们的产品与服务",
+    "services.overviewSubtitle": "满足您组织独特需求的定制AI解决方案",
+    "services.education.detailDescription": "使您的员工掌握有效利用AI技术所需的知识和技能。我们的定制培训计划旨在弥合组织各层面的AI知识差距。",
+    "services.education.feature4": "涵盖AI基础到高级主题的全面课程",
+    "services.education.feature5": "持续学习的支持和资源",
+    "services.education.learnMore": "探索AI教育服务",
+    "services.customSolutions.detailDescription": "从数据准备到模型部署，我们开发针对您特定业务挑战的端到端AI解决方案。我们的专家团队与您密切合作，创建能够提供可衡量结果的AI应用。",
+    "services.customSolutions.feature4": "随着业务增长而扩展的解决方案",
+    "services.customSolutions.feature5": "持续维护和优化",
+    "services.customSolutions.learnMore": "探索定制AI解决方案",
+    "services.consultation.detailDescription": "在我们经验丰富的顾问的战略指导下，驾驭复杂的AI领域。我们帮助您识别机会，评估准备情况，并为您的组织制定全面的AI实施路线图。",
+    "services.consultation.feature4": "ROI分析和商业案例开发",
+    "services.consultation.feature5": "变革管理和采用策略",
+    "services.consultation.learnMore": "探索AI咨询服务",
+    "services.stats.projects": "100+",
+    "services.stats.projectsLabel": "成功项目",
+    "services.stats.clients": "50+",
+    "services.stats.clientsLabel": "企业客户",
+    "services.stats.experts": "30+",
+    "services.stats.expertsLabel": "AI专家",
+    "services.cta.title": "准备好用AI转变您的业务了吗？",
+    "services.cta.description": "立即联系我们，讨论我们的AI解决方案如何解决您的特定挑战和机遇。",
+    "services.cta.button": "开始咨询",
     
     // Demo Section
     "demo.title": "互动AI演示",
@@ -502,7 +568,7 @@ const translations = {
     "footer.quickLinks": "快速链接",
     "footer.home": "首页",
     "footer.about": "关于我们",
-    "footer.services": "产品服务",
+    "footer.services": "产品与服务",
     "footer.careers": "职业发展",
     "footer.industryInsights": "行业洞察",
     "footer.contact": "联系我们",
@@ -752,6 +818,7 @@ function applyTranslations() {
     // Update text content for elements with data-i18n attribute
     document.querySelectorAll('[data-i18n]').forEach(element => {
       const key = element.getAttribute('data-i18n');
+      console.log('Translating element with key:', key, element);
       if (translations[currentLanguage] && translations[currentLanguage][key]) {
         // Check if this is an input element with a placeholder
         if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
@@ -766,8 +833,10 @@ function applyTranslations() {
           element.textContent = translations[currentLanguage][key];
         }
         translatedElements++;
+        console.log('Successfully translated:', key, 'to:', translations[currentLanguage][key]);
       } else {
         missingTranslations.push(key);
+        console.warn('Missing translation for key:', key, 'in language:', currentLanguage);
       }
     });
     

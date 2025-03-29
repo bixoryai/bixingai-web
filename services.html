@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="page.title">Bixing Technology - AI Solutions for Enterprise</title>
+    <title data-i18n="services.page.title">Products & Services - Bixing Technology</title>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180x180.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
@@ -215,6 +215,39 @@
             opacity: 0.1;
             z-index: 0;
         }
+        
+        .insights-hero-section {
+            position: relative;
+            padding: 120px 0;
+            background-color: var(--dark-bg);
+            overflow: hidden;
+        }
+        
+        .insights-hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .insights-hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-shape {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 0;
+        }
+        
+        .hero-shape svg {
+            width: 100%;
+            height: 200px;
+        }
     </style>
 </head>
 <body>
@@ -269,17 +302,20 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section ai-circuit-bg">
-        <div class="hero-particles" id="hero-particles"></div>
-        <div class="container">
+    <section class="insights-hero-section">
+        <div class="insights-hero-particles" id="hero-particles"></div>
+        <div class="container insights-hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-                    <div class="hero-content">
-                        <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="services.heroTitle">Comprehensive AI Solutions</h1>
-                        <p class="hero-subtitle lead" data-i18n="services.heroSubtitle">Transforming businesses through education, custom solutions, and strategic consultation</p>
-                    </div>
+                    <h1 class="hero-title display-4 fw-bold text-gradient mb-4" data-i18n="services.page.heroTitle">Comprehensive AI Solutions</h1>
+                    <p class="hero-subtitle lead mb-5" data-i18n="services.page.heroSubtitle">Transforming businesses through education, custom solutions, and strategic consultation</p>
                 </div>
             </div>
+        </div>
+        <div class="hero-shape">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
+                <path fill="var(--dark-bg-primary)" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,90.7C384,85,480,107,576,117.3C672,128,768,128,864,122.7C960,117,1056,107,1152,96C1248,85,1344,75,1392,69.3L1440,64L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path>
+            </svg>
         </div>
     </section>
 
@@ -288,7 +324,7 @@
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title" data-i18n="services.overviewTitle">Our Service Areas</h2>
+                    <h2 class="section-title" data-i18n="services.overviewTitle">Our Products & Services</h2>
                     <p class="lead" data-i18n="services.overviewSubtitle">Tailored AI solutions to meet your organization's unique needs</p>
                 </div>
             </div>
@@ -317,7 +353,7 @@
                             <li data-i18n="services.education.feature5">Ongoing support and resources for continuous learning</li>
                         </ul>
                         <div class="service-cta">
-                            <a href="education.html" class="btn btn-primary" data-i18n="services.learnMoreDetailed">Explore AI Education Services</a>
+                            <a href="education.html" class="btn btn-primary" data-i18n="services.education.learnMore">Explore AI Education Services</a>
                         </div>
                     </div>
                 </div>
@@ -347,7 +383,7 @@
                             <li data-i18n="services.customSolutions.feature5">Ongoing maintenance and optimization</li>
                         </ul>
                         <div class="service-cta">
-                            <a href="custom-solutions.html" class="btn btn-primary" data-i18n="services.learnMoreDetailed">Explore Custom AI Solutions</a>
+                            <a href="custom-solutions.html" class="btn btn-primary" data-i18n="services.customSolutions.learnMore">Explore Custom AI Solutions</a>
                         </div>
                     </div>
                 </div>
@@ -377,7 +413,7 @@
                             <li data-i18n="services.consultation.feature5">Change management and adoption strategies</li>
                         </ul>
                         <div class="service-cta">
-                            <a href="consultation.html" class="btn btn-primary" data-i18n="services.learnMoreDetailed">Explore AI Consultation Services</a>
+                            <a href="consultation.html" class="btn btn-primary" data-i18n="services.consultation.learnMore">Explore AI Consultation Services</a>
                         </div>
                     </div>
                 </div>
@@ -490,8 +526,11 @@
     <!-- AOS Animation Library -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
+    <!-- Particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    
     <!-- i18n Translation Script -->
-    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/i18n.js?v=20250329"></script>
     
     <!-- Custom JS -->
     <script src="assets/js/main.js"></script>
@@ -613,6 +652,203 @@
                     "retina_detect": true
                 });
             }
+        });
+    </script>
+    
+    <script>
+        // Force translation of hero section
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Force translation after a short delay to ensure i18n.js has loaded
+            setTimeout(function() {
+                const heroTitle = document.querySelector('.hero-title');
+                const heroSubtitle = document.querySelector('.hero-subtitle');
+                const overviewTitle = document.querySelector('[data-i18n="services.overviewTitle"]');
+                const overviewSubtitle = document.querySelector('[data-i18n="services.overviewSubtitle"]');
+                const statsProjectsLabel = document.querySelector('[data-i18n="services.stats.projectsLabel"]');
+                const statsClientsLabel = document.querySelector('[data-i18n="services.stats.clientsLabel"]');
+                const statsExpertsLabel = document.querySelector('[data-i18n="services.stats.expertsLabel"]');
+                const ctaTitle = document.querySelector('[data-i18n="services.cta.title"]');
+                const ctaDescription = document.querySelector('[data-i18n="services.cta.description"]');
+                const ctaButton = document.querySelector('[data-i18n="services.cta.button"]');
+                
+                // Get current language
+                const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+                console.log('Current language:', currentLang);
+                
+                // Force apply translations
+                if (currentLang === 'zh') {
+                    if (heroTitle) {
+                        heroTitle.textContent = '全面的AI解决方案';
+                        console.log('Forced hero title translation');
+                    }
+                    
+                    if (heroSubtitle) {
+                        heroSubtitle.textContent = '通过教育、定制解决方案和战略咨询转变企业';
+                        console.log('Forced hero subtitle translation');
+                    }
+                    
+                    if (overviewTitle) {
+                        overviewTitle.textContent = '我们的产品与服务';
+                        console.log('Forced overview title translation');
+                    }
+                    
+                    if (overviewSubtitle) {
+                        overviewSubtitle.textContent = '满足您组织独特需求的定制AI解决方案';
+                        console.log('Forced overview subtitle translation');
+                    }
+                    
+                    if (statsProjectsLabel) {
+                        statsProjectsLabel.textContent = '成功项目';
+                        console.log('Forced stats projects label translation');
+                    }
+                    
+                    if (statsClientsLabel) {
+                        statsClientsLabel.textContent = '企业客户';
+                        console.log('Forced stats clients label translation');
+                    }
+                    
+                    if (statsExpertsLabel) {
+                        statsExpertsLabel.textContent = 'AI专家';
+                        console.log('Forced stats experts label translation');
+                    }
+                    
+                    if (ctaTitle) {
+                        ctaTitle.textContent = '准备好用AI转变您的业务了吗？';
+                        console.log('Forced CTA title translation');
+                    }
+                    
+                    if (ctaDescription) {
+                        ctaDescription.textContent = '立即联系我们，讨论我们的AI解决方案如何解决您的特定挑战和机遇。';
+                        console.log('Forced CTA description translation');
+                    }
+                    
+                    if (ctaButton) {
+                        ctaButton.textContent = '开始咨询';
+                        console.log('Forced CTA button translation');
+                    }
+                }
+                
+                // Add event listener for language toggle
+                const langToggle = document.querySelector('.language-selector button');
+                if (langToggle) {
+                    langToggle.addEventListener('click', function() {
+                        // Wait for language to change
+                        setTimeout(function() {
+                            const newLang = localStorage.getItem('bixingLanguage') || 'en';
+                            console.log('Language changed to:', newLang);
+                            
+                            if (newLang === 'zh') {
+                                if (heroTitle) {
+                                    heroTitle.textContent = '全面的AI解决方案';
+                                    console.log('Forced hero title translation after toggle');
+                                }
+                                
+                                if (heroSubtitle) {
+                                    heroSubtitle.textContent = '通过教育、定制解决方案和战略咨询转变企业';
+                                    console.log('Forced hero subtitle translation after toggle');
+                                }
+                                
+                                if (overviewTitle) {
+                                    overviewTitle.textContent = '我们的产品与服务';
+                                    console.log('Forced overview title translation after toggle');
+                                }
+                                
+                                if (overviewSubtitle) {
+                                    overviewSubtitle.textContent = '满足您组织独特需求的定制AI解决方案';
+                                    console.log('Forced overview subtitle translation after toggle');
+                                }
+                                
+                                if (statsProjectsLabel) {
+                                    statsProjectsLabel.textContent = '成功项目';
+                                    console.log('Forced stats projects label translation after toggle');
+                                }
+                                
+                                if (statsClientsLabel) {
+                                    statsClientsLabel.textContent = '企业客户';
+                                    console.log('Forced stats clients label translation after toggle');
+                                }
+                                
+                                if (statsExpertsLabel) {
+                                    statsExpertsLabel.textContent = 'AI专家';
+                                    console.log('Forced stats experts label translation after toggle');
+                                }
+                                
+                                if (ctaTitle) {
+                                    ctaTitle.textContent = '准备好用AI转变您的业务了吗？';
+                                    console.log('Forced CTA title translation after toggle');
+                                }
+                                
+                                if (ctaDescription) {
+                                    ctaDescription.textContent = '立即联系我们，讨论我们的AI解决方案如何解决您的特定挑战和机遇。';
+                                    console.log('Forced CTA description translation after toggle');
+                                }
+                                
+                                if (ctaButton) {
+                                    ctaButton.textContent = '开始咨询';
+                                    console.log('Forced CTA button translation after toggle');
+                                }
+                            } else {
+                                if (heroTitle) {
+                                    heroTitle.textContent = 'Comprehensive AI Solutions';
+                                    console.log('Forced hero title to English after toggle');
+                                }
+                                
+                                if (heroSubtitle) {
+                                    heroSubtitle.textContent = 'Transforming businesses through education, custom solutions, and strategic consultation';
+                                    console.log('Forced hero subtitle to English after toggle');
+                                }
+                                
+                                if (overviewTitle) {
+                                    overviewTitle.textContent = 'Our Products & Services';
+                                    console.log('Forced overview title to English after toggle');
+                                }
+                                
+                                if (overviewSubtitle) {
+                                    overviewSubtitle.textContent = 'Tailored AI solutions to meet your organization\'s unique needs';
+                                    console.log('Forced overview subtitle to English after toggle');
+                                }
+                                
+                                if (statsProjectsLabel) {
+                                    statsProjectsLabel.textContent = 'Successful Projects';
+                                    console.log('Forced stats projects label to English after toggle');
+                                }
+                                
+                                if (statsClientsLabel) {
+                                    statsClientsLabel.textContent = 'Enterprise Clients';
+                                    console.log('Forced stats clients label to English after toggle');
+                                }
+                                
+                                if (statsExpertsLabel) {
+                                    statsExpertsLabel.textContent = 'AI Experts';
+                                    console.log('Forced stats experts label to English after toggle');
+                                }
+                                
+                                if (ctaTitle) {
+                                    ctaTitle.textContent = 'Ready to Transform Your Business with AI?';
+                                    console.log('Forced CTA title to English after toggle');
+                                }
+                                
+                                if (ctaDescription) {
+                                    ctaDescription.textContent = 'Contact us today to discuss how our AI solutions can address your specific challenges and opportunities.';
+                                    console.log('Forced CTA description to English after toggle');
+                                }
+                                
+                                if (ctaButton) {
+                                    ctaButton.textContent = 'Get Started';
+                                    console.log('Forced CTA button to English after toggle');
+                                }
+                            }
+                        }, 100);
+                    });
+                }
+            }, 500);
         });
     </script>
 </body>
