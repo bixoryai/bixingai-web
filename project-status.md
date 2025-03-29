@@ -8,6 +8,13 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
+- Add Contact Us, Careers, About Us, and Industry Insights pages with language toggle support, update favicon, and fix hero section heights
+
+
+### Recent Changes
+- Add Contact Us, Careers, About Us, and Industry Insights pages with language toggle support, update favicon, and fix hero section heights
+
+### Recent Changes
 - Add note about automated project status tracking to README
 
 
@@ -47,7 +54,7 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 
 ## Current Status
 - All requested changes have been implemented and committed locally
-- Git commit message: "Fix tag styling in Industry Insights and improve language toggle"
+- Git commit message: "Add Contact Us, Careers, About Us, and Industry Insights pages with language toggle support, update favicon, and fix hero section heights"
 - Push to GitHub repository was attempted but encountered connection issues
 
 ## Next Steps
@@ -62,6 +69,4 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - Language preference is stored in localStorage
 - The site is designed with a dark/blue theme with futuristic technology elements
 - Bootstrap is used for responsive layout and components
-
-
 
