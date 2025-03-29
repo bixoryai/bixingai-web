@@ -5,7 +5,7 @@
 
 .hero-section {
   position: relative;
-  padding: 50px 0 80px;
+  padding: 100px 0 80px; /* Increased top padding to account for fixed header */
   background: var(--dark-bg);
   color: var(--white);
   overflow: hidden;

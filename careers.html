@@ -27,6 +27,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="assets/css/header.css?v=20250329">
     <link rel="stylesheet" href="assets/css/hero-section.css">
     <link rel="stylesheet" href="assets/css/services-section.css">
     <link rel="stylesheet" href="assets/css/demo-section.css">
@@ -38,9 +39,14 @@
     
     <style>
         /* Careers page specific styles */
+        body {
+            background-color: var(--dark-bg);
+            color: var(--white);
+        }
+        
         .careers-hero-section {
             position: relative;
-            padding: 120px 0 100px;
+            padding: 180px 0 100px;
             background: var(--dark-bg);
             color: var(--white);
             overflow: hidden;
@@ -60,6 +66,23 @@
             z-index: 2;
         }
         
+        /* Ensure content sections have proper background and contrast */
+        section {
+            position: relative;
+            z-index: 5;
+            color: var(--white);
+        }
+        
+        .section-title {
+            color: var(--white);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .lead {
+            color: var(--text-light);
+        }
+        
         .culture-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
@@ -68,6 +91,7 @@
             height: 100%;
             border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 30px;
+            color: var(--white);
         }
         
         .culture-card:hover {
@@ -90,6 +114,7 @@
             padding: 80px 0;
             position: relative;
             overflow: hidden;
+            color: var(--white);
         }
         
         .benefits-section::before {
@@ -114,36 +139,43 @@
             display: flex;
             align-items: flex-start;
             margin-bottom: 25px;
+            color: var(--white);
         }
         
         .benefit-icon {
             font-size: 1.5rem;
-            color: var(--primary-color);
             margin-right: 15px;
-            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--accent-blue);
         }
         
         .benefit-text h4 {
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: var(--white);
         }
         
         .benefit-text p {
-            color: var(--text-medium);
+            color: var(--text-light);
             font-size: 0.95rem;
             line-height: 1.6;
+            margin-bottom: 0;
         }
         
         .job-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            height: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 25px;
+            padding: 30px;
             margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            color: var(--white);
         }
         
         .job-card:hover {
@@ -153,7 +185,7 @@
         }
         
         .job-title {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             margin-bottom: 10px;
             color: var(--white);
         }
@@ -168,35 +200,21 @@
         
         .job-location i {
             margin-right: 5px;
-            color: var(--primary-color);
+            color: var(--accent-blue);
         }
         
         .job-type {
             display: inline-block;
+            background: rgba(0, 168, 255, 0.2);
+            color: var(--accent-blue);
             padding: 5px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
-            font-weight: 500;
             margin-bottom: 15px;
         }
         
-        .job-type-full-time {
-            background: rgba(0, 128, 255, 0.2);
-            color: #0080ff;
-        }
-        
-        .job-type-part-time {
-            background: rgba(255, 184, 0, 0.2);
-            color: #ffb800;
-        }
-        
-        .job-type-remote {
-            background: rgba(0, 200, 83, 0.2);
-            color: #00c853;
-        }
-        
         .job-description {
-            color: var(--text-medium);
+            color: var(--text-light);
             font-size: 0.95rem;
             line-height: 1.6;
             margin-bottom: 20px;
@@ -225,6 +243,8 @@
             margin-bottom: 30px;
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            height: 100%;
         }
         
         .employee-testimonial::before {
@@ -252,12 +272,12 @@
         }
         
         .employee-image {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            object-fit: cover;
             margin-right: 15px;
-            border: 2px solid var(--primary-color);
+            object-fit: cover;
+            border: 2px solid var(--accent-blue);
         }
         
         .employee-details h4 {
@@ -267,15 +287,22 @@
         }
         
         .employee-details p {
-            color: var(--text-medium);
             font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 0;
         }
         
         .application-form {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
-            padding: 30px;
+            padding: 40px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .form-label {
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 8px;
         }
         
         .form-control {
@@ -288,53 +315,29 @@
         
         .form-control:focus {
             background: rgba(255, 255, 255, 0.15);
-            border-color: var(--primary-color);
+            border-color: var(--accent-blue);
             color: var(--white);
             box-shadow: none;
         }
         
-        .form-label {
-            color: var(--text-light);
-            font-weight: 500;
-        }
-        
-        .custom-file-input {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            height: calc(1.5em + 0.75rem + 2px);
-            margin: 0;
-            opacity: 0;
-        }
-        
-        .custom-file-label {
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 1;
-            height: calc(1.5em + 0.75rem + 2px);
-            padding: 0.375rem 0.75rem;
-            font-weight: 400;
-            line-height: 1.5;
-            color: var(--text-medium);
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 0.25rem;
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
         
         .submit-btn {
             background: var(--primary-gradient);
+            color: var(--white);
             border: none;
             border-radius: 30px;
             padding: 12px 30px;
             font-weight: 500;
             transition: all 0.3s ease;
+            margin-top: 20px;
         }
         
         .submit-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -346,10 +349,12 @@
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.html">
                         <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
-                        <span data-i18n="footer.company" style="font-weight: bold;">Bixing Technology</span>
+                        <span data-i18n="footer.company">Bixing Technology</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <div class="navbar-toggler-icon">
+                            <span></span>
+                        </div>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -855,16 +860,28 @@
     <!-- Custom JS -->
     <script src="assets/js/i18n.js"></script>
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
-        });
-        
-        // Initialize particles for hero section
+        // Initialize language on page load
         document.addEventListener('DOMContentLoaded', function() {
+            // Apply custom translations for Careers page
+            updateCareersPageTranslations();
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
             // Force update company description
             const companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
             if (companyDescElement) {
@@ -1038,8 +1055,8 @@
                 document.querySelector('.hero-subtitle').textContent = '成为塑造AI技术未来并产生真正影响的团队的一员';
                 
                 // Company Culture Section
-                document.querySelector('.py-5 .section-title').textContent = '我们的文化';
-                document.querySelector('.py-5 .lead').textContent = '是什么让在毕行科技工作与众不同';
+                document.querySelectorAll('.section-title')[0].textContent = '我们的文化';
+                document.querySelectorAll('.lead')[0].textContent = '是什么让在毕行科技工作与众不同';
                 
                 // Culture cards
                 const cultureTitles = document.querySelectorAll('.culture-card h3');
@@ -1059,29 +1076,35 @@
                 cultureDescriptions[5].textContent = '我们重视团队成员的福祉，促进健康的工作与生活平衡。我们提供灵活的工作安排并优先考虑心理健康。';
                 
                 // Benefits Section
-                document.querySelector('.benefits-section .section-title').textContent = '福利与待遇';
-                document.querySelector('.benefits-section .lead').textContent = '我们以具有竞争力的福利和待遇关爱我们的团队';
+                document.querySelectorAll('.section-title')[1].textContent = '福利与待遇';
+                document.querySelectorAll('.lead')[1].textContent = '我们以具有竞争力的福利和待遇关爱我们的团队';
                 
                 // Benefit items
                 const benefitTitles = document.querySelectorAll('.benefit-text h4');
-                benefitTitles[0].textContent = '全面健康保障';
-                benefitTitles[1].textContent = '具有竞争力的薪酬';
-                benefitTitles[2].textContent = '慷慨的休假时间';
-                benefitTitles[3].textContent = '学习与发展';
-                benefitTitles[4].textContent = '灵活的工作环境';
-                benefitTitles[5].textContent = '办公室福利';
+                if (benefitTitles.length >= 6) {
+                    benefitTitles[0].textContent = '全面健康保障';
+                    benefitTitles[1].textContent = '具有竞争力的薪酬';
+                    benefitTitles[2].textContent = '慷慨的休假时间';
+                    benefitTitles[3].textContent = '学习与发展';
+                    benefitTitles[4].textContent = '灵活的工作环境';
+                    benefitTitles[5].textContent = '办公室福利';
+                }
                 
                 const benefitDescriptions = document.querySelectorAll('.benefit-text p');
-                benefitDescriptions[0].textContent = '我们为您和您的家属提供全面的医疗、牙科和视力保险计划。';
-                benefitDescriptions[1].textContent = '我们提供具有竞争力的薪资、股权期权和绩效奖金，以奖励您的贡献。';
-                benefitDescriptions[2].textContent = '享受慷慨的带薪休假，包括假期、病假和节假日，以休息和充电。';
-                benefitDescriptions[3].textContent = '获取持续学习机会，包括会议、研讨会和教育报销。';
-                benefitDescriptions[4].textContent = '享受灵活的工作时间和远程工作选项，帮助您保持健康的工作与生活平衡。';
-                benefitDescriptions[5].textContent = '享受现代办公室，提供餐饮、零食、咖啡和团队建设活动。';
+                if (benefitDescriptions.length >= 6) {
+                    benefitDescriptions[0].textContent = '我们为您和您的家属提供全面的医疗、牙科和视力保险计划。';
+                    benefitDescriptions[1].textContent = '我们提供具有竞争力的薪资、股权期权和绩效奖金，以奖励您的贡献。';
+                    benefitDescriptions[2].textContent = '享受慷慨的带薪休假，包括假期、病假和节假日，以休息和充电。';
+                    benefitDescriptions[3].textContent = '获取持续学习机会，包括会议、研讨会和教育报销。';
+                    benefitDescriptions[4].textContent = '享受灵活的工作时间和远程工作选项，帮助您保持健康的工作与生活平衡。';
+                    benefitDescriptions[5].textContent = '享受现代办公室，提供餐饮、零食、咖啡和团队建设活动。';
+                }
                 
                 // Job Listings Section
-                document.querySelector('.py-5:nth-of-type(3) .section-title').textContent = '职位空缺';
-                document.querySelector('.py-5:nth-of-type(3) .lead').textContent = '加入我们的团队，帮助塑造AI的未来';
+                if (document.querySelectorAll('.section-title').length > 2) {
+                    document.querySelectorAll('.section-title')[2].textContent = '职位空缺';
+                    document.querySelectorAll('.lead')[2].textContent = '加入我们的团队，帮助塑造AI的未来';
+                }
                 
                 // Job cards
                 const jobTitles = document.querySelectorAll('.job-title');
@@ -1171,8 +1194,8 @@
                 document.querySelector('.hero-subtitle').textContent = "Be part of a team that's shaping the future of AI technology and making a real impact";
                 
                 // Company Culture Section
-                document.querySelector('.py-5 .section-title').textContent = 'Our Culture';
-                document.querySelector('.py-5 .lead').textContent = 'What makes working at Bixing Technology special';
+                document.querySelectorAll('.section-title')[0].textContent = 'Our Culture';
+                document.querySelectorAll('.lead')[0].textContent = 'What makes working at Bixing Technology special';
                 
                 // Culture cards
                 const cultureTitles = document.querySelectorAll('.culture-card h3');
@@ -1192,29 +1215,35 @@
                 cultureDescriptions[5].textContent = 'We value the well-being of our team members and promote a healthy work-life balance. We offer flexible work arrangements and prioritize mental health.';
                 
                 // Benefits Section
-                document.querySelector('.benefits-section .section-title').textContent = 'Benefits & Perks';
-                document.querySelector('.benefits-section .lead').textContent = 'We take care of our team with competitive benefits and perks';
+                document.querySelectorAll('.section-title')[1].textContent = 'Benefits & Perks';
+                document.querySelectorAll('.lead')[1].textContent = 'We take care of our team with competitive benefits and perks';
                 
                 // Benefit items
                 const benefitTitles = document.querySelectorAll('.benefit-text h4');
-                benefitTitles[0].textContent = 'Comprehensive Health Coverage';
-                benefitTitles[1].textContent = 'Competitive Compensation';
-                benefitTitles[2].textContent = 'Generous Time Off';
-                benefitTitles[3].textContent = 'Learning & Development';
-                benefitTitles[4].textContent = 'Flexible Work Environment';
-                benefitTitles[5].textContent = 'Office Perks';
+                if (benefitTitles.length >= 6) {
+                    benefitTitles[0].textContent = 'Comprehensive Health Coverage';
+                    benefitTitles[1].textContent = 'Competitive Compensation';
+                    benefitTitles[2].textContent = 'Generous Time Off';
+                    benefitTitles[3].textContent = 'Learning & Development';
+                    benefitTitles[4].textContent = 'Flexible Work Environment';
+                    benefitTitles[5].textContent = 'Office Perks';
+                }
                 
                 const benefitDescriptions = document.querySelectorAll('.benefit-text p');
-                benefitDescriptions[0].textContent = 'We offer comprehensive medical, dental, and vision insurance plans for you and your dependents.';
-                benefitDescriptions[1].textContent = 'We offer competitive salaries, equity options, and performance-based bonuses to reward your contributions.';
-                benefitDescriptions[2].textContent = 'Enjoy generous paid time off, including vacation days, sick leave, and holidays to rest and recharge.';
-                benefitDescriptions[3].textContent = 'Access to continuous learning opportunities, including conferences, workshops, and education reimbursement.';
-                benefitDescriptions[4].textContent = 'Enjoy flexible work hours and remote work options to help you maintain a healthy work-life balance.';
-                benefitDescriptions[5].textContent = 'Enjoy a modern office with catered meals, snacks, coffee, and team-building activities.';
+                if (benefitDescriptions.length >= 6) {
+                    benefitDescriptions[0].textContent = 'We offer comprehensive medical, dental, and vision insurance plans for you and your dependents.';
+                    benefitDescriptions[1].textContent = 'We offer competitive salaries, equity options, and performance-based bonuses to reward your contributions.';
+                    benefitDescriptions[2].textContent = 'Enjoy generous paid time off, including vacation days, sick leave, and holidays to rest and recharge.';
+                    benefitDescriptions[3].textContent = 'Access to continuous learning opportunities, including conferences, workshops, and education reimbursement.';
+                    benefitDescriptions[4].textContent = 'Enjoy flexible work hours and remote work options to help you maintain a healthy work-life balance.';
+                    benefitDescriptions[5].textContent = 'Enjoy a modern office with catered meals, snacks, coffee, and team-building activities.';
+                }
                 
                 // Job Listings Section
-                document.querySelector('.py-5:nth-of-type(3) .section-title').textContent = 'Open Positions';
-                document.querySelector('.py-5:nth-of-type(3) .lead').textContent = 'Join our team and help shape the future of AI';
+                if (document.querySelectorAll('.section-title').length > 2) {
+                    document.querySelectorAll('.section-title')[2].textContent = 'Open Positions';
+                    document.querySelectorAll('.lead')[2].textContent = 'Join our team and help shape the future of AI';
+                }
                 
                 // Job cards
                 const jobTitles = document.querySelectorAll('.job-title');

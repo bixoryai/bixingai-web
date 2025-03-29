@@ -25,6 +25,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="assets/css/header.css?v=20250329">
     <link rel="stylesheet" href="assets/css/hero-section.css">
     <link rel="stylesheet" href="assets/css/services-section.css">
     <link rel="stylesheet" href="assets/css/demo-section.css">
@@ -36,9 +37,13 @@
     
     <style>
         /* About page specific styles */
+        body {
+            background-color: var(--dark-bg);
+        }
+        
         .about-hero-section {
             position: relative;
-            padding: 120px 0 100px;
+            padding: 180px 0 100px;
             background: var(--dark-bg);
             color: var(--white);
             overflow: hidden;
@@ -284,7 +289,9 @@
                         <span data-i18n="footer.company">Bixing Technology</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <div class="navbar-toggler-icon">
+                            <span></span>
+                        </div>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -1200,7 +1207,25 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Apply custom translations for About Us page
             updateAboutPageTranslations();
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
         });
+        
     </script>
 </body>
 </html>

@@ -25,23 +25,50 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
-    <link rel="stylesheet" href="assets/css/hero-section.css">
-    <link rel="stylesheet" href="assets/css/services-section.css">
-    <link rel="stylesheet" href="assets/css/cta-section.css">
-    <link rel="stylesheet" href="assets/css/footer-section.css">
+    <link rel="stylesheet" href="assets/css/styles.css?v=20250329">
+    <link rel="stylesheet" href="assets/css/modern-ai-theme.css?v=20250329">
+    <link rel="stylesheet" href="assets/css/header.css?v=20250329">
+    <link rel="stylesheet" href="assets/css/hero-section.css?v=20250329">
+    <link rel="stylesheet" href="assets/css/services-section.css?v=20250329">
+    <link rel="stylesheet" href="assets/css/cta-section.css?v=20250329">
+    <link rel="stylesheet" href="assets/css/footer-section.css?v=20250329">
     
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <style>
         /* Page-specific styles */
+        body {
+            background-color: var(--dark-bg);
+        }
+        
         .service-detail-section {
             position: relative;
             padding: 80px 0;
-            background-color: var(--dark-bg);
+            background: var(--dark-surface);
             overflow: hidden;
+        }
+        
+        .services-hero-section {
+            position: relative;
+            padding: 180px 0 100px; /* Increased top padding to prevent overlap with fixed header */
+            background: var(--dark-bg);
+            color: var(--white);
+            overflow: hidden;
+        }
+        
+        .services-hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .services-hero-content {
+            position: relative;
+            z-index: 2;
         }
         
         .service-detail-card {
@@ -258,10 +285,12 @@
                 <div class="container-fluid">
                     <a class="navbar-brand" href="index.html">
                         <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
-                        <span data-i18n="footer.company" style="font-weight: bold;">Bixing Technology</span>
+                        <span data-i18n="footer.company">Bixing Technology</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <div class="navbar-toggler-icon">
+                            <span></span>
+                        </div>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -302,9 +331,9 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="insights-hero-section">
-        <div class="insights-hero-particles" id="hero-particles"></div>
-        <div class="container insights-hero-content">
+    <section class="services-hero-section">
+        <div class="services-hero-particles" id="hero-particles"></div>
+        <div class="container services-hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
                     <h1 class="hero-title display-4 fw-bold text-gradient mb-4" data-i18n="services.page.heroTitle">Comprehensive AI Solutions</h1>
@@ -663,6 +692,16 @@
                 duration: 800,
                 easing: 'ease-in-out',
                 once: true
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             });
             
             // Force translation after a short delay to ensure i18n.js has loaded

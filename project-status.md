@@ -8,6 +8,10 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
+- Update Services page with improved Chinese translations and fix translation toggle
+
+
+### Recent Changes
 - Add Products & Services landing page with custom illustrations and update navigation menu
 
 
@@ -65,5 +69,6 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - Language preference is stored in localStorage
 - The site is designed with a dark/blue theme with futuristic technology elements
 - Bootstrap is used for responsive layout and components
+
 
 
