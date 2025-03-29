@@ -8,23 +8,15 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
-- Add Contact Us, Careers, About Us, and Industry Insights pages with language toggle support, update favicon, and fix hero section heights
+- Update project status with latest changes
 
 
 ### Recent Changes
+- Update project status with latest changes
 - Add Contact Us, Careers, About Us, and Industry Insights pages with language toggle support, update favicon, and fix hero section heights
-
-### Recent Changes
 - Add note about automated project status tracking to README
-
-
-### Recent Changes
 - Update website with improved tag styling and add automated project status tracking
-
-
-### Recent Changes
 - Fix tag styling in Industry Insights and improve language toggle
-
 
 ### Navigation and Header
 - Removed "Home" link from the navigation menu (logo and company name now serve as home links)

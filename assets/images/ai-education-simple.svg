@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066FF"/>
+      <stop offset="100%" stop-color="#00C2FF"/>
+    </linearGradient>
+    <linearGradient id="gradient-purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7000FF"/>
+      <stop offset="100%" stop-color="#0066FF"/>
+    </linearGradient>
+    <linearGradient id="gradient-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB800"/>
+      <stop offset="100%" stop-color="#FF8A00"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="#0A1020" opacity="0.1"/>
+  
+  <!-- Book -->
+  <rect x="300" y="200" width="200" height="200" fill="#0A1020" stroke="url(#gradient-purple)" stroke-width="3"/>
+  
+  <!-- Book Pages -->
+  <rect x="300" y="200" width="100" height="200" fill="#0A1020" stroke="url(#gradient-blue)" stroke-width="2"/>
+  <rect x="400" y="200" width="100" height="200" fill="#0A1020" stroke="url(#gradient-blue)" stroke-width="2"/>
+  
+  <!-- Book Spine -->
+  <rect x="398" y="200" width="4" height="200" fill="url(#gradient-gold)"/>
+  
+  <!-- Graduation Cap -->
+  <polygon points="350,150 400,130 450,150 400,170" fill="url(#gradient-gold)" opacity="0.9"/>
+  <line x1="400" y1="170" x2="400" y2="190" stroke="url(#gradient-gold)" stroke-width="3"/>
+  <rect x="380" y="160" width="40" height="20" stroke="url(#gradient-blue)" stroke-width="2" fill="#0A1020"/>
+  
+  <!-- Brain Icon -->
+  <circle cx="400" cy="100" r="30" fill="url(#gradient-purple)" opacity="0.7"/>
+  <circle cx="400" cy="100" r="20" fill="#0A1020"/>
+  
+  <!-- Brain Connections -->
+  <path d="M390,90 C395,85 405,85 410,90" stroke="url(#gradient-blue)" stroke-width="2" fill="none"/>
+  <path d="M390,110 C395,115 405,115 410,110" stroke="url(#gradient-blue)" stroke-width="2" fill="none"/>
+  <path d="M390,90 C385,95 385,105 390,110" stroke="url(#gradient-gold)" stroke-width="2" fill="none"/>
+  <path d="M410,90 C415,95 415,105 410,110" stroke="url(#gradient-gold)" stroke-width="2" fill="none"/>
+  
+  <!-- Brain Nodes -->
+  <circle cx="390" cy="90" r="3" fill="url(#gradient-blue)"/>
+  <circle cx="410" cy="90" r="3" fill="url(#gradient-blue)"/>
+  <circle cx="390" cy="110" r="3" fill="url(#gradient-blue)"/>
+  <circle cx="410" cy="110" r="3" fill="url(#gradient-blue)"/>
+  <circle cx="400" cy="100" r="5" fill="url(#gradient-gold)"/>
+  
+  <!-- Pulse Animation -->
+  <circle cx="400" cy="300" r="70" fill="url(#gradient-blue)" opacity="0.2">
+    <animate attributeName="r" values="70;100;70" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.2;0.1;0.2" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle cx="400" cy="300" r="120" fill="url(#gradient-purple)" opacity="0.1">
+    <animate attributeName="r" values="120;150;120" dur="6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.05;0.1" dur="6s" repeatCount="indefinite"/>
+  </circle>
+</svg>
