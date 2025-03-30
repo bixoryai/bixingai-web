@@ -8,6 +8,16 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
+- Update project-status.md with hero section optimization details
+
+
+### Recent Changes
+- Temporarily hide Client Testimonials section on homepage
+  - Added CSS rule to hide the section until explicitly requested to show it again
+  - Maintained all other homepage sections and functionality
+  - Used `!important` flag to ensure the hiding takes precedence
+
+### Recent Changes
 - UI Optimization: Update hero sections and styling across site
 
 - Optimize hero sections for all secondary pages with consistent 500px height and vertical centering
