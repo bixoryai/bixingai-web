@@ -8,8 +8,20 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
-- Reorganize website structure and improve navigation
+- Optimize CTA section with improved UI/UX design and spacing
 
+
+### Recent Changes
+- Mobile UI Optimization: Improve mobile layout and spacing
+  - Optimized Interactive AI Demo section for mobile view
+    - Reduced top padding and added bottom margin for the animation block
+    - Center-aligned the "See AI in Action" content with proper spacing
+    - Created better visual flow between animation and descriptive text
+  - Maintained mobile floating cards with proper positioning around neural network animation
+  - Ensured responsive design principles are followed throughout the site
+
+### Recent Changes
+- Reorganize website structure and improve navigation
 
 ### Recent Changes
 - Optimize CTA section with improved UI/UX design
@@ -23,7 +35,6 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 
 ### Recent Changes
 - Optimize footer and CTA section: Align company logo with Quick Links heading, center copyright text, improve CTA vertical spacing
-
 
 ### Recent Changes
 - Reorganize website structure with improved directory organization
@@ -54,7 +65,6 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - Update header and footer styling for better consistency
 - Improve overall CSS organization and structure
 
-
 ### Recent Changes
 - Optimize hero sections across all secondary pages
   - Set consistent 500px height with vertical centering for all secondary pages
@@ -69,7 +79,6 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ### Recent Changes
 - Update project-status.md with header enhancement details
 
-
 ### Recent Changes
 - Enhance header design across all pages with prominent company name
 
@@ -81,7 +90,6 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - Fixed hero section padding on all pages to prevent overlap
 - Fixed JavaScript in careers page for proper content display
 - Ensured consistent header implementation across all pages
-
 
 ### Recent Changes
 - Enhance header design across all pages with prominent company name
@@ -97,14 +105,11 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ### Recent Changes
 - Update Services page with improved Chinese translations and fix translation toggle
 
-
 ### Recent Changes
 - Add Products & Services landing page with custom illustrations and update navigation menu
 
-
 ### Recent Changes
 - Update project status with latest changes
-
 
 ### Recent Changes
 - Update project status with latest changes

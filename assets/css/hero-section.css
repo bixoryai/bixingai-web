@@ -231,6 +231,318 @@
   border-radius: var(--radius-full);
 }
 
+/* Hide original floating cards on mobile */
+@media (max-width: 768px) {
+  .floating-card {
+    display: none;
+  }
+}
+
+/* Mobile-specific floating cards with minimal styling */
+@media (max-width: 768px) {
+  .floating-card-mobile {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 4px 8px;
+    font-size: 12px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: float-mobile 3s ease-in-out infinite;
+    z-index: 3;
+  }
+  
+  /* Icon styling */
+  .floating-card-mobile i {
+    font-size: 12px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Positioning for each card - moved closer to center */
+  .floating-card-mobile-1 {
+    top: 15%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+  
+  .floating-card-mobile-2 {
+    top: 20%;
+    right: 20%;
+    animation-delay: 0.5s;
+  }
+  
+  .floating-card-mobile-3 {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 0.8s;
+  }
+  
+  .floating-card-mobile-4 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 1.5s;
+    animation-name: float-mobile-center;
+  }
+  
+  .floating-card-mobile-5 {
+    bottom: 25%;
+    right: 25%;
+    animation-delay: 1.2s;
+  }
+}
+
+/* Mobile-specific float animation with smaller movement */
+@keyframes float-mobile {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Special animation for centered card */
+@keyframes float-mobile-center {
+  0% {
+    transform: translate(-50%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -55%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 992px) {
+  .hero-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  
+  .hero-content {
+    padding-right: 0; /* Remove padding on smaller screens */
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .hero-image-container {
+    padding-left: 0; /* Remove padding on smaller screens */
+  }
+  
+  /* Center the floating cards on mobile */
+  .floating-card-1,
+  .floating-card-2,
+  .floating-card-3,
+  .floating-card-5 {
+    position: relative;
+    display: inline-flex;
+    margin: 10px;
+    position: static;
+    animation: none;
+  }
+  
+  .floating-card-4 {
+    position: relative;
+    display: inline-flex;
+    margin: 10px;
+    position: static;
+    transform: none;
+    animation: none;
+  }
+  
+  .hero-image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: 80px; /* Increased from 40px to prevent header overlap */
+    padding-bottom: 60px; /* Reduced from 100px for more compact layout */
+    text-align: center;
+  }
+  
+  /* Reorder columns on mobile - image first, text second */
+  .hero-row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .hero-image-col {
+    order: 1; /* Show first */
+    margin-bottom: 1rem; /* Reduced from 2rem */
+  }
+  
+  .hero-text-col {
+    order: 2; /* Show second */
+  }
+  
+  .hero-content {
+    margin-bottom: 0; /* Remove bottom margin since it's now at the bottom */
+    margin-top: 0; /* Reduced from 1rem */
+  }
+  
+  .hero-title {
+    margin-bottom: 0.5rem; /* Add compact spacing */
+  }
+  
+  .hero-subtitle {
+    margin-bottom: 1rem; /* Add compact spacing */
+  }
+  
+  .hero-image-container {
+    margin-top: 1rem;
+    position: relative;
+  }
+  
+  /* Hide original floating cards on mobile */
+  .floating-card {
+    display: none;
+  }
+  
+  /* Mobile-specific floating cards with minimal styling */
+  .floating-card-mobile {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    padding: 4px 8px;
+    font-size: 12px;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: float-mobile 3s ease-in-out infinite;
+    z-index: 3;
+  }
+  
+  /* Icon styling */
+  .floating-card-mobile i {
+    font-size: 12px;
+    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Positioning for each card - moved closer to center */
+  .floating-card-mobile-1 {
+    top: 15%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+  
+  .floating-card-mobile-2 {
+    top: 20%;
+    right: 20%;
+    animation-delay: 0.5s;
+  }
+  
+  .floating-card-mobile-3 {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 0.8s;
+  }
+  
+  .floating-card-mobile-4 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 1.5s;
+    animation-name: float-mobile-center;
+  }
+  
+  .floating-card-mobile-5 {
+    bottom: 25%;
+    right: 25%;
+    animation-delay: 1.2s;
+  }
+  
+  /* Mobile-specific float animation with smaller movement */
+  @keyframes float-mobile {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Special animation for centered card */
+  @keyframes float-mobile-center {
+    0% {
+      transform: translate(-50%, -50%);
+    }
+    50% {
+      transform: translate(-50%, -55%);
+    }
+    100% {
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-title.display-4 {
+    font-size: 2rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem; /* Reduced from 1rem for more compact layout */
+    margin-top: 1rem; /* Reduced from 1.5rem */
+  }
+  
+  .hero-buttons .btn {
+    margin: 0;
+    width: 80%;
+  }
+}
+
+/* Hide mobile cards on desktop and larger screens */
+@media (min-width: 769px) {
+  .floating-card-mobile {
+    display: none !important; /* Force hide with !important */
+  }
+}
+
 /* ===== Client Logos ===== */
 .trusted-by {
   margin-top: 3rem;
@@ -304,91 +616,9 @@
   }
 }
 
-/* ===== Responsive Styles ===== */
-@media (max-width: 992px) {
-  .hero-section {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  
-  .hero-content {
-    padding-right: 0; /* Remove padding on smaller screens */
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .hero-image-container {
-    padding-left: 0; /* Remove padding on smaller screens */
-  }
-  
-  /* Center the floating cards on mobile */
-  .floating-card-1,
-  .floating-card-2,
-  .floating-card-3,
-  .floating-card-5 {
-    position: relative;
-    display: inline-flex;
-    margin: 10px;
-    position: static;
-    animation: none;
-  }
-  
-  .floating-card-4 {
-    position: relative;
-    display: inline-flex;
-    margin: 10px;
-    position: static;
-    transform: none;
-    animation: none;
-  }
-  
-  .hero-image-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    padding-top: 40px;
-    padding-bottom: 100px;
-    text-align: center;
-  }
-  
-  .hero-content {
-    margin-bottom: 3rem;
-  }
-  
-  .hero-image-container {
-    margin-top: 2rem;
-  }
-  
-  .floating-card {
-    display: none;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-title.display-4 {
-    font-size: 2rem !important;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .hero-buttons .btn {
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  
-  .hero-buttons .btn:last-child {
-    margin-bottom: 0;
+/* Hide mobile-specific floating cards on desktop */
+@media (min-width: 769px) {
+  .floating-card-mobile {
+    display: none !important;
   }
 }

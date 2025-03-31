@@ -259,22 +259,104 @@
   }
   
   .navbar-dark .navbar-nav .nav-item {
-    margin: 5px 0;
+    margin: 10px 0; /* Increased from 5px for better touch spacing */
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    padding: 12px 16px; /* Increased padding for larger touch target */
+    font-size: 16px; /* Ensure readable font size */
+    display: block; /* Full width for easier tapping */
   }
   
   .dropdown-menu {
     background-color: rgba(30, 41, 59, 0.5);
     border: none;
     box-shadow: none;
-    padding: 0 0 0 15px;
+    padding: 5px 0 5px 15px; /* Added vertical padding */
     margin-top: 5px;
     opacity: 1;
     visibility: visible;
     transform: none;
   }
   
+  .dropdown-item {
+    padding: 12px 15px; /* Increased padding for larger touch target */
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 6px;
+  }
+  
+  /* Move language selector to top of mobile menu for better accessibility */
   .language-selector {
-    margin: 10px 0 0 0;
-    display: inline-block;
+    margin: 0 0 15px 0;
+    display: block;
+    text-align: center;
+  }
+  
+  .language-selector button {
+    padding: 8px 20px; /* Larger touch target */
+    font-size: 14px;
+    width: 100%; /* Full width for easier tapping */
+    max-width: 200px;
+  }
+  
+  /* Improve hamburger menu touch target */
+  .navbar-toggler {
+    padding: 8px;
+    margin-right: -8px;
+  }
+  
+  .navbar-toggler-icon {
+    width: 32px; /* Slightly larger */
+    height: 26px;
+  }
+  
+  /* Prevent layout shift on mobile */
+  .navbar > .container-fluid {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-brand {
+    flex: 1;
+    max-width: 75%; /* Prevent brand from pushing toggler to next line */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .navbar-toggler {
+    padding: 8px;
+    margin-right: -8px;
+    margin-left: auto; /* Ensure toggler stays at the end */
+    order: 2; /* Ensure proper ordering */
+  }
+  
+  .navbar-collapse {
+    order: 3; /* Ensure collapse appears below the header */
+    flex-basis: 100%; /* Full width */
+  }
+}
+
+@media (max-width: 576px) {
+  /* Additional adjustments for very small screens */
+  .navbar-brand span {
+    font-size: 1.4rem; /* Smaller brand name on mobile */
+    max-width: calc(100% - 50px); /* Ensure text doesn't push toggle to next line */
+  }
+  
+  .logo {
+    height: 36px; /* Slightly smaller logo */
+    margin-right: 8px; /* Reduced margin */
+  }
+  
+  .header {
+    padding: 8px 0; /* Consistent padding */
+  }
+  
+  /* Further prevent layout shift on very small screens */
+  .navbar-brand {
+    max-width: 70%; /* More conservative width limit on small screens */
   }
 }
