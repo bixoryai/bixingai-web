@@ -8,6 +8,19 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
+- Mobile UI optimization: Improve Interactive AI Demo section and maintain floating cards
+
+
+### Recent Changes
+- Optimize mobile header for improved visibility and alignment
+  - Reduced hamburger menu icon size for better space utilization
+  - Centered company name for improved visual balance
+  - Adjusted spacing between elements for optimal display
+  - Improved responsive behavior across different mobile screen sizes
+  - Ensured full company name visibility without being cut off
+  - Used absolute positioning for the hamburger menu to maintain layout integrity
+
+### Recent Changes
 - Optimize CTA section with improved UI/UX design and spacing
 
 

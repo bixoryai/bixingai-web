@@ -298,39 +298,64 @@
     width: 100%; /* Full width for easier tapping */
     max-width: 200px;
   }
+}
+
+@media (max-width: 768px) {
+  .navbar-brand span {
+    font-size: 1.5rem; /* Further reduced size for better fit */
+    max-width: 100%; /* Allow text to use available space */
+    white-space: normal; /* Allow text to wrap if needed */
+    overflow: visible; /* Ensure text is not cut off */
+    text-overflow: clip; /* Don't use ellipsis */
+    display: inline-block; /* Better text handling */
+    padding-right: 5px; /* Reduced space between text and hamburger */
+  }
   
-  /* Improve hamburger menu touch target */
+  .logo {
+    height: 36px; /* Smaller logo */
+    margin-right: 8px; /* Reduced margin */
+    flex-shrink: 0; /* Prevent logo from shrinking */
+  }
+  
+  /* Make hamburger menu even smaller */
   .navbar-toggler {
-    padding: 8px;
-    margin-right: -8px;
+    padding: 4px; /* Minimal padding */
+    margin-right: 0; /* Remove right margin */
+    margin-left: 0; /* Remove left margin */
+    flex-shrink: 0; /* Prevent toggler from shrinking */
+    width: auto; /* Allow natural width */
   }
   
   .navbar-toggler-icon {
-    width: 32px; /* Slightly larger */
-    height: 26px;
+    width: 22px; /* Smaller width */
+    height: 18px; /* Smaller height */
   }
   
-  /* Prevent layout shift on mobile */
+  /* Improve container layout */
   .navbar > .container-fluid {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: center; /* Center the content */
     align-items: center;
+    padding-left: 10px; /* Reduce left padding */
+    padding-right: 10px; /* Reduce right padding */
   }
   
   .navbar-brand {
-    flex: 1;
-    max-width: 75%; /* Prevent brand from pushing toggler to next line */
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    flex: 0 1 auto; /* Allow brand to shrink but not grow */
+    margin-right: 0; /* Remove right margin */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content */
+    text-align: center; /* Center text */
   }
   
   .navbar-toggler {
-    padding: 8px;
-    margin-right: -8px;
-    margin-left: auto; /* Ensure toggler stays at the end */
     order: 2; /* Ensure proper ordering */
+    position: absolute; /* Position absolutely */
+    right: 10px; /* Position from right edge */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
   }
   
   .navbar-collapse {
@@ -342,21 +367,33 @@
 @media (max-width: 576px) {
   /* Additional adjustments for very small screens */
   .navbar-brand span {
-    font-size: 1.4rem; /* Smaller brand name on mobile */
-    max-width: calc(100% - 50px); /* Ensure text doesn't push toggle to next line */
+    font-size: 1.2rem; /* Even smaller brand name on mobile */
+    max-width: 100%; /* Allow text to use available space */
   }
   
   .logo {
-    height: 36px; /* Slightly smaller logo */
-    margin-right: 8px; /* Reduced margin */
+    height: 30px; /* Even smaller logo */
+    margin-right: 5px; /* Minimal margin */
+  }
+  
+  /* Make hamburger menu even smaller on very small screens */
+  .navbar-toggler {
+    padding: 3px; /* Minimal padding */
+    right: 8px; /* Position closer to edge */
+  }
+  
+  .navbar-toggler-icon {
+    width: 20px; /* Smaller width */
+    height: 16px; /* Smaller height */
   }
   
   .header {
-    padding: 8px 0; /* Consistent padding */
+    padding: 6px 0; /* Reduced padding */
   }
   
   /* Further prevent layout shift on very small screens */
-  .navbar-brand {
-    max-width: 70%; /* More conservative width limit on small screens */
+  .navbar > .container-fluid {
+    padding-left: 8px; /* Minimal left padding */
+    padding-right: 8px; /* Minimal right padding */
   }
 }

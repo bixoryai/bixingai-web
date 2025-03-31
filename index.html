@@ -190,8 +190,8 @@
     <section class="hero-section ai-circuit-bg">
         <div class="hero-particles" id="hero-particles"></div>
         <div class="container-fluid">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-5 offset-lg-0 col-md-10" data-aos="fade-right">
+            <div class="row align-items-center justify-content-center hero-row">
+                <div class="col-lg-5 offset-lg-0 col-md-10 hero-text-col" data-aos="fade-right">
                     <div class="hero-content">
                         <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="hero.title">Empowering Enterprises with AI Innovation</h1>
                         <p class="hero-subtitle lead" data-i18n="hero.subtitle">Custom AI solutions, education, and consultation services to transform your business</p>
@@ -201,11 +201,33 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 offset-lg-1 col-md-10" data-aos="fade-left">
+                <div class="col-lg-5 offset-lg-1 col-md-10 hero-image-col" data-aos="fade-left">
                     <div class="hero-image-container">
                         <div class="hero-image">
                             <img src="/assets/images/hero-ai-illustration.svg" alt="AI Innovation" class="img-fluid">
                         </div>
+                        <!-- Mobile-specific floating cards with minimal content -->
+                        <div class="floating-card-mobile floating-card-mobile-1">
+                            <i class="fas fa-brain"></i>
+                            <span data-i18n="hero.floatingCard1">Specialized AI Models</span>
+                        </div>
+                        <div class="floating-card-mobile floating-card-mobile-2">
+                            <i class="fas fa-chart-line"></i>
+                            <span data-i18n="hero.floatingCard2">AI Data Solutions</span>
+                        </div>
+                        <div class="floating-card-mobile floating-card-mobile-3">
+                            <i class="fas fa-robot"></i>
+                            <span data-i18n="hero.floatingCard3">AI Agents</span>
+                        </div>
+                        <div class="floating-card-mobile floating-card-mobile-4">
+                            <i class="fas fa-lightbulb"></i>
+                            <span data-i18n="hero.floatingCard4">Custom AI Strategy</span>
+                        </div>
+                        <div class="floating-card-mobile floating-card-mobile-5">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span data-i18n="hero.floatingCard5">AI Education</span>
+                        </div>
+                        <!-- Original desktop floating cards -->
                         <div class="floating-card floating-card-1">
                             <div class="floating-card-icon">
                                 <i class="fas fa-brain"></i>
@@ -640,7 +662,7 @@
             // Force update company description
             const companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
             if (companyDescElement) {
-                const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+                const currentLang = localStorage.getItem('bixingLanguage') || 'zh';
                 if (currentLang === 'en') {
                     companyDescElement.textContent = "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.";
                 } else {
@@ -1034,12 +1056,12 @@
             }
         };
         
-        // Current language (default to English)
-        let currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
+        // Current language (default to Chinese)
+        let currentLanguage = localStorage.getItem('bixingLanguage') || 'zh';
         
         // Function to apply translations
         function applyTranslations() {
-            const currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
+            const currentLanguage = localStorage.getItem('bixingLanguage') || 'zh';
             
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
@@ -1075,7 +1097,7 @@
         
         // Toggle language function
         function toggleLanguage() {
-            const currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
+            const currentLanguage = localStorage.getItem('bixingLanguage') || 'zh';
             const newLanguage = currentLanguage === 'en' ? 'zh' : 'en';
             localStorage.setItem('bixingLanguage', newLanguage);
             
