@@ -8,6 +8,20 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
+- Reorganize website structure and improve navigation
+
+
+### Recent Changes
+- Optimize CTA section with improved UI/UX design
+  - Increased section frame height to 420px for better visual impact
+  - Enhanced content block with 40px vertical padding following UI/UX best practices
+  - Improved typography with optimized font sizes and spacing
+  - Added proper visual hierarchy with balanced margins between elements
+  - Enhanced button design with larger touch targets for better accessibility
+  - Implemented responsive adjustments for different screen sizes
+  - Added subtle depth effects with box-shadows and proper content spacing
+
+### Recent Changes
 - Optimize footer and CTA section: Align company logo with Quick Links heading, center copyright text, improve CTA vertical spacing
 
 
