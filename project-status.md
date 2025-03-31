@@ -8,19 +8,20 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
-- Temporarily hide Client Testimonials section on homepage
+- Optimize footer and CTA section: Align company logo with Quick Links heading, center copyright text, improve CTA vertical spacing
 
 
 ### Recent Changes
-- Enhance footer UI/UX for better responsiveness and accessibility
-  - Enhanced mobile responsiveness with proper column stacking
-  - Improved company branding with gold gradient styling matching header
-  - Added homepage link to company logo and name
-  - Updated Chinese translation with proper line break
-  - Added hover effects to match header menu styling
-  - Optimized QR code size and WeChat section
-  - Added aria-labels for better accessibility
-  - Implemented consistent styling across all screen sizes
+- Reorganize website structure with improved directory organization
+  - Moved menu pages (about, careers, contact, insights, services) to dedicated pages/menu/ directory
+  - Moved service pages (consultation, custom-solutions) to dedicated pages/services/ directory
+  - Updated all asset references to use absolute paths for improved reliability
+  - Modified header and footer components to use absolute paths for all links and images
+  - Updated data-path-to-root attributes across all pages to support the new structure
+  - Ensured consistent component loading across all pages regardless of location
+  - Improved maintainability by following web development best practices
+  - Implemented hover-based dropdown menu for Products & Services with direct navigation
+  - Created custom CSS for dropdown menus to improve user experience
 
 ### Recent Changes
 - Temporarily hide Client Testimonials section on homepage

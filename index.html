@@ -6,10 +6,10 @@
     <title data-i18n="page.title">Bixing Technology - AI Solutions for Enterprise</title>
     
     <!-- Favicon - comprehensive approach -->
-    <link rel="icon" href="assets/images/favicon.png" type="image/png">
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="assets/images/favicon.png">
-    <link rel="manifest" href="assets/images/site.webmanifest">
+    <link rel="icon" href="/assets/images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+    <link rel="manifest" href="/assets/images/site.webmanifest">
     <meta name="theme-color" content="#5ce1e6">
     
     <!-- Bootstrap CSS -->
@@ -25,18 +25,18 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
-    <link rel="stylesheet" href="assets/css/header.css?v=20250329095815">
-    <link rel="stylesheet" href="assets/css/hero-section.css">
-    <link rel="stylesheet" href="assets/css/services-section.css">
-    <link rel="stylesheet" href="assets/css/demo-section.css">
-    <link rel="stylesheet" href="assets/css/portfolio-section.css">
-    <link rel="stylesheet" href="assets/css/testimonials-section.css">
-    <link rel="stylesheet" href="assets/css/insights-section.css">
-    <link rel="stylesheet" href="assets/css/cta-section.css?v=20250331010900">
-    <link rel="stylesheet" href="assets/css/footer-section.css">
-    <link rel="stylesheet" href="assets/css/empowered-by.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="/assets/css/header.css?v=20250329095815">
+    <link rel="stylesheet" href="/assets/css/hero-section.css">
+    <link rel="stylesheet" href="/assets/css/services-section.css">
+    <link rel="stylesheet" href="/assets/css/demo-section.css">
+    <link rel="stylesheet" href="/assets/css/portfolio-section.css">
+    <link rel="stylesheet" href="/assets/css/testimonials-section.css">
+    <link rel="stylesheet" href="/assets/css/insights-section.css">
+    <link rel="stylesheet" href="/assets/css/cta-section.css?v=20250331010900">
+    <link rel="stylesheet" href="/assets/css/footer-section.css">
+    <link rel="stylesheet" href="/assets/css/empowered-by.css">
     
     <style>
         /* Fix for white space at bottom of page */
@@ -181,59 +181,10 @@
         /* Footer styles moved to footer-section.css */
     </style>
 </head>
-<body>
+<body data-path-to-root="">
     <div class="site-wrapper">
     <!-- Header -->
-    <header class="header">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
-                        <span data-i18n="footer.company" style="font-weight: bold;">Bixing Technology</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <div class="navbar-toggler-icon">
-                            <span></span>
-                        </div>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services" onclick="window.location.href='services.html'">
-                                    Products & Services
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
-                                    <li><a class="dropdown-item" href="custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
-                                    <li><a class="dropdown-item" href="consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="insights.html" data-i18n="nav.industryInsights">Industry Insights</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.html" data-i18n="nav.about">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="careers.html" data-i18n="nav.careers">Careers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="language-selector">
-                                    <button onclick="toggleLanguage()" class="btn btn-sm btn-outline-light rounded-pill px-3">
-                                        <span id="currentLanguage">EN</span>
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="hero-section ai-circuit-bg">
@@ -253,7 +204,7 @@
                 <div class="col-lg-5 offset-lg-1 col-md-10" data-aos="fade-left">
                     <div class="hero-image-container">
                         <div class="hero-image">
-                            <img src="assets/images/hero-ai-illustration.svg" alt="AI Innovation" class="img-fluid">
+                            <img src="/assets/images/hero-ai-illustration.svg" alt="AI Innovation" class="img-fluid">
                         </div>
                         <div class="floating-card floating-card-1">
                             <div class="floating-card-icon">
@@ -365,7 +316,7 @@
                             <li data-i18n="services.education.feature2">Hands-on workshops</li>
                             <li data-i18n="services.education.feature3">Expert-led training</li>
                         </ul>
-                        <a href="education.html" class="btn btn-outline-primary mt-3" data-i18n="services.learnMore">Learn More</a>
+                        <a href="pages/services/education.html" class="btn btn-outline-primary mt-3" data-i18n="services.learnMore">Learn More</a>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
@@ -444,7 +395,7 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up">
                     <div class="portfolio-card">
                         <div class="portfolio-img">
-                            <img src="assets/images/portfolio/education.svg" alt="AI Education Case Study">
+                            <img src="/assets/images/portfolio/education.svg" alt="AI Education Case Study">
                             <div class="portfolio-category">Education</div>
                             <div class="portfolio-ai-overlay">
                                 <i class="fas fa-graduation-cap portfolio-ai-icon"></i>
@@ -461,7 +412,7 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="portfolio-card">
                         <div class="portfolio-img">
-                            <img src="assets/images/portfolio/healthcare.svg" alt="Healthcare AI Case Study">
+                            <img src="/assets/images/portfolio/healthcare.svg" alt="Healthcare AI Case Study">
                             <div class="portfolio-category">Healthcare</div>
                             <div class="portfolio-ai-overlay">
                                 <i class="fas fa-heartbeat portfolio-ai-icon"></i>
@@ -478,7 +429,7 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="portfolio-card">
                         <div class="portfolio-img">
-                            <img src="assets/images/portfolio/financial.svg" alt="Financial Services AI Case Study">
+                            <img src="/assets/images/portfolio/financial.svg" alt="Financial Services AI Case Study">
                             <div class="portfolio-category">Finance</div>
                             <div class="portfolio-ai-overlay">
                                 <i class="fas fa-chart-pie portfolio-ai-icon"></i>
@@ -522,12 +473,12 @@
                         </div>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <img src="assets/images/testimonials/avatar-1.svg" alt="Jane Smith">
+                                <img src="/assets/images/testimonials/avatar-1.svg" alt="Jane Smith">
                             </div>
                             <div class="author-info">
                                 <h4 data-i18n="testimonials.author1">Jane Smith</h4>
                                 <p data-i18n="testimonials.position1">CTO, Enterprise Company</p>
-                                <img src="assets/images/clients/client-1.svg" alt="Enterprise Company" class="testimonial-company-logo">
+                                <img src="/assets/images/clients/client-1.svg" alt="Enterprise Company" class="testimonial-company-logo">
                             </div>
                         </div>
                     </div>
@@ -547,12 +498,12 @@
                         </div>
                         <div class="testimonial-author">
                             <div class="testimonial-avatar">
-                                <img src="assets/images/testimonials/avatar-2.svg" alt="Michael Johnson">
+                                <img src="/assets/images/testimonials/avatar-2.svg" alt="Michael Johnson">
                             </div>
                             <div class="author-info">
                                 <h4 data-i18n="testimonials.author2">Michael Johnson</h4>
                                 <p data-i18n="testimonials.position2">Director of Innovation, Tech Solutions Inc.</p>
-                                <img src="assets/images/clients/client-2.svg" alt="Tech Solutions Inc." class="testimonial-company-logo">
+                                <img src="/assets/images/clients/client-2.svg" alt="Tech Solutions Inc." class="testimonial-company-logo">
                             </div>
                         </div>
                     </div>
@@ -573,7 +524,7 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up">
                     <div class="insight-card">
                         <div class="insight-img">
-                            <img src="assets/images/insights/insight1.svg" alt="AI in Enterprise">
+                            <img src="/assets/images/insights/insight1.svg" alt="AI in Enterprise">
                             <div class="insight-ai-pattern"></div>
                             <div class="insight-ai-overlay"></div>
                             <div class="insight-date tag-compact" data-i18n="insights.article1.date">October 15, 2023</div>
@@ -593,7 +544,7 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                     <div class="insight-card">
                         <div class="insight-img">
-                            <img src="assets/images/insights/insight2.svg" alt="Machine Learning Models">
+                            <img src="/assets/images/insights/insight2.svg" alt="Machine Learning Models">
                             <div class="insight-ai-pattern"></div>
                             <div class="insight-ai-overlay"></div>
                             <div class="insight-date tag-compact" data-i18n="insights.article2.date">September 28, 2023</div>
@@ -613,7 +564,7 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="insight-card">
                         <div class="insight-img">
-                            <img src="assets/images/insights/insight3.svg" alt="AI Implementation">
+                            <img src="/assets/images/insights/insight3.svg" alt="AI Implementation">
                             <div class="insight-ai-pattern"></div>
                             <div class="insight-ai-overlay"></div>
                             <div class="insight-date tag-compact" data-i18n="insights.article3.date">September 10, 2023</div>
@@ -662,77 +613,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-circuit-bg"></div>
-        <div class="container footer-content">
-            <div class="row">
-                <!-- Company Info -->
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <a href="index.html" class="footer-logo-link">
-                        <div class="footer-logo">
-                            <img src="assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img">
-                            <h4 class="company-name mb-0" data-i18n="footer.company">Bixing Technology</h4>
-                        </div>
-                    </a>
-                    <p data-i18n="footer.companyDescription">A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <h4 class="footer-heading" data-i18n="footer.quickLinks">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html" aria-label="Home"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.home">Home</span></a></li>
-                        <li><a href="about.html" aria-label="About Us"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.about">About</span></a></li>
-                        <li><a href="careers.html" aria-label="Careers"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.careers">Careers</span></a></li>
-                        <li><a href="insights.html" aria-label="Industry Insights"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.industryInsights">Industry Insights</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Services -->
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <h4 class="footer-heading" data-i18n="footer.services">Products & Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="education.html" aria-label="AI Education and Training"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiEducation">AI Education & Training</span></a></li>
-                        <li><a href="custom-solutions.html" aria-label="AI Custom Solutions"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.customSolutions">AI Custom Solutions</span></a></li>
-                        <li><a href="consultation.html" aria-label="AI Strategy Consultation"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <h4 class="footer-heading" data-i18n="footer.contactUs">Contact Us</h4>
-                    <ul class="contact-info">
-                        <li>
-                            <span data-i18n="footer.wechat">WeChat</span>
-                            <i class="fab fa-weixin" aria-hidden="true"></i>
-                            <span id="contact-email" data-i18n="footer.wechatId">bixingai</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="wechat-container mt-3">
-                        <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr">
-                        <span class="wechat-label" data-i18n="footer.scanQrCode">Scan to connect on WeChat</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <p class="copyright">
-                    <span data-i18n="footer.copyright"> 2023 Bixing Technology. All Rights Reserved.</span>
-                    <span class="separator mx-1">|</span>
-                    <a href="privacy-policy.html" aria-label="Privacy Policy" data-i18n="footer.privacyPolicy">Privacy Policy</a>
-                    <span class="separator mx-1">|</span>
-                    <a href="terms-of-service.html" aria-label="Terms of Service" data-i18n="footer.termsOfService">Terms of Service</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
     </div><!-- End site-wrapper -->
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="/assets/js/components.js"></script>
+    
     <script>
         // Force update email and WeChat QR code
         document.addEventListener('DOMContentLoaded', function() {
@@ -742,7 +630,7 @@
             // Force update QR code
             const qrCode = document.getElementById('wechat-qrcode');
             if (qrCode) {
-                qrCode.src = 'assets/images/qrcode/qrcode-wechat.jpg';
+                qrCode.src = '/assets/images/qrcode/qrcode-wechat.jpg';
                 qrCode.width = 100;
                 qrCode.height = 100;
             }
@@ -1273,5 +1161,126 @@
         
         // Translations
     </script>
+    
+    <script>
+        // Initialize AOS and other scripts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            
+            // Initialize Particles.js for hero section
+            particlesJS('hero-particles', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#5ce1e6"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#5ce1e6",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 0.5
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+    </script>
+    
+    <script src="/assets/js/translations.js"></script>
 </body>
 </html>

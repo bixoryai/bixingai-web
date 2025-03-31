@@ -26,6 +26,7 @@ This website serves as the digital presence for Bixing Technology, a company spe
 - Custom internationalization (i18n) system for language switching
 - Optimized for performance and SEO
 - Automated project status tracking via Git hooks
+- Jekyll is used ONLY for blog post management, NOT for page layouts or components
 
 ## Pages
 

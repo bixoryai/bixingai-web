@@ -4,12 +4,28 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Determine the correct path to components based on the current page location
+    const pathToRoot = document.body.getAttribute('data-path-to-root') || '';
+    
+    // Add cache-busting parameter to prevent caching
+    const cacheBuster = '?v=' + new Date().getTime();
+    
     // Load header
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (headerPlaceholder) {
-        fetch('components/header.html')
+        fetch(pathToRoot + 'components/header.html' + cacheBuster)
             .then(response => response.text())
             .then(data => {
+                // Replace relative paths with absolute paths using pathToRoot
+                data = data.replace(/src="assets\//g, `src="${pathToRoot}assets/`);
+                data = data.replace(/href="assets\//g, `href="${pathToRoot}assets/`);
+                
+                // Update navigation links with pathToRoot
+                if (pathToRoot) {
+                    data = data.replace(/href="pages\//g, `href="${pathToRoot}pages/`);
+                    data = data.replace(/href="index.html"/g, `href="${pathToRoot}index.html"`);
+                }
+                
                 headerPlaceholder.innerHTML = data;
                 
                 // Set active class for current page
@@ -54,9 +70,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load footer
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (footerPlaceholder) {
-        fetch('components/footer.html')
+        fetch(pathToRoot + 'components/footer.html' + cacheBuster)
             .then(response => response.text())
             .then(data => {
+                // Replace relative paths with absolute paths using pathToRoot
+                data = data.replace(/src="assets\//g, `src="${pathToRoot}assets/`);
+                data = data.replace(/href="assets\//g, `href="${pathToRoot}assets/`);
+                
+                // Update navigation links with pathToRoot
+                if (pathToRoot) {
+                    data = data.replace(/href="pages\//g, `href="${pathToRoot}pages/`);
+                    data = data.replace(/href="index.html"/g, `href="${pathToRoot}index.html"`);
+                }
+                
                 footerPlaceholder.innerHTML = data;
                 
                 // Footer company name hover effect

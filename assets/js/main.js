@@ -110,6 +110,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Handle dropdown navigation
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the Products & Services dropdown
+    const servicesDropdown = document.querySelector('.nav-item.dropdown .nav-link.dropdown-toggle[data-i18n="nav.services"]');
+    
+    if (servicesDropdown) {
+        // Get the href attribute
+        const href = servicesDropdown.getAttribute('href');
+        
+        // Add click event listener
+        servicesDropdown.addEventListener('click', function(e) {
+            // Check if the click was on the dropdown arrow (the ::after pseudo-element)
+            const rect = servicesDropdown.getBoundingClientRect();
+            const isClickOnDropdownArrow = (e.clientX > rect.right - 20);
+            
+            if (!isClickOnDropdownArrow) {
+                // Navigate to the services page
+                window.location.href = href;
+                // Prevent the dropdown from opening
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
+    }
+});
+
 /**
  * Create a typing animation effect for text
  * @param {string} elementId - The ID of the element to apply the effect to

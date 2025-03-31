@@ -6,10 +6,10 @@
     <title data-i18n="page.title">Contact Us - Bixing Technology</title>
     
     <!-- Favicon - comprehensive approach -->
-    <link rel="icon" href="assets/images/favicon.png" type="image/png">
-    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="assets/images/favicon.png">
-    <link rel="manifest" href="assets/images/site.webmanifest">
+    <link rel="icon" href="/assets/images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
+    <link rel="manifest" href="/assets/images/site.webmanifest">
     <meta name="theme-color" content="#5ce1e6">
     
     <!-- Bootstrap CSS -->
@@ -25,18 +25,18 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
-    <link rel="stylesheet" href="assets/css/header.css?v=20250329095815">
-    <link rel="stylesheet" href="assets/css/hero-section.css">
-    <link rel="stylesheet" href="assets/css/services-section.css">
-    <link rel="stylesheet" href="assets/css/demo-section.css">
-    <link rel="stylesheet" href="assets/css/portfolio-section.css">
-    <link rel="stylesheet" href="assets/css/testimonials-section.css">
-    <link rel="stylesheet" href="assets/css/insights-section.css">
-    <link rel="stylesheet" href="assets/css/cta-section.css">
-    <link rel="stylesheet" href="assets/css/footer-section.css">
-    <link rel="stylesheet" href="assets/css/secondary-hero.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="/assets/css/header.css?v=20250329095815">
+    <link rel="stylesheet" href="/assets/css/hero-section.css">
+    <link rel="stylesheet" href="/assets/css/services-section.css">
+    <link rel="stylesheet" href="/assets/css/demo-section.css">
+    <link rel="stylesheet" href="/assets/css/portfolio-section.css">
+    <link rel="stylesheet" href="/assets/css/testimonials-section.css">
+    <link rel="stylesheet" href="/assets/css/insights-section.css">
+    <link rel="stylesheet" href="/assets/css/cta-section.css">
+    <link rel="stylesheet" href="/assets/css/footer-section.css">
+    <link rel="stylesheet" href="/assets/css/secondary-hero.css">
     
     <style>
         /* Contact page specific styles */
@@ -287,60 +287,10 @@
         }
     </style>
 </head>
-<body>
+<body data-path-to-root="/">
     <div class="site-wrapper">
     <!-- Header -->
-    <header class="header">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
-                        <span data-i18n="footer.company" style="font-weight: bold;">Bixing Technology</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <div class="navbar-toggler-icon">
-                            <span></span>
-                        </div>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services" onclick="window.location.href='services.html'">
-                                    Products & Services
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
-                                    <li><a class="dropdown-item" href="custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
-                                    <li><a class="dropdown-item" href="consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="insights.html" data-i18n="nav.industryInsights">Industry Insights</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="about.html" data-i18n="nav.about">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="careers.html" data-i18n="nav.careers">Careers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="contact.html" data-i18n="nav.contact">Contact Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="language-toggle-container">
-                                    <button id="languageToggle" class="language-toggle" onclick="toggleLanguage()">
-                                        <span id="currentLanguage">EN</span>
-                                        <i class="fas fa-globe"></i>
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="contact-hero-section">
@@ -408,7 +358,7 @@
                         </div>
                         <h3 class="mb-3">WeChat Service Number</h3>
                         <div class="text-center mb-3">
-                            <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr-large">
+                            <img src="/assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr-large">
                         </div>
                         <p class="text-center">Scan the QR code to connect with us on WeChat</p>
                     </div>
@@ -623,72 +573,7 @@
     </section>
     
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-circuit-bg"></div>
-        <div class="container footer-content">
-            <div class="row">
-                <!-- Company Info -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
-                    <a href="index.html" class="footer-logo-link">
-                        <div class="footer-logo">
-                            <img src="assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img">
-                            <h4 class="company-name mb-0" data-i18n="footer.company">Bixing Technology</h4>
-                        </div>
-                    </a>
-                    <p data-i18n="footer.companyDescription">A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
-                    <h4 class="footer-heading" data-i18n="footer.quickLinks">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html" aria-label="Home"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.home">Home</span></a></li>
-                        <li><a href="about.html" aria-label="About Us"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.about">About</span></a></li>
-                        <li><a href="careers.html" aria-label="Careers"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.careers">Careers</span></a></li>
-                        <li><a href="insights.html" aria-label="Industry Insights"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.industryInsights">Industry Insights</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Services -->
-                <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
-                    <h4 class="footer-heading" data-i18n="footer.services">Products & Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="education.html" aria-label="AI Education and Training"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiEducation">AI Education & Training</span></a></li>
-                        <li><a href="custom-solutions.html" aria-label="AI Custom Solutions"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.customSolutions">AI Custom Solutions</span></a></li>
-                        <li><a href="consultation.html" aria-label="AI Strategy Consultation"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <h4 class="footer-heading" data-i18n="footer.contactUs">Contact Us</h4>
-                    <ul class="contact-info">
-                        <li>
-                            <span data-i18n="footer.wechat">WeChat</span>
-                            <i class="fab fa-weixin" aria-hidden="true"></i>
-                            <span id="contact-email" data-i18n="footer.wechatId">bixingai</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="wechat-container mt-3">
-                        <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr">
-                        <span class="wechat-label" data-i18n="footer.scanQrCode">Scan to connect on WeChat</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <p class="copyright">
-                    <span data-i18n="footer.copyright">&copy; 2023 Bixing Technology. All Rights Reserved.</span>
-                    <span class="separator mx-1">|</span>
-                    <a href="privacy-policy.html" aria-label="Privacy Policy" data-i18n="footer.privacyPolicy">Privacy Policy</a>
-                    <span class="separator mx-1">|</span>
-                    <a href="terms-of-service.html" aria-label="Terms of Service" data-i18n="footer.termsOfService">Terms of Service</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
 </div><!-- End site-wrapper -->
     
     <!-- Bootstrap JS Bundle with Popper -->
@@ -700,9 +585,12 @@
     <!-- Particles JS -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
+    <!-- Components JS -->
+    <script src="/assets/js/components.js"></script>
+    
     <!-- Custom JS -->
-    <script src="assets/js/i18n.js"></script>
-    <script src="assets/js/contact-translations.js"></script>
+    <script src="/assets/js/i18n.js"></script>
+    <script src="/assets/js/contact-translations.js"></script>
     <script>
         // Initialize AOS
         AOS.init({

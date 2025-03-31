@@ -6,9 +6,9 @@
     <title data-i18n="page.title">About Us - Bixing Technology</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,18 +23,18 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/modern-ai-theme.css">
-    <link rel="stylesheet" href="assets/css/header.css?v=20250329095815">
-    <link rel="stylesheet" href="assets/css/hero-section.css">
-    <link rel="stylesheet" href="assets/css/services-section.css">
-    <link rel="stylesheet" href="assets/css/demo-section.css">
-    <link rel="stylesheet" href="assets/css/portfolio-section.css">
-    <link rel="stylesheet" href="assets/css/testimonials-section.css">
-    <link rel="stylesheet" href="assets/css/insights-section.css">
-    <link rel="stylesheet" href="assets/css/cta-section.css">
-    <link rel="stylesheet" href="assets/css/footer-section.css">
-    <link rel="stylesheet" href="assets/css/secondary-hero.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="/assets/css/header.css?v=20250329095815">
+    <link rel="stylesheet" href="/assets/css/hero-section.css">
+    <link rel="stylesheet" href="/assets/css/services-section.css">
+    <link rel="stylesheet" href="/assets/css/demo-section.css">
+    <link rel="stylesheet" href="/assets/css/portfolio-section.css">
+    <link rel="stylesheet" href="/assets/css/testimonials-section.css">
+    <link rel="stylesheet" href="/assets/css/insights-section.css">
+    <link rel="stylesheet" href="/assets/css/cta-section.css">
+    <link rel="stylesheet" href="/assets/css/footer-section.css">
+    <link rel="stylesheet" href="/assets/css/secondary-hero.css">
     
     <style>
         /* About page specific styles */
@@ -96,7 +96,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('assets/images/circuit-pattern.svg');
+            background-image: url('/assets/images/circuit-pattern.svg');
             background-size: cover;
             opacity: 0.1;
             z-index: 1;
@@ -317,61 +317,11 @@
         }
     </style>
 </head>
-<body>
+<body data-path-to-root="/">
     <div class="page-wrapper">
     <!-- Header -->
-    <header class="header">
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html">
-                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
-                        <span data-i18n="footer.company">Bixing Technology</span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <div class="navbar-toggler-icon">
-                            <span></span>
-                        </div>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="services.html" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services" onclick="window.location.href='services.html'">
-                                    Products & Services
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="education.html" data-i18n="nav.education">AI Education/Training</a></li>
-                                    <li><a class="dropdown-item" href="custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
-                                    <li><a class="dropdown-item" href="consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="insights.html" data-i18n="nav.industryInsights">Industry Insights</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="about.html" data-i18n="nav.about">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="careers.html" data-i18n="nav.careers">Careers</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact Us</a>
-                            </li>
-                            <!-- Language Selector -->
-                            <li class="nav-item">
-                                <div class="language-selector">
-                                    <button onclick="toggleLanguage()" class="btn btn-sm btn-outline-light rounded-pill px-3">
-                                        <span id="currentLanguage">EN</span>
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    
+    <div id="header-placeholder"></div>
+
     <!-- Hero Section -->
     <section class="about-hero-section">
         <div class="hero-particles" id="about-hero-particles"></div>
@@ -552,7 +502,7 @@
             <div class="row">
                 <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="team-card">
-                        <img src="assets/images/team/team-1.svg" alt="Team Member" class="team-image">
+                        <img src="/assets/images/team/team-1.svg" alt="Team Member" class="team-image">
                         <div class="team-info">
                             <h4 class="team-name">Dr. Wei Zhang</h4>
                             <p class="team-position">Chief Executive Officer</p>
@@ -566,7 +516,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="team-card">
-                        <img src="assets/images/team/team-2.svg" alt="Team Member" class="team-image">
+                        <img src="/assets/images/team/team-2.svg" alt="Team Member" class="team-image">
                         <div class="team-info">
                             <h4 class="team-name">Dr. Sarah Chen</h4>
                             <p class="team-position">Chief Technology Officer</p>
@@ -580,7 +530,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="team-card">
-                        <img src="assets/images/team/team-3.svg" alt="Team Member" class="team-image">
+                        <img src="/assets/images/team/team-3.svg" alt="Team Member" class="team-image">
                         <div class="team-info">
                             <h4 class="team-name">Michael Wang</h4>
                             <p class="team-position">Head of AI Education</p>
@@ -594,7 +544,7 @@
                 </div>
                 <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
                     <div class="team-card">
-                        <img src="assets/images/team/team-4.svg" alt="Team Member" class="team-image">
+                        <img src="/assets/images/team/team-4.svg" alt="Team Member" class="team-image">
                         <div class="team-info">
                             <h4 class="team-name">Lisa Jiang</h4>
                             <p class="team-position">Enterprise Solutions Director</p>
@@ -630,42 +580,42 @@
                     <div class="row">
                         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
                             <div class="partner-logo">
-                                <img src="assets/images/partners/microsoft.svg" alt="Microsoft">
+                                <img src="/assets/images/partners/microsoft.svg" alt="Microsoft">
                             </div>
                         </div>
                         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
                             <div class="partner-logo">
-                                <img src="assets/images/partners/aws.svg" alt="Amazon Web Services">
+                                <img src="/assets/images/partners/aws.svg" alt="Amazon Web Services">
                             </div>
                         </div>
                         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
                             <div class="partner-logo">
-                                <img src="assets/images/partners/google-cloud.svg" alt="Google Cloud">
+                                <img src="/assets/images/partners/google-cloud.svg" alt="Google Cloud">
                             </div>
                         </div>
                         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
                             <div class="partner-logo">
-                                <img src="assets/images/partners/nvidia.svg" alt="NVIDIA">
+                                <img src="/assets/images/partners/nvidia.svg" alt="NVIDIA">
                             </div>
                         </div>
                         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
                             <div class="partner-logo">
-                                <img src="assets/images/partners/hugging-face.svg" alt="Hugging Face">
+                                <img src="/assets/images/partners/hugging-face.svg" alt="Hugging Face">
                             </div>
                         </div>
                         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
                             <div class="partner-logo">
-                                <img src="assets/images/partners/openai.svg" alt="OpenAI">
+                                <img src="/assets/images/partners/openai.svg" alt="OpenAI">
                             </div>
                         </div>
                         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
                             <div class="partner-logo">
-                                <img src="assets/images/partners/databricks.svg" alt="Databricks">
+                                <img src="/assets/images/partners/databricks.svg" alt="Databricks">
                             </div>
                         </div>
                         <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="400">
                             <div class="partner-logo">
-                                <img src="assets/images/partners/ibm.svg" alt="IBM">
+                                <img src="/assets/images/partners/ibm.svg" alt="IBM">
                             </div>
                         </div>
                     </div>
@@ -747,71 +697,10 @@
     </section>
     
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-circuit-bg"></div>
-        <div class="container footer-content">
-            <div class="row">
-                <!-- Company Info -->
-                <div class="col-lg-3 col-md-3 px-4">
-                    <div class="footer-logo d-flex align-items-center mb-3">
-                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img" style="height: 40px; margin-right: 10px;">
-                        <h4 class="footer-heading mb-0" data-i18n="footer.company">Bixing Technology</h4>
-                    </div>
-                    <p data-i18n="footer.companyDescription">A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
-                </div>
-                
-                <!-- Quick Links -->
-                <div class="col-lg-3 col-md-3 px-4">
-                    <h4 class="footer-heading" data-i18n="footer.quickLinks">Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.home">Home</span></a></li>
-                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.about">About</span></a></li>
-                        <li><a href="careers.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.careers">Careers</span></a></li>
-                        <li><a href="insights.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.industryInsights">Industry Insights</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Services -->
-                <div class="col-lg-3 col-md-3 px-4">
-                    <h4 class="footer-heading" data-i18n="footer.services">Products & Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="education.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiEducation">AI Education & Training</span></a></li>
-                        <li><a href="custom-solutions.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.customSolutions">Custom AI Solutions</span></a></li>
-                        <li><a href="consultation.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span></a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Info -->
-                <div class="col-lg-3 col-md-3 px-4">
-                    <h4 class="footer-heading" data-i18n="footer.contactUs">Contact Us</h4>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fab fa-weixin" style="color: #4CAF50; font-size: 24px; margin-right: 10px;"></i>
-                            <span id="contact-email" data-i18n="footer.wechatId">bixingai</span>
-                        </li>
-                    </ul>
-                    
-                    <div class="wechat-container mt-4">
-                        <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr" width="100" height="100" style="border-radius: 5px; border: 3px solid #4CAF50;">
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <p class="copyright">
-                    <span data-i18n="footer.copyright"> 2023 Bixing Technology. All Rights Reserved.</span>
-                    <span class="separator mx-2">|</span>
-                    <a href="privacy-policy.html" data-i18n="footer.privacyPolicy">Privacy Policy</a>
-                    <span class="separator mx-2">|</span>
-                    <a href="terms-of-service.html" data-i18n="footer.termsOfService">Terms of Service</a>
-                </p>
-            </div>
-        </div>
-    </footer>
+    <div id="footer-placeholder"></div>
     </div><!-- End page-wrapper -->
     
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- AOS JS -->
@@ -820,8 +709,11 @@
     <!-- Particles JS -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
+    <!-- Components JS -->
+    <script src="/assets/js/components.js"></script>
+    
     <!-- Custom JS -->
-    <script src="assets/js/i18n.js"></script>
+    <script src="/assets/js/i18n.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
