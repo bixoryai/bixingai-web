@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="assets/css/portfolio-section.css">
     <link rel="stylesheet" href="assets/css/testimonials-section.css">
     <link rel="stylesheet" href="assets/css/insights-section.css">
-    <link rel="stylesheet" href="assets/css/cta-section.css">
+    <link rel="stylesheet" href="assets/css/cta-section.css?v=20250331010900">
     <link rel="stylesheet" href="assets/css/footer-section.css">
     <link rel="stylesheet" href="assets/css/empowered-by.css">
     
@@ -160,6 +160,25 @@
             display: inline-block;
         }
         
+        /* WeChat QR code styles */
+        .wechat-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .wechat-qr {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+        
+        .wechat-label {
+            font-size: 0.8rem;
+            color: var(--white);
+        }
+        
+        /* Footer styles moved to footer-section.css */
     </style>
 </head>
 <body>
@@ -631,9 +650,9 @@
                     <div class="cta-border">
                         <div class="cta-inner">
                             <div class="cta-content">
-                                <h2 class="mb-4" data-i18n="cta.title">Ready to Transform Your Business with AI?</h2>
-                                <p class="lead mb-4" data-i18n="cta.subtitle">Get in touch with our experts to discuss your specific needs and challenges</p>
-                                <a href="contact.html" class="btn btn-light btn-lg" data-i18n="cta.contactUs">Contact Us Today</a>
+                                <h2 data-i18n="cta.title">Ready to Transform Your Business with AI?</h2>
+                                <p class="lead" data-i18n="cta.subtitle">Get in touch with our experts to discuss your specific needs and challenges</p>
+                                <a href="contact.html" class="btn btn-light cta-button" data-i18n="cta.contactUs">Contact Us Today</a>
                             </div>
                         </div>
                     </div>
@@ -648,47 +667,51 @@
         <div class="container footer-content">
             <div class="row">
                 <!-- Company Info -->
-                <div class="col-lg-3 col-md-3 px-4">
-                    <div class="footer-logo d-flex align-items-center mb-3">
-                        <img src="assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img" style="height: 40px; margin-right: 10px;">
-                        <h4 class="footer-heading mb-0" data-i18n="footer.company">Bixing Technology</h4>
-                    </div>
+                <div class="col-lg-3 col-md-6 col-sm-12">
+                    <a href="index.html" class="footer-logo-link">
+                        <div class="footer-logo">
+                            <img src="assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img">
+                            <h4 class="company-name mb-0" data-i18n="footer.company">Bixing Technology</h4>
+                        </div>
+                    </a>
                     <p data-i18n="footer.companyDescription">A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
                 </div>
                 
                 <!-- Quick Links -->
-                <div class="col-lg-3 col-md-3 px-4">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <h4 class="footer-heading" data-i18n="footer.quickLinks">Quick Links</h4>
                     <ul class="footer-links">
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.home">Home</span></a></li>
-                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.about">About</span></a></li>
-                        <li><a href="careers.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.careers">Careers</span></a></li>
-                        <li><a href="insights.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.industryInsights">Industry Insights</span></a></li>
+                        <li><a href="index.html" aria-label="Home"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.home">Home</span></a></li>
+                        <li><a href="about.html" aria-label="About Us"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.about">About</span></a></li>
+                        <li><a href="careers.html" aria-label="Careers"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.careers">Careers</span></a></li>
+                        <li><a href="insights.html" aria-label="Industry Insights"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.industryInsights">Industry Insights</span></a></li>
                     </ul>
                 </div>
                 
                 <!-- Services -->
-                <div class="col-lg-3 col-md-3 px-4">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <h4 class="footer-heading" data-i18n="footer.services">Products & Services</h4>
                     <ul class="footer-links">
-                        <li><a href="education.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiEducation">AI Education & Training</span></a></li>
-                        <li><a href="custom-solutions.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.customSolutions">AI Custom Solutions</span></a></li>
-                        <li><a href="consultation.html"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span></a></li>
+                        <li><a href="education.html" aria-label="AI Education and Training"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiEducation">AI Education & Training</span></a></li>
+                        <li><a href="custom-solutions.html" aria-label="AI Custom Solutions"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.customSolutions">AI Custom Solutions</span></a></li>
+                        <li><a href="consultation.html" aria-label="AI Strategy Consultation"><i class="fas fa-chevron-right"></i> <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span></a></li>
                     </ul>
                 </div>
                 
                 <!-- Contact Info -->
-                <div class="col-lg-3 col-md-3 px-4">
+                <div class="col-lg-3 col-md-6 col-sm-12">
                     <h4 class="footer-heading" data-i18n="footer.contactUs">Contact Us</h4>
                     <ul class="contact-info">
                         <li>
-                            <i class="fab fa-weixin" style="color: #4CAF50; font-size: 24px; margin-right: 10px;"></i>
+                            <span data-i18n="footer.wechat">WeChat</span>
+                            <i class="fab fa-weixin" aria-hidden="true"></i>
                             <span id="contact-email" data-i18n="footer.wechatId">bixingai</span>
                         </li>
                     </ul>
                     
-                    <div class="wechat-container mt-4">
-                        <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr" width="100" height="100" style="border-radius: 5px; border: 3px solid #4CAF50;">
+                    <div class="wechat-container mt-3">
+                        <img src="assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr">
+                        <span class="wechat-label" data-i18n="footer.scanQrCode">Scan to connect on WeChat</span>
                     </div>
                 </div>
             </div>
@@ -697,10 +720,10 @@
             <div class="footer-bottom">
                 <p class="copyright">
                     <span data-i18n="footer.copyright"> 2023 Bixing Technology. All Rights Reserved.</span>
-                    <span class="separator mx-2">|</span>
-                    <a href="privacy-policy.html" data-i18n="footer.privacyPolicy">Privacy Policy</a>
-                    <span class="separator mx-2">|</span>
-                    <a href="terms-of-service.html" data-i18n="footer.termsOfService">Terms of Service</a>
+                    <span class="separator mx-1">|</span>
+                    <a href="privacy-policy.html" aria-label="Privacy Policy" data-i18n="footer.privacyPolicy">Privacy Policy</a>
+                    <span class="separator mx-1">|</span>
+                    <a href="terms-of-service.html" aria-label="Terms of Service" data-i18n="footer.termsOfService">Terms of Service</a>
                 </p>
             </div>
         </div>
@@ -984,6 +1007,7 @@
                 "footer.email": "develop@bixory.ai",
                 "footer.wechat": "WeChat",
                 "footer.wechatId": "bixingai",
+                "footer.scanQrCode": "Scan to connect on WeChat",
                 "footer.newsletter": "Newsletter",
                 "footer.newsletterDesc": "Subscribe to our newsletter to receive the latest updates and news.",
                 "footer.emailPlaceholder": "Your Email",
@@ -1095,7 +1119,7 @@
                 
                 // Footer
                 "footer.company": "成都毕行科技有限公司",
-                "footer.companyDescription": "国际前沿AI解决方案提供商, 助你充满AI的力量。",
+                "footer.companyDescription": "国际前沿AI解决方案提供商,<br>助你充满AI的力量。",
                 "footer.quickLinks": "快速链接",
                 "footer.home": "首页",
                 "footer.about": "关于我们",
@@ -1110,6 +1134,7 @@
                 "footer.email": "develop@bixory.ai",
                 "footer.wechat": "微信",
                 "footer.wechatId": "bixingai",
+                "footer.scanQrCode": "扫描二维码关注微信",
                 "footer.newsletter": "新闻通讯",
                 "footer.newsletterDesc": "订阅我们的新闻通讯，获取最新动态和消息。",
                 "footer.emailPlaceholder": "您的电子邮箱",
@@ -1129,7 +1154,12 @@
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[currentLanguage] && translations[currentLanguage][key]) {
-                    element.textContent = translations[currentLanguage][key];
+                    // Use innerHTML for elements that might contain HTML tags
+                    if (element.tagName === 'P' || element.classList.contains('company-description')) {
+                        element.innerHTML = translations[currentLanguage][key];
+                    } else {
+                        element.textContent = translations[currentLanguage][key];
+                    }
                 }
             });
             
@@ -1163,7 +1193,12 @@
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[newLanguage] && translations[newLanguage][key]) {
-                    element.textContent = translations[newLanguage][key];
+                    // Use innerHTML for elements that might contain HTML tags
+                    if (element.tagName === 'P' || element.classList.contains('company-description')) {
+                        element.innerHTML = translations[newLanguage][key];
+                    } else {
+                        element.textContent = translations[newLanguage][key];
+                    }
                 }
             });
             
@@ -1220,6 +1255,20 @@
                     header.classList.remove('scrolled');
                 }
             });
+            
+            // Footer company name hover effect
+            const footerLogoLink = document.querySelector('.footer-logo-link');
+            const companyName = document.querySelector('.company-name');
+            
+            if (footerLogoLink && companyName) {
+                footerLogoLink.addEventListener('mouseenter', function() {
+                    companyName.style.textShadow = '0 0 15px rgba(0, 168, 255, 0.5)';
+                });
+                
+                footerLogoLink.addEventListener('mouseleave', function() {
+                    companyName.style.textShadow = '0 0 15px rgba(0, 168, 255, 0.3)';
+                });
+            }
         });
         
         // Translations

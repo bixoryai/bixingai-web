@@ -1,18 +1,24 @@
 /* 
  * Footer Section Styles - Bixing Technology
- * Modern, sleek AI-themed footer
+ * Modern, sleek AI-themed footer with enhanced responsiveness
  */
+
+:root {
+  --gold-light: #FFD700;
+  --gold-dark: #B8860B;
+}
 
 .footer {
   position: relative;
   background-color: var(--dark-color);
   color: var(--text-light);
-  padding: 80px 0 30px;
+  padding: 3rem 0 0.5rem; /* Adjusted padding to match the previous inline style */
   overflow: hidden;
   width: 100%;
   margin-top: auto; /* Push footer to bottom of flex container */
   display: flex;
   flex-direction: column;
+  padding-bottom: 0.5rem;
 }
 
 /* Footer background elements */
@@ -34,30 +40,88 @@
   flex: 1;
 }
 
-/* Company info */
+/* Company info - Adjusted to align with other headings */
+.footer .row > div {
+  margin-top: 0;
+  padding-top: 0.5rem;
+}
+
+/* Footer logo link with positioning for alignment */
+.footer-logo-link {
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  margin-bottom: 0;
+  margin-top: -10px; /* Move the logo up to align with headings */
+}
+
 .footer-logo {
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
 }
 
-.footer-logo img {
+.footer-logo-img {
   height: 40px;
+  width: 40px; /* Added from inline style */
+  margin-right: 0.625rem;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(0, 168, 255, 0.5));
 }
 
-.company-info p {
-  margin-bottom: 20px;
+.footer-logo-link:hover .footer-logo-img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(0, 168, 255, 0.8));
+}
+
+/* Company name styling to match header */
+.company-name {
+  font-size: 1.2rem; /* Adjusted to match inline style */
+  font-weight: 600; /* Adjusted to match inline style */
+  background: linear-gradient(to right, #FFFFFF, #00A8FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0, 168, 255, 0.3);
+  transition: text-shadow 0.3s ease;
+  margin-bottom: 0;
+  letter-spacing: 0.5px;
+  color: var(--white); /* Added from inline style */
+}
+
+.company-name:hover {
+  text-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+}
+
+.footer-logo-link:hover .company-name {
+  text-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+}
+
+.footer p {
+  margin-bottom: 1.25rem;
   color: var(--text-light);
   font-size: 0.95rem;
   opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Special styling for company description paragraph */
+[data-i18n="footer.companyDescription"] {
+  margin-top: 10px;
+  position: relative;
+  margin-top: -5px; /* Adjust the description to align properly with the logo */
 }
 
 /* Footer headings */
 .footer-heading {
   position: relative;
   color: var(--white);
-  font-size: 1.2rem;
+  font-size: 1.1rem; /* Adjusted to match inline style */
   font-weight: 600;
-  margin-bottom: 25px;
-  padding-bottom: 10px;
+  margin-bottom: 15px; /* Adjusted to match inline style */
+  padding-bottom: 0.625rem;
+  padding-top: 0.25rem;
+  margin-top: 0; /* Ensure consistent top margin */
 }
 
 .footer-heading::after {
@@ -67,11 +131,11 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background: var(--gradient-blue);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
   border-radius: var(--radius-full);
 }
 
-/* Footer links */
+/* Footer links with hover effect matching header */
 .footer-links {
   list-style: none;
   padding: 0;
@@ -79,28 +143,52 @@
 }
 
 .footer-links li {
-  margin-bottom: 12px;
+  margin-bottom: 10px; /* Adjusted to match inline style */
 }
 
-.footer-links a {
+.footer-links li a {
   color: var(--text-light);
   text-decoration: none;
-  transition: all var(--transition-normal);
+  transition: all 0.3s ease;
   opacity: 0.8;
   display: inline-flex;
   align-items: center;
+  padding: 0.25rem 0;
+  position: relative;
 }
 
-.footer-links a:hover {
+.footer-links li a i {
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
   color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: var(--gold-light);
   opacity: 1;
   transform: translateX(5px);
 }
 
-.footer-links a i {
-  margin-right: 8px;
-  font-size: 14px;
-  color: var(--primary-color);
+.footer-links li a:hover i {
+  color: var(--gold-light);
+}
+
+.footer-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  transition: width 0.3s ease;
+  opacity: 0;
+}
+
+.footer-links li a:hover::after {
+  width: 100%;
+  opacity: 1;
 }
 
 /* Contact info */
@@ -111,167 +199,163 @@
 }
 
 .contact-info li {
-  margin-bottom: 15px;
+  margin-bottom: 10px; /* Adjusted to match inline style */
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .contact-info i {
-  margin-right: 10px;
-  background: rgba(0, 102, 255, 0.1);
-  color: var(--primary-color);
-  padding: 8px;
-  border-radius: var(--radius-full);
-  font-size: 14px;
-  margin-top: 2px;
+  margin-right: 10px; /* Added from inline style */
 }
 
-/* Social media */
-.social-links {
-  display: flex;
-  margin-top: 20px;
-}
-
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--white);
-  border-radius: var(--radius-full);
-  margin-right: 10px;
-  transition: all var(--transition-normal);
-}
-
-.social-icon:hover {
-  background: var(--primary-color);
-  color: var(--white);
-  transform: translateY(-5px);
-}
-
-/* WeChat QR Code */
+/* WeChat QR code */
 .wechat-container {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.wechat-icon {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  color: var(--white);
-}
-
-.wechat-icon i {
-  font-size: 24px;
-  color: #2DC100;
-  margin-right: 10px;
+  margin-top: 20px; /* Added from inline style */
 }
 
 .wechat-qr {
-  border: 4px solid var(--white);
-  border-radius: var(--radius-sm);
-  background-color: var(--white);
-  transition: transform var(--transition-normal);
+  width: 100px;
+  height: 100px;
 }
 
-.wechat-qr:hover {
-  transform: scale(1.05);
-}
-
-/* Newsletter */
-.newsletter-form {
-  position: relative;
-  margin-top: 20px;
-}
-
-.newsletter-input {
-  width: 100%;
-  padding: 12px 15px;
-  padding-right: 50px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-full);
+.wechat-label {
+  font-size: 0.8rem;
   color: var(--white);
-  font-size: 0.9rem;
-  transition: all var(--transition-normal);
 }
 
-.newsletter-input:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--primary-color);
-}
-
-.newsletter-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.newsletter-btn {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  background: var(--primary-color);
-  color: var(--white);
-  border: none;
-  border-radius: var(--radius-full);
-  width: 36px;
-  height: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all var(--transition-normal);
-  cursor: pointer;
-}
-
-.newsletter-btn:hover {
-  background: var(--primary-dark);
-}
-
-/* Footer bottom */
+/* Footer bottom section */
 .footer-bottom {
-  margin-top: 50px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
+  margin-top: 30px; /* Added from inline style */
+  padding-top: 20px; /* Added from inline style */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Added from inline style */
+  text-align: center; /* Center align the footer bottom content */
 }
 
 .copyright {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  opacity: 0.7;
+  font-size: 0.9rem; /* Added from inline style */
+  color: var(--white); /* Added from inline style */
+  opacity: 0.8; /* Added from inline style */
+  display: flex;
+  justify-content: center; /* Center align the copyright text */
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-.copyright a {
-  color: var(--primary-color);
-  text-decoration: none;
+.separator {
+  margin: 0 10px; /* Added from inline style */
 }
 
-.copyright a:hover {
-  text-decoration: underline;
+.footer-bottom a {
+  color: var(--white); /* Added from inline style */
+  text-decoration: none; /* Added from inline style */
+  transition: all 0.3s ease; /* Added from inline style */
+}
+
+.footer-bottom a:hover {
+  color: var(--primary-color); /* Added from inline style */
 }
 
 /* Responsive styles */
+@media (max-width: 1200px) {
+  .footer {
+    padding: 4rem 0 0.5rem;
+  }
+}
+
 @media (max-width: 992px) {
   .footer {
-    padding: 60px 0 30px;
+    padding: 3.5rem 0 1.5rem;
   }
   
-  .footer-col {
-    margin-bottom: 40px;
+  .footer [class*="col-"] {
+    margin-bottom: 2rem;
+  }
+  
+  .footer-heading {
+    margin-bottom: 1.25rem;
   }
 }
 
 @media (max-width: 768px) {
   .footer {
-    padding: 50px 0 30px;
+    padding: 3rem 0 1rem;
+    text-align: center;
   }
   
   .footer-heading {
-    margin-top: 20px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+  }
+  
+  .footer-logo {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .footer-links li a {
+    justify-content: center;
+    padding: 0.5rem 0; /* Larger touch target for mobile */
+  }
+  
+  .footer-links li a:hover {
+    transform: translateX(0) scale(1.05);
+  }
+  
+  .contact-info li {
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+  
+  .wechat-container {
+    align-items: flex-start;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .footer-bottom {
+    margin-top: 0.5rem;
+    padding-top: 0.25rem;
+  }
+  
+  .copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .separator {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 2.5rem 0 0.75rem;
+  }
+  
+  .footer p {
+    font-size: 0.9rem;
+  }
+  
+  .footer-heading {
+    font-size: 1.1rem;
+  }
+  
+  .copyright {
+    font-size: 0.8rem;
+  }
+  
+  .copyright a {
+    padding: 0.5rem; /* Larger touch target for mobile */
   }
 }

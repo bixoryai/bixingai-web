@@ -1,9 +1,10 @@
-<header class="site-header">
-    <div class="container">
+<!-- Header -->
+<header class="header">
+    <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ site.baseurl }}/">
-                    <img src="{{ site.baseurl }}/assets/images/logo-placeholder.png" alt="Bixing Technology Logo" class="logo">
+                    <img src="{{ site.baseurl }}/assets/images/bixingai-logo.png" alt="Bixing Technology" class="logo">
                     <span>Bixing Technology</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,31 +13,37 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ site.baseurl }}/">Home</a>
+                            <a class="nav-link {% if page.url == '/' %}active{% endif %}" href="{{ site.baseurl }}/" data-i18n="nav.home">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {% if page.url contains '/services/' %}active{% endif %}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle {% if page.url contains '/services/' %}active{% endif %}" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="nav.services">
                                 Products & Services
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                                <li><a class="dropdown-item" href="{{ site.baseurl }}/pages/services.html">All Services</a></li>
+                                <li><a class="dropdown-item" href="{{ site.baseurl }}/services.html" data-i18n="nav.allServices">All Services</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{{ site.baseurl }}/pages/services/education.html">AI Education/Training</a></li>
-                                <li><a class="dropdown-item" href="{{ site.baseurl }}/pages/services/custom-solutions.html">AI Custom Solutions</a></li>
-                                <li><a class="dropdown-item" href="{{ site.baseurl }}/pages/services/consultation.html">Enterprise AI Consultation</a></li>
+                                <li><a class="dropdown-item" href="{{ site.baseurl }}/education.html" data-i18n="nav.aiEducation">AI Education & Training</a></li>
+                                <li><a class="dropdown-item" href="{{ site.baseurl }}/custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                                <li><a class="dropdown-item" href="{{ site.baseurl }}/consultation.html" data-i18n="nav.aiConsultation">Enterprise AI Consultation</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if page.url contains '/insights/' %}active{% endif %}" href="{{ site.baseurl }}/pages/insights.html">Industry Insights</a>
+                            <a class="nav-link {% if page.url contains '/insights/' %}active{% endif %}" href="{{ site.baseurl }}/insights.html" data-i18n="nav.industryInsights">Industry Insights</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if page.url contains '/about/' %}active{% endif %}" href="{{ site.baseurl }}/pages/about.html">About Us</a>
+                            <a class="nav-link {% if page.url contains '/about/' %}active{% endif %}" href="{{ site.baseurl }}/about.html" data-i18n="nav.about">About Us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if page.url contains '/careers/' %}active{% endif %}" href="{{ site.baseurl }}/pages/careers.html">Careers</a>
+                            <a class="nav-link {% if page.url contains '/careers/' %}active{% endif %}" href="{{ site.baseurl }}/careers.html" data-i18n="nav.careers">Careers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link btn btn-primary contact-btn {% if page.url contains '/contact/' %}active{% endif %}" href="{{ site.baseurl }}/pages/contact.html">Contact Us</a>
+                            <a class="nav-link {% if page.url contains '/contact/' %}active{% endif %}" href="{{ site.baseurl }}/contact.html" data-i18n="nav.contact">Contact</a>
+                        </li>
+                        <li class="nav-item language-toggle">
+                            <a class="nav-link" href="#" onclick="toggleLanguage(); return false;">
+                                <span id="currentLanguage">EN</span>
+                                <i class="fas fa-globe"></i>
+                            </a>
                         </li>
                     </ul>
                 </div>
