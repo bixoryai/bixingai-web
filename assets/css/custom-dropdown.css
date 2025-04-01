@@ -6,6 +6,10 @@
 /* Show dropdown menu on hover */
 .navbar .nav-item.dropdown:hover .dropdown-menu {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
 /* Ensure dropdown toggle still has the dropdown arrow */
@@ -22,11 +26,46 @@
 
 /* Add a slight delay before hiding the dropdown menu when mouse leaves */
 .navbar .dropdown-menu {
-    display: none;
-    transition-delay: 0.1s;
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+    margin-top: 0;
 }
 
 /* Prevent dropdown toggle from changing appearance on click */
 .navbar .nav-item.dropdown .dropdown-toggle:focus {
     box-shadow: none;
+}
+
+/* Ensure dropdown items are clickable and have proper hover effect */
+.navbar .dropdown-menu .dropdown-item {
+    padding: 0.5rem 1.5rem;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+/* Fix for mobile dropdown menus */
+@media (max-width: 991.98px) {
+    .navbar .dropdown-menu {
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        pointer-events: auto;
+    }
+    
+    .navbar .nav-item.dropdown:hover .dropdown-menu {
+        display: none; /* Don't show on hover for mobile */
+    }
+    
+    .navbar .nav-item.dropdown.show .dropdown-menu {
+        display: block; /* Show only when toggled on mobile */
+    }
+    
+    /* Restore Bootstrap's default dropdown behavior for mobile */
+    .navbar .nav-item.dropdown .dropdown-toggle[aria-expanded="true"] + .dropdown-menu {
+        display: block;
+    }
 }

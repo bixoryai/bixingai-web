@@ -1,11 +1,15 @@
 # Bixing Technology Website Project Status
 
-## Last Updated: March 31, 2025
+## Last Updated: April 01, 2025
 
 ## Project Overview
 The Bixing Technology website is a multilingual (English/Chinese) corporate site showcasing the company's AI services, including education/training, custom solutions, and enterprise consultation. The site is hosted on GitHub Pages and uses HTML, CSS, and JavaScript.
 
 ## Recent Updates
+
+### Recent Changes
+- Optimize mobile header and footer for improved visibility and alignment
+
 
 ### Recent Changes
 - Mobile UI optimization: Improve Interactive AI Demo section and maintain floating cards
@@ -174,4 +178,5 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - Language preference is stored in localStorage
 - The site is designed with a dark/blue theme with futuristic technology elements
 - Bootstrap is used for responsive layout and components
+
 
