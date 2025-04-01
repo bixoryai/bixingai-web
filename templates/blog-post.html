@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}} | Bixing Technology</title>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="{{excerpt}}">
+    <meta name="author" content="{{author}}">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/blog.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+</head>
+<body data-path-to-root="../">
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Blog Post Content -->
+    <main class="blog-post">
+        <div class="container">
+            <article>
+                <header class="post-header">
+                    <h1>{{title}}</h1>
+                    <div class="post-meta">
+                        <span class="post-date">{{date}}</span>
+                        <span class="post-author">{{author}}</span>
+                    </div>
+                    <div class="post-categories">
+                        {{#each categories}}
+                        <span class="category-tag">{{this}}</span>
+                        {{/each}}
+                    </div>
+                </header>
+                
+                {{#if featured_image}}
+                <div class="featured-image">
+                    <img src="../assets/images/blog/{{featured_image}}" alt="{{title}}">
+                </div>
+                {{/if}}
+                
+                <div class="post-content">
+                    {{content}}
+                </div>
+                
+                <footer class="post-footer">
+                    <div class="post-tags">
+                        {{#each tags}}
+                        <span class="tag">{{this}}</span>
+                        {{/each}}
+                    </div>
+                </footer>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/components.js"></script>
+    <script src="../assets/js/i18n.js"></script>
+</body>
+</html>

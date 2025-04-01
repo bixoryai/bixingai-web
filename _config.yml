@@ -1,22 +1,14 @@
 # Bixing Technology Website Configuration
 title: Bixing Technology
 description: AI Education, Custom Solutions Development, and Enterprise Consultation services
-baseurl: "/bixingai-web" # the subpath of your site, e.g. /blog
-url: "https://bixoryai.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/bixingai-web"
+url: "https://bixoryai.github.io"
 
-# Build settings
+# Build settings for blog posts
 markdown: kramdown
 permalink: /insights/:title/
 
-# Collections
-collections:
-  services:
-    output: true
-    permalink: /services/:name/
-  team:
-    output: false
-
-# Default front matter
+# Default front matter for blog posts only
 defaults:
   - scope:
       path: ""
@@ -24,16 +16,6 @@ defaults:
     values:
       layout: "post"
       author: "Bixing Team"
-  - scope:
-      path: ""
-      type: "services"
-    values:
-      layout: "service"
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "page"
 
 # Exclude from processing
 exclude:
@@ -48,7 +30,6 @@ exclude:
   - starting-info.md
   - "Project Requirement Document.md"
 
-# Plugins
+# Required plugin for blog feed
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag

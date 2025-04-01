@@ -10,3 +10,4 @@ vendor/
 temp-old-pages/
 original_education.html
 *.bak
+backup_jekyll_*/
