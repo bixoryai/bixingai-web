@@ -8,6 +8,16 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ## Recent Updates
 
 ### Recent Changes
+- Implement Chinese translations for the consultation page
+  - Added comprehensive Chinese translations for all text elements on the consultation page
+  - Added proper data-i18n attributes to all text elements for language switching
+  - Created a Chinese version of the AI Strategy Framework SVG with translated text
+  - Enhanced i18n.js to support language-specific images with lang-en and lang-zh classes
+  - Fixed translation issues in the Strategic AI Implementation section
+  - Ensured all section titles, descriptions, and feature lists are properly translated
+  - Implemented proper alt text translations for images
+
+### Recent Changes
 - Enhance Custom Solutions page with improved floating tags and content organization
   - Updated floating tags to include six key AI service areas: Machine Learning, Computer Vision, Recommendation System, Data Analytics, AI Automation, and Edge AI
   - Repositioned floating tags to be evenly distributed around the diagram for better visual balance
