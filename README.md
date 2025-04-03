@@ -65,6 +65,8 @@ The website supports both English and Chinese languages with a seamless toggle f
 2. Open any HTML file in your browser to view the site locally
 3. No build process is required as this is a static site
 
+# Testing pre-commit hook
+
 ## Contact
 
 For more information about Bixing Technology, please visit [bixingtechnology.com](https://bixingtechnology.com) or contact info@bixingtechnology.com.

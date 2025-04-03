@@ -42,6 +42,6 @@ try {
     Write-Host "Successfully updated $statusFile"
     exit 0
 } catch {
-    Write-Host "Error updating $statusFile: $_"
+    Write-Host "Error updating $statusFile: $($_.Exception.Message)"
     exit 1
 }

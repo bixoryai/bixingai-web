@@ -1,11 +1,19 @@
 # Bixing Technology Website Project Status
 
-## Last Updated: March 31, 2025
+## Last Updated: April 3, 2025
 
 ## Project Overview
 The Bixing Technology website is a multilingual (English/Chinese) corporate site showcasing the company's AI services, including education/training, custom solutions, and enterprise consultation. The site is hosted on GitHub Pages and uses HTML, CSS, and JavaScript.
 
 ## Recent Updates
+
+### Recent Changes
+- Enhance Custom Solutions page with improved floating tags and content organization
+  - Updated floating tags to include six key AI service areas: Machine Learning, Computer Vision, Recommendation System, Data Analytics, AI Automation, and Edge AI
+  - Repositioned floating tags to be evenly distributed around the diagram for better visual balance
+  - Updated SVG text to "Specialized AI applications for diverse business needs"
+  - Adjusted tag transparency to 70% for better visibility while maintaining the translucent effect
+  - Removed redundant "Our Specialties" section to eliminate content overlap with "Our AI Technologies" section
 
 ### Recent Changes
 - Optimize mobile header and footer for improved visibility and alignment
