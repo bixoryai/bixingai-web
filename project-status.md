@@ -3,6 +3,18 @@
 ## Last Updated: April 03, 2025
 
 ### Recent Changes
+- Modified: assets/images/insights/featured-bg.svg
+- Modified: assets/images/insights/insight-1.svg
+- Modified: assets/images/insights/insight-2.svg
+- Modified: assets/images/insights/insight-3.svg
+- Modified: assets/images/insights/insight-4.svg
+- Modified: assets/images/insights/insight-5.svg
+- Modified: assets/images/insights/insight-6.svg
+- Modified: insight-cards-example.html
+- Modified: pages/menu/insights.html
+
+
+### Recent Changes
 - Modified: assets/js/components.js
 - Modified: assets/js/i18n-module.js
 - Modified: pages/menu/insights.html

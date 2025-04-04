@@ -42,6 +42,69 @@
             background-color: var(--dark-bg);
         }
         
+        /* Section background variations for visual hierarchy */
+        .section-primary {
+            background-color: #0f172a;
+            position: relative;
+        }
+        
+        .section-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('../../assets/images/circuit-pattern.svg');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .section-secondary {
+            background: #1e293b;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+        
+        .section-secondary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        /* Improved section spacing */
+        section {
+            padding: 80px 0;
+        }
+        
+        section.hero-section {
+            padding: 0;
+        }
+        
+        /* Section transitions */
+        .section-transition {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-transition::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, var(--dark-bg-secondary));
+            pointer-events: none;
+            opacity: 0.5;
+        }
+        
         .insights-hero-section {
             position: relative;
             height: 500px; /* Fixed height */
@@ -97,12 +160,13 @@
         }
         
         .insights-card {
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
             height: 100%;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
         
         .insights-card:hover {
@@ -173,7 +237,7 @@
         }
         
         .featured-insight {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('../../assets/images/insights/featured-bg.jpg');
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('../../assets/images/insights/featured-bg.svg');
             background-size: cover;
             background-position: center;
             border-radius: 12px;
@@ -181,6 +245,8 @@
             position: relative;
             overflow: hidden;
             margin-bottom: 50px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid var(--primary-color);
         }
         
         .featured-insight::before {
@@ -354,7 +420,7 @@
             transition: all 0.3s ease;
         }
         
-        .trending-tag:hover {
+        .trending-tag:hover, .trending-tag.active {
             background: var(--primary-gradient);
             color: var(--white);
             transform: translateY(-3px);
@@ -385,7 +451,7 @@
     </section>
     
     <!-- Featured Insight Section -->
-    <section class="py-5">
+    <section class="section-primary section-transition">
         <div class="container">
             <div class="featured-insight" data-aos="fade-up">
                 <div class="featured-content">
@@ -405,13 +471,20 @@
                 <button class="btn filter-button" data-filter="case-studies">Case Studies</button>
                 <button class="btn filter-button" data-filter="ai-education">AI Education</button>
             </div>
+        </div>
+    </section>
+    
+    <!-- Insights Grid Section -->
+    <section class="section-secondary">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Latest Insights</h2>
             
             <!-- Insights Cards -->
-            <div class="row">
+            <div class="row" id="insights-grid">
                 <!-- Card 1 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100" data-topic="enterprise-ai">
                     <div class="insights-card">
-                        <img src="/assets/images/insights/insight-1.jpg" alt="Insight Image" class="insights-image">
+                        <img src="../../assets/images/insights/insight-1.svg" alt="Enterprise AI" class="insights-image">
                         <div class="insights-content">
                             <div class="insights-date">October 15, 2023</div>
                             <span class="insights-category">Enterprise AI</span>
@@ -423,9 +496,9 @@
                 </div>
                 
                 <!-- Card 2 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200" data-topic="machine-learning">
                     <div class="insights-card">
-                        <img src="/assets/images/insights/insight-2.jpg" alt="Insight Image" class="insights-image">
+                        <img src="../../assets/images/insights/insight-2.svg" alt="Machine Learning Models" class="insights-image">
                         <div class="insights-content">
                             <div class="insights-date">September 28, 2023</div>
                             <span class="insights-category">Machine Learning</span>
@@ -437,9 +510,9 @@
                 </div>
                 
                 <!-- Card 3 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300" data-topic="ai-implementation">
                     <div class="insights-card">
-                        <img src="/assets/images/insights/insight-3.jpg" alt="Insight Image" class="insights-image">
+                        <img src="../../assets/images/insights/insight-3.svg" alt="AI Implementation" class="insights-image">
                         <div class="insights-content">
                             <div class="insights-date">September 10, 2023</div>
                             <span class="insights-category">AI Implementation</span>
@@ -451,9 +524,9 @@
                 </div>
                 
                 <!-- Card 4 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100" data-topic="healthcare">
                     <div class="insights-card">
-                        <img src="/assets/images/insights/insight-4.jpg" alt="Insight Image" class="insights-image">
+                        <img src="../../assets/images/insights/insight-4.svg" alt="AI in Healthcare" class="insights-image">
                         <div class="insights-content">
                             <div class="insights-date">August 22, 2023</div>
                             <span class="insights-category">Case Studies</span>
@@ -465,9 +538,9 @@
                 </div>
                 
                 <!-- Card 5 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200" data-topic="ai-education">
                     <div class="insights-card">
-                        <img src="/assets/images/insights/insight-5.jpg" alt="Insight Image" class="insights-image">
+                        <img src="../../assets/images/insights/insight-5.svg" alt="AI Education" class="insights-image">
                         <div class="insights-content">
                             <div class="insights-date">August 15, 2023</div>
                             <span class="insights-category">AI Education</span>
@@ -479,9 +552,9 @@
                 </div>
                 
                 <!-- Card 6 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300" data-topic="ai-ethics">
                     <div class="insights-card">
-                        <img src="/assets/images/insights/insight-6.jpg" alt="Insight Image" class="insights-image">
+                        <img src="../../assets/images/insights/insight-6.svg" alt="AI Ethics and Governance" class="insights-image">
                         <div class="insights-content">
                             <div class="insights-date">July 30, 2023</div>
                             <span class="insights-category">Enterprise AI</span>
@@ -494,7 +567,7 @@
             </div>
             
             <!-- Pagination -->
-            <div class="pagination-container d-flex justify-content-center" data-aos="fade-up">
+            <div class="pagination-container d-flex justify-content-center mt-5" data-aos="fade-up">
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li class="page-item disabled">
@@ -516,37 +589,37 @@
         </div>
     </section>
     
-    <!-- Trending Topics Section -->
+    <!-- Trending Topics Section - Temporarily Hidden
     <section class="trending-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12" data-aos="fade-up">
                     <h2 class="trending-title text-white">Trending Topics</h2>
+                    <p class="text-muted mb-4">Click on a topic to filter the insights</p>
                 </div>
             </div>
             <div class="row" data-aos="fade-up">
                 <div class="col-lg-12">
-                    <a href="#" class="trending-tag">#LargeLanguageModels</a>
-                    <a href="#" class="trending-tag">#AIStrategy</a>
-                    <a href="#" class="trending-tag">#MachineLearning</a>
-                    <a href="#" class="trending-tag">#ComputerVision</a>
-                    <a href="#" class="trending-tag">#NaturalLanguageProcessing</a>
-                    <a href="#" class="trending-tag">#AIEthics</a>
-                    <a href="#" class="trending-tag">#DataScience</a>
-                    <a href="#" class="trending-tag">#DeepLearning</a>
-                    <a href="#" class="trending-tag">#AIImplementation</a>
-                    <a href="#" class="trending-tag">#EnterpriseAI</a>
-                    <a href="#" class="trending-tag">#AIEducation</a>
-                    <a href="#" class="trending-tag">#GenerativeAI</a>
-                    <a href="#" class="trending-tag">#AIAgents</a>
-                    <a href="#" class="trending-tag">#AIInHealthcare</a>
-                    <a href="#" class="trending-tag">#AIInFinance</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="all">All Topics</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="enterprise-ai">#EnterpriseAI</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="machine-learning">#MachineLearning</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="ai-implementation">#AIImplementation</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="healthcare">#AIInHealthcare</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="ai-education">#AIEducation</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="ai-ethics">#AIEthics</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="generative-ai">#GenerativeAI</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="nlp">#NaturalLanguageProcessing</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="computer-vision">#ComputerVision</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="data-science">#DataScience</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="deep-learning">#DeepLearning</a>
+                    <a href="#insights-grid" class="trending-tag" data-topic="ai-strategy">#AIStrategy</a>
                 </div>
             </div>
         </div>
     </section>
+    -->
     
-    <!-- Newsletter Section -->
+    <!-- Newsletter Section - Temporarily Hidden
     <section class="newsletter-section">
         <div class="container newsletter-content">
             <div class="row">
@@ -565,6 +638,7 @@
             </div>
         </div>
     </section>
+    -->
     
     <!-- Footer -->
     <div id="footer-placeholder"></div>
@@ -928,6 +1002,38 @@
                     header.classList.remove('scrolled');
                 }
             });
+            
+            // Trending topics filtering functionality - Temporarily removed as section is hidden
+            /* 
+            const trendingTags = document.querySelectorAll('.trending-tag');
+            const insightCards = document.querySelectorAll('#insights-grid > div[data-topic]');
+            
+            trendingTags.forEach(tag => {
+                tag.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all tags
+                    trendingTags.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tag
+                    this.classList.add('active');
+                    
+                    const selectedTopic = this.getAttribute('data-topic');
+                    
+                    // Filter the insight cards
+                    insightCards.forEach(card => {
+                        if (selectedTopic === 'all' || card.getAttribute('data-topic') === selectedTopic) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Set "All Topics" as active by default
+            document.querySelector('.trending-tag[data-topic="all"]').classList.add('active');
+            */
         });
     </script>
 

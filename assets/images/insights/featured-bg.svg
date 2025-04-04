@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient for background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    
+    <!-- Particle glow -->
+    <radialGradient id="particleGlow" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#bgGradient)"/>
+  
+  <!-- Abstract tech pattern -->
+  <g opacity="0.1" stroke="#94a3b8" stroke-width="1">
+    <!-- Horizontal lines -->
+    <line x1="0" y1="100" x2="1200" y2="100"/>
+    <line x1="0" y1="200" x2="1200" y2="200"/>
+    <line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="400" x2="1200" y2="400"/>
+    <line x1="0" y1="500" x2="1200" y2="500"/>
+    
+    <!-- Vertical lines -->
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="800" y1="0" x2="800" y2="600"/>
+    <line x1="1000" y1="0" x2="1000" y2="600"/>
+  </g>
+  
+  <!-- Network nodes and connections -->
+  <g>
+    <!-- Connection lines -->
+    <g stroke="#3b82f6" stroke-width="1" opacity="0.3">
+      <line x1="200" y1="150" x2="350" y2="250"/>
+      <line x1="200" y1="150" x2="450" y2="100"/>
+      <line x1="200" y1="150" x2="300" y2="400"/>
+      
+      <line x1="350" y1="250" x2="450" y2="100"/>
+      <line x1="350" y1="250" x2="500" y2="300"/>
+      <line x1="350" y1="250" x2="300" y2="400"/>
+      
+      <line x1="450" y1="100" x2="600" y2="200"/>
+      <line x1="450" y1="100" x2="500" y2="300"/>
+      
+      <line x1="500" y1="300" x2="600" y2="200"/>
+      <line x1="500" y1="300" x2="650" y2="350"/>
+      <line x1="500" y1="300" x2="300" y2="400"/>
+      
+      <line x1="600" y1="200" x2="750" y2="150"/>
+      <line x1="600" y1="200" x2="650" y2="350"/>
+      
+      <line x1="650" y1="350" x2="750" y2="150"/>
+      <line x1="650" y1="350" x2="800" y2="400"/>
+      
+      <line x1="750" y1="150" x2="900" y2="250"/>
+      <line x1="750" y1="150" x2="800" y2="400"/>
+      
+      <line x1="800" y1="400" x2="900" y2="250"/>
+      <line x1="800" y1="400" x2="950" y2="450"/>
+      
+      <line x1="900" y1="250" x2="1000" y2="200"/>
+      <line x1="900" y1="250" x2="950" y2="450"/>
+      
+      <line x1="950" y1="450" x2="1000" y2="200"/>
+      <line x1="950" y1="450" x2="1050" y2="350"/>
+      
+      <line x1="1000" y1="200" x2="1050" y2="350"/>
+    </g>
+    
+    <!-- Nodes -->
+    <g>
+      <circle cx="200" cy="150" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="350" cy="250" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="450" cy="100" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="500" cy="300" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="600" cy="200" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="650" cy="350" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="750" cy="150" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="800" cy="400" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="900" cy="250" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="950" cy="450" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="1000" cy="200" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="1050" cy="350" r="8" fill="#3b82f6" opacity="0.7"/>
+      <circle cx="300" cy="400" r="8" fill="#3b82f6" opacity="0.7"/>
+    </g>
+    
+    <!-- Glowing particles -->
+    <g>
+      <circle cx="450" cy="100" r="15" fill="url(#particleGlow)" opacity="0.7"/>
+      <circle cx="750" cy="150" r="15" fill="url(#particleGlow)" opacity="0.7"/>
+      <circle cx="1000" cy="200" r="15" fill="url(#particleGlow)" opacity="0.7"/>
+    </g>
+  </g>
+  
+  <!-- Abstract AI/Data visualization elements -->
+  <g transform="translate(600, 300)">
+    <!-- Central node -->
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.7"/>
+    
+    <!-- Orbiting elements -->
+    <g>
+      <circle cx="0" cy="-60" r="10" fill="#8b5cf6" opacity="0.5"/>
+      <circle cx="52" cy="-30" r="10" fill="#8b5cf6" opacity="0.5"/>
+      <circle cx="52" cy="30" r="10" fill="#8b5cf6" opacity="0.5"/>
+      <circle cx="0" cy="60" r="10" fill="#8b5cf6" opacity="0.5"/>
+      <circle cx="-52" cy="30" r="10" fill="#8b5cf6" opacity="0.5"/>
+      <circle cx="-52" cy="-30" r="10" fill="#8b5cf6" opacity="0.5"/>
+    </g>
+    
+    <!-- Connecting lines -->
+    <g stroke="#8b5cf6" stroke-width="1" opacity="0.5">
+      <line x1="0" y1="0" x2="0" y2="-60"/>
+      <line x1="0" y1="0" x2="52" y2="-30"/>
+      <line x1="0" y1="0" x2="52" y2="30"/>
+      <line x1="0" y1="0" x2="0" y2="60"/>
+      <line x1="0" y1="0" x2="-52" y2="30"/>
+      <line x1="0" y1="0" x2="-52" y2="-30"/>
+    </g>
+  </g>
+</svg>
