@@ -1,6 +1,24 @@
 # Bixing Technology Website Project Status
 
-## Last Updated: April 03, 2025
+## Last Updated: April 04, 2025
+
+### Recent Changes
+- Modified: JEKYLL-README.md
+- Modified: _config.dev.yml
+- Modified: _layouts/post-new.html
+- Modified: _layouts/post.html
+- Modified: _posts/2023-11-10-machine-learning-for-business.md
+- Modified: assets/data/blog-posts.json
+- Modified: assets/images/blog/blog-ai-enterprise.jpg
+- Modified: assets/images/blog/ml-business.jpg
+- Modified: assets/js/blog-loader.js
+- Modified: assets/js/translations/zh.json
+- Modified: blog/2023/10/15/the-future-of-ai-in-enterprise.html
+- Modified: blog/2023/11/10/machine-learning-for-business.html
+- Modified: build.ps1
+- Modified: jekyll-build.ps1
+- Modified: pages/menu/insights.html
+
 
 ### Recent Changes
 - Modified: assets/images/insights/featured-bg.svg

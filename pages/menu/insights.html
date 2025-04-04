@@ -237,16 +237,17 @@
         }
         
         .featured-insight {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('../../assets/images/insights/featured-bg.svg');
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             background-size: cover;
             background-position: center;
-            border-radius: 12px;
-            padding: 40px;
+            border-radius: 16px;
+            padding: 0;
             position: relative;
             overflow: hidden;
-            margin-bottom: 50px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            border-left: 4px solid var(--primary-color);
+            margin-bottom: 60px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            display: flex;
+            min-height: 400px;
         }
         
         .featured-insight::before {
@@ -256,37 +257,126 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--primary-color-transparent), var(--accent-color-transparent));
-            opacity: 0.4;
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.5;
             z-index: 1;
         }
         
-        .featured-content {
+        .featured-visual {
+            width: 40%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .featured-visual::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(16, 185, 129, 0.1) 50%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.6;
+            z-index: 1;
+        }
+        
+        .featured-visual-content {
             position: relative;
             z-index: 2;
+            width: 80%;
+            height: 80%;
+        }
+        
+        .featured-visual-nodes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .featured-content {
+            width: 60%;
+            padding: 50px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .featured-badge {
-            background: var(--gold);
-            color: var(--dark-bg);
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            color: var(--white);
             font-weight: 600;
-            padding: 5px 15px;
-            border-radius: 20px;
+            padding: 8px 18px;
+            border-radius: 30px;
             display: inline-block;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .featured-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
             color: var(--white);
+            line-height: 1.2;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .featured-excerpt {
             font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 30px;
             max-width: 700px;
+            line-height: 1.6;
+        }
+        
+        #featured-link {
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            border: none;
+            padding: 12px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+        
+        #featured-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Responsive adjustments for featured insight */
+        @media (max-width: 992px) {
+            .featured-insight {
+                flex-direction: column;
+                min-height: auto;
+            }
+            
+            .featured-visual {
+                width: 100%;
+                height: 250px;
+            }
+            
+            .featured-content {
+                width: 100%;
+                padding: 40px 30px;
+            }
+            
+            .featured-title {
+                font-size: 2rem;
+            }
         }
         
         .insights-filter {
@@ -454,116 +544,82 @@
     <section class="section-primary section-transition">
         <div class="container">
             <div class="featured-insight" data-aos="fade-up">
+                <div class="featured-visual">
+                    <div class="featured-visual-content">
+                        <!-- Enterprise AI Visualization -->
+                        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="featured-visual-nodes">
+                            <!-- Central Node -->
+                            <circle cx="200" cy="200" r="30" fill="url(#gradient1)" filter="url(#glow)" />
+                            
+                            <!-- Connection Lines -->
+                            <line x1="200" y1="200" x2="120" y2="100" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                            <line x1="200" y1="200" x2="280" y2="100" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                            <line x1="200" y1="200" x2="300" y2="200" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                            <line x1="200" y1="200" x2="280" y2="300" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                            <line x1="200" y1="200" x2="120" y2="300" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                            <line x1="200" y1="200" x2="100" y2="200" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                            
+                            <!-- Satellite Nodes -->
+                            <circle cx="120" cy="100" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                            <circle cx="280" cy="100" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                            <circle cx="300" cy="200" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                            <circle cx="280" cy="300" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                            <circle cx="120" cy="300" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                            <circle cx="100" cy="200" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                            
+                            <!-- Pulse Animation -->
+                            <circle cx="200" cy="200" r="40" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5">
+                                <animate attributeName="r" values="40;70" dur="3s" repeatCount="indefinite" />
+                                <animate attributeName="opacity" values="0.5;0" dur="3s" repeatCount="indefinite" />
+                            </circle>
+                            
+                            <!-- Definitions -->
+                            <defs>
+                                <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#3b82f6" />
+                                    <stop offset="100%" stop-color="#10b981" />
+                                </linearGradient>
+                                <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#60a5fa" />
+                                    <stop offset="100%" stop-color="#34d399" />
+                                </linearGradient>
+                                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="5" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
                 <div class="featured-content">
                     <span class="featured-badge">Featured Insight</span>
-                    <h2 class="featured-title">The Future of Enterprise AI: Trends to Watch in 2025</h2>
-                    <p class="featured-excerpt">As artificial intelligence continues to evolve at a rapid pace, enterprises are facing new opportunities and challenges in implementation. Discover the key trends that will shape AI adoption in the coming year.</p>
-                    <a href="#" class="btn btn-light btn-lg">Read Full Article</a>
+                    <h2 class="featured-title" id="featured-title" style="background: linear-gradient(135deg, #f59e0b, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Loading...</h2>
+                    <p class="featured-excerpt" id="featured-excerpt">Loading featured insight...</p>
+                    <a href="#" class="btn btn-primary btn-lg" id="featured-link">Read Full Article <i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             
-            <!-- Filter Buttons -->
-            <div class="insights-filter text-center" data-aos="fade-up">
-                <button class="btn filter-button active" data-filter="all">All Topics</button>
-                <button class="btn filter-button" data-filter="enterprise-ai">Enterprise AI</button>
-                <button class="btn filter-button" data-filter="machine-learning">Machine Learning</button>
-                <button class="btn filter-button" data-filter="ai-implementation">AI Implementation</button>
-                <button class="btn filter-button" data-filter="case-studies">Case Studies</button>
-                <button class="btn filter-button" data-filter="ai-education">AI Education</button>
-            </div>
+            <!-- No filter buttons here anymore -->
         </div>
     </section>
     
     <!-- Insights Grid Section -->
     <section class="section-secondary">
         <div class="container">
-            <h2 class="text-center mb-5" data-aos="fade-up">Latest Insights</h2>
+            <h2 class="text-center mb-4" data-aos="fade-up">Latest Insights</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="insights-filter text-center mb-5" data-aos="fade-up">
+                <button class="btn filter-button active" data-filter="all">All Topics</button>
+                <div id="category-filters" class="d-inline-block">
+                    <!-- Category filters will be dynamically inserted here -->
+                </div>
+            </div>
             
             <!-- Insights Cards -->
             <div class="row" id="insights-grid">
-                <!-- Card 1 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100" data-topic="enterprise-ai">
-                    <div class="insights-card">
-                        <img src="../../assets/images/insights/insight-1.svg" alt="Enterprise AI" class="insights-image">
-                        <div class="insights-content">
-                            <div class="insights-date">October 15, 2023</div>
-                            <span class="insights-category">Enterprise AI</span>
-                            <h3 class="insights-title">The Future of AI in Enterprise</h3>
-                            <p class="insights-excerpt">Exploring how artificial intelligence is reshaping enterprise operations and decision-making processes.</p>
-                            <a href="#" class="insights-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200" data-topic="machine-learning">
-                    <div class="insights-card">
-                        <img src="../../assets/images/insights/insight-2.svg" alt="Machine Learning Models" class="insights-image">
-                        <div class="insights-content">
-                            <div class="insights-date">September 28, 2023</div>
-                            <span class="insights-category">Machine Learning</span>
-                            <h3 class="insights-title">Advances in Machine Learning Models</h3>
-                            <p class="insights-excerpt">Recent breakthroughs in machine learning models and what they mean for business applications.</p>
-                            <a href="#" class="insights-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300" data-topic="ai-implementation">
-                    <div class="insights-card">
-                        <img src="../../assets/images/insights/insight-3.svg" alt="AI Implementation" class="insights-image">
-                        <div class="insights-content">
-                            <div class="insights-date">September 10, 2023</div>
-                            <span class="insights-category">AI Implementation</span>
-                            <h3 class="insights-title">Implementing AI in Your Business</h3>
-                            <p class="insights-excerpt">A practical guide to successfully implementing AI solutions in various business contexts.</p>
-                            <a href="#" class="insights-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Card 4 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100" data-topic="healthcare">
-                    <div class="insights-card">
-                        <img src="../../assets/images/insights/insight-4.svg" alt="AI in Healthcare" class="insights-image">
-                        <div class="insights-content">
-                            <div class="insights-date">August 22, 2023</div>
-                            <span class="insights-category">Case Studies</span>
-                            <h3 class="insights-title">AI Transformation in Healthcare</h3>
-                            <p class="insights-excerpt">How a leading healthcare provider leveraged AI to improve patient outcomes and operational efficiency.</p>
-                            <a href="#" class="insights-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Card 5 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200" data-topic="ai-education">
-                    <div class="insights-card">
-                        <img src="../../assets/images/insights/insight-5.svg" alt="AI Education" class="insights-image">
-                        <div class="insights-content">
-                            <div class="insights-date">August 15, 2023</div>
-                            <span class="insights-category">AI Education</span>
-                            <h3 class="insights-title">Building AI Literacy in Your Organization</h3>
-                            <p class="insights-excerpt">Strategies for developing AI knowledge and skills across different levels of your company.</p>
-                            <a href="#" class="insights-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Card 6 -->
-                <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300" data-topic="ai-ethics">
-                    <div class="insights-card">
-                        <img src="../../assets/images/insights/insight-6.svg" alt="AI Ethics and Governance" class="insights-image">
-                        <div class="insights-content">
-                            <div class="insights-date">July 30, 2023</div>
-                            <span class="insights-category">Enterprise AI</span>
-                            <h3 class="insights-title">AI Ethics and Governance</h3>
-                            <p class="insights-excerpt">Establishing responsible AI practices and governance frameworks for enterprise implementation.</p>
-                            <a href="#" class="insights-read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Blog post cards will be dynamically inserted here -->
+            </div>
             </div>
             
             <!-- Pagination -->
@@ -819,155 +875,369 @@
         
         // Custom language toggle implementation for Insights page
         function updateInsightsPageTranslations() {
-            const currentLang = window.i18n ? window.i18n.getCurrentLanguage() : (localStorage.getItem('bixingLanguage') || 'en');
+            // Get current language from BixingI18n or localStorage with proper fallbacks
+            let currentLang = 'en';
+            
+            if (window.BixingI18n && typeof window.BixingI18n.getCurrentLanguage === 'function') {
+                currentLang = window.BixingI18n.getCurrentLanguage();
+                console.log('Got language from BixingI18n:', currentLang);
+            } else if (localStorage.getItem('bixingLanguage')) {
+                currentLang = localStorage.getItem('bixingLanguage');
+                console.log('Got language from localStorage:', currentLang);
+            } else {
+                console.log('Using default language: en');
+            }
+            
+            console.log('Updating insights page translations for language:', currentLang);
+            
+            // Store original English content if not already done
+            if (!window.originalInsightsContent) {
+                try {
+                    // Get the featured title and excerpt elements
+                    const featuredTitleElement = document.querySelector('.featured-title');
+                    const featuredExcerptElement = document.querySelector('.featured-excerpt');
+                    const featuredLinkElement = document.querySelector('#featured-link');
+                    
+                    // Define default English content for the Featured Insight card
+                    const defaultFeaturedTitle = 'The Future of Enterprise AI: Trends to Watch in 2025';
+                    const defaultFeaturedExcerpt = 'As artificial intelligence continues to evolve at a rapid pace, enterprises are facing new opportunities and challenges in implementation. Discover the key trends that will shape AI adoption in the coming year.';
+                    const defaultFeaturedLink = 'Read Full Article <i class="fas fa-arrow-right ms-2"></i>';
+                    
+                    window.originalInsightsContent = {
+                        heroTitle: document.querySelector('.hero-title').textContent,
+                        heroSubtitle: document.querySelector('.hero-subtitle').textContent,
+                        featuredBadge: document.querySelector('.featured-badge').textContent,
+                        featuredTitle: (featuredTitleElement && featuredTitleElement.textContent !== 'Loading...') ? 
+                            featuredTitleElement.textContent : defaultFeaturedTitle,
+                        featuredExcerpt: (featuredExcerptElement && featuredExcerptElement.textContent !== 'Loading featured insight...') ? 
+                            featuredExcerptElement.textContent : defaultFeaturedExcerpt,
+                        featuredLink: featuredLinkElement ? featuredLinkElement.innerHTML : defaultFeaturedLink,
+                        featuredTitleStyle: featuredTitleElement ? {
+                            background: featuredTitleElement.style.background,
+                            webkitBackgroundClip: featuredTitleElement.style.webkitBackgroundClip,
+                            backgroundClip: featuredTitleElement.style.backgroundClip,
+                            webkitTextFillColor: featuredTitleElement.style.webkitTextFillColor
+                        } : null,
+                        latestInsights: document.querySelector('.section-secondary h2').textContent,
+                        allTopics: document.querySelector('.filter-button[data-filter="all"]').textContent,
+                        pagination: {},
+                        insightsTitles: [],
+                        insightsExcerpts: [],
+                        insightsCategories: [],
+                        insightsDates: []
+                    };
+                    
+                    // Store pagination text
+                    document.querySelectorAll('.pagination .page-link').forEach((link, index) => {
+                        window.originalInsightsContent.pagination[index] = link.textContent;
+                    });
+                    
+                    // Store insights card content
+                    document.querySelectorAll('.insights-title').forEach((title, index) => {
+                        window.originalInsightsContent.insightsTitles[index] = title.textContent;
+                    });
+                    
+                    document.querySelectorAll('.insights-excerpt').forEach((excerpt, index) => {
+                        window.originalInsightsContent.insightsExcerpts[index] = excerpt.textContent;
+                    });
+                    
+                    document.querySelectorAll('.insights-category').forEach((category, index) => {
+                        window.originalInsightsContent.insightsCategories[index] = category.textContent;
+                    });
+                    
+                    document.querySelectorAll('.insights-date').forEach((date, index) => {
+                        window.originalInsightsContent.insightsDates[index] = date.textContent;
+                    });
+                    
+                    console.log('Stored original English content:', window.originalInsightsContent);
+                } catch (error) {
+                    console.error('Error storing original content:', error);
+                }
+            }
             
             // Update page-specific elements based on language
             if (currentLang === 'zh') {
-                // Hero section
-                document.querySelector('.hero-title').textContent = 'AI行业洞察与趋势';
-                document.querySelector('.hero-subtitle').textContent = '探索人工智能领域的最新发展、策略和应用';
+                console.log('Applying Chinese translations');
+                try {
+                    // Hero section
+                    document.querySelector('.hero-title').textContent = 'AI行业洞察与趋势';
+                    document.querySelector('.hero-subtitle').textContent = '探索人工智能领域的最新发展、策略和应用';
+                    
+                    // Featured insight - directly target the elements by their exact IDs and classes
+                    const featuredBadge = document.querySelector('.featured-badge');
+                    if (featuredBadge) featuredBadge.textContent = '特色洞察';
+                    
+                    // Featured title - make sure to preserve the gradient styling
+                    const featuredTitle = document.querySelector('.featured-title');
+                    if (featuredTitle) {
+                        featuredTitle.textContent = '2025年企业AI发展趋势展望';
+                        // Ensure the gradient styling is preserved
+                        featuredTitle.style.background = 'linear-gradient(135deg, #f59e0b, #f97316)';
+                        featuredTitle.style.webkitBackgroundClip = 'text';
+                        featuredTitle.style.backgroundClip = 'text';
+                        featuredTitle.style.webkitTextFillColor = 'transparent';
+                    }
+                    
+                    // Featured excerpt
+                    const featuredExcerpt = document.querySelector('.featured-excerpt');
+                    if (featuredExcerpt) featuredExcerpt.textContent = '随着人工智能的快速发展，企业面临着实施过程中的新机遇和挑战。了解将塑造未来一年AI应用的关键趋势。';
+                    
+                    // Featured link button
+                    const featuredLink = document.querySelector('#featured-link');
+                    if (featuredLink) featuredLink.innerHTML = '阅读全文 <i class="fas fa-arrow-right ms-2"></i>';
+                    
+                    // Latest Insights heading
+                    document.querySelector('.section-secondary h2').textContent = '最新洞察';
+                } catch (error) {
+                    console.error('Error applying Chinese translations to header section:', error);
+                }
                 
-                // Featured insight
-                document.querySelector('.featured-badge').textContent = '特色洞察';
-                document.querySelector('.featured-title').textContent = '2025年企业AI发展趋势展望';
-                document.querySelector('.featured-excerpt').textContent = '随着人工智能的快速发展，企业面临着实施过程中的新机遇和挑战。了解将塑造未来一年AI应用的关键趋势。';
-                document.querySelector('.featured-insight .btn').textContent = '阅读全文';
+                try {
+                    // Filter buttons
+                    const filterButtons = document.querySelectorAll('.filter-button');
+                    if (filterButtons.length > 0) {
+                        filterButtons[0].textContent = '所有主题';
+                        
+                        // Handle dynamically inserted category filters
+                        const categoryFilters = document.querySelectorAll('#category-filters .filter-button');
+                        categoryFilters.forEach(filter => {
+                            const category = filter.getAttribute('data-filter');
+                            switch(category) {
+                                case 'enterprise-ai':
+                                    filter.textContent = '企业AI';
+                                    break;
+                                case 'machine-learning':
+                                    filter.textContent = '机器学习';
+                                    break;
+                                case 'ai-implementation':
+                                    filter.textContent = 'AI实施';
+                                    break;
+                                case 'case-studies':
+                                    filter.textContent = '案例研究';
+                                    break;
+                                case 'ai-education':
+                                    filter.textContent = 'AI教育';
+                                    break;
+                                case 'ai-ethics':
+                                    filter.textContent = 'AI伦理';
+                                    break;
+                                case 'ai-trends':
+                                    filter.textContent = 'AI趋势';
+                                    break;
+                            }
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error applying Chinese translations to filter buttons:', error);
+                }
                 
-                // Filter buttons
-                const filterButtons = document.querySelectorAll('.filter-button');
-                filterButtons[0].textContent = '所有主题';
-                filterButtons[1].textContent = '企业AI';
-                filterButtons[2].textContent = '机器学习';
-                filterButtons[3].textContent = 'AI实施';
-                filterButtons[4].textContent = '案例研究';
-                filterButtons[5].textContent = 'AI教育';
+                try {
+                    // Insights cards
+                    const insightsTitles = document.querySelectorAll('.insights-title');
+                    const insightsExcerpts = document.querySelectorAll('.insights-excerpt');
+                    const insightsCategories = document.querySelectorAll('.insights-category');
+                    const insightsReadMore = document.querySelectorAll('.insights-read-more');
+                    
+                    // Card dates
+                    const insightsDates = document.querySelectorAll('.insights-date');
+                    if (insightsDates.length > 0) {
+                        insightsDates[0].textContent = '2023年10月15日';
+                        if (insightsDates.length > 1) insightsDates[1].textContent = '2023年9月28日';
+                        if (insightsDates.length > 2) insightsDates[2].textContent = '2023年9月10日';
+                        if (insightsDates.length > 3) insightsDates[3].textContent = '2023年8月22日';
+                        if (insightsDates.length > 4) insightsDates[4].textContent = '2023年8月15日';
+                        if (insightsDates.length > 5) insightsDates[5].textContent = '2023年7月30日';
+                    }
+                    
+                    // Card categories
+                    if (insightsCategories.length > 0) {
+                        insightsCategories[0].textContent = '企业AI';
+                        if (insightsCategories.length > 1) insightsCategories[1].textContent = '机器学习';
+                        if (insightsCategories.length > 2) insightsCategories[2].textContent = 'AI实施';
+                        if (insightsCategories.length > 3) insightsCategories[3].textContent = '案例研究';
+                        if (insightsCategories.length > 4) insightsCategories[4].textContent = 'AI教育';
+                        if (insightsCategories.length > 5) insightsCategories[5].textContent = '企业AI';
+                    }
+                    
+                    // Card titles
+                    if (insightsTitles.length > 0) {
+                        insightsTitles[0].textContent = '企业AI的未来';
+                        if (insightsTitles.length > 1) insightsTitles[1].textContent = '机器学习模型的进展';
+                        if (insightsTitles.length > 2) insightsTitles[2].textContent = '在业务中实施AI';
+                        if (insightsTitles.length > 3) insightsTitles[3].textContent = '医疗保健中的AI转型';
+                        if (insightsTitles.length > 4) insightsTitles[4].textContent = '在组织中建立AI素养';
+                        if (insightsTitles.length > 5) insightsTitles[5].textContent = 'AI伦理与治理';
+                    }
+                    
+                    // Card excerpts
+                    if (insightsExcerpts.length > 0) {
+                        insightsExcerpts[0].textContent = '探索人工智能如何重塑企业运营和决策过程。';
+                        if (insightsExcerpts.length > 1) insightsExcerpts[1].textContent = '机器学习模型的最新突破及其对业务应用的意义。';
+                        if (insightsExcerpts.length > 2) insightsExcerpts[2].textContent = '在各种业务环境中成功实施AI解决方案的实用指南。';
+                        if (insightsExcerpts.length > 3) insightsExcerpts[3].textContent = '领先的医疗保健提供商如何利用AI改善患者结果和运营效率。';
+                        if (insightsExcerpts.length > 4) insightsExcerpts[4].textContent = '在公司不同层级发展AI知识和技能的策略。';
+                        if (insightsExcerpts.length > 5) insightsExcerpts[5].textContent = '为企业实施建立负责任的AI实践和治理框架。';
+                    }
+                    
+                    // Read more links
+                    if (insightsReadMore.length > 0) {
+                        insightsReadMore.forEach(link => {
+                            link.innerHTML = '阅读更多 <i class="fas fa-arrow-right"></i>';
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error applying Chinese translations to insights cards:', error);
+                }
                 
-                // Insights cards
-                const insightsTitles = document.querySelectorAll('.insights-title');
-                const insightsExcerpts = document.querySelectorAll('.insights-excerpt');
-                const insightsCategories = document.querySelectorAll('.insights-category');
-                const insightsReadMore = document.querySelectorAll('.insights-read-more');
-                
-                // Card dates
-                const insightsDates = document.querySelectorAll('.insights-date');
-                insightsDates[0].textContent = '2023年10月15日';
-                insightsDates[1].textContent = '2023年9月28日';
-                insightsDates[2].textContent = '2023年9月10日';
-                insightsDates[3].textContent = '2023年8月22日';
-                insightsDates[4].textContent = '2023年8月15日';
-                insightsDates[5].textContent = '2023年7月30日';
-                
-                // Card categories
-                insightsCategories[0].textContent = '企业AI';
-                insightsCategories[1].textContent = '机器学习';
-                insightsCategories[2].textContent = 'AI实施';
-                insightsCategories[3].textContent = '案例研究';
-                insightsCategories[4].textContent = 'AI教育';
-                insightsCategories[5].textContent = '企业AI';
-                
-                // Card titles
-                insightsTitles[0].textContent = '企业AI的未来';
-                insightsTitles[1].textContent = '机器学习模型的进展';
-                insightsTitles[2].textContent = '在业务中实施AI';
-                insightsTitles[3].textContent = '医疗保健中的AI转型';
-                insightsTitles[4].textContent = '在组织中建立AI素养';
-                insightsTitles[5].textContent = 'AI伦理与治理';
-                
-                // Card excerpts
-                insightsExcerpts[0].textContent = '探索人工智能如何重塑企业运营和决策过程。';
-                insightsExcerpts[1].textContent = '机器学习模型的最新突破及其对业务应用的意义。';
-                insightsExcerpts[2].textContent = '在各种业务环境中成功实施AI解决方案的实用指南。';
-                insightsExcerpts[3].textContent = '领先的医疗保健提供商如何利用AI改善患者结果和运营效率。';
-                insightsExcerpts[4].textContent = '在公司不同层级发展AI知识和技能的策略。';
-                insightsExcerpts[5].textContent = '为企业实施建立负责任的AI实践和治理框架。';
-                
-                // Read more links
-                insightsReadMore.forEach(link => {
-                    link.innerHTML = '阅读更多 <i class="fas fa-arrow-right"></i>';
-                });
-                
-                // Trending section
-                document.querySelector('.trending-title').textContent = '热门话题';
-                
-                // Newsletter section
-                document.querySelector('.newsletter-section .section-title').textContent = '获取AI趋势更新';
-                document.querySelector('.newsletter-section .section-subtitle').textContent = '订阅我们的通讯，接收AI领域的最新洞察、文章和更新';
-                document.querySelector('.newsletter-input').placeholder = '您的电子邮箱地址';
-                document.querySelector('.newsletter-button').textContent = '订阅';
-                document.querySelector('.form-text').textContent = '我们尊重您的隐私。可随时取消订阅。';
+                try {
+                    // Trending section
+                    const trendingTitle = document.querySelector('.trending-title');
+                    if (trendingTitle) trendingTitle.textContent = '热门话题';
+                    
+                    // Newsletter section
+                    const newsletterSection = document.querySelector('.newsletter-section');
+                    if (newsletterSection) {
+                        const sectionTitle = newsletterSection.querySelector('.section-title');
+                        if (sectionTitle) sectionTitle.textContent = '获取AI趋势更新';
+                        
+                        const sectionSubtitle = newsletterSection.querySelector('.section-subtitle');
+                        if (sectionSubtitle) sectionSubtitle.textContent = '订阅我们的通讯，接收AI领域的最新洞察、文章和更新';
+                        
+                        const newsletterInput = newsletterSection.querySelector('.newsletter-input');
+                        if (newsletterInput) newsletterInput.placeholder = '您的电子邮箱地址';
+                        
+                        const newsletterButton = newsletterSection.querySelector('.newsletter-button');
+                        if (newsletterButton) newsletterButton.textContent = '订阅';
+                        
+                        const formText = newsletterSection.querySelector('.form-text');
+                        if (formText) formText.textContent = '我们尊重您的隐私。可随时取消订阅。';
+                    }
+                } catch (error) {
+                    console.error('Error applying Chinese translations to trending and newsletter sections:', error);
+                }
             } else {
-                // Hero section
-                document.querySelector('.hero-title').textContent = 'Industry Insights & AI Trends';
-                document.querySelector('.hero-subtitle').textContent = 'Exploring the latest developments, strategies, and applications in artificial intelligence';
+                // Restore original English content
+                console.log('Restoring English content');
+                if (window.originalInsightsContent) {
+                    // Hero section
+                    document.querySelector('.hero-title').textContent = window.originalInsightsContent.heroTitle;
+                    document.querySelector('.hero-subtitle').textContent = window.originalInsightsContent.heroSubtitle;
+                    
+                    // Featured insight - directly target the elements by their exact IDs and classes
+                    const featuredBadge = document.querySelector('.featured-badge');
+                    if (featuredBadge) featuredBadge.textContent = window.originalInsightsContent.featuredBadge;
+                    
+                    // Featured title - make sure to preserve the gradient styling
+                    const featuredTitle = document.querySelector('.featured-title');
+                    if (featuredTitle) {
+                        featuredTitle.textContent = window.originalInsightsContent.featuredTitle;
+                        // Ensure the gradient styling is preserved
+                        featuredTitle.style.background = 'linear-gradient(135deg, #f59e0b, #f97316)';
+                        featuredTitle.style.webkitBackgroundClip = 'text';
+                        featuredTitle.style.backgroundClip = 'text';
+                        featuredTitle.style.webkitTextFillColor = 'transparent';
+                    }
+                    
+                    // Featured excerpt
+                    const featuredExcerpt = document.querySelector('.featured-excerpt');
+                    if (featuredExcerpt) featuredExcerpt.textContent = window.originalInsightsContent.featuredExcerpt;
+                    
+                    // Featured link button
+                    const featuredLink = document.querySelector('#featured-link');
+                    if (featuredLink) featuredLink.innerHTML = window.originalInsightsContent.featuredLink;
+                    
+                    // Latest Insights heading
+                    document.querySelector('.section-secondary h2').textContent = window.originalInsightsContent.latestInsights;
+                    
+                    // Filter buttons
+                    const allTopicsButton = document.querySelector('.filter-button[data-filter="all"]');
+                    if (allTopicsButton) allTopicsButton.textContent = window.originalInsightsContent.allTopics;
                 
-                // Featured insight
-                document.querySelector('.featured-badge').textContent = 'Featured Insight';
-                document.querySelector('.featured-title').textContent = 'The Future of Enterprise AI: Trends to Watch in 2025';
-                document.querySelector('.featured-excerpt').textContent = 'As artificial intelligence continues to evolve at a rapid pace, enterprises are facing new opportunities and challenges in implementation. Discover the key trends that will shape AI adoption in the coming year.';
-                document.querySelector('.featured-insight .btn').textContent = 'Read Full Article';
-                
-                // Filter buttons
-                const filterButtons = document.querySelectorAll('.filter-button');
-                filterButtons[0].textContent = 'All Topics';
-                filterButtons[1].textContent = 'Enterprise AI';
-                filterButtons[2].textContent = 'Machine Learning';
-                filterButtons[3].textContent = 'AI Implementation';
-                filterButtons[4].textContent = 'Case Studies';
-                filterButtons[5].textContent = 'AI Education';
-                
-                // Insights cards
-                const insightsTitles = document.querySelectorAll('.insights-title');
-                const insightsExcerpts = document.querySelectorAll('.insights-excerpt');
-                const insightsCategories = document.querySelectorAll('.insights-category');
-                const insightsReadMore = document.querySelectorAll('.insights-read-more');
-                
-                // Card dates
-                const insightsDates = document.querySelectorAll('.insights-date');
-                insightsDates[0].textContent = 'October 15, 2023';
-                insightsDates[1].textContent = 'September 28, 2023';
-                insightsDates[2].textContent = 'September 10, 2023';
-                insightsDates[3].textContent = 'August 22, 2023';
-                insightsDates[4].textContent = 'August 15, 2023';
-                insightsDates[5].textContent = 'July 30, 2023';
-                
-                // Card categories
-                insightsCategories[0].textContent = 'Enterprise AI';
-                insightsCategories[1].textContent = 'Machine Learning';
-                insightsCategories[2].textContent = 'AI Implementation';
-                insightsCategories[3].textContent = 'Case Studies';
-                insightsCategories[4].textContent = 'AI Education';
-                insightsCategories[5].textContent = 'Enterprise AI';
-                
-                // Card titles
-                insightsTitles[0].textContent = 'The Future of AI in Enterprise';
-                insightsTitles[1].textContent = 'Advances in Machine Learning Models';
-                insightsTitles[2].textContent = 'Implementing AI in Your Business';
-                insightsTitles[3].textContent = 'AI Transformation in Healthcare';
-                insightsTitles[4].textContent = 'Building AI Literacy in Your Organization';
-                insightsTitles[5].textContent = 'AI Ethics and Governance';
-                
-                // Card excerpts
-                insightsExcerpts[0].textContent = 'Exploring how artificial intelligence is reshaping enterprise operations and decision-making processes.';
-                insightsExcerpts[1].textContent = 'Recent breakthroughs in machine learning models and what they mean for business applications.';
-                insightsExcerpts[2].textContent = 'A practical guide to successfully implementing AI solutions in various business contexts.';
-                insightsExcerpts[3].textContent = 'How a leading healthcare provider leveraged AI to improve patient outcomes and operational efficiency.';
-                insightsExcerpts[4].textContent = 'Strategies for developing AI knowledge and skills across different levels of your company.';
-                insightsExcerpts[5].textContent = 'Establishing responsible AI practices and governance frameworks for enterprise implementation.';
-                
-                // Read more links
-                insightsReadMore.forEach(link => {
-                    link.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
-                });
-                
-                // Trending section
-                document.querySelector('.trending-title').textContent = 'Trending Topics';
-                
-                // Newsletter section
-                document.querySelector('.newsletter-section .section-title').textContent = 'Stay Updated with AI Trends';
-                document.querySelector('.newsletter-section .section-subtitle').textContent = 'Subscribe to our newsletter to receive the latest insights, articles, and updates in the world of AI';
-                document.querySelector('.newsletter-input').placeholder = 'Your Email Address';
-                document.querySelector('.newsletter-button').textContent = 'Subscribe';
-                document.querySelector('.form-text').textContent = 'We respect your privacy. Unsubscribe at any time.';
+                    // Restore pagination text
+                    document.querySelectorAll('.pagination .page-link').forEach((link, index) => {
+                        if (window.originalInsightsContent.pagination[index]) {
+                            link.textContent = window.originalInsightsContent.pagination[index];
+                        }
+                    });
+                    
+                    // Restore aria labels for pagination
+                    const paginationLinks = document.querySelectorAll('.pagination .page-link');
+                    if (paginationLinks.length > 0) {
+                        if (paginationLinks[0].getAttribute('aria-label') === '上一页') {
+                            paginationLinks[0].setAttribute('aria-label', 'Previous');
+                        }
+                        if (paginationLinks[paginationLinks.length - 1].getAttribute('aria-label') === '下一页') {
+                            paginationLinks[paginationLinks.length - 1].setAttribute('aria-label', 'Next');
+                        }
+                    }
+                    
+                    // Insights cards
+                    const insightsTitles = document.querySelectorAll('.insights-title');
+                    const insightsExcerpts = document.querySelectorAll('.insights-excerpt');
+                    const insightsCategories = document.querySelectorAll('.insights-category');
+                    const insightsReadMore = document.querySelectorAll('.insights-read-more');
+                    
+                    // Card dates
+                    const insightsDates = document.querySelectorAll('.insights-date');
+                    insightsDates[0].textContent = 'October 15, 2023';
+                    insightsDates[1].textContent = 'September 28, 2023';
+                    insightsDates[2].textContent = 'September 10, 2023';
+                    insightsDates[3].textContent = 'August 22, 2023';
+                    insightsDates[4].textContent = 'August 15, 2023';
+                    insightsDates[5].textContent = 'July 30, 2023';
+                    
+                    // Card categories
+                    insightsCategories[0].textContent = 'Enterprise AI';
+                    insightsCategories[1].textContent = 'Machine Learning';
+                    insightsCategories[2].textContent = 'AI Implementation';
+                    insightsCategories[3].textContent = 'Case Studies';
+                    insightsCategories[4].textContent = 'AI Education';
+                    insightsCategories[5].textContent = 'Enterprise AI';
+                    
+                    // Card titles
+                    insightsTitles[0].textContent = 'The Future of AI in Enterprise';
+                    insightsTitles[1].textContent = 'Advances in Machine Learning Models';
+                    insightsTitles[2].textContent = 'Implementing AI in Your Business';
+                    insightsTitles[3].textContent = 'AI Transformation in Healthcare';
+                    insightsTitles[4].textContent = 'Building AI Literacy in Your Organization';
+                    insightsTitles[5].textContent = 'AI Ethics and Governance';
+                    
+                    // Card excerpts
+                    insightsExcerpts[0].textContent = 'Exploring how artificial intelligence is reshaping enterprise operations and decision-making processes.';
+                    insightsExcerpts[1].textContent = 'Recent breakthroughs in machine learning models and what they mean for business applications.';
+                    insightsExcerpts[2].textContent = 'A practical guide to successfully implementing AI solutions in various business contexts.';
+                    insightsExcerpts[3].textContent = 'How a leading healthcare provider leveraged AI to improve patient outcomes and operational efficiency.';
+                    insightsExcerpts[4].textContent = 'Strategies for developing AI knowledge and skills across different levels of your company.';
+                    insightsExcerpts[5].textContent = 'Establishing responsible AI practices and governance frameworks for enterprise implementation.';
+                    
+                    // Read more links
+                    insightsReadMore.forEach(link => {
+                        link.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+                    });
+                    
+                    // Trending section
+                    const trendingTitle = document.querySelector('.trending-title');
+                    if (trendingTitle) trendingTitle.textContent = 'Trending Topics';
+                    
+                    // Newsletter section
+                    const newsletterSection = document.querySelector('.newsletter-section');
+                    if (newsletterSection) {
+                        const sectionTitle = newsletterSection.querySelector('.section-title');
+                        if (sectionTitle) sectionTitle.textContent = 'Stay Updated with AI Trends';
+                        
+                        const sectionSubtitle = newsletterSection.querySelector('.section-subtitle');
+                        if (sectionSubtitle) sectionSubtitle.textContent = 'Subscribe to our newsletter to receive the latest insights, articles, and updates in the world of AI';
+                        
+                        const newsletterInput = newsletterSection.querySelector('.newsletter-input');
+                        if (newsletterInput) newsletterInput.placeholder = 'Your Email Address';
+                        
+                        const newsletterButton = newsletterSection.querySelector('.newsletter-button');
+                        if (newsletterButton) newsletterButton.textContent = 'Subscribe';
+                        
+                        const formText = newsletterSection.querySelector('.form-text');
+                        if (formText) formText.textContent = 'We respect your privacy. Unsubscribe at any time.';
+                    }
+                }
             }
         }
         
@@ -977,14 +1247,73 @@
         
         // Initialize language on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Apply custom translations for Insights page
-            updateInsightsPageTranslations();
+            console.log('DOM Content Loaded - initializing insights page');
             
-            // Listen for language changes from the i18n-module
-            document.addEventListener('languageChanged', function() {
-                // Update page-specific translations when language changes
+            // Ensure language toggle works properly
+            const languageToggle = document.getElementById('languageToggle');
+            if (languageToggle) {
+                console.log('Found language toggle, adding event listener');
+                languageToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Language toggle clicked in insights page');
+                    if (window.BixingI18n && typeof window.BixingI18n.toggleLanguage === 'function') {
+                        window.BixingI18n.toggleLanguage();
+                    } else if (window.toggleLanguage && typeof window.toggleLanguage === 'function') {
+                        window.toggleLanguage();
+                    } else {
+                        console.error('No toggleLanguage function available');
+                    }
+                });
+            } else {
+                console.warn('Language toggle element not found');
+            }
+            
+            // Set default content for Featured Insight if it's in loading state
+            const featuredTitle = document.querySelector('.featured-title');
+            const featuredExcerpt = document.querySelector('.featured-excerpt');
+            
+            if (featuredTitle && featuredTitle.textContent === 'Loading...') {
+                featuredTitle.textContent = 'The Future of Enterprise AI: Trends to Watch in 2025';
+                // Ensure the gradient styling is preserved
+                featuredTitle.style.background = 'linear-gradient(135deg, #f59e0b, #f97316)';
+                featuredTitle.style.webkitBackgroundClip = 'text';
+                featuredTitle.style.backgroundClip = 'text';
+                featuredTitle.style.webkitTextFillColor = 'transparent';
+            }
+            
+            if (featuredExcerpt && featuredExcerpt.textContent === 'Loading featured insight...') {
+                featuredExcerpt.textContent = 'As artificial intelligence continues to evolve at a rapid pace, enterprises are facing new opportunities and challenges in implementation. Discover the key trends that will shape AI adoption in the coming year.';
+            }
+            
+            // Check if BixingI18n is available
+            if (window.BixingI18n) {
+                console.log('BixingI18n is available, initializing with current language');
+                // Apply custom translations for Insights page
                 updateInsightsPageTranslations();
-            });
+                
+                // Listen for language changes from the i18n-module
+                document.addEventListener('languageChanged', function(event) {
+                    console.log('Language changed event received:', event.detail);
+                    // Update page-specific translations when language changes
+                    updateInsightsPageTranslations();
+                });
+            } else {
+                console.warn('BixingI18n not available, waiting for it to load');
+                // Wait for BixingI18n to be available
+                const checkInterval = setInterval(function() {
+                    if (window.BixingI18n) {
+                        console.log('BixingI18n now available, initializing');
+                        clearInterval(checkInterval);
+                        updateInsightsPageTranslations();
+                        
+                        // Listen for language changes
+                        document.addEventListener('languageChanged', function(event) {
+                            console.log('Language changed event received:', event.detail);
+                            updateInsightsPageTranslations();
+                        });
+                    }
+                }, 100);
+            }
             
             // Initialize AOS
             AOS.init({
@@ -1036,6 +1365,9 @@
             */
         });
     </script>
+
+    <!-- Blog Loader JS -->
+    <script src="../../assets/js/blog-loader.js"></script>
 
 </body>
 </html>
