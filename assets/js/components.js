@@ -7,8 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Determine the correct path to components based on the current page location
     const pathToRoot = document.body.getAttribute('data-path-to-root') || '';
     
-    // Add cache-busting parameter to prevent caching
-    const cacheBuster = '?v=' + new Date().getTime();
+    // Add cache-busting parameter using a timestamp based on the date only, not time
+    // This creates a new version each day rather than each page load
+    const today = new Date();
+    const cacheBuster = '?v=' + today.getFullYear() + (today.getMonth() + 1).toString().padStart(2, '0') + today.getDate().toString().padStart(2, '0');
     
     // Load header
     const headerPlaceholder = document.getElementById('header-placeholder');
@@ -16,14 +18,21 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(pathToRoot + 'components/header.html' + cacheBuster)
             .then(response => response.text())
             .then(data => {
-                // Replace relative paths with absolute paths using pathToRoot
-                data = data.replace(/src="assets\//g, `src="${pathToRoot}assets/`);
-                data = data.replace(/href="assets\//g, `href="${pathToRoot}assets/`);
-                
-                // Update navigation links with pathToRoot
-                if (pathToRoot) {
-                    data = data.replace(/href="pages\//g, `href="${pathToRoot}pages/`);
-                    data = data.replace(/href="index.html"/g, `href="${pathToRoot}index.html"`);
+                // Use path helper to standardize all path references
+                if (window.pathHelper && typeof window.pathHelper.updatePathReferences === 'function') {
+                    data = window.pathHelper.updatePathReferences(data, pathToRoot);
+                } else {
+                    // Fallback to original path handling if path helper is not available
+                    data = data.replace(/src="assets\//g, `src="${pathToRoot}assets/`);
+                    data = data.replace(/href="assets\//g, `href="${pathToRoot}assets/`);
+                    data = data.replace(/href="\//g, `href="${pathToRoot}`);
+                    data = data.replace(/src="\//g, `src="${pathToRoot}`);
+                    
+                    // Update navigation links with pathToRoot
+                    if (pathToRoot) {
+                        data = data.replace(/href="pages\//g, `href="${pathToRoot}pages/`);
+                        data = data.replace(/href="index.html"/g, `href="${pathToRoot}index.html"`);
+                    }
                 }
                 
                 headerPlaceholder.innerHTML = data;
@@ -73,14 +82,21 @@ document.addEventListener('DOMContentLoaded', function() {
         fetch(pathToRoot + 'components/footer.html' + cacheBuster)
             .then(response => response.text())
             .then(data => {
-                // Replace relative paths with absolute paths using pathToRoot
-                data = data.replace(/src="assets\//g, `src="${pathToRoot}assets/`);
-                data = data.replace(/href="assets\//g, `href="${pathToRoot}assets/`);
-                
-                // Update navigation links with pathToRoot
-                if (pathToRoot) {
-                    data = data.replace(/href="pages\//g, `href="${pathToRoot}pages/`);
-                    data = data.replace(/href="index.html"/g, `href="${pathToRoot}index.html"`);
+                // Use path helper to standardize all path references
+                if (window.pathHelper && typeof window.pathHelper.updatePathReferences === 'function') {
+                    data = window.pathHelper.updatePathReferences(data, pathToRoot);
+                } else {
+                    // Fallback to original path handling if path helper is not available
+                    data = data.replace(/src="assets\//g, `src="${pathToRoot}assets/`);
+                    data = data.replace(/href="assets\//g, `href="${pathToRoot}assets/`);
+                    data = data.replace(/href="\//g, `href="${pathToRoot}`);
+                    data = data.replace(/src="\//g, `src="${pathToRoot}`);
+                    
+                    // Update navigation links with pathToRoot
+                    if (pathToRoot) {
+                        data = data.replace(/href="pages\//g, `href="${pathToRoot}pages/`);
+                        data = data.replace(/href="index.html"/g, `href="${pathToRoot}index.html"`);
+                    }
                 }
                 
                 footerPlaceholder.innerHTML = data;
