@@ -1,0 +1,13 @@
+/**
+ * Bixing Technology - Consolidated CSS
+ * 
+ * This is the main entry point for all consolidated CSS files.
+ * Import this single file to get all styles for the website.
+ */
+
+/* Import all consolidated CSS files */
+@import 'main.css';
+@import 'layout.css';
+@import 'components.css';
+@import 'pages.css';
+@import 'utilities.css';

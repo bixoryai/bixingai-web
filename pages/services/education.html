@@ -446,11 +446,15 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../../assets/js/components.js"></script>
     
-    <!-- i18n Translation Script -->
-    <script src="../../assets/js/i18n.js?v=20250329"></script>
+    <!-- Critical scripts loaded first -->
+    <script src="../../assets/js/path-helper.js"></script>
     
-    <!-- Custom JS -->
-    <script src="../../assets/js/main.js"></script>
+    <!-- Embedded minimal translations as fallback -->
+    <script src="../../assets/js/embedded-translations.js"></script>
+    
+    <!-- Non-critical scripts with defer attribute -->
+    <script src="../../assets/js/i18n-module.js" defer></script>
+    <script src="../../assets/js/main.js" defer></script>
     
     <script>
         // Initialize AOS

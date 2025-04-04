@@ -789,8 +789,14 @@
     <!-- Components JS -->
     <script src="/assets/js/components.js"></script>
     
-    <!-- Custom JS -->
-    <script src="/assets/js/i18n.js"></script>
+    <!-- Critical scripts loaded first -->
+    <script src="/assets/js/path-helper.js"></script>
+    
+    <!-- Embedded minimal translations as fallback -->
+    <script src="/assets/js/embedded-translations.js"></script>
+    
+    <!-- Non-critical scripts with defer attribute -->
+    <script src="/assets/js/i18n-module.js" defer></script>
     <script>
         // Initialize language on page load
         document.addEventListener('DOMContentLoaded', function() {
