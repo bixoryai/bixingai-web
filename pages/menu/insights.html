@@ -6,9 +6,9 @@
     <title data-i18n="page.title">Industry Insights - Bixing Technology</title>
     
     <!-- Favicon -->
-    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,18 +23,18 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/modern-ai-theme.css">
-    <link rel="stylesheet" href="/assets/css/header.css?v=20250329095815">
-    <link rel="stylesheet" href="/assets/css/hero-section.css">
-    <link rel="stylesheet" href="/assets/css/services-section.css">
-    <link rel="stylesheet" href="/assets/css/demo-section.css">
-    <link rel="stylesheet" href="/assets/css/portfolio-section.css">
-    <link rel="stylesheet" href="/assets/css/testimonials-section.css">
-    <link rel="stylesheet" href="/assets/css/insights-section.css">
-    <link rel="stylesheet" href="/assets/css/cta-section.css">
-    <link rel="stylesheet" href="/assets/css/footer-section.css">
-    <link rel="stylesheet" href="/assets/css/secondary-hero.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="../../assets/css/header.css?v=20250329095815">
+    <link rel="stylesheet" href="../../assets/css/hero-section.css">
+    <link rel="stylesheet" href="../../assets/css/services-section.css">
+    <link rel="stylesheet" href="../../assets/css/demo-section.css">
+    <link rel="stylesheet" href="../../assets/css/portfolio-section.css">
+    <link rel="stylesheet" href="../../assets/css/testimonials-section.css">
+    <link rel="stylesheet" href="../../assets/css/insights-section.css">
+    <link rel="stylesheet" href="../../assets/css/cta-section.css">
+    <link rel="stylesheet" href="../../assets/css/footer-section.css">
+    <link rel="stylesheet" href="../../assets/css/secondary-hero.css">
     
     <style>
         /* Insights page specific styles */
@@ -173,7 +173,7 @@
         }
         
         .featured-insight {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('/assets/images/insights/featured-bg.jpg');
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('../../assets/images/insights/featured-bg.jpg');
             background-size: cover;
             background-position: center;
             border-radius: 12px;
@@ -361,7 +361,7 @@
         }
     </style>
 </head>
-<body data-path-to-root="/">
+<body data-path-to-root="../../">
     <div class="page-wrapper">
     <!-- Header -->
     <div id="header-placeholder"></div>
@@ -578,13 +578,20 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
     <!-- Particles JS -->
+    <!-- Scripts -->
+    <!-- Critical scripts loaded first -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../../assets/js/path-helper.js"></script>
+    <script src="../../assets/js/components.js"></script>
     
-    <!-- Components JS -->
-    <script src="/assets/js/components.js"></script>
+    <!-- Embedded minimal translations as fallback -->
+    <script src="../../assets/js/embedded-translations.js"></script>
     
-    <!-- Custom JS -->
-    <script src="/assets/js/i18n.js"></script>
+    <!-- Non-critical scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../../assets/js/i18n-module.js"></script>
+    <script src="../../assets/js/main.js"></script>
     <script>
         // Initialize AOS
         AOS.init({
@@ -738,7 +745,7 @@
         
         // Custom language toggle implementation for Insights page
         function updateInsightsPageTranslations() {
-            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            const currentLang = window.i18n ? window.i18n.getCurrentLanguage() : (localStorage.getItem('bixingLanguage') || 'en');
             
             // Update page-specific elements based on language
             if (currentLang === 'zh') {
@@ -891,41 +898,19 @@
         }
         
         // Override the toggleLanguage function for the Insights page
-        function toggleLanguage() {
-            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-            const newLanguage = currentLang === 'en' ? 'zh' : 'en';
-            
-            localStorage.setItem('bixingLanguage', newLanguage);
-            
-            // Update the language toggle button
-            const languageToggle = document.getElementById('currentLanguage');
-            if (languageToggle) {
-                languageToggle.textContent = newLanguage.toUpperCase();
-            }
-            
-            // Apply translations from i18n.js
-            if (typeof applyTranslations === 'function') {
-                applyTranslations();
-            }
-            
-            // Apply custom translations for Insights page
-            updateInsightsPageTranslations();
-            
-            // Force update company description
-            const companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
-            if (companyDescElement) {
-                if (newLanguage === 'en') {
-                    companyDescElement.textContent = "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.";
-                } else {
-                    companyDescElement.innerHTML = "国际前沿AI解决方案提供商,<br>助你充满AI的力量。";
-                }
-            }
-        }
+        // Use the global toggleLanguage function from i18n-module.js
+        // This ensures the header and footer are properly updated via the languageChanged event
         
         // Initialize language on page load
         document.addEventListener('DOMContentLoaded', function() {
             // Apply custom translations for Insights page
             updateInsightsPageTranslations();
+            
+            // Listen for language changes from the i18n-module
+            document.addEventListener('languageChanged', function() {
+                // Update page-specific translations when language changes
+                updateInsightsPageTranslations();
+            });
             
             // Initialize AOS
             AOS.init({

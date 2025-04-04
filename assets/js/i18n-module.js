@@ -141,7 +141,13 @@ const BixingI18n = (function() {
     // Load new translations
     loadTranslations();
     
-    console.log(`Language toggled to ${currentLanguage}`);
+    // Dispatch a custom event to notify other components about the language change
+    const languageChangedEvent = new CustomEvent('languageChanged', {
+      detail: { language: currentLanguage }
+    });
+    document.dispatchEvent(languageChangedEvent);
+    
+    console.log(`Language toggled to ${currentLanguage}, dispatched languageChanged event`);
   }
   
   /**
@@ -185,6 +191,10 @@ const BixingI18n = (function() {
       
       let translatedElements = 0;
       const missingTranslations = [];
+
+      // Force reload header and footer components to ensure they get updated translations
+      const headerPlaceholder = document.getElementById('header-placeholder');
+      const footerPlaceholder = document.getElementById('footer-placeholder');
       
       // Translate all elements with data-i18n attribute
       document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -270,6 +280,12 @@ const BixingI18n = (function() {
       if (missingTranslations.length > 0) {
         console.warn('Missing translations for keys:', missingTranslations);
       }
+
+      // Dispatch a custom event after translations are applied
+      const translationsAppliedEvent = new CustomEvent('translationsApplied', {
+        detail: { language: currentLanguage }
+      });
+      document.dispatchEvent(translationsAppliedEvent);
     } catch (error) {
       console.error('Error applying translations:', error);
     }
@@ -338,3 +354,16 @@ const BixingI18n = (function() {
 
 // Make the i18n module globally available
 window.BixingI18n = BixingI18n;
+
+// Create a global shorthand for convenience
+window.i18n = BixingI18n;
+
+// Global function for toggling language (for backward compatibility)
+window.toggleLanguage = function() {
+  BixingI18n.toggleLanguage();
+};
+
+// Global function for getting current language (for backward compatibility)
+window.getCurrentLanguage = function() {
+  return BixingI18n.getCurrentLanguage();
+};

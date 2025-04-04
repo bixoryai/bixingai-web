@@ -3,6 +3,12 @@
 ## Last Updated: April 03, 2025
 
 ### Recent Changes
+- Modified: assets/js/components.js
+- Modified: assets/js/i18n-module.js
+- Modified: pages/menu/insights.html
+
+
+### Recent Changes
 - Modified: assets/css/consolidated/components.css
 - Modified: assets/css/consolidated/index.css
 - Modified: assets/css/consolidated/layout.css
