@@ -188,16 +188,15 @@
 
     <!-- Hero Section -->
     <section class="hero-section ai-circuit-bg">
-        <div class="hero-particles" id="hero-particles"></div>
+        <div class="hero-particles" id="hero-particles" style="pointer-events: none;"></div>
         <div class="container-fluid">
             <div class="row align-items-center justify-content-center hero-row">
                 <div class="col-lg-5 offset-lg-0 col-md-10 hero-text-col" data-aos="fade-right">
                     <div class="hero-content">
                         <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="hero.title">Empowering Enterprises with AI Innovation</h1>
                         <p class="hero-subtitle lead" data-i18n="hero.subtitle">Custom AI solutions, education, and consultation services to transform your business</p>
-                        <div class="hero-buttons">
-                            <a href="#services" class="btn btn-primary me-3" data-i18n="hero.exploreServices">Explore Services</a>
-                            <a href="#contact" class="btn btn-outline-primary" data-i18n="hero.contactUs">Contact Us</a>
+                        <div class="hero-buttons" style="position: relative; z-index: 9999; pointer-events: auto;">
+                            <a href="#services" class="btn btn-primary smooth-scroll" style="position: relative; z-index: 9999; pointer-events: auto;" data-i18n="hero.exploreServices">Explore Services</a>
                         </div>
                     </div>
                 </div>
@@ -355,7 +354,7 @@
                             <li data-i18n="services.customSolutions.feature2">Custom model development</li>
                             <li data-i18n="services.customSolutions.feature3">AI application integration</li>
                         </ul>
-                        <a href="custom-solutions.html" class="btn btn-primary mt-3" data-i18n="services.learnMore">Learn More</a>
+                        <a href="pages/services/custom-solutions.html" class="btn btn-primary mt-3" data-i18n="services.learnMore">Learn More</a>
                     </div>
                 </div>
                 <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
@@ -372,7 +371,7 @@
                             <li data-i18n="services.consultation.feature2">Implementation roadmap</li>
                             <li data-i18n="services.consultation.feature3">Technology selection</li>
                         </ul>
-                        <a href="consultation.html" class="btn btn-outline-primary mt-3" data-i18n="services.learnMore">Learn More</a>
+                        <a href="pages/services/consultation.html" class="btn btn-outline-primary mt-3" data-i18n="services.learnMore">Learn More</a>
                     </div>
                 </div>
             </div>
@@ -400,7 +399,7 @@
                         <h3 data-i18n="demo.heading">See AI in Action</h3>
                         <p data-i18n="demo.description1">Explore our interactive demos to understand how our AI solutions can transform your business processes and drive innovation.</p>
                         <p data-i18n="demo.description2">These demos showcase just a fraction of what's possible with our custom AI development services.</p>
-                        <a href="demos.html" class="btn btn-primary mt-3" data-i18n="demo.viewAll">View All Demos</a>
+                        <a href="pages/demos/index.html" class="btn btn-primary mt-3" data-i18n="demo.viewAll">View All Demos</a>
                     </div>
                 </div>
             </div>
@@ -428,7 +427,7 @@
                         <div class="portfolio-content">
                             <h3 data-i18n="portfolio.education.title">AI Education for Siemens</h3>
                             <p data-i18n="portfolio.education.description">Delivered comprehensive AI training program for Siemens, upskilling 200+ professionals from fundamentals to advanced AI application development and deployment.</p>
-                            <a href="#" class="read-more" data-i18n="portfolio.education.readMore">Read Case Study</a>
+                            <a href="pages/case-studies/siemens-education.html" class="read-more" data-i18n="portfolio.education.readMore">Read Case Study</a>
                         </div>
                     </div>
                 </div>
@@ -445,7 +444,7 @@
                         <div class="portfolio-content">
                             <h3 data-i18n="portfolio.healthcare.title">Healthcare Innovation</h3>
                             <p data-i18n="portfolio.healthcare.description">Developed an AI diagnostic assistant that improved early detection rates by 28% for a leading healthcare provider.</p>
-                            <a href="#" class="read-more" data-i18n="portfolio.healthcare.readMore">Read Case Study</a>
+                            <a href="pages/case-studies/healthcare-innovation.html" class="read-more" data-i18n="portfolio.healthcare.readMore">Read Case Study</a>
                         </div>
                     </div>
                 </div>
@@ -462,14 +461,14 @@
                         <div class="portfolio-content">
                             <h3 data-i18n="portfolio.financial.title">Financial Services</h3>
                             <p data-i18n="portfolio.financial.description">Created a fraud detection system that reduced false positives by 42% while increasing detection accuracy for a financial institution.</p>
-                            <a href="#" class="read-more" data-i18n="portfolio.financial.readMore">Read Case Study</a>
+                            <a href="pages/case-studies/financial-services.html" class="read-more" data-i18n="portfolio.financial.readMore">Read Case Study</a>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-5" data-aos="fade-up">
-                <a href="case-studies.html" class="btn btn-outline-primary" data-i18n="portfolio.viewAll">View All Case Studies</a>
+                <a href="pages/case-studies/index.html" class="btn btn-outline-primary" data-i18n="portfolio.viewAll">View All Case Studies</a>
             </div>
         </div>
     </section>
@@ -560,7 +559,7 @@
                                 <i class="far fa-clock"></i> 5 min read
                             </div>
                             <p data-i18n="insights.article1.excerpt">Exploring how artificial intelligence is reshaping enterprise operations and decision-making processes.</p>
-                            <a href="#" class="read-more" data-i18n="insights.article1.readMore">Read More</a>
+                            <a href="pages/menu/insights.html#ai-enterprise" class="read-more" data-i18n="insights.article1.readMore">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -580,7 +579,7 @@
                                 <i class="far fa-clock"></i> 7 min read
                             </div>
                             <p data-i18n="insights.article2.excerpt">Recent breakthroughs in machine learning models and what they mean for business applications.</p>
-                            <a href="#" class="read-more" data-i18n="insights.article2.readMore">Read More</a>
+                            <a href="pages/menu/insights.html#machine-learning" class="read-more" data-i18n="insights.article2.readMore">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -600,14 +599,14 @@
                                 <i class="far fa-clock"></i> 6 min read
                             </div>
                             <p data-i18n="insights.article3.excerpt">A practical guide to successfully implementing AI solutions in various business contexts.</p>
-                            <a href="#" class="read-more" data-i18n="insights.article3.readMore">Read More</a>
+                            <a href="pages/menu/insights.html#ai-implementation" class="read-more" data-i18n="insights.article3.readMore">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-5" data-aos="fade-up">
-                <a href="insights.html" class="btn btn-outline-primary" data-i18n="insights.viewAll">View All Insights</a>
+                <a href="pages/menu/insights.html" class="btn btn-outline-primary" data-i18n="insights.viewAll">View All Insights</a>
             </div>
         </div>
     </section>
@@ -647,8 +646,35 @@
     <script src="/assets/js/components.js"></script>
     
     <script>
-        // Force update email and WeChat QR code
+        // Add smooth scrolling for anchor links
         document.addEventListener('DOMContentLoaded', function() {
+            // Handle smooth scrolling for the Explore Services button
+            const exploreServicesBtn = document.querySelector('a[href="#services"].smooth-scroll');
+            if (exploreServicesBtn) {
+                exploreServicesBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const servicesSection = document.getElementById('services');
+                    if (servicesSection) {
+                        // Calculate position to scroll to (accounting for fixed header)
+                        const headerOffset = 80; // Adjust based on your header height
+                        const elementPosition = servicesSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        // Perform smooth scroll
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        
+                        console.log('Scrolling to services section');
+                    } else {
+                        console.error('Services section not found');
+                    }
+                });
+            }
+            
+            // Force update email and WeChat QR code
             // Force update email
             document.getElementById('contact-email').innerText = 'develop@bixory.ai';
             

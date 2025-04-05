@@ -3,6 +3,11 @@
 ## Last Updated: April 04, 2025
 
 ### Recent Changes
+- Modified: index.html
+- Modified: pages/services/education.html
+
+
+### Recent Changes
 - Modified: JEKYLL-README.md
 - Modified: _config.dev.yml
 - Modified: _layouts/post-new.html
