@@ -46,6 +46,36 @@
                                 </button>
                             </div>
                         </li>
+                        <script>
+                            // Initialize language toggle based on stored preference
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
+                                const currentLanguageElement = document.getElementById('currentLanguage');
+                                if (currentLanguageElement) {
+                                    currentLanguageElement.textContent = storedLanguage === 'en' ? 'EN' : '中文';
+                                }
+                            });
+                            
+                            // Override the global toggleLanguage function if it doesn't exist
+                            if (typeof window.toggleLanguage !== 'function') {
+                                window.toggleLanguage = function() {
+                                    const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
+                                    const newLanguage = storedLanguage === 'en' ? 'zh' : 'en';
+                                    
+                                    // Save to localStorage
+                                    localStorage.setItem('bixingLanguage', newLanguage);
+                                    
+                                    // Update the toggle button text
+                                    const currentLanguageElement = document.getElementById('currentLanguage');
+                                    if (currentLanguageElement) {
+                                        currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
+                                    }
+                                    
+                                    // Reload the page to apply translations
+                                    window.location.reload();
+                                };
+                            }
+                        </script>
                     </ul>
                 </div>
             </div>

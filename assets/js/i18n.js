@@ -904,6 +904,13 @@ function toggleLanguage() {
   // Log the language change
   console.log(`Language switched from ${oldLanguage} to ${currentLanguage}`);
   
+  // Update the language toggle button text directly
+  const currentLanguageElement = document.getElementById('currentLanguage');
+  if (currentLanguageElement) {
+    currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
+    console.log('Updated language toggle button text to:', currentLanguageElement.textContent);
+  }
+  
   // Apply the new language immediately without page reload
   updateLanguageToggle();
   applyTranslations();

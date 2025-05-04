@@ -36,6 +36,14 @@ function loadHeader() {
             
             headerPlaceholder.innerHTML = data;
             
+            // Initialize language toggle based on stored preference
+            const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
+            const currentLanguageElement = document.getElementById('currentLanguage');
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = storedLanguage === 'en' ? 'EN' : '中文';
+                console.log('Initialized language toggle to:', currentLanguageElement.textContent);
+            }
+            
             // Set active class for current page
             const currentPage = window.location.pathname.split('/').pop() || 'index.html';
             const navLinks = document.querySelectorAll('.navbar-nav .nav-link');

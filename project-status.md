@@ -1,6 +1,12 @@
 # Bixing Technology Website Project Status
 
-## Last Updated: April 04, 2025
+## Last Updated: May 04, 2025
+
+### Recent Changes
+- Modified: assets/js/components.js
+- Modified: assets/js/i18n.js
+- Modified: components/header.html
+
 
 ### Recent Changes
 - Modified: index.html
