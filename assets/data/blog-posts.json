@@ -13,13 +13,13 @@
     },
     {
       "title": "Machine Learning for Business: Practical Applications",
-      "date": "2023-11-10",
-      "author": "Dr. Michael Chen",
+      "date": "2025-01-10",
+      "author": "Bixing Technology",
       "categories": ["Machine Learning", "Business"],
       "tags": ["machine learning", "business intelligence", "predictive analytics", "data science"],
       "featured_image": "ml-business.jpg",
       "excerpt": "Discover practical applications of machine learning that are transforming businesses today and how you can implement these solutions in your organization.",
-      "url": "/blog/2023/11/10/machine-learning-for-business.html",
+      "url": "/blog/2025/01/10/machine-learning-for-business.html",
       "content": "In today's competitive business landscape, machine learning (ML) has emerged as a powerful tool that can drive innovation, efficiency, and growth. Organizations across industries are leveraging ML technologies to gain insights from their data, automate processes, and make more informed decisions. This article explores practical applications of machine learning in business contexts and provides guidance on how your organization can begin implementing these solutions."
     }
   ]

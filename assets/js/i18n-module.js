@@ -88,15 +88,70 @@ const BixingI18n = (function() {
       })
       .then(data => {
         translations = data;
-        translationsLoaded = true;
-        console.log(`Translations loaded for ${currentLanguage}`);
+        console.log(`Main translations loaded for ${currentLanguage}`);
         
-        // Apply translations
-        applyTranslations();
-        
-        // Call any callbacks waiting for translations
-        translationLoadCallbacks.forEach(callback => callback());
-        translationLoadCallbacks = [];
+        // Check if we're on a blog page by looking at the URL
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('/blog/') && !window.preventBlogTranslations) {
+          // Skip loading blog-specific translations if preventBlogTranslations is set
+          console.log('Checking if blog-specific translations should be loaded');
+          
+          // Extract blog post slug from URL
+          const pathParts = currentPath.split('/');
+          const blogPostSlug = pathParts[pathParts.length - 1].replace('.html', '');
+          
+          // Construct path to blog-specific translations
+          const blogTranslationsPath = `/blog/${pathParts[2]}/${pathParts[3]}/${pathParts[4]}/${blogPostSlug}-translations.json`;
+          
+          console.log(`Attempting to load blog-specific translations from: ${blogTranslationsPath}`);
+          
+          // Fetch blog-specific translations
+          fetch(blogTranslationsPath)
+            .then(response => {
+              if (!response.ok) {
+                console.warn(`No blog-specific translations found at ${blogTranslationsPath}`);
+                return null;
+              }
+              return response.json();
+            })
+            .then(blogData => {
+              if (blogData) {
+                console.log(`Blog-specific translations loaded for ${blogPostSlug}`);
+                // Merge blog translations with main translations
+                translations = { ...translations, ...blogData };
+              }
+              
+              translationsLoaded = true;
+              
+              // Apply translations
+              applyTranslations();
+              
+              // Call any callbacks waiting for translations
+              translationLoadCallbacks.forEach(callback => callback());
+              translationLoadCallbacks = [];
+            })
+            .catch(error => {
+              console.error('Error loading blog-specific translations:', error);
+              translationsLoaded = true;
+              
+              // Apply translations anyway with what we have
+              applyTranslations();
+              
+              // Call any callbacks waiting for translations
+              translationLoadCallbacks.forEach(callback => callback());
+              translationLoadCallbacks = [];
+            });
+        } else {
+          // Not a blog page, just use main translations
+          translationsLoaded = true;
+          
+          // Apply translations
+          applyTranslations();
+          
+          // Call any callbacks waiting for translations
+          translationLoadCallbacks.forEach(callback => callback());
+          translationLoadCallbacks = [];
+        }
       })
       .catch(error => {
         console.error('Error loading translations:', error);

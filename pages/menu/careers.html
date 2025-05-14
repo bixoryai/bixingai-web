@@ -380,6 +380,52 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
+<script>
+function applyDirectTranslationsCareers(lang) {
+    if (lang === 'zh') {
+        const translations = {
+            '.hero-title': '加入我们',
+            '.hero-subtitle': '与我们一起塑造AI的未来',
+            '.section-title': '企业文化',
+            '.lead': '我们重视创新、协作与多元化。',
+            '.benefits-section .section-title': '员工福利'
+        };
+        Object.keys(translations).forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.textContent = translations[selector];
+            });
+        });
+    } else {
+        const translations = {
+            '.hero-title': 'Careers',
+            '.hero-subtitle': 'Shape the Future of AI With Us',
+            '.section-title': 'Company Culture',
+            '.lead': 'We value innovation, collaboration, and diversity.',
+            '.benefits-section .section-title': 'Employee Benefits'
+        };
+        Object.keys(translations).forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.textContent = translations[selector];
+            });
+        });
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        applyDirectTranslationsCareers(currentLang);
+        const languageToggle = document.getElementById('languageToggle');
+        if (languageToggle) {
+            languageToggle.addEventListener('click', function() {
+                const newLang = localStorage.getItem('bixingLanguage') || 'en';
+                applyDirectTranslationsCareers(newLang);
+            });
+        }
+    }, 500);
+});
+</script>
 </head>
 <body data-path-to-root="/">
     <!-- Header -->

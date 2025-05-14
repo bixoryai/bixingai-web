@@ -1,6 +1,28 @@
 # Bixing Technology Website Project Status
 
-## Last Updated: May 04, 2025
+## Last Updated: May 13, 2025
+
+### Recent Changes
+- Modified: assets/data/blog-posts.json
+- Modified: assets/js/blog-loader.js
+- Modified: assets/js/i18n-common.js
+- Modified: assets/js/i18n-contact.js
+- Modified: assets/js/i18n-module.js
+- Modified: assets/js/translations/insights-zh.json
+- Modified: assets/js/translations/zh-fixed.json
+- Modified: assets/js/translations/zh.json
+- Modified: blog/2023/10/15/the-future-of-ai-in-enterprise-translations.json
+- Modified: blog/2023/11/10/machine-learning-for-business.html
+- Modified: blog/2025/01/10/machine-learning-for-business-translations.json
+- Modified: blog/2025/01/10/machine-learning-for-business.html
+- Modified: components/header.html
+- Modified: pages/menu/about.html
+- Modified: pages/menu/careers.html
+- Modified: pages/menu/contact.html
+- Modified: pages/menu/insights-translations.json
+- Modified: pages/menu/insights.html
+- Modified: pages/menu/services.html
+
 
 ### Recent Changes
 - Modified: assets/js/components.js

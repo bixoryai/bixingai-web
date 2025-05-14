@@ -312,6 +312,52 @@
             height: 200px;
         }
     </style>
+<script>
+function applyDirectTranslationsServices(lang) {
+    if (lang === 'zh') {
+        const translations = {
+            '.hero-title': '产品与服务',
+            '.hero-subtitle': '探索我们的AI解决方案',
+            '.section-title': '我们的服务',
+            '.service-detail-title': '服务详情',
+            '.service-detail-description': '我们为企业提供定制化的AI服务，助力数字化转型。'
+        };
+        Object.keys(translations).forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.textContent = translations[selector];
+            });
+        });
+    } else {
+        const translations = {
+            '.hero-title': 'Products & Services',
+            '.hero-subtitle': 'Explore Our AI Solutions',
+            '.section-title': 'Our Services',
+            '.service-detail-title': 'Service Details',
+            '.service-detail-description': 'We provide customized AI services for enterprises, empowering digital transformation.'
+        };
+        Object.keys(translations).forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.textContent = translations[selector];
+            });
+        });
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        applyDirectTranslationsServices(currentLang);
+        const languageToggle = document.getElementById('languageToggle');
+        if (languageToggle) {
+            languageToggle.addEventListener('click', function() {
+                const newLang = localStorage.getItem('bixingLanguage') || 'en';
+                applyDirectTranslationsServices(newLang);
+            });
+        }
+    }, 500);
+});
+</script>
 </head>
 <body data-path-to-root="/">
     <div class="page-wrapper">

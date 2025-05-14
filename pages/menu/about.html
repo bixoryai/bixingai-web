@@ -316,6 +316,58 @@
             flex-direction: column;
         }
     </style>
+<script>
+function applyDirectTranslationsAbout(lang) {
+    if (lang === 'zh') {
+        const translations = {
+            '.hero-title': '关于我们',
+            '.hero-subtitle': '赋能企业，驱动AI创新',
+            '.mission-title': '我们的使命',
+            '.mission-statement': '通过人工智能技术帮助企业实现数字化转型。',
+            '.section-title': '我们的价值观',
+            '.service-box:nth-child(1) .service-icon': '创新',
+            '.service-box:nth-child(2) .service-icon': '协作',
+            '.service-box:nth-child(3) .service-icon': '卓越'
+        };
+        Object.keys(translations).forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.textContent = translations[selector];
+            });
+        });
+    } else {
+        const translations = {
+            '.hero-title': 'About Us',
+            '.hero-subtitle': 'Empowering Enterprises, Driving AI Innovation',
+            '.mission-title': 'Our Mission',
+            '.mission-statement': 'Helping enterprises achieve digital transformation through artificial intelligence.',
+            '.section-title': 'Our Values',
+            '.service-box:nth-child(1) .service-icon': 'Innovation',
+            '.service-box:nth-child(2) .service-icon': 'Collaboration',
+            '.service-box:nth-child(3) .service-icon': 'Excellence'
+        };
+        Object.keys(translations).forEach(selector => {
+            const elements = document.querySelectorAll(selector);
+            elements.forEach(element => {
+                element.textContent = translations[selector];
+            });
+        });
+    }
+}
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        applyDirectTranslationsAbout(currentLang);
+        const languageToggle = document.getElementById('languageToggle');
+        if (languageToggle) {
+            languageToggle.addEventListener('click', function() {
+                const newLang = localStorage.getItem('bixingLanguage') || 'en';
+                applyDirectTranslationsAbout(newLang);
+            });
+        }
+    }, 500);
+});
+</script>
 </head>
 <body data-path-to-root="/">
     <div class="page-wrapper">
