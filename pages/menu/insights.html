@@ -703,108 +703,87 @@
     <script src="../../assets/js/path-helper.js"></script>
     <script src="../../assets/js/components.js"></script>
     
-    <!-- Embedded minimal translations as fallback -->
-    <script src="../../assets/js/embedded-translations.js"></script>
+    <!-- i18n Scripts -->
+    <script src="../../assets/js/i18n-common.js"></script>
+    <script src="../../assets/js/i18n-insights.js"></script>
     
     <!-- Non-critical scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../../assets/js/i18n-module.js"></script>
     <script src="../../assets/js/main.js"></script>
     <script>
-        // Direct translation handling for insights page
-        function applyDirectTranslations(lang) {
-            if (lang === 'zh') {
-                const translations = {
-                    // Hero section
-                    '.hero-title': 'AI行业洞察',
-                    '.hero-subtitle': '探索人工智能领域的最新发展、策略和应用',
-                    // Featured section
-                    '.featured-badge': '特色洞察',
-                    '.featured-title': '2025年企业AI发展趋势展望',
-                    '.featured-excerpt': '随着人工智能的快速发展，企业面临着实施过程中的新机遇和挑战。了解将塑造未来一年AI应用的关键趋势。',
-                    '#featured-link': '阅读全文 <i class="fas fa-arrow-right ms-2"></i>',
-                    // Latest insights section
-                    '.section-secondary h2': '最新洞察',
-                    '.filter-button[data-filter="all"]': '所有主题'
-                };
-                Object.keys(translations).forEach(selector => {
-                    const elements = document.querySelectorAll(selector);
-                    elements.forEach(element => {
-                        if (selector === '#featured-link') {
-                            element.innerHTML = translations[selector];
-                        } else {
-                            element.textContent = translations[selector];
-                        }
-                        if (selector === '.featured-title') {
-                            element.style.background = 'linear-gradient(135deg, #f59e0b, #f97316)';
-                            element.style.webkitBackgroundClip = 'text';
-                            element.style.backgroundClip = 'text';
-                            element.style.webkitTextFillColor = 'transparent';
-                        }
-                    });
-                });
-                // Also call the updateInsightsPageTranslations function to handle dynamic content
-                if (typeof updateInsightsPageTranslations === 'function') {
-                    updateInsightsPageTranslations();
-                }
-                // Force reapply featured-link HTML after all other scripts
-                setTimeout(function() {
-                    const featuredLink = document.getElementById('featured-link');
-                    if (featuredLink) {
-                        featuredLink.innerHTML = '阅读全文 <i class="fas fa-arrow-right ms-2"></i>';
+        // Add insights page specific translations to the global translations object
+        if (!window.translations) {
+            window.translations = { en: {}, zh: {} };
+        }
+
+        window.translations.en = Object.assign({}, window.translations.en, {
+            "insights.hero.title": "AI Industry Insights",
+            "insights.hero.subtitle": "Explore the latest developments, strategies, and applications in AI",
+            "insights.featured.badge": "Featured Insight",
+            "insights.featured.title": "2025 Outlook: The Future of AI in Enterprise",
+            "insights.featured.excerpt": "As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.",
+            "insights.featured.link": "Read Full Article <i class=\"fas fa-arrow-right ms-2\"></i>",
+            "insights.latest.title": "Latest Insights",
+            "insights.filter.all": "All Topics"
+        });
+
+        window.translations.zh = Object.assign({}, window.translations.zh, {
+            "insights.hero.title": "AI行业洞察",
+            "insights.hero.subtitle": "探索人工智能领域的最新发展、策略和应用",
+            "insights.featured.badge": "特色洞察",
+            "insights.featured.title": "2025年企业AI发展趋势展望",
+            "insights.featured.excerpt": "随着人工智能的快速发展，企业面临着实施过程中的新机遇和挑战。了解将塑造未来一年AI应用的关键趋势。",
+            "insights.featured.link": "阅读全文 <i class=\"fas fa-arrow-right ms-2\"></i>",
+            "insights.latest.title": "最新洞察",
+            "insights.filter.all": "所有主题"
+        });
+
+        // Apply translations to specific elements that don't use data-i18n attributes
+        function applyInsightsTranslations(lang) {
+            const selectors = {
+                '.hero-title': lang === 'en' ? window.translations.en["insights.hero.title"] : window.translations.zh["insights.hero.title"],
+                '.hero-subtitle': lang === 'en' ? window.translations.en["insights.hero.subtitle"] : window.translations.zh["insights.hero.subtitle"],
+                '.featured-badge': lang === 'en' ? window.translations.en["insights.featured.badge"] : window.translations.zh["insights.featured.badge"],
+                '.featured-title': lang === 'en' ? window.translations.en["insights.featured.title"] : window.translations.zh["insights.featured.title"],
+                '.featured-excerpt': lang === 'en' ? window.translations.en["insights.featured.excerpt"] : window.translations.zh["insights.featured.excerpt"],
+                '#featured-link': lang === 'en' ? window.translations.en["insights.featured.link"] : window.translations.zh["insights.featured.link"],
+                '.section-secondary h2': lang === 'en' ? window.translations.en["insights.latest.title"] : window.translations.zh["insights.latest.title"],
+                '.filter-button[data-filter="all"]': lang === 'en' ? window.translations.en["insights.filter.all"] : window.translations.zh["insights.filter.all"]
+            };
+
+            Object.keys(selectors).forEach(selector => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach(element => {
+                    if (selector === '#featured-link') {
+                        element.innerHTML = selectors[selector];
+                    } else {
+                        element.textContent = selectors[selector];
                     }
-                }, 700);
-            } else {
-                // English (default) translations
-                const translations = {
-                    '.hero-title': 'AI Industry Insights',
-                    '.hero-subtitle': 'Explore the latest developments, strategies, and applications in AI',
-                    '.featured-badge': 'Featured Insight',
-                    '.featured-title': '2025 Outlook: The Future of AI in Enterprise',
-                    '.featured-excerpt': 'As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.',
-                    '#featured-link': 'Read Full Article <i class="fas fa-arrow-right ms-2"></i>',
-                    '.section-secondary h2': 'Latest Insights',
-                    '.filter-button[data-filter="all"]': 'All Topics'
-                };
-                Object.keys(translations).forEach(selector => {
-                    const elements = document.querySelectorAll(selector);
-                    elements.forEach(element => {
-                        if (selector === '#featured-link') {
-                            element.innerHTML = translations[selector];
-                        } else {
-                            element.textContent = translations[selector];
-                        }
-                        if (selector === '.featured-title') {
-                            element.style.background = 'linear-gradient(135deg, #f59e0b, #f97316)';
-                            element.style.webkitBackgroundClip = 'text';
-                            element.style.backgroundClip = 'text';
-                            element.style.webkitTextFillColor = 'transparent';
-                        }
-                    });
-                });
-                if (typeof updateInsightsPageTranslations === 'function') {
-                    updateInsightsPageTranslations();
-                }
-                setTimeout(function() {
-                    const featuredLink = document.getElementById('featured-link');
-                    if (featuredLink) {
-                        featuredLink.innerHTML = 'Read Full Article <i class="fas fa-arrow-right ms-2"></i>';
+                    if (selector === '.featured-title') {
+                        element.style.background = 'linear-gradient(135deg, #f59e0b, #f97316)';
+                        element.style.webkitBackgroundClip = 'text';
+                        element.style.backgroundClip = 'text';
+                        element.style.webkitTextFillColor = 'transparent';
                     }
-                }, 700);
+                });
+            });
+
+            // Also call the updateInsightsPageTranslations function to handle dynamic content if it exists
+            if (typeof updateInsightsPageTranslations === 'function') {
+                updateInsightsPageTranslations(lang);
             }
         }
+
         document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-                applyDirectTranslations(currentLang);
-                // Listen for language changes
-                const languageToggle = document.getElementById('languageToggle');
-                if (languageToggle) {
-                    languageToggle.addEventListener('click', function() {
-                        const newLang = localStorage.getItem('bixingLanguage') || 'en';
-                        applyDirectTranslations(newLang);
-                    });
-                }
+                applyInsightsTranslations(currentLang);
+                
+                // Listen for language toggle events from our global system
+                document.addEventListener('languageToggled', function(e) {
+                    const lang = e.detail.language;
+                    applyInsightsTranslations(lang);
+                });
             }, 500);
         });
     </script>

@@ -3,6 +3,21 @@
 ## Last Updated: May 14, 2025
 
 ### Recent Changes
+- Modified: assets/js/components.js
+- Modified: assets/js/i18n-about.js
+- Modified: assets/js/i18n-common.js
+- Modified: assets/js/i18n-insights.js
+- Modified: assets/js/i18n-services.js
+- Modified: components/header.html
+- Modified: docs/language-toggle-implementation.md
+- Modified: pages/menu/about.html
+- Modified: pages/menu/careers.html
+- Modified: pages/menu/contact.html
+- Modified: pages/menu/insights.html
+- Modified: pages/menu/services.html
+
+
+### Recent Changes
 - Modified: assets/js/i18n-careers.js
 - Modified: docs/language-toggle-implementation.md
 - Modified: pages/menu/careers-new.html

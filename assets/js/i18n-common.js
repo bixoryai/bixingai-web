@@ -40,7 +40,7 @@ if (document.readyState === 'loading') {
   }
 }
 
-// Global toggleLanguage function
+// Global toggleLanguage function - this will be enhanced by components.js
 window.toggleLanguage = function() {
   const storedLanguage = getCurrentLanguage();
   const newLanguage = storedLanguage === 'en' ? 'zh' : 'en';
@@ -50,6 +50,9 @@ window.toggleLanguage = function() {
     currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
   }
   applyTranslations(newLanguage);
+  
+  // Dispatch an event so other scripts can react to language changes
+  document.dispatchEvent(new CustomEvent('languageToggled', { detail: { language: newLanguage } }));
 };
 // --- END i18n header logic ---
 

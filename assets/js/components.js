@@ -14,6 +14,10 @@ function loadHeader() {
     
     console.log('Loading header component');
     
+    // Get current language before loading header
+    const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+    console.log('Current language before loading header:', currentLang);
+    
     fetch(pathToRoot + 'components/header.html' + cacheBuster)
         .then(response => response.text())
         .then(data => {
@@ -34,13 +38,24 @@ function loadHeader() {
                 }
             }
             
+            // Pre-translate navigation items if in Chinese
+            if (currentLang === 'zh') {
+                // Replace English nav items with Chinese equivalents directly in the HTML
+                data = data.replace(/>Home</g, '>首页<');
+                data = data.replace(/>About Us</g, '>关于我们<');
+                data = data.replace(/>Products &amp; Services</g, '>产品与服务<');
+                data = data.replace(/>Products & Services</g, '>产品与服务<');
+                data = data.replace(/>Industry Insights</g, '>行业洞察<');
+                data = data.replace(/>Careers</g, '>加入我们<');
+                data = data.replace(/>Contact Us</g, '>联系我们<');
+            }
+            
             headerPlaceholder.innerHTML = data;
             
             // Initialize language toggle based on stored preference
-            const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
             const currentLanguageElement = document.getElementById('currentLanguage');
             if (currentLanguageElement) {
-                currentLanguageElement.textContent = storedLanguage === 'en' ? 'EN' : '中文';
+                currentLanguageElement.textContent = currentLang === 'en' ? 'EN' : '中文';
                 console.log('Initialized language toggle to:', currentLanguageElement.textContent);
             }
             
@@ -97,6 +112,10 @@ function loadFooter() {
     
     console.log('Loading footer component');
     
+    // Get current language before loading footer
+    const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+    console.log('Current language before loading footer:', currentLang);
+    
     fetch(pathToRoot + 'components/footer.html' + cacheBuster)
         .then(response => response.text())
         .then(data => {
@@ -115,6 +134,29 @@ function loadFooter() {
                     data = data.replace(/href="pages\//g, `href="${pathToRoot}pages/`);
                     data = data.replace(/href="index.html"/g, `href="${pathToRoot}index.html"`);
                 }
+            }
+            
+            // Pre-translate footer items if in Chinese
+            if (currentLang === 'zh') {
+                // Replace English footer items with Chinese equivalents directly in the HTML
+                data = data.replace(/>Quick Links</g, '>快捷链接<');
+                data = data.replace(/>Home</g, '>首页<');
+                data = data.replace(/>About</g, '>关于我们<');
+                data = data.replace(/>Careers</g, '>加入我们<');
+                data = data.replace(/>Industry Insights</g, '>行业洞察<');
+                data = data.replace(/>Products \& Services</g, '>产品与服务<');
+                data = data.replace(/>AI Education \& Training</g, '>AI 教育培训<');
+                data = data.replace(/>AI Custom Solutions</g, '>AI 定制解决方案<');
+                data = data.replace(/>AI Strategy Consultation</g, '>AI 战略咨询<');
+                data = data.replace(/>Contact Us</g, '>联系我们<');
+                data = data.replace(/>WeChat</g, '>微信<');
+                data = data.replace(/>Scan to connect on WeChat</g, '>扫码关注微信<');
+                data = data.replace(/>&copy; 2025 Bixing Technology. All Rights Reserved.</g, '>&copy; 2025 毕行科技。保留所有权利。<');
+                data = data.replace(/>Privacy Policy</g, '>隐私政策<');
+                data = data.replace(/>Terms of Service</g, '>服务条款<');
+                
+                // Special handling for company description
+                data = data.replace(/A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation./g, '国际前沿AI解决方案提供商,<br>助你充满AI的力量。');
             }
             
             footerPlaceholder.innerHTML = data;
@@ -156,19 +198,54 @@ document.addEventListener('DOMContentLoaded', function() {
     loadHeader();
     loadFooter();
     
-    // Listen for language change events
-    document.addEventListener('languageChanged', function(e) {
-        console.log('Language changed event detected, reloading components');
-        // Reload components when language changes
-        setTimeout(() => {
-            loadHeader();
-            loadFooter();
-        }, 100); // Small delay to ensure translations are loaded
-    });
-    
-    // Listen for translations applied events
-    document.addEventListener('translationsApplied', function(e) {
-        console.log('Translations applied event detected');
-        // Update any dynamic content that might need translation
-    });
+    // Dispatch componentsLoaded event after a short delay to ensure both components are loaded
+    setTimeout(function() {
+        // Apply translations based on current language preference
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        if (typeof applyTranslations === 'function') {
+            applyTranslations(currentLang);
+        }
+        
+        // Dispatch event for other scripts to know components are loaded
+        document.dispatchEvent(new CustomEvent('componentsLoaded'));
+        
+        // Set up a consistent language toggle function across all pages
+        setupGlobalLanguageToggle();
+    }, 300);
 });
+
+// Function to set up a consistent language toggle across all pages
+function setupGlobalLanguageToggle() {
+    // Store the original toggleLanguage function
+    const originalToggleLanguage = window.toggleLanguage;
+    
+    // Create a new toggleLanguage function that handles both header/footer and page content
+    window.toggleLanguage = function() {
+        // Get current and next language
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        const nextLang = currentLang === 'en' ? 'zh' : 'en';
+        
+        // Update localStorage
+        localStorage.setItem('bixingLanguage', nextLang);
+        
+        // Update language toggle button text
+        const currentLanguageElement = document.getElementById('currentLanguage');
+        if (currentLanguageElement) {
+            currentLanguageElement.textContent = nextLang === 'en' ? 'EN' : '中文';
+        }
+        
+        // Apply translations to all elements with data-i18n attributes
+        if (typeof applyTranslations === 'function') {
+            applyTranslations(nextLang);
+        }
+        
+        // Dispatch a custom event that pages can listen for
+        document.dispatchEvent(new CustomEvent('languageToggled', { detail: { language: nextLang } }));
+    };
+    
+    // Find all language toggle buttons and ensure they use our consistent function
+    const languageToggleButtons = document.querySelectorAll('#languageToggle');
+    languageToggleButtons.forEach(button => {
+        button.onclick = window.toggleLanguage;
+    });
+}

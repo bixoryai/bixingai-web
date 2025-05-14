@@ -56,14 +56,11 @@
         }
         
         .about-hero-section .hero-title {
-            white-space: nowrap; /* Keep title on one line */
-            width: auto; /* Allow title to take its natural width */
             font-size: 3.5rem; /* Slightly larger font size */
             text-align: center; /* Ensure text is centered */
-            overflow: visible; /* Allow text to be fully visible */
             margin-bottom: 1rem; /* Add space between title and subtitle */
             display: inline-block; /* Use inline-block to prevent truncation */
-            max-width: none; /* Remove any max-width constraints */
+            font-weight: 700; /* Make it bold */
         }
         
         .about-hero-section .col-12 {
@@ -110,11 +107,19 @@
         .mission-title {
             font-size: 2.5rem;
             margin-bottom: 2rem;
-            background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--white);
             display: inline-block;
+            position: relative;
+        }
+        
+        .mission-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary-color);
         }
         
         .mission-statement {
@@ -316,58 +321,7 @@
             flex-direction: column;
         }
     </style>
-<script>
-function applyDirectTranslationsAbout(lang) {
-    if (lang === 'zh') {
-        const translations = {
-            '.hero-title': '关于我们',
-            '.hero-subtitle': '赋能企业，驱动AI创新',
-            '.mission-title': '我们的使命',
-            '.mission-statement': '通过人工智能技术帮助企业实现数字化转型。',
-            '.section-title': '我们的价值观',
-            '.service-box:nth-child(1) .service-icon': '创新',
-            '.service-box:nth-child(2) .service-icon': '协作',
-            '.service-box:nth-child(3) .service-icon': '卓越'
-        };
-        Object.keys(translations).forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
-                element.textContent = translations[selector];
-            });
-        });
-    } else {
-        const translations = {
-            '.hero-title': 'About Us',
-            '.hero-subtitle': 'Empowering Enterprises, Driving AI Innovation',
-            '.mission-title': 'Our Mission',
-            '.mission-statement': 'Helping enterprises achieve digital transformation through artificial intelligence.',
-            '.section-title': 'Our Values',
-            '.service-box:nth-child(1) .service-icon': 'Innovation',
-            '.service-box:nth-child(2) .service-icon': 'Collaboration',
-            '.service-box:nth-child(3) .service-icon': 'Excellence'
-        };
-        Object.keys(translations).forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
-                element.textContent = translations[selector];
-            });
-        });
-    }
-}
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-        applyDirectTranslationsAbout(currentLang);
-        const languageToggle = document.getElementById('languageToggle');
-        if (languageToggle) {
-            languageToggle.addEventListener('click', function() {
-                const newLang = localStorage.getItem('bixingLanguage') || 'en';
-                applyDirectTranslationsAbout(newLang);
-            });
-        }
-    }, 500);
-});
-</script>
+
 </head>
 <body data-path-to-root="/">
     <div class="page-wrapper">
@@ -380,8 +334,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container d-flex align-items-center justify-content-center h-100">
             <div class="row align-items-center justify-content-center h-100 w-100">
                 <div class="col-12 text-center" data-aos="fade-up">
-                    <h1 class="hero-title display-4 fw-bold text-gradient">Pioneering AI Solutions for Enterprise Innovation</h1>
-                    <p class="hero-subtitle lead">Empowering businesses through cutting-edge artificial intelligence technologies, education, and strategic implementation</p>
+                    <h1 class="hero-title text-gradient" data-i18n="about.hero.title">Pioneers in Enterprise AI Innovation</h1>
+                    <p class="hero-subtitle" data-i18n="about.hero.subtitle">Empowering organizations through cutting-edge AI technology, education, and strategic implementation</p>
                 </div>
             </div>
         </div>
@@ -397,8 +351,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center mission-content" data-aos="fade-up">
-                    <h2 class="mission-title">Our Mission</h2>
-                    <p class="mission-statement">Our mission is to empower enterprises through innovative AI solutions that transform operations, enhance decision-making, and drive sustainable growth.</p>
+                    <h2 class="mission-title" data-i18n="about.mission.title">Our Mission</h2>
+                    <p class="mission-statement" data-i18n="about.mission.statement">Our mission is to empower enterprises through innovative AI solutions that transform operations, enhance decision-making, and drive sustainable growth.</p>
                     <div class="mission-visual">
                         <div class="circuit-animation">
                             <svg width="100%" height="100" viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg">
@@ -421,8 +375,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto" data-aos="fade-up">
-                    <h2 class="section-title">What We Do</h2>
-                    <p class="section-subtitle">Comprehensive AI solutions tailored to enterprise needs</p>
+                    <h2 class="section-title" data-i18n="about.whatwedo.title">What We Do</h2>
+                    <p class="section-subtitle" data-i18n="about.whatwedo.subtitle">Comprehensive AI solutions tailored to enterprise needs</p>
                 </div>
             </div>
             <div class="row">
@@ -431,12 +385,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="service-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <h3 class="mb-3">AI Education & Training</h3>
-                        <p>Comprehensive training programs designed to equip your team with the knowledge and skills needed to leverage AI effectively in your business operations.</p>
+                        <h3 class="mb-3" data-i18n="about.services.education.title">AI Education & Training</h3>
+                        <p data-i18n="about.services.education.desc">Comprehensive training programs designed to equip your team with the knowledge and skills needed to leverage AI effectively in your business operations.</p>
                         <ul class="mt-3 list-unstyled">
-                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Executive AI literacy programs</li>
-                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Technical AI development courses</li>
-                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Customized workshops</li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i><span data-i18n="about.services.education.item1">Executive AI literacy programs</span></li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i><span data-i18n="about.services.education.item2">Technical AI development courses</span></li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i><span data-i18n="about.services.education.item3">Customized workshops</span></li>
                         </ul>
                     </div>
                 </div>
@@ -445,12 +399,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="service-icon">
                             <i class="fas fa-code"></i>
                         </div>
-                        <h3 class="mb-3">AI Custom Solutions</h3>
-                        <p>Tailored AI applications and systems developed to address your specific business challenges and unlock new opportunities for growth and efficiency.</p>
+                        <h3 class="mb-3" data-i18n="about.services.solutions.title">AI Custom Solutions</h3>
+                        <p data-i18n="about.services.solutions.desc">Tailored AI applications and systems developed to address your specific business challenges and unlock new opportunities for growth and efficiency.</p>
                         <ul class="mt-3 list-unstyled">
-                            <li><i class="fas fa-check-circle me-2 text-primary"></i>AI data services</li>
-                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Model training & deployment</li>
-                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Custom AI apps & agents</li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i><span data-i18n="about.services.solutions.item1">AI data services</span></li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i><span data-i18n="about.services.solutions.item2">Model training & deployment</span></li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i><span data-i18n="about.services.solutions.item3">Custom AI apps & agents</span></li>
                         </ul>
                     </div>
                 </div>
@@ -459,12 +413,12 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="service-icon">
                             <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h3 class="mb-3">Enterprise AI Consultation</h3>
-                        <p>Strategic guidance to help you navigate the AI landscape, identify high-value opportunities, and develop a roadmap for successful AI implementation.</p>
+                        <h3 class="mb-3" data-i18n="about.services.consultation.title">Enterprise AI Consultation</h3>
+                        <p data-i18n="about.services.consultation.desc">Strategic guidance to help you navigate the AI landscape, identify high-value opportunities, and develop a roadmap for successful AI implementation.</p>
                         <ul class="mt-3 list-unstyled">
-                            <li><i class="fas fa-check-circle me-2 text-primary"></i>AI readiness assessment</li>
-                            <li><i class="fas fa-check-circle me-2 text-primary"></i>Implementation strategy</li>
-                            <li><i class="fas fa-check-circle me-2 text-primary"></i>ROI optimization</li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i><span data-i18n="about.services.consultation.item1">AI readiness assessment</span></li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i><span data-i18n="about.services.consultation.item2">Implementation strategy</span></li>
+                            <li><i class="fas fa-check-circle me-2 text-primary"></i><span data-i18n="about.services.consultation.item3">ROI optimization</span></li>
                         </ul>
                     </div>
                 </div>
@@ -477,8 +431,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto" data-aos="fade-up">
-                    <h2 class="section-title">Our Strength</h2>
-                    <p class="section-subtitle">What sets us apart in the AI landscape</p>
+                    <h2 class="section-title" data-i18n="about.strength.section.title">Our Strength</h2>
+                    <p class="section-subtitle" data-i18n="about.strength.section.subtitle">What sets us apart in the AI landscape</p>
                 </div>
             </div>
             <div class="row">
@@ -488,9 +442,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="me-3">
                                 <i class="fas fa-microchip fa-2x text-primary"></i>
                             </div>
-                            <h3 class="mb-0">Technical Expertise</h3>
+                            <h3 class="mb-0" data-i18n="about.strength.expertise.title">Technical Expertise</h3>
                         </div>
-                        <p>Our team comprises AI specialists with deep expertise in machine learning, natural language processing, computer vision, and other cutting-edge technologies.</p>
+                        <p data-i18n="about.strength.expertise.desc">Our team comprises AI specialists with deep expertise in machine learning, natural language processing, computer vision, and other cutting-edge technologies.</p>
                         <div class="progress mt-3" style="height: 5px;">
                             <div class="progress-bar" role="progressbar" style="width: 95%; background: var(--gradient-card-1);" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -502,9 +456,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="me-3">
                                 <i class="fas fa-building fa-2x text-primary"></i>
                             </div>
-                            <h3 class="mb-0">Industry Knowledge</h3>
+                            <h3 class="mb-0" data-i18n="about.strength.knowledge.title">Industry Knowledge</h3>
                         </div>
-                        <p>We understand the unique challenges and opportunities across various industries, allowing us to deliver AI solutions that address specific business needs.</p>
+                        <p data-i18n="about.strength.knowledge.desc">We understand the unique challenges and opportunities across various industries, allowing us to deliver AI solutions that address specific business needs.</p>
                         <div class="progress mt-3" style="height: 5px;">
                             <div class="progress-bar" role="progressbar" style="width: 90%; background: var(--gradient-card-2);" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -516,9 +470,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="me-3">
                                 <i class="fas fa-cogs fa-2x text-primary"></i>
                             </div>
-                            <h3 class="mb-0">Customized Approach</h3>
+                            <h3 class="mb-0" data-i18n="about.strength.approach.title">Customized Approach</h3>
                         </div>
-                        <p>We don't believe in one-size-fits-all solutions. Every AI implementation is tailored to your specific goals, infrastructure, and organizational culture.</p>
+                        <p data-i18n="about.strength.approach.desc">We don't believe in one-size-fits-all solutions. Every AI implementation is tailored to your specific goals, infrastructure, and organizational culture.</p>
                         <div class="progress mt-3" style="height: 5px;">
                             <div class="progress-bar" role="progressbar" style="width: 100%; background: var(--gradient-card-3);" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -530,9 +484,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="me-3">
                                 <i class="fas fa-chart-line fa-2x text-primary"></i>
                             </div>
-                            <h3 class="mb-0">Proven Results</h3>
+                            <h3 class="mb-0" data-i18n="about.strength.results.title">Proven Results</h3>
                         </div>
-                        <p>Our track record speaks for itself, with successful AI implementations that have delivered measurable ROI and transformative business outcomes.</p>
+                        <p data-i18n="about.strength.results.desc">Our track record speaks for itself, with successful AI implementations that have delivered measurable ROI and transformative business outcomes.</p>
                         <div class="progress mt-3" style="height: 5px;">
                             <div class="progress-bar" role="progressbar" style="width: 92%; background: var(--gradient-card-4);" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -547,8 +501,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto" data-aos="fade-up">
-                    <h2 class="section-title">Our Team</h2>
-                    <p class="section-subtitle">Meet the experts behind our innovative AI solutions</p>
+                    <h2 class="section-title" data-i18n="about.team.section.title">Our Team</h2>
+                    <p class="section-subtitle" data-i18n="about.team.section.subtitle">Meet the experts behind our innovative AI solutions</p>
                 </div>
             </div>
             <div class="row">
@@ -556,9 +510,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="team-card">
                         <img src="/assets/images/team/team-1.svg" alt="Team Member" class="team-image">
                         <div class="team-info">
-                            <h4 class="team-name">Dr. Wei Zhang</h4>
-                            <p class="team-position">Chief Executive Officer</p>
-                            <p class="team-bio">AI researcher with 15+ years of experience in machine learning and enterprise AI implementation.</p>
+                            <h4 class="team-name" data-i18n="about.team.ceo.name">Dr. Wei Zhang</h4>
+                            <p class="team-position" data-i18n="about.team.ceo.position">Chief Executive Officer</p>
+                            <p class="team-bio" data-i18n="about.team.ceo.bio">AI researcher with 15+ years of experience in machine learning and enterprise AI implementation.</p>
                             <div class="team-social">
                                 <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -570,9 +524,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="team-card">
                         <img src="/assets/images/team/team-2.svg" alt="Team Member" class="team-image">
                         <div class="team-info">
-                            <h4 class="team-name">Dr. Sarah Chen</h4>
-                            <p class="team-position">Chief Technology Officer</p>
-                            <p class="team-bio">Former research scientist specializing in natural language processing and large language models.</p>
+                            <h4 class="team-name" data-i18n="about.team.cto.name">Dr. Sarah Chen</h4>
+                            <p class="team-position" data-i18n="about.team.cto.position">Chief Technology Officer</p>
+                            <p class="team-bio" data-i18n="about.team.cto.bio">Former research scientist specializing in natural language processing and large language models.</p>
                             <div class="team-social">
                                 <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#" class="social-link"><i class="fab fa-github"></i></a>
@@ -584,9 +538,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="team-card">
                         <img src="/assets/images/team/team-3.svg" alt="Team Member" class="team-image">
                         <div class="team-info">
-                            <h4 class="team-name">Michael Wang</h4>
-                            <p class="team-position">Head of AI Education</p>
-                            <p class="team-bio">Education specialist with expertise in developing AI curriculum for technical and non-technical audiences.</p>
+                            <h4 class="team-name" data-i18n="about.team.education.name">Michael Wang</h4>
+                            <p class="team-position" data-i18n="about.team.education.position">Head of AI Education</p>
+                            <p class="team-bio" data-i18n="about.team.education.bio">Education specialist with expertise in developing AI curriculum for technical and non-technical audiences.</p>
                             <div class="team-social">
                                 <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#" class="social-link"><i class="fab fa-medium"></i></a>
@@ -598,9 +552,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="team-card">
                         <img src="/assets/images/team/team-4.svg" alt="Team Member" class="team-image">
                         <div class="team-info">
-                            <h4 class="team-name">Lisa Jiang</h4>
-                            <p class="team-position">Enterprise Solutions Director</p>
-                            <p class="team-bio">Business strategist with a background in implementing AI solutions across Fortune 500 companies.</p>
+                            <h4 class="team-name" data-i18n="about.team.solutions.name">Lisa Jiang</h4>
+                            <p class="team-position" data-i18n="about.team.solutions.position">Enterprise Solutions Director</p>
+                            <p class="team-bio" data-i18n="about.team.solutions.bio">Business strategist with a background in implementing AI solutions across Fortune 500 companies.</p>
                             <div class="team-social">
                                 <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                                 <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
@@ -611,8 +565,8 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="row mt-4">
                 <div class="col-12 text-center" data-aos="fade-up">
-                    <p class="team-note">Our team extends beyond these leaders to include AI engineers, data scientists, industry specialists, and support staff dedicated to your success.</p>
-                    <a href="careers.html" class="btn btn-outline-primary mt-3">Join Our Team</a>
+                    <p class="team-note" data-i18n="about.team.note">Our team extends beyond these leaders to include AI engineers, data scientists, industry specialists, and support staff dedicated to your success.</p>
+                    <a href="careers.html" class="btn btn-outline-primary mt-3" data-i18n="about.team.button">Join Our Team</a>
                 </div>
             </div>
         </div>
@@ -623,8 +577,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto" data-aos="fade-up">
-                    <h2 class="section-title">Our Partners</h2>
-                    <p class="section-subtitle">Collaborating with industry leaders to deliver cutting-edge AI solutions</p>
+                    <h2 class="section-title" data-i18n="about.partners.section.title">Our Partners</h2>
+                    <p class="section-subtitle" data-i18n="about.partners.section.subtitle">Collaborating with industry leaders to deliver cutting-edge AI solutions</p>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -687,8 +641,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="row text-center mb-5">
                 <div class="col-lg-8 mx-auto" data-aos="fade-up">
-                    <h2 class="section-title">Our Values</h2>
-                    <p class="section-subtitle">The principles that guide our work and relationships</p>
+                    <h2 class="section-title" data-i18n="about.values.section.title">Our Values</h2>
+                    <p class="section-subtitle" data-i18n="about.values.section.subtitle">The principles that guide our work and relationships</p>
                 </div>
             </div>
             <div class="row">
@@ -697,8 +651,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="value-icon">
                             <i class="fas fa-lightbulb"></i>
                         </div>
-                        <h3 class="mb-3">Innovation</h3>
-                        <p>We constantly push the boundaries of what's possible with AI, exploring new approaches and technologies to solve complex challenges.</p>
+                        <h3 class="mb-3" data-i18n="about.values.innovation.title">Innovation</h3>
+                        <p data-i18n="about.values.innovation.desc">We constantly push the boundaries of what's possible with AI, exploring new approaches and technologies to solve complex challenges.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
@@ -706,8 +660,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="value-icon">
                             <i class="fas fa-award"></i>
                         </div>
-                        <h3 class="mb-3">Excellence</h3>
-                        <p>We are committed to delivering the highest quality in everything we do, from code to customer service to educational content.</p>
+                        <h3 class="mb-3" data-i18n="about.values.excellence.title">Excellence</h3>
+                        <p data-i18n="about.values.excellence.desc">We are committed to delivering the highest quality in everything we do, from code to customer service to educational content.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
@@ -715,8 +669,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="value-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
-                        <h3 class="mb-3">Integrity</h3>
-                        <p>We operate with transparency, honesty, and ethical responsibility in all our business practices and AI implementations.</p>
+                        <h3 class="mb-3" data-i18n="about.values.integrity.title">Integrity</h3>
+                        <p data-i18n="about.values.integrity.desc">We operate with transparency, honesty, and ethical considerations at the forefront of all AI development and implementation.</p>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="400">
@@ -724,8 +678,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div class="value-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h3 class="mb-3">Client-Focused</h3>
-                        <p>We prioritize understanding our clients' unique needs and delivering solutions that create genuine business value.</p>
+                        <h3 class="mb-3" data-i18n="about.values.collaboration.title">Collaboration</h3>
+                        <p data-i18n="about.values.collaboration.desc">We believe in the power of partnership, working closely with clients and partners to achieve shared success.</p>
                     </div>
                 </div>
             </div>
@@ -737,10 +691,10 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-                    <h2 class="cta-title">Join Us on Our Mission</h2>
-                    <p class="cta-text">Ready to transform your enterprise with the power of AI? Let's start a conversation about your business needs and how our solutions can help you achieve your goals.</p>
+                    <h2 class="cta-title" data-i18n="about.cta.title">Ready to Transform Your Business with AI?</h2>
+                    <p class="cta-text" data-i18n="about.cta.subtitle">Let's discuss how our AI solutions can address your specific challenges and drive growth.</p>
                     <div class="cta-buttons mt-4">
-                        <a href="contact.html" class="btn btn-primary btn-lg me-3">Contact Us</a>
+                        <a href="contact.html" class="btn btn-primary btn-lg me-3" data-i18n="about.cta.button">Contact Us Today</a>
                         <a href="services.html" class="btn btn-outline-light btn-lg">Explore Services</a>
                     </div>
                 </div>
@@ -767,11 +721,10 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Critical scripts loaded first -->
     <script src="/assets/js/path-helper.js"></script>
     
-    <!-- Embedded minimal translations as fallback -->
-    <script src="/assets/js/embedded-translations.js"></script>
+    <!-- i18n Scripts -->
+    <script src="/assets/js/i18n-common.js"></script>
+    <script src="/assets/js/i18n-about.js"></script>
     
-    <!-- Non-critical scripts with defer attribute -->
-    <script src="/assets/js/i18n-module.js" defer></script>
     <script>
         // Initialize AOS
         AOS.init({
@@ -781,18 +734,15 @@ document.addEventListener('DOMContentLoaded', function() {
             mirror: false
         });
         
-        // Initialize particles for hero section
+        // Initialize particles for hero section and apply translations
         document.addEventListener('DOMContentLoaded', function() {
-            // Force update company description
-            const companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
-            if (companyDescElement) {
+            // Apply translations after components are loaded
+            setTimeout(function() {
                 const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-                if (currentLang === 'en') {
-                    companyDescElement.textContent = "A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.";
-                } else {
-                    companyDescElement.innerHTML = "国际前沿AI解决方案提供商,<br>助你充满AI的力量。";
+                if (window.applyTranslations) {
+                    window.applyTranslations(currentLang);
                 }
-            }
+            }, 500); // Wait for components to load
             
             particlesJS('about-hero-particles', {
                 "particles": {
@@ -1194,10 +1144,41 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        // Initialize language on page load
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            // Apply custom translations for About Us page
-            updateAboutPageTranslations();
+            // Apply translations from window.translations object
+            const lang = getCurrentLanguage();
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(function(el) {
+                const key = el.getAttribute('data-i18n');
+                if (window.translations && window.translations[lang] && window.translations[lang][key]) {
+                    el.textContent = window.translations[lang][key];
+                }
+            });
+            
+            // Update title if needed
+            if (window.translations[lang]['page.title']) {
+                document.title = window.translations[lang]['page.title'];
+            }
+            
+            // Listen for language toggle events
+            document.addEventListener('languageToggled', function(e) {
+                const lang = e.detail.language;
+                
+                // Apply page-specific translations
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(function(el) {
+                    const key = el.getAttribute('data-i18n');
+                    if (window.translations && window.translations[lang] && window.translations[lang][key]) {
+                        el.textContent = window.translations[lang][key];
+                    }
+                });
+                
+                // Update title if needed
+                if (window.translations[lang]['page.title']) {
+                    document.title = window.translations[lang]['page.title'];
+                }
+            });
             
             // Initialize AOS
             AOS.init({

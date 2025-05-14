@@ -741,42 +741,24 @@ function getCurrentLanguage() {
                 document.title = contactTranslations[lang]['page.title'];
             }
             
-            // Don't override the global toggleLanguage function from i18n-common.js
-            // Instead, hook into it to add our page-specific translations
-            const originalToggleLanguage = window.toggleLanguage;
-            window.toggleLanguage = function() {
-                // Call the original function to handle header/footer
-                if (typeof originalToggleLanguage === 'function') {
-                    originalToggleLanguage();
-                } else {
-                    // Fallback if original function isn't available
-                    const current = getCurrentLanguage();
-                    const next = current === 'en' ? 'zh' : 'en';
-                    localStorage.setItem('bixingLanguage', next);
-                    
-                    // Update toggle button text
-                    const currentLanguageElement = document.getElementById('currentLanguage');
-                    if (currentLanguageElement) {
-                        currentLanguageElement.textContent = next === 'en' ? 'EN' : '中文';
-                    }
-                }
+            // Listen for language toggle events
+            document.addEventListener('languageToggled', function(e) {
+                const lang = e.detail.language;
                 
-                // Now apply our page-specific translations
-                const lang = getCurrentLanguage();
+                // Apply page-specific translations
                 const elements = document.querySelectorAll('[data-i18n]');
                 elements.forEach(function(el) {
                     const key = el.getAttribute('data-i18n');
-                    const text = contactTranslations[lang][key];
-                    if (typeof text !== 'undefined') {
-                        el.textContent = text;
+                    if (window.translations && window.translations[lang] && window.translations[lang][key]) {
+                        el.textContent = window.translations[lang][key];
                     }
                 });
                 
                 // Update title if needed
-                if (contactTranslations[lang]['page.title']) {
-                    document.title = contactTranslations[lang]['page.title'];
+                if (window.translations[lang]['page.title']) {
+                    document.title = window.translations[lang]['page.title'];
                 }
-            };
+            });
             
             // Header scroll effect
             const header = document.querySelector('.header');

@@ -564,190 +564,116 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Force translation after a short delay to ensure i18n.js has loaded
-        setTimeout(function() {
+    </script>
+    
+    <!-- i18n Scripts -->    
+    <script src="../../assets/js/i18n-common.js"></script>
+    <script src="../../assets/js/i18n-services.js"></script>
+    
+    <script>
+        // Add services page specific translations to the global translations object
+        if (!window.translations) {
+            window.translations = { en: {}, zh: {} };
+        }
+
+        window.translations.en = Object.assign({}, window.translations.en, {
+            "services.hero.title": "Comprehensive AI Solutions",
+            "services.hero.subtitle": "Transforming businesses through education, custom solutions, and strategic consultation",
+            "services.overview.title": "Our Products & Services",
+            "services.overview.subtitle": "Tailored AI solutions to meet your organization's unique needs",
+            "services.stats.projects": "Successful Projects",
+            "services.stats.clients": "Enterprise Clients",
+            "services.stats.experts": "AI Experts",
+            "services.cta.title": "Ready to Transform Your Business with AI?",
+            "services.cta.description": "Contact us today to discuss how our AI solutions can address your specific challenges and opportunities.",
+            "services.cta.button": "Get Started"
+        });
+
+        window.translations.zh = Object.assign({}, window.translations.zh, {
+            "services.hero.title": "全面的AI解决方案",
+            "services.hero.subtitle": "通过教育、定制解决方案和战略咨询转变企业",
+            "services.overview.title": "我们的产品与服务",
+            "services.overview.subtitle": "满足您组织独特需求的定制AI解决方案",
+            "services.stats.projects": "成功项目",
+            "services.stats.clients": "企业客户",
+            "services.stats.experts": "AI专家",
+            "services.cta.title": "准备好用AI转变您的业务了吗？",
+            "services.cta.description": "立即联系我们，讨论我们的AI解决方案如何解决您的特定挑战和机遇。",
+            "services.cta.button": "开始咨询"
+        });
+
+        // Apply translations to specific elements that don't use data-i18n attributes
+        function applyServicesTranslations(lang) {
+            // Get all the elements we need to translate
             const heroTitle = document.querySelector('.hero-title');
             const heroSubtitle = document.querySelector('.hero-subtitle');
-            const overviewTitle = document.querySelector('[data-i18n="services.overviewTitle"]');
-            const overviewSubtitle = document.querySelector('[data-i18n="services.overviewSubtitle"]');
-            const statsProjectsLabel = document.querySelector('[data-i18n="services.stats.projectsLabel"]');
-            const statsClientsLabel = document.querySelector('[data-i18n="services.stats.clientsLabel"]');
-            const statsExpertsLabel = document.querySelector('[data-i18n="services.stats.expertsLabel"]');
-            const ctaTitle = document.querySelector('[data-i18n="services.cta.title"]');
-            const ctaDescription = document.querySelector('[data-i18n="services.cta.description"]');
-            const ctaButton = document.querySelector('[data-i18n="services.cta.button"]');
+            const overviewTitle = document.querySelector('#services-overview h2');
+            const overviewSubtitle = document.querySelector('#services-overview .lead');
+            const statsProjectsLabel = document.querySelector('#stats-projects .stats-label');
+            const statsClientsLabel = document.querySelector('#stats-clients .stats-label');
+            const statsExpertsLabel = document.querySelector('#stats-experts .stats-label');
+            const ctaTitle = document.querySelector('#cta h2');
+            const ctaDescription = document.querySelector('#cta p');
+            const ctaButton = document.querySelector('#cta .cta-btn');
             
-            // Get current language
-            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-            console.log('Current language:', currentLang);
+            const translations = lang === 'en' ? window.translations.en : window.translations.zh;
             
-            // Force apply translations
-            if (currentLang === 'zh') {
-                if (heroTitle) {
-                    heroTitle.textContent = '全面的AI解决方案';
-                    console.log('Forced hero title translation');
-                }
-                
-                if (heroSubtitle) {
-                    heroSubtitle.textContent = '通过教育、定制解决方案和战略咨询转变企业';
-                    console.log('Forced hero subtitle translation');
-                }
-                
-                if (overviewTitle) {
-                    overviewTitle.textContent = '我们的产品与服务';
-                    console.log('Forced overview title translation');
-                }
-                
-                if (overviewSubtitle) {
-                    overviewSubtitle.textContent = '满足您组织独特需求的定制AI解决方案';
-                    console.log('Forced overview subtitle translation');
-                }
-                
-                if (statsProjectsLabel) {
-                    statsProjectsLabel.textContent = '成功项目';
-                    console.log('Forced stats projects label translation');
-                }
-                
-                if (statsClientsLabel) {
-                    statsClientsLabel.textContent = '企业客户';
-                    console.log('Forced stats clients label translation');
-                }
-                
-                if (statsExpertsLabel) {
-                    statsExpertsLabel.textContent = 'AI专家';
-                    console.log('Forced stats experts label translation');
-                }
-                
-                if (ctaTitle) {
-                    ctaTitle.textContent = '准备好用AI转变您的业务了吗？';
-                    console.log('Forced CTA title translation');
-                }
-                
-                if (ctaDescription) {
-                    ctaDescription.textContent = '立即联系我们，讨论我们的AI解决方案如何解决您的特定挑战和机遇。';
-                    console.log('Forced CTA description translation');
-                }
-                
-                if (ctaButton) {
-                    ctaButton.textContent = '开始咨询';
-                    console.log('Forced CTA button translation');
-                }
+            // Apply translations
+            if (heroTitle) {
+                heroTitle.textContent = translations["services.hero.title"];
             }
             
-            // Add event listener for language toggle
-            const langToggle = document.querySelector('.language-selector button');
-            if (langToggle) {
-                langToggle.addEventListener('click', function() {
-                    // Wait for language to change
-                    setTimeout(function() {
-                        const newLang = localStorage.getItem('bixingLanguage') || 'en';
-                        console.log('Language changed to:', newLang);
-                        
-                        if (newLang === 'zh') {
-                            if (heroTitle) {
-                                heroTitle.textContent = '全面的AI解决方案';
-                                console.log('Forced hero title translation after toggle');
-                            }
-                            
-                            if (heroSubtitle) {
-                                heroSubtitle.textContent = '通过教育、定制解决方案和战略咨询转变企业';
-                                console.log('Forced hero subtitle translation after toggle');
-                            }
-                            
-                            if (overviewTitle) {
-                                overviewTitle.textContent = '我们的产品与服务';
-                                console.log('Forced overview title translation after toggle');
-                            }
-                            
-                            if (overviewSubtitle) {
-                                overviewSubtitle.textContent = '满足您组织独特需求的定制AI解决方案';
-                                console.log('Forced overview subtitle translation after toggle');
-                            }
-                            
-                            if (statsProjectsLabel) {
-                                statsProjectsLabel.textContent = '成功项目';
-                                console.log('Forced stats projects label translation after toggle');
-                            }
-                            
-                            if (statsClientsLabel) {
-                                statsClientsLabel.textContent = '企业客户';
-                                console.log('Forced stats clients label translation after toggle');
-                            }
-                            
-                            if (statsExpertsLabel) {
-                                statsExpertsLabel.textContent = 'AI专家';
-                                console.log('Forced stats experts label translation after toggle');
-                            }
-                            
-                            if (ctaTitle) {
-                                ctaTitle.textContent = '准备好用AI转变您的业务了吗？';
-                                console.log('Forced CTA title translation after toggle');
-                            }
-                            
-                            if (ctaDescription) {
-                                ctaDescription.textContent = '立即联系我们，讨论我们的AI解决方案如何解决您的特定挑战和机遇。';
-                                console.log('Forced CTA description translation after toggle');
-                            }
-                            
-                            if (ctaButton) {
-                                ctaButton.textContent = '开始咨询';
-                                console.log('Forced CTA button translation after toggle');
-                            }
-                        } else {
-                            if (heroTitle) {
-                                heroTitle.textContent = 'Comprehensive AI Solutions';
-                                console.log('Forced hero title to English after toggle');
-                            }
-                            
-                            if (heroSubtitle) {
-                                heroSubtitle.textContent = 'Transforming businesses through education, custom solutions, and strategic consultation';
-                                console.log('Forced hero subtitle to English after toggle');
-                            }
-                            
-                            if (overviewTitle) {
-                                overviewTitle.textContent = 'Our Products & Services';
-                                console.log('Forced overview title to English after toggle');
-                            }
-                            
-                            if (overviewSubtitle) {
-                                overviewSubtitle.textContent = 'Tailored AI solutions to meet your organization\'s unique needs';
-                                console.log('Forced overview subtitle to English after toggle');
-                            }
-                            
-                            if (statsProjectsLabel) {
-                                statsProjectsLabel.textContent = 'Successful Projects';
-                                console.log('Forced stats projects label to English after toggle');
-                            }
-                            
-                            if (statsClientsLabel) {
-                                statsClientsLabel.textContent = 'Enterprise Clients';
-                                console.log('Forced stats clients label to English after toggle');
-                            }
-                            
-                            if (statsExpertsLabel) {
-                                statsExpertsLabel.textContent = 'AI Experts';
-                                console.log('Forced stats experts label to English after toggle');
-                            }
-                            
-                            if (ctaTitle) {
-                                ctaTitle.textContent = 'Ready to Transform Your Business with AI?';
-                                console.log('Forced CTA title to English after toggle');
-                            }
-                            
-                            if (ctaDescription) {
-                                ctaDescription.textContent = 'Contact us today to discuss how our AI solutions can address your specific challenges and opportunities.';
-                                console.log('Forced CTA description to English after toggle');
-                            }
-                            
-                            if (ctaButton) {
-                                ctaButton.textContent = 'Get Started';
-                                console.log('Forced CTA button to English after toggle');
-                            }
-                        }
-                    }, 100);
+            if (heroSubtitle) {
+                heroSubtitle.textContent = translations["services.hero.subtitle"];
+            }
+            
+            if (overviewTitle) {
+                overviewTitle.textContent = translations["services.overview.title"];
+            }
+            
+            if (overviewSubtitle) {
+                overviewSubtitle.textContent = translations["services.overview.subtitle"];
+            }
+            
+            if (statsProjectsLabel) {
+                statsProjectsLabel.textContent = translations["services.stats.projects"];
+            }
+            
+            if (statsClientsLabel) {
+                statsClientsLabel.textContent = translations["services.stats.clients"];
+            }
+            
+            if (statsExpertsLabel) {
+                statsExpertsLabel.textContent = translations["services.stats.experts"];
+            }
+            
+            if (ctaTitle) {
+                ctaTitle.textContent = translations["services.cta.title"];
+            }
+            
+            if (ctaDescription) {
+                ctaDescription.textContent = translations["services.cta.description"];
+            }
+            
+            if (ctaButton) {
+                ctaButton.textContent = translations["services.cta.button"];
+            }
+        }
+
+        // Wait for components to load
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                // Apply initial translations based on stored language
+                const initialLang = localStorage.getItem('bixingLanguage') || 'en';
+                applyServicesTranslations(initialLang);
+                
+                // Listen for language toggle events from our global system
+                document.addEventListener('languageToggled', function(e) {
+                    const newLang = e.detail.language;
+                    applyServicesTranslations(newLang);
                 });
-            }
-        }, 500);
+            }, 500);
+        });
     </script>
 </body>
 </html>

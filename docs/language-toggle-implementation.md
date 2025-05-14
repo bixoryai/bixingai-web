@@ -4,11 +4,12 @@ This document explains how instant language toggling is implemented across the B
 
 ## Architecture Overview
 
-The language toggle system consists of three main components:
+The language toggle system consists of four main components:
 
 1. **Core Language Toggle Logic** (`i18n-common.js`): Contains shared translations and core language toggle functionality
 2. **Page-Specific Translation Files** (`i18n-[page-name].js`): Contains page-specific translations
 3. **HTML Markup with Data Attributes**: Elements that need translation use `data-i18n` attributes
+4. **Components System** (`components.js`): Loads header and footer components and ensures consistent language handling
 
 ## Implementation Details
 
@@ -33,9 +34,21 @@ function applyTranslations(lang) {
     var key = el.getAttribute('data-i18n');
     var text = window.translations[lang][key];
     if (typeof text !== 'undefined') {
-      el.textContent = text;
+      // Check if the translation contains HTML
+      if (text.includes('<') && text.includes('>')) {
+        el.innerHTML = text; // Use innerHTML for translations containing HTML
+      } else {
+        el.textContent = text; // Use textContent for plain text
+      }
     }
   });
+  
+  // Apply special translations for elements that need custom handling
+  // For example, the company description in the footer which contains HTML
+  var companyDescElement = document.querySelector('[data-i18n="footer.companyDescription"]');
+  if (companyDescElement && window.translations[lang]["footer.companyDescription"]) {
+    companyDescElement.innerHTML = window.translations[lang]["footer.companyDescription"];
+  }
 }
 
 window.applyTranslations = applyTranslations;
@@ -69,6 +82,9 @@ window.toggleLanguage = function() {
     currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
   }
   applyTranslations(newLanguage);
+  
+  // Dispatch an event so other scripts can react to language changes
+  document.dispatchEvent(new CustomEvent('languageToggled', { detail: { language: newLanguage } }));
 };
 
 // Common translations shared across all pages
@@ -97,6 +113,8 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
 });
 ```
 
+**Key Improvement**: The `toggleLanguage` function now dispatches a custom `languageToggled` event that other scripts can listen for to react to language changes. This ensures consistent language handling across all components and pages.
+
 ### 2. Page-Specific Translation Files
 
 Each page has its own translation file that extends the global translations object with page-specific content:
@@ -122,34 +140,114 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
 });
 ```
 
-#### Example: `i18n-careers.js`
+#### Example: `i18n-insights.js`
 
 ```javascript
-// i18n-careers.js
-// Careers page translations
+// i18n-insights.js
+// Industry Insights page translations
 window.translations = window.translations || {};
 window.translations.en = Object.assign({}, window.translations.en, {
-  "page.title": "Careers - Bixing Technology",
-  "careers.hero.title": "Join Our Team",
-  "careers.hero.subtitle": "Be part of a team that's shaping the future of AI technology and making a real impact",
+  "page.title": "Industry Insights - Bixing Technology",
+  "insights.hero.title": "AI Industry Insights",
+  "insights.hero.subtitle": "Explore the latest developments, strategies, and applications in AI",
+  "insights.featured.badge": "Featured Insight",
+  "insights.featured.title": "2025 Outlook: The Future of AI in Enterprise",
+  "insights.featured.excerpt": "As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.",
+  "insights.featured.link": "Read Full Article <i class=\"fas fa-arrow-right ms-2\"></i>",
+  "insights.latest.title": "Latest Insights",
+  "insights.filter.all": "All Topics"
   // ... other page-specific translations
 });
 
 window.translations.zh = Object.assign({}, window.translations.zh, {
-  "page.title": "加入我们 - 毕行科技",
-  "careers.hero.title": "加入我们的团队",
-  "careers.hero.subtitle": "成为塑造AI技术未来并产生真正影响的团队的一员",
+  "page.title": "行业洞察 - 毕行科技",
+  "insights.hero.title": "AI行业洞察",
+  "insights.hero.subtitle": "探索人工智能领域的最新发展、策略和应用",
+  "insights.featured.badge": "特色洞察",
+  "insights.featured.title": "2025年企业AI发展趋势展望",
+  "insights.featured.excerpt": "随着人工智能的快速发展，企业面临着实施过程中的新机遇和挑战。了解将塑造未来一年AI应用的关键趋势。",
+  "insights.featured.link": "阅读全文 <i class=\"fas fa-arrow-right ms-2\"></i>",
+  "insights.latest.title": "最新洞察",
+  "insights.filter.all": "所有主题"
   // ... other page-specific translations
 });
 ```
 
-### 3. HTML Implementation
+### 3. Components System (`components.js`)
+
+The components.js file handles loading the header and footer components and ensures consistent language handling:
+
+```javascript
+// components.js - Loads header and footer components
+let pathToRoot = '';
+
+// Function to load the header component
+function loadHeader() {
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    if (!headerPlaceholder) return;
+    
+    // Get current language before loading header
+    const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+    
+    fetch(pathToRoot + 'components/header.html')
+        .then(response => response.text())
+        .then(data => {
+            // Update paths in the header
+            data = data.replace(/src="assets\//g, `src="${pathToRoot}assets/`);
+            data = data.replace(/href="assets\//g, `href="${pathToRoot}assets/`);
+            // ... other path updates
+            
+            // Pre-translate navigation items if in Chinese
+            if (currentLang === 'zh') {
+                // Replace English nav items with Chinese equivalents directly in the HTML
+                data = data.replace(/>Home</g, '>首页<');
+                data = data.replace(/>About Us</g, '>关于我们<');
+                data = data.replace(/>Products &amp; Services</g, '>产品与服务<');
+                data = data.replace(/>Products & Services</g, '>产品与服务<');
+                data = data.replace(/>Industry Insights</g, '>行业洞察<');
+                data = data.replace(/>Careers</g, '>加入我们<');
+                data = data.replace(/>Contact Us</g, '>联系我们<');
+            }
+            
+            headerPlaceholder.innerHTML = data;
+            
+            // Initialize language toggle based on stored preference
+            const currentLanguageElement = document.getElementById('currentLanguage');
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = currentLang === 'en' ? 'EN' : '中文';
+            }
+            
+            // ... other header initialization
+        });
+}
+
+// Function to load the footer component
+function loadFooter() {
+    // Similar implementation to loadHeader
+    // ...
+}
+
+// Initialize components when the DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Get path to root from body data attribute
+    const body = document.body;
+    if (body.hasAttribute('data-path-to-root')) {
+        pathToRoot = body.getAttribute('data-path-to-root');
+    }
+    
+    loadHeader();
+    loadFooter();
+});
+```
+
+### 4. HTML Implementation
 
 Each page needs to:
 
 1. Include the necessary script tags
 2. Add `data-i18n` attributes to elements that need translation
-3. Ensure the header component with the language toggle button is properly loaded
+3. Ensure the header and footer components are properly loaded
+4. Listen for the 'languageToggled' event for page-specific content that can't use data-i18n attributes
 
 #### Script Inclusion
 
@@ -175,12 +273,92 @@ Each page needs to:
 <button type="submit" class="btn" data-i18n="page.form.submit">Submit</button>
 ```
 
-#### Language Toggle Button (in header.html)
+#### Header and Footer Placeholders
 
 ```html
-<button id="languageToggle" onclick="toggleLanguage()" class="language-toggle">
-  <span id="currentLanguage">EN</span>
-</button>
+<!-- Header Placeholder -->
+<div id="header-placeholder"></div>
+
+<!-- Main Content -->
+<main>
+  <!-- Page content here -->
+</main>
+
+<!-- Footer Placeholder -->
+<div id="footer-placeholder"></div>
+```
+
+#### Listening for Language Toggle Events
+
+For content that can't use data-i18n attributes (like dynamically generated content or content with HTML markup):
+
+```javascript
+// Apply translations to specific elements that don't use data-i18n attributes
+function applyPageSpecificTranslations(lang) {
+    const translations = lang === 'en' ? window.translations.en : window.translations.zh;
+    
+    // Apply translations to specific elements
+    document.querySelector('.dynamic-content').innerHTML = translations["page.dynamic.content"];
+    // ... other elements
+}
+
+// Initial application on page load
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        applyPageSpecificTranslations(currentLang);
+        
+        // Listen for language toggle events
+        document.addEventListener('languageToggled', function(e) {
+            const lang = e.detail.language;
+            applyPageSpecificTranslations(lang);
+        });
+    }, 500); // Short delay to ensure components are loaded
+});
+```
+
+### 5. Header HTML Structure
+
+The header.html file must have a consistent structure to ensure proper language toggling:
+
+```html
+<header class="header">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
+                    <span data-i18n="footer.company">Bixing Technology</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <div class="navbar-toggler-icon"><span></span></div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="pages/menu/services.html" role="button" aria-expanded="false" data-i18n="nav.services">Products & Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="pages/services/education.html" data-i18n="nav.education">AI Education/Training</a></li>
+                                <!-- Other dropdown items -->
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/menu/insights.html" data-i18n="nav.industryInsights">Industry Insights</a>
+                        </li>
+                        <!-- Other nav items -->
+                        <li class="nav-item">
+                            <div class="language-selector">
+                                <button id="languageToggle" onclick="toggleLanguage()" class="btn btn-sm btn-outline-light rounded-pill px-3">
+                                    <span id="currentLanguage">EN</span>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
 ```
 
 ## Implementation by Page
@@ -198,7 +376,38 @@ Each page needs to:
   - Team members
   - Values
 
-### 3. Services Pages
+### 3. Contact Us Page
+
+- **Translation File**: `i18n-contact.js`
+- **Key Sections**:
+  - Contact form
+  - Office locations
+  - Contact information
+
+### 4. Careers Page
+
+- **Translation File**: `i18n-careers.js`
+- **Key Sections**:
+  - Job listings
+  - Company culture
+  - Benefits
+  - Application form
+
+### 5. Industry Insights Page
+
+- **Translation File**: `i18n-insights.js`
+- **Key Sections**:
+  - Featured insight
+  - Insight listings
+  - Filtering options
+
+### 6. Products & Services Page
+
+- **Translation File**: `i18n-services.js`
+- **Key Sections**:
+  - Service offerings
+  - Statistics
+  - Call to action
 
 - **Translation File**: `i18n-services.js`
 - **Sub-pages**:
