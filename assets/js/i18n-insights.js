@@ -19,10 +19,24 @@ window.translations.en = Object.assign({}, window.translations.en, {
   "insights.featured.link": "Read Full Article <i class=\"fas fa-arrow-right ms-2\"></i>",
   "insights.latest.title": "Latest Insights",
   "insights.filter.all": "All Topics",
-  "insights.filter.trends": "AI Trends",
-  "insights.filter.implementation": "Implementation",
-  "insights.filter.case-studies": "Case Studies",
-  "insights.filter.ethics": "Ethics & Governance"
+  
+  // Main cards translations
+  "insights.card1.date": "October 14, 2023",
+  "insights.card1.category": "AI Trends",
+  "insights.card1.title": "The Future of AI in Enterprise: Trends and Predictions",
+  "insights.card1.excerpt": "Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how they can be applied.",
+  
+  "insights.card2.date": "January 10, 2025",
+  "insights.card2.category": "Machine Learning",
+  "insights.card2.title": "Machine Learning for Business: Practical Applications",
+  "insights.card2.excerpt": "Discover practical applications of machine learning that are transforming businesses today and driving innovation.",
+  
+  "insights.card3.date": "Coming Soon",
+  "insights.card3.category": "Placeholder",
+  "insights.card3.title": "More Insights Coming Soon",
+  "insights.card3.excerpt": "We're working on more insightful content. Check back soon for updates on the latest in AI and technology.",
+  
+  "insights.read.more": "Read More <i class=\"fas fa-arrow-right\"></i>"
 });
 
 // Chinese translations
@@ -36,105 +50,155 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   "insights.featured.link": "阅读全文 <i class=\"fas fa-arrow-right ms-2\"></i>",
   "insights.latest.title": "最新洞察",
   "insights.filter.all": "所有主题",
-  "insights.filter.trends": "AI趋势",
-  "insights.filter.implementation": "实施策略",
-  "insights.filter.case-studies": "案例研究",
-  "insights.filter.ethics": "伦理与治理"
+  
+  // Main cards translations
+  "insights.card1.date": "2023年10月14日",
+  "insights.card1.category": "AI趋势",
+  "insights.card1.title": "企业AI的未来：趋势和预测",
+  "insights.card1.excerpt": "探索AI在企业环境中采用的新兴趋势和未来预测，以及如何应用这些趋势。",
+  
+  "insights.card2.date": "2025年1月10日",
+  "insights.card2.category": "机器学习",
+  "insights.card2.title": "商业机器学习：实际应用",
+  "insights.card2.excerpt": "发现正在改变当今企业并推动创新的机器学习实际应用。",
+  
+  "insights.card3.date": "即将推出",
+  "insights.card3.category": "占位符",
+  "insights.card3.title": "更多洞察即将推出",
+  "insights.card3.excerpt": "我们正在开发更多有见地的内容。请稍后查看有关AI和技术最新动态的更新。",
+  
+  "insights.read.more": "阅读更多 <i class=\"fas fa-arrow-right\"></i>"
 });
 
-// Function to update dynamic content that might be added after initial page load
+/**
+ * Updates all dynamic content on the Insights page based on the current language
+ * This function is called on page load and when the language is toggled
+ * @param {string} lang - The language code ('en' or 'zh')
+ */
 function updateInsightsPageTranslations(lang) {
   const currentLang = lang || localStorage.getItem('bixingLanguage') || 'en';
   
-  // Update insight card titles and excerpts if they exist
-  const insightTitles = document.querySelectorAll('.insight-card .card-title');
-  const insightExcerpts = document.querySelectorAll('.insight-card .card-text');
-  const readMoreLinks = document.querySelectorAll('.insight-card .read-more');
+  // Update the main cards
+  const cards = document.querySelectorAll('.insights-card');
+  if (cards && cards.length > 0) {
+    // Update each card with translations
+    cards.forEach((card, index) => {
+      const cardNum = index + 1;
+      
+      // Find elements within the card
+      const dateElement = card.querySelector('.insights-date');
+      const categoryElement = card.querySelector('.insights-category');
+      const titleElement = card.querySelector('.insights-title');
+      const excerptElement = card.querySelector('.insights-excerpt');
+      const readMoreElement = card.querySelector('.insights-read-more');
+      
+      // Update elements with translations
+      if (dateElement) {
+        dateElement.textContent = window.translations[currentLang][`insights.card${cardNum}.date`];
+      }
+      
+      if (categoryElement) {
+        categoryElement.textContent = window.translations[currentLang][`insights.card${cardNum}.category`];
+      }
+      
+      if (titleElement) {
+        titleElement.textContent = window.translations[currentLang][`insights.card${cardNum}.title`];
+      }
+      
+      if (excerptElement) {
+        excerptElement.textContent = window.translations[currentLang][`insights.card${cardNum}.excerpt`];
+      }
+      
+      if (readMoreElement) {
+        readMoreElement.innerHTML = window.translations[currentLang]["insights.read.more"];
+      }
+    });
+  }
   
+  // Handle dynamically generated content in the Latest Insights section
   if (currentLang === 'zh') {
-    // Apply Chinese translations to dynamic content
-    if (insightTitles.length > 0) {
-      const zhTitles = [
-        "企业如何利用生成式AI提高生产力",
-        "AI伦理：平衡创新与责任",
-        "医疗保健中的AI：改变诊断与治疗",
-        "实施AI解决方案的五个关键步骤",
-        "AI驱动的客户体验转型",
-        "金融服务中的机器学习应用"
-      ];
-      
-      insightTitles.forEach((title, index) => {
-        if (index < zhTitles.length) {
-          title.textContent = zhTitles[index];
+    // Find all cards in the insights grid (dynamically generated content)
+    const gridCards = document.querySelectorAll('#insights-grid .card');
+    if (gridCards && gridCards.length > 0) {
+      gridCards.forEach((card, index) => {
+        // Find elements within each card
+        const dateElement = card.querySelector('.insights-date');
+        const categoryElement = card.querySelector('.insights-category');
+        const titleElement = card.querySelector('.insights-title');
+        const excerptElement = card.querySelector('.insights-excerpt');
+        const readMoreElement = card.querySelector('.insights-read-more');
+        
+        // Apply translations directly based on index
+        if (dateElement) {
+          // Use the translation from our object if available, otherwise use direct translation
+          const translationKey = `insights.card${index+1}.date`;
+          if (window.translations[currentLang][translationKey]) {
+            dateElement.textContent = window.translations[currentLang][translationKey];
+          } else if (index === 0) {
+            dateElement.textContent = '2023年10月14日';
+          } else if (index === 1) {
+            dateElement.textContent = '2025年1月10日';
+          } else if (index === 2) {
+            dateElement.textContent = '即将推出';
+          }
         }
-      });
-    }
-    
-    if (insightExcerpts.length > 0) {
-      const zhExcerpts = [
-        "探索企业如何有效整合生成式AI工具以提高效率、创新和整体生产力。",
-        "深入探讨AI伦理的复杂性，以及组织如何在推动创新的同时确保负责任的AI使用。",
-        "了解AI如何彻底改变医疗诊断、治疗计划和患者护理，带来更精确和个性化的医疗服务。",
-        "从评估到部署，掌握成功实施企业AI解决方案的五个关键步骤。",
-        "探索AI如何重塑客户互动、个性化体验和支持服务，提升客户满意度和忠诚度。",
-        "了解金融机构如何利用机器学习进行风险评估、欺诈检测和投资策略优化。"
-      ];
-      
-      insightExcerpts.forEach((excerpt, index) => {
-        if (index < zhExcerpts.length) {
-          excerpt.textContent = zhExcerpts[index];
+        
+        if (categoryElement) {
+          const translationKey = `insights.card${index+1}.category`;
+          if (window.translations[currentLang][translationKey]) {
+            categoryElement.textContent = window.translations[currentLang][translationKey];
+          } else if (index === 0) {
+            categoryElement.textContent = 'AI趋势';
+          } else if (index === 1) {
+            categoryElement.textContent = '机器学习';
+          } else if (index === 2) {
+            categoryElement.textContent = '占位符';
+          }
         }
-      });
-    }
-    
-    if (readMoreLinks.length > 0) {
-      readMoreLinks.forEach(link => {
-        link.innerHTML = '阅读更多 <i class="fas fa-arrow-right ms-1"></i>';
-      });
-    }
-  } else {
-    // Apply English translations to dynamic content
-    if (insightTitles.length > 0) {
-      const enTitles = [
-        "How Enterprises Can Leverage Generative AI for Productivity",
-        "AI Ethics: Balancing Innovation with Responsibility",
-        "AI in Healthcare: Transforming Diagnosis and Treatment",
-        "Five Key Steps to Implementing AI Solutions",
-        "AI-Driven Customer Experience Transformation",
-        "Machine Learning Applications in Financial Services"
-      ];
-      
-      insightTitles.forEach((title, index) => {
-        if (index < enTitles.length) {
-          title.textContent = enTitles[index];
+        
+        if (titleElement) {
+          const translationKey = `insights.card${index+1}.title`;
+          if (window.translations[currentLang][translationKey]) {
+            titleElement.textContent = window.translations[currentLang][translationKey];
+          } else if (index === 0) {
+            titleElement.textContent = '企业AI的未来：趋势和预测';
+          } else if (index === 1) {
+            titleElement.textContent = '商业机器学习：实际应用';
+          } else if (index === 2) {
+            titleElement.textContent = '更多洞察即将推出';
+          }
         }
-      });
-    }
-    
-    if (insightExcerpts.length > 0) {
-      const enExcerpts = [
-        "Explore how businesses can effectively integrate generative AI tools to enhance efficiency, innovation, and overall productivity.",
-        "Dive into the complexities of AI ethics and how organizations can ensure responsible AI use while driving innovation.",
-        "Learn how AI is revolutionizing medical diagnostics, treatment planning, and patient care for more precise and personalized healthcare.",
-        "Master the five essential steps for successful enterprise AI solution implementation, from assessment to deployment.",
-        "Explore how AI is reshaping customer interactions, personalized experiences, and support services to boost satisfaction and loyalty.",
-        "Discover how financial institutions are using machine learning for risk assessment, fraud detection, and investment strategy optimization."
-      ];
-      
-      insightExcerpts.forEach((excerpt, index) => {
-        if (index < enExcerpts.length) {
-          excerpt.textContent = enExcerpts[index];
+        
+        if (excerptElement) {
+          const translationKey = `insights.card${index+1}.excerpt`;
+          if (window.translations[currentLang][translationKey]) {
+            excerptElement.textContent = window.translations[currentLang][translationKey];
+          } else if (index === 0) {
+            excerptElement.textContent = '探索AI在企业环境中采用的新兴趋势和未来预测，以及如何应用这些趋势。';
+          } else if (index === 1) {
+            excerptElement.textContent = '发现正在改变当今企业并推动创新的机器学习实际应用。';
+          } else if (index === 2) {
+            excerptElement.textContent = '我们正在开发更多有见地的内容。请稍后查看有关AI和技术最新动态的更新。';
+          }
         }
-      });
-    }
-    
-    if (readMoreLinks.length > 0) {
-      readMoreLinks.forEach(link => {
-        link.innerHTML = 'Read More <i class="fas fa-arrow-right ms-1"></i>';
+        
+        if (readMoreElement) {
+          readMoreElement.innerHTML = window.translations[currentLang]["insights.read.more"] || '阅读更多 <i class="fas fa-arrow-right"></i>';
+        }
       });
     }
   }
 }
+
+// Export the function for use in other scripts
+window.updateInsightsPageTranslations = updateInsightsPageTranslations;
+
+// Initialize translations when the script loads
+document.addEventListener('DOMContentLoaded', function() {
+  const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+  updateInsightsPageTranslations(currentLang);
+});
+
 
 // Export the function for use in other scripts
 window.updateInsightsPageTranslations = updateInsightsPageTranslations;

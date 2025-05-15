@@ -528,8 +528,8 @@
         <div class="container insights-hero-content d-flex align-items-center justify-content-center h-100">
             <div class="row align-items-center justify-content-center h-100 w-100">
                 <div class="col-12 text-center" data-aos="fade-up">
-                    <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="insights.page.heroTitle">Industry Insights</h1>
-                    <p class="hero-subtitle lead" data-i18n="insights.page.heroSubtitle">Exploring the latest trends, innovations, and applications in AI</p>
+                    <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="insights.hero.title">AI Industry Insights</h1>
+                    <p class="hero-subtitle lead" data-i18n="insights.hero.subtitle">Explore the latest developments, strategies, and applications in AI</p>
                 </div>
             </div>
         </div>
@@ -592,10 +592,10 @@
                     </div>
                 </div>
                 <div class="featured-content">
-                    <span class="featured-badge" data-i18n="insights.featuredBadge">Featured Insight</span>
-                    <h2 class="featured-title" id="featured-title" style="background: linear-gradient(135deg, #f59e0b, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" data-i18n="insights.featuredTitle">Loading...</h2>
-                    <p class="featured-excerpt" id="featured-excerpt" data-i18n="insights.featuredExcerpt">Loading featured insight...</p>
-                    <a href="#" class="btn btn-primary btn-lg" id="featured-link" data-i18n="insights.featuredLink">Read Full Article <i class="fas fa-arrow-right ms-2"></i></a>
+                    <span class="featured-badge" data-i18n="insights.featured.badge">Featured Insight</span>
+                    <h2 class="featured-title" id="featured-title" style="background: linear-gradient(135deg, #f59e0b, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" data-i18n="insights.featured.title">2025 Outlook: The Future of AI in Enterprise</h2>
+                    <p class="featured-excerpt" id="featured-excerpt" data-i18n="insights.featured.excerpt">As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.</p>
+                    <a href="#" class="btn btn-primary btn-lg" id="featured-link" data-i18n="insights.featured.link">Read Full Article <i class="fas fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             
@@ -606,11 +606,11 @@
     <!-- Insights Grid Section -->
     <section class="section-secondary">
         <div class="container">
-            <h2 class="text-center mb-4" data-aos="fade-up" data-i18n="insights.latestInsights">Latest Insights</h2>
+            <h2 class="text-center mb-4" data-aos="fade-up" data-i18n="insights.latest.title">Latest Insights</h2>
             
             <!-- Filter Buttons -->
             <div class="insights-filter text-center mb-5" data-aos="fade-up">
-                <button class="btn filter-button active" data-filter="all" data-i18n="insights.allTopics">All Topics</button>
+                <button class="btn filter-button active" data-filter="all" data-i18n="insights.filter.all">All Topics</button>
                 <div id="category-filters" class="d-inline-block">
                     <!-- Category filters will be dynamically inserted here -->
                 </div>
@@ -711,80 +711,34 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../../assets/js/main.js"></script>
     <script>
-        // Add insights page specific translations to the global translations object
-        if (!window.translations) {
-            window.translations = { en: {}, zh: {} };
-        }
-
-        window.translations.en = Object.assign({}, window.translations.en, {
-            "insights.hero.title": "AI Industry Insights",
-            "insights.hero.subtitle": "Explore the latest developments, strategies, and applications in AI",
-            "insights.featured.badge": "Featured Insight",
-            "insights.featured.title": "2025 Outlook: The Future of AI in Enterprise",
-            "insights.featured.excerpt": "As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.",
-            "insights.featured.link": "Read Full Article <i class=\"fas fa-arrow-right ms-2\"></i>",
-            "insights.latest.title": "Latest Insights",
-            "insights.filter.all": "All Topics"
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
         });
-
-        window.translations.zh = Object.assign({}, window.translations.zh, {
-            "insights.hero.title": "AI行业洞察",
-            "insights.hero.subtitle": "探索人工智能领域的最新发展、策略和应用",
-            "insights.featured.badge": "特色洞察",
-            "insights.featured.title": "2025年企业AI发展趋势展望",
-            "insights.featured.excerpt": "随着人工智能的快速发展，企业面临着实施过程中的新机遇和挑战。了解将塑造未来一年AI应用的关键趋势。",
-            "insights.featured.link": "阅读全文 <i class=\"fas fa-arrow-right ms-2\"></i>",
-            "insights.latest.title": "最新洞察",
-            "insights.filter.all": "所有主题"
-        });
-
-        // Apply translations to specific elements that don't use data-i18n attributes
-        function applyInsightsTranslations(lang) {
-            const selectors = {
-                '.hero-title': lang === 'en' ? window.translations.en["insights.hero.title"] : window.translations.zh["insights.hero.title"],
-                '.hero-subtitle': lang === 'en' ? window.translations.en["insights.hero.subtitle"] : window.translations.zh["insights.hero.subtitle"],
-                '.featured-badge': lang === 'en' ? window.translations.en["insights.featured.badge"] : window.translations.zh["insights.featured.badge"],
-                '.featured-title': lang === 'en' ? window.translations.en["insights.featured.title"] : window.translations.zh["insights.featured.title"],
-                '.featured-excerpt': lang === 'en' ? window.translations.en["insights.featured.excerpt"] : window.translations.zh["insights.featured.excerpt"],
-                '#featured-link': lang === 'en' ? window.translations.en["insights.featured.link"] : window.translations.zh["insights.featured.link"],
-                '.section-secondary h2': lang === 'en' ? window.translations.en["insights.latest.title"] : window.translations.zh["insights.latest.title"],
-                '.filter-button[data-filter="all"]': lang === 'en' ? window.translations.en["insights.filter.all"] : window.translations.zh["insights.filter.all"]
-            };
-
-            Object.keys(selectors).forEach(selector => {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach(element => {
-                    if (selector === '#featured-link') {
-                        element.innerHTML = selectors[selector];
-                    } else {
-                        element.textContent = selectors[selector];
-                    }
-                    if (selector === '.featured-title') {
-                        element.style.background = 'linear-gradient(135deg, #f59e0b, #f97316)';
-                        element.style.webkitBackgroundClip = 'text';
-                        element.style.backgroundClip = 'text';
-                        element.style.webkitTextFillColor = 'transparent';
-                    }
-                });
-            });
-
-            // Also call the updateInsightsPageTranslations function to handle dynamic content if it exists
-            if (typeof updateInsightsPageTranslations === 'function') {
-                updateInsightsPageTranslations(lang);
-            }
-        }
-
+        
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-                applyInsightsTranslations(currentLang);
+            // Apply translations from our i18n-insights.js file
+            const lang = getCurrentLanguage();
+            applyTranslations(lang);
+            
+            // Update dynamic content that doesn't use data-i18n attributes
+            if (typeof window.updateInsightsPageTranslations === 'function') {
+                window.updateInsightsPageTranslations(lang);
+            }
+            
+            // Listen for language toggle events
+            document.addEventListener('languageToggled', function(e) {
+                const lang = e.detail.language;
                 
-                // Listen for language toggle events from our global system
-                document.addEventListener('languageToggled', function(e) {
-                    const lang = e.detail.language;
-                    applyInsightsTranslations(lang);
-                });
-            }, 500);
+                // Update dynamic content that doesn't use data-i18n attributes
+                if (typeof window.updateInsightsPageTranslations === 'function') {
+                    window.updateInsightsPageTranslations(lang);
+                }
+            });
         });
     </script>
     <script>
@@ -940,17 +894,13 @@
         
         // Custom language toggle implementation for Insights page
         function updateInsightsPageTranslations() {
-            // This function is now deprecated as we're using the i18n module with data-i18n attributes
-            // and a dedicated translation file for the insights page
+            // This function handles direct translation of dynamically generated content
+            // that doesn't have data-i18n attributes
+            console.log('Applying direct translations to Insights page dynamic content');
             
-            // The translations are now handled by the i18n-module.js and the insights-translations.json file
-            // This function is kept for backward compatibility
-            
-            console.log('Using i18n module for translations instead of custom code');
-            
-            // For dynamically generated content that doesn't have data-i18n attributes,
-            // we'll still need to handle translations manually
-            const currentLang = window.BixingI18n ? window.BixingI18n.getCurrentLanguage() : 'en';
+            // Get current language
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            console.log('Current language:', currentLang);
             
             if (currentLang === 'zh') {
                 try {
@@ -989,9 +939,9 @@
                     // Card dates
                     const insightsDates = document.querySelectorAll('.insights-date');
                     if (insightsDates.length > 0) {
-                        insightsDates[0].textContent = '2023年10月15日';
-                        if (insightsDates.length > 1) insightsDates[1].textContent = '2023年9月28日';
-                        if (insightsDates.length > 2) insightsDates[2].textContent = '2023年9月10日';
+                        insightsDates[0].textContent = '2023年10月14日';
+                        if (insightsDates.length > 1) insightsDates[1].textContent = '2025年1月10日';
+                        if (insightsDates.length > 2) insightsDates[2].textContent = '即将推出';
                         if (insightsDates.length > 3) insightsDates[3].textContent = '2023年8月22日';
                         if (insightsDates.length > 4) insightsDates[4].textContent = '2023年8月15日';
                         if (insightsDates.length > 5) insightsDates[5].textContent = '2023年7月30日';
@@ -1011,9 +961,9 @@
                     // Card titles
                     const insightsTitles = document.querySelectorAll('.insights-title');
                     if (insightsTitles.length > 0) {
-                        insightsTitles[0].textContent = '企业AI的未来';
-                        if (insightsTitles.length > 1) insightsTitles[1].textContent = '机器学习模型的进展';
-                        if (insightsTitles.length > 2) insightsTitles[2].textContent = '在业务中实施AI';
+                        insightsTitles[0].textContent = '企业AI的未来：趋势和预测';
+                        if (insightsTitles.length > 1) insightsTitles[1].textContent = '商业机器学习：实际应用';
+                        if (insightsTitles.length > 2) insightsTitles[2].textContent = '更多洞察即将推出';
                         if (insightsTitles.length > 3) insightsTitles[3].textContent = '医疗保健中的AI转型';
                         if (insightsTitles.length > 4) insightsTitles[4].textContent = '在组织中建立AI素养';
                         if (insightsTitles.length > 5) insightsTitles[5].textContent = 'AI伦理与治理';
@@ -1022,9 +972,9 @@
                     // Card excerpts
                     const insightsExcerpts = document.querySelectorAll('.insights-excerpt');
                     if (insightsExcerpts.length > 0) {
-                        insightsExcerpts[0].textContent = '探索人工智能如何重塑企业运营和决策过程。';
-                        if (insightsExcerpts.length > 1) insightsExcerpts[1].textContent = '机器学习模型的最新突破及其对业务应用的意义。';
-                        if (insightsExcerpts.length > 2) insightsExcerpts[2].textContent = '在各种业务环境中成功实施AI解决方案的实用指南。';
+                        insightsExcerpts[0].textContent = '探索AI在企业环境中采用的新兴趋势和未来预测，以及如何应用这些趋势。';
+                        if (insightsExcerpts.length > 1) insightsExcerpts[1].textContent = '发现正在改变当今企业并推动创新的机器学习实际应用。';
+                        if (insightsExcerpts.length > 2) insightsExcerpts[2].textContent = '我们正在开发更多有见地的内容。请稍后查看有关AI和技术最新动态的更新。';
                         if (insightsExcerpts.length > 3) insightsExcerpts[3].textContent = '领先的医疗保健提供商如何利用AI改善患者结果和运营效率。';
                         if (insightsExcerpts.length > 4) insightsExcerpts[4].textContent = '在公司不同层级发展AI知识和技能的策略。';
                         if (insightsExcerpts.length > 5) insightsExcerpts[5].textContent = '为企业实施建立负责任的AI实践和治理框架。';
@@ -1145,7 +1095,7 @@
                 updateInsightsPageTranslations();
                 
                 // Listen for language changes from the i18n-module
-                document.addEventListener('languageChanged', function(event) {
+                document.addEventListener('languageToggled', function(event) {
                     console.log('Language changed event received:', event.detail);
                     // Update page-specific translations when language changes
                     updateInsightsPageTranslations();
@@ -1160,7 +1110,7 @@
                         updateInsightsPageTranslations();
                         
                         // Listen for language changes
-                        document.addEventListener('languageChanged', function(event) {
+                        document.addEventListener('languageToggled', function(event) {
                             console.log('Language changed event received:', event.detail);
                             updateInsightsPageTranslations();
                         });
@@ -1222,5 +1172,149 @@
     <!-- Blog Loader JS -->
     <script src="../../assets/js/blog-loader.js"></script>
 
+    <!-- Direct fix for card translations -->
+    <script>
+    // Wait for DOM and dynamic content to be fully loaded
+    setTimeout(function() {
+        console.log('Direct translation fix script loaded');
+        
+        // Apply translations on initial load based on current language
+        const initialLang = localStorage.getItem('bixingLanguage') || 'en';
+        applyCardTranslations(initialLang);
+        
+        // Listen for language toggle events
+        document.addEventListener('languageToggled', function(event) {
+            console.log('Language toggle detected in direct fix script');
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            applyCardTranslations(currentLang);
+        });
+        
+        function applyCardTranslations(lang) {
+            console.log('Applying direct translations to cards for language:', lang);
+            
+            // Handle the featured article section
+            const featuredTitle = document.getElementById('featured-title');
+            const featuredExcerpt = document.getElementById('featured-excerpt');
+            const featuredLink = document.getElementById('featured-link');
+            const featuredBadge = document.querySelector('.featured-badge');
+            
+            if (lang === 'zh') {
+                // Chinese translations for featured section
+                if (featuredTitle) featuredTitle.textContent = '2025年企业AI发展趋势展望';
+                if (featuredExcerpt) featuredExcerpt.textContent = '随着人工智能的快速发展，企业面临着实施过程中的新机遇和挑战。了解将塑造未来一年AI应用的关键趋势。';
+                if (featuredLink) featuredLink.innerHTML = '阅读全文 <i class="fas fa-arrow-right ms-2"></i>';
+                if (featuredBadge) featuredBadge.textContent = '特色洞察';
+            } else {
+                // English translations for featured section
+                if (featuredTitle) featuredTitle.textContent = '2025 Outlook: The Future of AI in Enterprise';
+                if (featuredExcerpt) featuredExcerpt.textContent = 'As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.';
+                if (featuredLink) featuredLink.innerHTML = 'Read Full Article <i class="fas fa-arrow-right ms-2"></i>';
+                if (featuredBadge) featuredBadge.textContent = 'Featured Insight';
+            }
+            
+            // Target the cards in the insights grid
+            const cards = document.querySelectorAll('#insights-grid .col-md-6.col-lg-4');
+            console.log('Found cards:', cards.length);
+            
+            if (cards && cards.length > 0) {
+                if (lang === 'zh') {
+                    // Chinese translations
+                    
+                    // First card - Enterprise AI
+                    if (cards[0]) {
+                        const dateEl = cards[0].querySelector('.insights-date');
+                        const categoryEl = cards[0].querySelector('.insights-category');
+                        const titleEl = cards[0].querySelector('.insights-title');
+                        const excerptEl = cards[0].querySelector('.insights-excerpt');
+                        const readMoreEl = cards[0].querySelector('.insights-read-more');
+                        
+                        if (dateEl) dateEl.textContent = '2023年10月14日';
+                        if (categoryEl) categoryEl.textContent = 'AI趋势';
+                        if (titleEl) titleEl.textContent = '企业AI的未来：趋势和预测';
+                        if (excerptEl) excerptEl.textContent = '探索AI在企业环境中采用的新兴趋势和未来预测，以及如何应用这些趋势。';
+                        if (readMoreEl) readMoreEl.innerHTML = '阅读更多 <i class="fas fa-arrow-right"></i>';
+                    }
+                    
+                    // Second card - Machine Learning
+                    if (cards[1]) {
+                        const dateEl = cards[1].querySelector('.insights-date');
+                        const categoryEl = cards[1].querySelector('.insights-category');
+                        const titleEl = cards[1].querySelector('.insights-title');
+                        const excerptEl = cards[1].querySelector('.insights-excerpt');
+                        const readMoreEl = cards[1].querySelector('.insights-read-more');
+                        
+                        if (dateEl) dateEl.textContent = '2025年1月10日';
+                        if (categoryEl) categoryEl.textContent = '机器学习';
+                        if (titleEl) titleEl.textContent = '商业机器学习：实际应用';
+                        if (excerptEl) excerptEl.textContent = '发现正在改变当今企业并推动创新的机器学习实际应用。';
+                        if (readMoreEl) readMoreEl.innerHTML = '阅读更多 <i class="fas fa-arrow-right"></i>';
+                    }
+                    
+                    // Third card - Coming Soon
+                    if (cards[2]) {
+                        const dateEl = cards[2].querySelector('.insights-date');
+                        const categoryEl = cards[2].querySelector('.insights-category');
+                        const titleEl = cards[2].querySelector('.insights-title');
+                        const excerptEl = cards[2].querySelector('.insights-excerpt');
+                        const readMoreEl = cards[2].querySelector('.insights-read-more');
+                        
+                        if (dateEl) dateEl.textContent = '即将推出';
+                        if (categoryEl) categoryEl.textContent = '占位符';
+                        if (titleEl) titleEl.textContent = '更多洞察即将推出';
+                        if (excerptEl) excerptEl.textContent = '我们正在开发更多有见地的内容。请稍后查看有关AI和技术最新动态的更新。';
+                        if (readMoreEl) readMoreEl.innerHTML = '阅读更多 <i class="fas fa-arrow-right"></i>';
+                    }
+                } else {
+                    // English translations
+                    
+                    // First card - Enterprise AI
+                    if (cards[0]) {
+                        const dateEl = cards[0].querySelector('.insights-date');
+                        const categoryEl = cards[0].querySelector('.insights-category');
+                        const titleEl = cards[0].querySelector('.insights-title');
+                        const excerptEl = cards[0].querySelector('.insights-excerpt');
+                        const readMoreEl = cards[0].querySelector('.insights-read-more');
+                        
+                        if (dateEl) dateEl.textContent = 'October 14, 2023';
+                        if (categoryEl) categoryEl.textContent = 'AI Trends';
+                        if (titleEl) titleEl.textContent = 'The Future of AI in Enterprise: Trends and Predictions';
+                        if (excerptEl) excerptEl.textContent = 'Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how they can be applied.';
+                        if (readMoreEl) readMoreEl.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+                    }
+                    
+                    // Second card - Machine Learning
+                    if (cards[1]) {
+                        const dateEl = cards[1].querySelector('.insights-date');
+                        const categoryEl = cards[1].querySelector('.insights-category');
+                        const titleEl = cards[1].querySelector('.insights-title');
+                        const excerptEl = cards[1].querySelector('.insights-excerpt');
+                        const readMoreEl = cards[1].querySelector('.insights-read-more');
+                        
+                        if (dateEl) dateEl.textContent = 'January 10, 2025';
+                        if (categoryEl) categoryEl.textContent = 'Machine Learning';
+                        if (titleEl) titleEl.textContent = 'Machine Learning for Business: Practical Applications';
+                        if (excerptEl) excerptEl.textContent = 'Discover practical applications of machine learning that are transforming businesses today and driving innovation.';
+                        if (readMoreEl) readMoreEl.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+                    }
+                    
+                    // Third card - Coming Soon
+                    if (cards[2]) {
+                        const dateEl = cards[2].querySelector('.insights-date');
+                        const categoryEl = cards[2].querySelector('.insights-category');
+                        const titleEl = cards[2].querySelector('.insights-title');
+                        const excerptEl = cards[2].querySelector('.insights-excerpt');
+                        const readMoreEl = cards[2].querySelector('.insights-read-more');
+                        
+                        if (dateEl) dateEl.textContent = 'Coming Soon';
+                        if (categoryEl) categoryEl.textContent = 'Placeholder';
+                        if (titleEl) titleEl.textContent = 'More Insights Coming Soon';
+                        if (excerptEl) excerptEl.textContent = 'We\'re working on more insightful content. Check back soon for updates on the latest in AI and technology.';
+                        if (readMoreEl) readMoreEl.innerHTML = 'Read More <i class="fas fa-arrow-right"></i>';
+                    }
+                }
+            }
+        }
+    }, 1500); // Wait 1.5 seconds for cards to be fully loaded
+    </script>
 </body>
 </html>
