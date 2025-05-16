@@ -215,18 +215,15 @@ This document outlines a systematic approach to address the issues identified in
    - Implement cache busting for updated resources
    - Consider using service workers for offline support
 
-## 7. Redundant Files Cleanup ⏳ PARTIALLY COMPLETED
+## 7. Redundant Files Cleanup ✅ COMPLETED
 
 ### Issues Addressed
 - Removed redundant i18n implementation files (i18n-new.js, i18n-fixed.js)
 - Removed duplicate HTML files (careers-new.html)
 - Removed redundant translation files (insights-direct-translation.js)
-
-### Remaining Issues
-- Some i18n implementation files still need consolidation
-- Test and example files in production
-- Multiple Git hook setup scripts
-- Backup and temporary directories
+- Removed example files (insight-cards-example.html)
+- Consolidated Git hook setup scripts
+- Verified no backup or temporary directories requiring cleanup
 
 ### Improvement Steps
 
@@ -241,19 +238,19 @@ This document outlines a systematic approach to address the issues identified in
    - ✅ Removed redundant careers-new.html
    - ✅ Updated all references to use the standard file
 
-3. **Remove test and example files**: ⏳ IN PROGRESS
-   - Need to remove `test.html`, `test-consultation.html`, `insight-cards-example.html`
-   - Move any needed example code to documentation
+3. **Remove test and example files**: ✅ COMPLETED
+   - ✅ Removed `insight-cards-example.html`
+   - ✅ Verified that `test.html` and `test-consultation.html` were already removed
 
-4. **Consolidate utility scripts**:
-   - Merge functionality from multiple Git hook scripts
-   - Create a single, comprehensive setup script
-   - Document the script usage in README.md
+4. **Consolidate utility scripts**: ✅ COMPLETED
+   - ✅ Created unified Git hook setup script (`setup-git-hooks-unified.ps1`)
+   - ✅ Created documentation for Git hooks in `docs/git-hooks.md`
+   - ✅ Removed redundant Git hook script files (`setup-git-hook.ps1`, `setup-git-hooks.ps1`, `setup-hook.ps1`)
 
-5. **Clean up backup and temporary directories**:
-   - Remove `backup_jekyll_20250401_015559` after confirming it's no longer needed
-   - Remove `temp-old-pages` after confirming it's no longer needed
-   - Document any important information from these directories
+5. **Clean up backup and temporary directories**: ✅ COMPLETED
+   - ✅ Verified that `backup_jekyll_20250401_015559` directory does not exist
+   - ✅ Verified that `temp-old-pages` directory does not exist
+   - ✅ Confirmed that the `templates` directory is a legitimate part of the website structure
 
 ## 8. Testing and Validation
 

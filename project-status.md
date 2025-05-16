@@ -3,6 +3,16 @@
 ## Last Updated: May 16, 2025
 
 ### Recent Changes
+- Modified: docs/codebase-improvement-plan.md
+- Modified: docs/git-hooks.md
+- Modified: insight-cards-example.html
+- Modified: setup-git-hook.ps1
+- Modified: setup-git-hooks-unified.ps1
+- Modified: setup-git-hooks.ps1
+- Modified: setup-hook.ps1
+
+
+### Recent Changes
 - Modified: assets/js/components.js
 - Modified: components/header.html
 
