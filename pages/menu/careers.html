@@ -6,10 +6,10 @@
     <title data-i18n="page.title">Careers - Bixing Technology</title>
     
     <!-- Favicon - comprehensive approach -->
-    <link rel="icon" href="/assets/images/favicon.png" type="image/png">
-    <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="/assets/images/favicon.png">
-    <link rel="manifest" href="/assets/images/site.webmanifest">
+    <link rel="icon" href="../../assets/images/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="../../assets/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../../assets/images/favicon.png">
+    <link rel="manifest" href="../../assets/images/site.webmanifest">
     <meta name="theme-color" content="#5ce1e6">
     
     <!-- Bootstrap CSS -->
@@ -25,18 +25,26 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="stylesheet" href="/assets/css/modern-ai-theme.css">
-    <link rel="stylesheet" href="/assets/css/header.css?v=20250329095815">
-    <link rel="stylesheet" href="/assets/css/hero-section.css">
-    <link rel="stylesheet" href="/assets/css/services-section.css">
-    <link rel="stylesheet" href="/assets/css/demo-section.css">
-    <link rel="stylesheet" href="/assets/css/portfolio-section.css">
-    <link rel="stylesheet" href="/assets/css/testimonials-section.css">
-    <link rel="stylesheet" href="/assets/css/insights-section.css">
-    <link rel="stylesheet" href="/assets/css/cta-section.css">
-    <link rel="stylesheet" href="/assets/css/footer-section.css">
-    <link rel="stylesheet" href="/assets/css/secondary-hero.css">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="stylesheet" href="../../assets/css/modern-ai-theme.css">
+    <link rel="stylesheet" href="../../assets/css/header.css?v=20250329095815">
+    <link rel="stylesheet" href="../../assets/css/hero-section.css">
+    <link rel="stylesheet" href="../../assets/css/services-section.css">
+    <link rel="stylesheet" href="../../assets/css/demo-section.css">
+    <link rel="stylesheet" href="../../assets/css/portfolio-section.css">
+    <link rel="stylesheet" href="../../assets/css/testimonials-section.css">
+    <link rel="stylesheet" href="../../assets/css/insights-section.css">
+    <link rel="stylesheet" href="../../assets/css/cta-section.css">
+    <link rel="stylesheet" href="../../assets/css/footer-section.css">
+    <link rel="stylesheet" href="../../assets/css/secondary-hero.css">
+    
+    <!-- Path Helper and Components -->
+    <script src="../../assets/js/path-helper.js"></script>
+    <script src="../../assets/js/components.js"></script>
+    
+    <!-- i18n Scripts -->
+    <script src="../../assets/js/i18n-common.js"></script>
+    <script src="../../assets/js/i18n-careers.js"></script>
     
     <style>
         /* Fix for white space at bottom of page */
@@ -388,56 +396,20 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
     </style>
-<script>
-function applyDirectTranslationsCareers(lang) {
-    if (lang === 'zh') {
-        const translations = {
-            '.hero-title': '加入我们',
-            '.hero-subtitle': '与我们一起塑造AI的未来',
-            '.section-title': '企业文化',
-            '.lead': '我们重视创新、协作与多元化。',
-            '.benefits-section .section-title': '员工福利'
-        };
-        Object.keys(translations).forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
-                element.textContent = translations[selector];
-            });
-        });
-    } else {
-        const translations = {
-            '.hero-title': 'Careers',
-            '.hero-subtitle': 'Shape the Future of AI With Us',
-            '.section-title': 'Company Culture',
-            '.lead': 'We value innovation, collaboration, and diversity.',
-            '.benefits-section .section-title': 'Employee Benefits'
-        };
-        Object.keys(translations).forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
-                element.textContent = translations[selector];
-            });
-        });
-    }
-}
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-        applyDirectTranslationsCareers(currentLang);
-        const languageToggle = document.getElementById('languageToggle');
-        if (languageToggle) {
-            languageToggle.addEventListener('click', function() {
-                const newLang = localStorage.getItem('bixingLanguage') || 'en';
-                applyDirectTranslationsCareers(newLang);
-            });
-        }
-    }, 500);
-});
-</script>
 </head>
 <body data-path-to-root="../../">
-    <!-- Header -->
-    <div id="header-placeholder"></div>
+    <div class="page-wrapper">
+        <!-- Header -->
+        <div id="header-placeholder"></div>
+
+<script>
+// This page now uses the standard i18n approach with data-i18n attributes
+// The translations are defined in i18n-careers.js
+document.addEventListener('DOMContentLoaded', function() {
+    // No need for custom translation handling as it's now managed by the standard i18n system
+    console.log('Careers page loaded - using standard i18n system');
+});
+</script>
 
     <!-- Hero Section -->
     <section class="careers-hero-section">

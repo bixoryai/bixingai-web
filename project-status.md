@@ -1,6 +1,25 @@
 # Bixing Technology Website Project Status
 
-## Last Updated: May 15, 2025
+## Last Updated: May 16, 2025
+
+### Recent Changes
+- Modified: assets/js/components.js
+- Modified: assets/js/i18n-fixed.js
+- Modified: assets/js/i18n-new.js
+- Modified: assets/js/insights-direct-translation.js
+- Modified: assets/js/path-helper.js
+- Modified: docs/codebase-improvement-plan.md
+- Modified: docs/path-standardization.md
+- Modified: pages/menu/about.html
+- Modified: pages/menu/careers-new.html
+- Modified: pages/menu/careers.html
+- Modified: pages/menu/contact.html
+- Modified: pages/menu/insights.html
+- Modified: pages/menu/services.html
+- Modified: scripts/standardize-paths.ps1
+- Modified: test-consultation.html
+- Modified: test.html
+
 
 ### Recent Changes
 - Modified: assets/css/footer-section.css

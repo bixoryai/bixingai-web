@@ -7,6 +7,22 @@
 let pathToRoot = '';
 let cacheBuster = '';
 
+// Utility function to ensure we have a consistent path-to-root value
+function getConsistentPathToRoot() {
+    // First try to get from the global variable
+    if (pathToRoot !== undefined && pathToRoot !== null) {
+        return pathToRoot;
+    }
+    
+    // Then try to use the path helper if available
+    if (window.pathHelper && typeof window.pathHelper.getPathToRoot === 'function') {
+        return window.pathHelper.getPathToRoot();
+    }
+    
+    // Fallback to body attribute
+    return document.body ? (document.body.getAttribute('data-path-to-root') || '') : '';
+}
+
 // Function to load the header component
 function loadHeader() {
     const headerPlaceholder = document.getElementById('header-placeholder');
@@ -18,23 +34,26 @@ function loadHeader() {
     const currentLang = localStorage.getItem('bixingLanguage') || 'en';
     console.log('Current language before loading header:', currentLang);
     
-    fetch(pathToRoot + 'components/header.html' + cacheBuster)
+    // Get a consistent path-to-root value
+    const currentPathToRoot = getConsistentPathToRoot();
+    
+    fetch(currentPathToRoot + 'components/header.html' + cacheBuster)
         .then(response => response.text())
         .then(data => {
             // Use path helper to standardize all path references
             if (window.pathHelper && typeof window.pathHelper.updatePathReferences === 'function') {
-                data = window.pathHelper.updatePathReferences(data, pathToRoot);
+                data = window.pathHelper.updatePathReferences(data, currentPathToRoot);
             } else {
                 // Fallback to original path handling if path helper is not available
-                data = data.replace(/src="assets\//g, `src="${pathToRoot}assets/`);
-                data = data.replace(/href="assets\//g, `href="${pathToRoot}assets/`);
-                data = data.replace(/href="\//g, `href="${pathToRoot}`);
-                data = data.replace(/src="\//g, `src="${pathToRoot}`);
+                data = data.replace(/src="assets\//g, `src="${currentPathToRoot}assets/`);
+                data = data.replace(/href="assets\//g, `href="${currentPathToRoot}assets/`);
+                data = data.replace(/href="\//g, `href="${currentPathToRoot}`);
+                data = data.replace(/src="\//g, `src="${currentPathToRoot}`);
                 
                 // Update navigation links with pathToRoot
-                if (pathToRoot) {
-                    data = data.replace(/href="pages\//g, `href="${pathToRoot}pages/`);
-                    data = data.replace(/href="index.html"/g, `href="${pathToRoot}index.html"`);
+                if (currentPathToRoot) {
+                    data = data.replace(/href="pages\//g, `href="${currentPathToRoot}pages/`);
+                    data = data.replace(/href="index.html"/g, `href="${currentPathToRoot}index.html"`);
                 }
             }
             
@@ -116,23 +135,26 @@ function loadFooter() {
     const currentLang = localStorage.getItem('bixingLanguage') || 'en';
     console.log('Current language before loading footer:', currentLang);
     
-    fetch(pathToRoot + 'components/footer.html' + cacheBuster)
+    // Get a consistent path-to-root value
+    const currentPathToRoot = getConsistentPathToRoot();
+    
+    fetch(currentPathToRoot + 'components/footer.html' + cacheBuster)
         .then(response => response.text())
         .then(data => {
-            // Use path helper to standardize all path references
+            // Update paths in the footer
             if (window.pathHelper && typeof window.pathHelper.updatePathReferences === 'function') {
-                data = window.pathHelper.updatePathReferences(data, pathToRoot);
+                data = window.pathHelper.updatePathReferences(data, currentPathToRoot);
             } else {
-                // Fallback to original path handling if path helper is not available
-                data = data.replace(/src="assets\//g, `src="${pathToRoot}assets/`);
-                data = data.replace(/href="assets\//g, `href="${pathToRoot}assets/`);
-                data = data.replace(/href="\//g, `href="${pathToRoot}`);
-                data = data.replace(/src="\//g, `src="${pathToRoot}`);
+                // Fallback to original path handling
+                data = data.replace(/src="assets\//g, `src="${currentPathToRoot}assets/`);
+                data = data.replace(/href="assets\//g, `href="${currentPathToRoot}assets/`);
+                data = data.replace(/href="\//g, `href="${currentPathToRoot}`);
+                data = data.replace(/src="\//g, `src="${currentPathToRoot}`);
                 
                 // Update navigation links with pathToRoot
-                if (pathToRoot) {
-                    data = data.replace(/href="pages\//g, `href="${pathToRoot}pages/`);
-                    data = data.replace(/href="index.html"/g, `href="${pathToRoot}index.html"`);
+                if (currentPathToRoot) {
+                    data = data.replace(/href="pages\//g, `href="${currentPathToRoot}pages/`);
+                    data = data.replace(/href="index.html"/g, `href="${currentPathToRoot}index.html"`);
                 }
             }
             
@@ -187,7 +209,15 @@ function loadFooter() {
 
 document.addEventListener('DOMContentLoaded', function() {
     // Determine the correct path to components based on the current page location
-    pathToRoot = document.body.getAttribute('data-path-to-root') || '';
+    let rawPathToRoot = document.body.getAttribute('data-path-to-root') || '';
+    
+    // Normalize the path-to-root value
+    if (window.pathHelper && typeof window.pathHelper.normalizePathToRoot === 'function') {
+        pathToRoot = window.pathHelper.normalizePathToRoot(rawPathToRoot);
+    } else {
+        // Simple normalization fallback
+        pathToRoot = rawPathToRoot === '/' ? '' : rawPathToRoot;
+    }
     
     // Add cache-busting parameter using a timestamp based on the date only, not time
     // This creates a new version each day rather than each page load
