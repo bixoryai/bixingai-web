@@ -4,6 +4,11 @@
 
 ### Recent Changes
 - Modified: assets/js/components.js
+- Modified: components/header.html
+
+
+### Recent Changes
+- Modified: assets/js/components.js
 - Modified: assets/js/i18n-fixed.js
 - Modified: assets/js/i18n-new.js
 - Modified: assets/js/insights-direct-translation.js

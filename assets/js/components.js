@@ -67,6 +67,9 @@ function loadHeader() {
                 data = data.replace(/>Industry Insights</g, '>行业洞察<');
                 data = data.replace(/>Careers</g, '>加入我们<');
                 data = data.replace(/>Contact Us</g, '>联系我们<');
+                
+                // Pre-translate company name to avoid flashing
+                data = data.replace(/<span class="company-name"[^>]*>Bixing Technology<\/span>/g, '<span class="company-name" data-i18n="footer.company">毕行科技</span>');
             }
             
             headerPlaceholder.innerHTML = data;
