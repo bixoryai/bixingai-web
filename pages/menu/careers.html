@@ -47,6 +47,14 @@
             padding: 0;
         }
         
+        /* Fix for footer company description in Chinese */
+        .footer [data-i18n="footer.companyDescription"] {
+            max-width: 270px !important;
+            white-space: pre-wrap !important;
+            word-break: break-word !important;
+            display: block !important;
+        }
+        
         /* Careers page specific styles */
         body {
             background-color: var(--dark-bg);
@@ -1337,6 +1345,36 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: 800,
             easing: 'ease-in-out',
             once: true
+        });
+        
+        // Fix for footer company description in Chinese
+        document.addEventListener('languageToggled', function(event) {
+            if (event.detail.language === 'zh') {
+                // Add a small delay to ensure the translation has been applied
+                setTimeout(function() {
+                    const companyDesc = document.querySelector('[data-i18n="footer.companyDescription"]');
+                    if (companyDesc) {
+                        companyDesc.style.maxWidth = '270px';
+                        companyDesc.style.whiteSpace = 'pre-wrap';
+                        companyDesc.style.wordBreak = 'break-word';
+                        companyDesc.style.display = 'block';
+                    }
+                }, 100);
+            }
+        });
+        
+        // Apply the fix on initial load if language is Chinese
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            if (currentLang === 'zh') {
+                const companyDesc = document.querySelector('[data-i18n="footer.companyDescription"]');
+                if (companyDesc) {
+                    companyDesc.style.maxWidth = '270px';
+                    companyDesc.style.whiteSpace = 'pre-wrap';
+                    companyDesc.style.wordBreak = 'break-word';
+                    companyDesc.style.display = 'block';
+                }
+            }
         });
     </script>
 </body>

@@ -3,6 +3,12 @@
 ## Last Updated: May 15, 2025
 
 ### Recent Changes
+- Modified: assets/css/footer-section.css
+- Modified: assets/js/i18n-common.js
+- Modified: pages/menu/careers.html
+
+
+### Recent Changes
 - Modified: assets/js/i18n-insights.js
 - Modified: assets/js/insights-direct-translation.js
 - Modified: pages/menu/insights.html

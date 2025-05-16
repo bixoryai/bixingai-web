@@ -110,6 +110,9 @@
   margin-top: 5px; /* Reduced from 10px */
   position: relative;
   margin-top: -5px; /* Adjust the description to align properly with the logo */
+  max-width: 270px; /* Force wrapping at a consistent width */
+  white-space: pre-wrap; /* Preserve whitespace and wrapping */
+  word-break: break-word; /* Allow words to break if needed */
 }
 
 /* Footer headings */
