@@ -115,37 +115,55 @@ This document outlines a systematic approach to address the issues identified in
    - Create utility functions for common operations
    - Implement a consistent approach to common tasks
 
-## 4. CSS Organization and Optimization
+## 4. CSS Organization and Optimization ⏳ IN PROGRESS
 
-### Issues Identified
-- Inline styles in HTML files
-- CSS duplication across files
-- Lack of consistent organization
+### Issues Addressed
+- Created utility classes for progress bars and text gradients to replace inline styles
+- Added icon color utility classes to reduce inline styling
+- Updated HTML files to use the new utility classes
+- Enhanced documentation in css-style-guide.md
+- Created consolidated gradients.css file to reduce duplication
+- Removed duplicate gradient definitions from utilities.css
+- Moved all inline styles from index.html to consolidated CSS files
+- Added consolidated CSS import to index.html
+- Moved language selector and tag styles to components.css
+- Moved page structure styles to layout.css
+
+### Remaining Issues
+- Some inline styles may still be present in other HTML files
 - Multiple small CSS files increasing HTTP requests
 
 ### Improvement Steps
 
-1. **Implement a CSS methodology**:
-   - Adopt BEM (Block, Element, Modifier) or another CSS methodology
-   - Create a consistent naming convention for classes
-   - Document the CSS approach in `css-style-guide.md`
+1. **Implement a CSS methodology**: ✅ COMPLETED
+   - ✅ Documented BEM approach in `css-style-guide.md`
+   - ✅ Created consistent naming convention for classes
+   - ✅ Added utility class documentation to the style guide
 
-2. **Move inline styles to external files**:
-   - Extract inline styles from HTML files
-   - Organize them into appropriate CSS files
-   - Use classes instead of inline styles
+2. **Move inline styles to external files**: ⏳ IN PROGRESS
+   - ✅ Created utility classes for progress bars, text gradients, and icon colors
+   - ✅ Updated about.html to use progress bar utilities instead of inline styles
+   - ✅ Updated insights.html to use text gradient utilities
+   - ✅ Updated blog post to use text gradient and icon color utilities
+   - ✅ Moved all inline styles from index.html to consolidated CSS files
+   - ✅ Added WeChat QR code styles to components.css
+   - Still need to address remaining inline styles in other pages
 
-3. **Consolidate duplicate CSS**:
-   - Identify and merge similar styles across files
-   - Create utility classes for common patterns
-   - Implement a consistent approach to common styling tasks
+3. **Consolidate duplicate CSS**: ⏳ IN PROGRESS
+   - ✅ Created consolidated gradients.css file for all gradient definitions
+   - ✅ Removed duplicate gradient definitions from utilities.css
+   - ✅ Updated CSS style guide to document the gradient system
+   - ✅ Consolidated language selector and tag styles in components.css
+   - Still need to identify and merge other similar styles across files
 
-4. **Organize CSS files logically**:
-   - Create a clear structure for CSS files (base, components, layouts, etc.)
-   - Use consistent naming for CSS files
-   - Consider using Sass or Less for better organization
+4. **Organize CSS files logically**: ⏳ IN PROGRESS
+   - ✅ Added gradients.css to the consolidated directory structure
+   - ✅ Updated index.css to import all consolidated CSS files
+   - ✅ Documented the consolidated CSS structure in the style guide
+   - ✅ Added consolidated CSS import to index.html
+   - Consider using Sass or Less for better organization in the future
 
-5. **Optimize CSS delivery**:
+5. **Optimize CSS delivery**: ⏳ PLANNED
    - Combine CSS files for production
    - Implement critical CSS for above-the-fold content
    - Use media queries efficiently for responsive design

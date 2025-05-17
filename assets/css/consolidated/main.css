@@ -84,7 +84,7 @@ body {
   overflow-x: hidden;
 }
 
-.site-wrapper {
+.page-wrapper {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

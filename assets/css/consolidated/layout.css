@@ -326,7 +326,7 @@
 .hero-section {
   position: relative;
   padding-top: 120px;
-  padding-bottom: 120px;
+  padding-bottom: 150px;
   background: var(--dark-bg);
   color: var(--white);
   overflow: hidden;
@@ -350,12 +350,13 @@
   position: relative;
   z-index: 2;
   padding-right: 1rem;
+  padding-top: 2rem;
 }
 
 .hero-title {
-  font-size: 2.8rem;
+  font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
@@ -367,11 +368,13 @@
   font-size: 1.3rem;
   font-weight: 400;
   color: var(--gray-light);
-  margin-bottom: 1.5rem;
+  margin-bottom: 5rem;
+  opacity: 0.9;
 }
 
 .hero-buttons {
   margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .hero-buttons .btn {
@@ -511,4 +514,23 @@
   .secondary-hero-title {
     font-size: 2rem;
   }
+}
+
+/* ===== Page Structure Styles ===== */
+html, body {
+  background-color: #0a0e17;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hide specific sections */
+.testimonials-section {
+  display: none !important;
 }

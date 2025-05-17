@@ -34,155 +34,24 @@
     <link rel="stylesheet" href="/assets/css/portfolio-section.css">
     <link rel="stylesheet" href="/assets/css/testimonials-section.css">
     <link rel="stylesheet" href="/assets/css/insights-section.css">
-    <link rel="stylesheet" href="/assets/css/cta-section.css?v=20250331074023">
+    <link rel="stylesheet" href="/assets/css/cta-section.css">
     <link rel="stylesheet" href="/assets/css/footer-section.css">
+    <link rel="stylesheet" href="/assets/css/secondary-hero.css">
+    <link rel="stylesheet" href="/assets/css/hero-animation.css">
+    <link rel="stylesheet" href="/assets/css/services-cards.css">
+    <link rel="stylesheet" href="/assets/css/portfolio-cards.css">
+    <link rel="stylesheet" href="/assets/css/testimonial-cards.css">
+    <link rel="stylesheet" href="/assets/css/insights-cards.css">
     <link rel="stylesheet" href="/assets/css/empowered-by.css">
     
-    <style>
-        /* Fix for white space at bottom of page */
-        html, body {
-            background-color: #0a0e17;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-        
-        .site-wrapper {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Language Selector Styles */
-        .language-selector {
-            margin-left: 15px;
-        }
-        
-        .language-selector button {
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(112, 0, 255, 0.2));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            padding: 5px 8px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-        }
-        
-        .language-selector button:hover {
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.3), rgba(112, 0, 255, 0.3));
-            transform: translateY(-2px);
-        }
-        
-        /* Tag styling */
-        .tag {
-            display: inline-block;
-            padding: 5px 10px;
-            background: linear-gradient(135deg, rgba(0, 168, 255, 0.2), rgba(112, 0, 255, 0.2));
-            border-radius: 20px;
-            color: var(--white);
-            font-size: 0.8rem;
-            margin-right: 10px;
-            margin-bottom: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .tag:hover {
-            background: linear-gradient(135deg, rgba(0, 168, 255, 0.3), rgba(112, 0, 255, 0.3));
-            transform: translateY(-2px);
-        }
-        
-        /* Temporarily hide testimonials section */
-        .testimonials-section {
-            display: none !important;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-                margin: 10px 0;
-            }
-        }
-        
-        /* Compact tag styling */
-        .tag-compact {
-            padding: 1px 6px !important;
-            font-size: 11px !important;
-            line-height: 1.2 !important;
-            border-radius: 8px !important;
-            height: auto !important;
-            display: inline-block !important;
-        }
-        
-        /* Hero Section Styles */
-        .hero-section {
-            position: relative;
-            padding-bottom: 150px; 
-        }
-        
-        /* Hero content optimization */
-        .hero-content {
-            padding-top: 2rem;
-        }
-        
-        .hero-title {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 5rem;
-            opacity: 0.9;
-        }
-        
-        .hero-buttons {
-            margin-bottom: 2rem;
-        }
-        
-        .hero-buttons .btn {
-            padding: 0.6rem 1.8rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Enhanced title gradient */
-        .hero-title.text-gradient {
-            background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 10px rgba(255, 184, 0, 0.2);
-            display: inline-block;
-        }
-        
-        /* WeChat QR code styles */
-        .wechat-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        
-        .wechat-qr {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 10px;
-        }
-        
-        .wechat-label {
-            font-size: 0.8rem;
-            color: var(--white);
-        }
-        
-        /* Footer styles moved to footer-section.css */
-    </style>
+    <!-- Custom CSS files -->
+    
+    <!-- Path Helper and Components -->
+    <script src="/assets/js/path-helper.js"></script>
+    <script src="/assets/js/components.js"></script>
 </head>
 <body data-path-to-root="">
-    <div class="site-wrapper">
+    <div class="page-wrapper">
     <!-- Header -->
     <div id="header-placeholder"></div>
 
@@ -637,7 +506,7 @@
 
     <!-- Footer -->
     <div id="footer-placeholder"></div>
-    </div><!-- End site-wrapper -->
+    </div><!-- End page-wrapper -->
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1332,11 +1201,16 @@
         });
     </script>
     
-    <!-- Critical scripts loaded first -->
-    <script src="/assets/js/path-helper.js"></script>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    </div><!-- End page-wrapper -->
     
     <!-- Embedded minimal translations as fallback -->
     <script src="/assets/js/embedded-translations.js"></script>
+    
+    <!-- i18n Scripts -->
+    <script src="/assets/js/i18n-common.js"></script>
+    <script src="/assets/js/i18n-home.js"></script>
     
     <!-- Non-critical scripts with defer attribute -->
     <script src="/assets/js/i18n-module.js" defer></script>

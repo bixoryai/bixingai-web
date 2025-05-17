@@ -54,7 +54,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
 /* Global Styles */
-body, .site-wrapper {
+body, .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -147,7 +147,7 @@ img {
 }
 
 /* ===== Layout Components ===== */
-.site-wrapper {
+.page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 100px); /* Subtract header height */

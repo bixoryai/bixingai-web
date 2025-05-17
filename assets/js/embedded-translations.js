@@ -30,7 +30,7 @@ window.embeddedTranslations = {
     "nav.contact": "联系我们",
     "hero.title": "AI创新赋能企业",
     "hero.contactUs": "联系我们",
-    "footer.company": "成都毕行科技有限公司",
+    "footer.company": "毕行科技",
     "footer.copyright": "© 2023 成都毕行科技有限公司 版权所有"
   }
 };

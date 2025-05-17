@@ -5,7 +5,7 @@
 
 /* Ultra-high specificity selector to ensure these styles take precedence */
 html body .services-hero-section,
-body .site-wrapper .services-hero-section,
+body .page-wrapper .services-hero-section,
 .services-hero-section[class][id],
 section.services-hero-section {
   padding-top: 80px !important;

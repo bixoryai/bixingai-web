@@ -8,21 +8,42 @@ function getCurrentLanguage() {
 }
 
 function applyTranslations(lang) {
-  if (!window.translations || !window.translations[lang]) return;
-  var elements = document.querySelectorAll('[data-i18n]');
-  elements.forEach(function(el) {
-    var key = el.getAttribute('data-i18n');
-    var text = window.translations[lang][key];
-    if (typeof text !== 'undefined') {
-      // Check if the text contains newline characters
-      if (text.includes('\n')) {
-        // Replace newlines with <br> tags and use innerHTML
-        el.innerHTML = text.replace(/\n/g, '<br>');
+  const currentLanguage = lang || getCurrentLanguage();
+  if (!window.translations || !window.translations[currentLanguage]) return;
+  
+  // Apply translations to elements with data-i18n attribute
+  document.querySelectorAll('[data-i18n]').forEach(function(element) {
+    const key = element.getAttribute('data-i18n');
+    if (window.translations[currentLanguage] && window.translations[currentLanguage][key]) {
+      // Use innerHTML for elements that might contain HTML tags
+      if (element.tagName === 'P' || element.classList.contains('company-description') || 
+          window.translations[currentLanguage][key].includes('<br>')) {
+        element.innerHTML = window.translations[currentLanguage][key];
       } else {
-        el.textContent = text;
+        element.textContent = window.translations[currentLanguage][key];
       }
     }
   });
+  
+  // Handle placeholder translations
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(element) {
+    const key = element.getAttribute('data-i18n-placeholder');
+    if (window.translations[currentLanguage] && window.translations[currentLanguage][key]) {
+      element.placeholder = window.translations[currentLanguage][key];
+    }
+  });
+  
+  // Update language toggle UI
+  const currentLanguageElement = document.getElementById('currentLanguage');
+  if (currentLanguageElement) {
+    currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
+  }
+  
+  // Update page title
+  const titleKey = 'page.title';
+  if (window.translations[currentLanguage] && window.translations[currentLanguage][titleKey]) {
+    document.title = window.translations[currentLanguage][titleKey];
+  }
 }
 
 window.applyTranslations = applyTranslations;

@@ -6,6 +6,7 @@
  * - Text utilities
  * - Background utilities
  * - Flex and grid utilities
+ * - Progress bar utilities
  * - Responsive adjustments
  */
 
@@ -420,4 +421,111 @@
   .d-print-flex { display: flex !important; }
   .d-print-inline-flex { display: inline-flex !important; }
   .d-print-grid { display: grid !important; }
+}
+
+/* ===== Progress Bar Utilities ===== */
+/* Standard progress bar heights */
+.progress-xs {
+  height: 3px !important;
+}
+
+.progress-sm {
+  height: 5px !important;
+}
+
+.progress-md {
+  height: 8px !important;
+}
+
+.progress-lg {
+  height: 12px !important;
+}
+
+/* Progress bar widths */
+.progress-25 {
+  width: 25% !important;
+}
+
+.progress-50 {
+  width: 50% !important;
+}
+
+.progress-75 {
+  width: 75% !important;
+}
+
+.progress-80 {
+  width: 80% !important;
+}
+
+.progress-85 {
+  width: 85% !important;
+}
+
+.progress-90 {
+  width: 90% !important;
+}
+
+.progress-92 {
+  width: 92% !important;
+}
+
+.progress-95 {
+  width: 95% !important;
+}
+
+.progress-100 {
+  width: 100% !important;
+}
+
+/* Progress bar gradient backgrounds */
+.progress-gradient-blue {
+  background: var(--gradient-card-1) !important;
+}
+
+.progress-gradient-purple {
+  background: var(--gradient-card-2) !important;
+}
+
+.progress-gradient-teal {
+  background: var(--gradient-card-3) !important;
+}
+
+.progress-gradient-orange {
+  background: var(--gradient-card-4) !important;
+}
+
+/* Progress bar base styling */
+.progress-clean {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-clean .progress-bar {
+  border-radius: var(--border-radius-sm);
+  transition: width 0.6s ease;
+}
+
+/* ===== Icon Color Utilities ===== */
+/* Standard icon colors for consistent styling */
+.icon-blue {
+  color: #3b82f6 !important;
+}
+
+.icon-teal {
+  color: #10b981 !important;
+}
+
+.icon-purple {
+  color: #8b5cf6 !important;
+}
+
+.icon-amber {
+  color: #f59e0b !important;
+}
+
+.icon-orange {
+  color: #f97316 !important;
 }
