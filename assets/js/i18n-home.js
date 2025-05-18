@@ -168,7 +168,7 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   "hero.subtitle": "定制AI解决方案、教育和咨询服务，转变您的业务",
   "hero.exploreServices": "探索服务",
   "hero.contactUs": "联系我们",
-  "hero.empoweredBy": "由以下赋能",
+  "hero.empoweredBy": "技术支持",
   "hero.floatingCard1": "专业AI模型",
   "hero.floatingCard2": "AI数据解决方案",
   "hero.floatingCard3": "AI代理",

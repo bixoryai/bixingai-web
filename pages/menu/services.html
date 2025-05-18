@@ -55,7 +55,7 @@
         
         .service-detail-section {
             position: relative;
-            padding: 80px 0;
+            padding: 100px 0 80px;
             background: var(--dark-surface);
             overflow: hidden;
         }
@@ -118,15 +118,26 @@
         .service-detail-card {
             position: relative;
             height: 100%;
+            min-height: 450px;
             border-radius: var(--radius-lg);
-            background-color: var(--dark-surface);
+            background-color: transparent;
             border: 1px solid var(--dark-border);
-            padding: 30px;
+            padding: 0;
             transition: all var(--transition-normal);
             overflow: hidden;
             z-index: 1;
             box-shadow: var(--shadow-lg);
             backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        @media (max-width: 767px) {
+            .service-detail-card {
+                min-height: 400px;
+            }
         }
         
         .service-detail-card:hover {
@@ -136,12 +147,25 @@
         }
         
         .service-detail-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2rem;
+            position: absolute;
+            top: 15px;
+            right: 15px;
             background: var(--gradient-blue);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            z-index: 2;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .service-detail-title {
@@ -161,55 +185,94 @@
         .service-feature-list {
             list-style: none;
             padding-left: 0;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
+            margin-top: 15px;
         }
         
         .service-feature-list li {
-            padding: 10px 0;
+            padding: 6px 0;
             color: var(--text-medium);
             position: relative;
-            padding-left: 30px;
+            padding-left: 0;
+            font-size: 1.05rem;
         }
         
         .service-feature-list li:before {
-            content: "\f00c";
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
+            content: "";
+            /* Removed Font Awesome check mark to avoid duplication */
             position: absolute;
             left: 0;
-            color: var(--accent-color);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
         }
         
         .service-cta {
             margin-top: auto;
         }
         
-        .service-image {
+        .service-card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.5) 0%, rgba(15, 23, 42, 0.65) 100%);
+            z-index: 1;
             border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            margin-bottom: 30px;
-            border: 1px solid var(--dark-border);
         }
         
-        .service-image img {
-            width: 100%;
-            height: auto;
-            transition: transform 0.5s ease;
+        .service-detail-card {
+            position: relative;
+            overflow: hidden;
         }
+        
+        .service-detail-card.education-card {
+            background-image: url('/assets/images/ai-education-simple.svg');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: normal;
+        }
+        
+        .service-detail-card.solutions-card {
+            background-image: url('/assets/images/custom-solutions-enhanced.svg');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: normal;
+        }
+        
+        .service-detail-card.consultation-card {
+            background-image: url('/assets/images/enterprise-consultation.svg');
+            background-size: 80%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: normal;
+        }
+        
+
+        
+
         
         .service-image:hover img {
             transform: scale(1.05);
         }
         
         .service-stats {
-            background: var(--dark-surface);
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 194, 255, 0.1));
             border-radius: var(--radius-lg);
-            padding: 30px;
-            margin-top: 50px;
+            padding: 20px 20px;
+            margin-top: 20px;
+            margin-top: 70px;
             box-shadow: var(--shadow-lg);
             backdrop-filter: blur(10px);
-            border: 1px solid var(--dark-border);
+            border: 1px solid rgba(0, 194, 255, 0.2);
+            position: relative;
         }
         
         .stat-item {
@@ -217,11 +280,63 @@
             padding: 20px 10px;
         }
         
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+        
+        @media (max-width: 767px) {
+            .stat-label {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 575px) {
+            .stat-label {
+                font-size: 0.9rem;
+            }
+        }
+        
         .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
+            font-size: 3rem;
+            font-weight: 700;
             margin-bottom: 10px;
-            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @media (max-width: 767px) {
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 575px) {
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+        
+        .education-number {
+            color: #4285F4;
+            background: linear-gradient(135deg, #4285F4, #4285F4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .solutions-number {
+            color: #00C2FF;
+            background: linear-gradient(135deg, #00C2FF, #00C2FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .consultation-number {
+            color: #34A853;
+            background: linear-gradient(135deg, #34A853, #34A853);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -239,25 +354,88 @@
         }
         
         /* Service card variations */
+        .service-card-content {
+            padding: 45px 15px 0;
+            flex: 1;
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @media (max-width: 767px) {
+            .service-card-content {
+                padding: 35px 12px 0;
+            }
+        }
+        
+        .service-detail-description {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 400;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 25px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        
+        @media (max-width: 767px) {
+            .service-detail-description {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+        }
+        
+        .service-feature-list li {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            margin-bottom: 3px;
+            position: relative;
+            padding-left: 0;
+            font-size: 0.85rem;
+            line-height: 1.2;
+            text-align: center;
+        }
+        
+        @media (max-width: 767px) {
+            .service-feature-list li {
+                font-size: 0.8rem;
+                margin-bottom: 2px;
+            }
+        }
+        
+        .service-feature-list li i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        .service-detail-title {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            color: var(--white);
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+        
+        @media (max-width: 767px) {
+            .service-detail-title {
+                font-size: 1.4rem;
+            }
+        }
+        
         .education-card {
-            background: linear-gradient(135deg, var(--dark-surface), var(--dark-surface));
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
+            border-bottom: 4px solid #4285F4;
         }
         
         .solutions-card {
-            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(0, 194, 255, 0.1));
-            background-size: cover;
-            background-position: center;
-            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-bottom: 4px solid #00C2FF;
         }
         
         .consultation-card {
-            background: linear-gradient(135deg, var(--dark-surface), var(--dark-surface));
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
+            border-bottom: 4px solid #34A853;
         }
         
         .text-gradient {
@@ -321,49 +499,22 @@
         }
     </style>
 <script>
-function applyDirectTranslationsServices(lang) {
-    if (lang === 'zh') {
-        const translations = {
-            '.hero-title': '产品与服务',
-            '.hero-subtitle': '探索我们的AI解决方案',
-            '.section-title': '我们的服务',
-            '.service-detail-title': '服务详情',
-            '.service-detail-description': '我们为企业提供定制化的AI服务，助力数字化转型。'
-        };
-        Object.keys(translations).forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
-                element.textContent = translations[selector];
-            });
-        });
-    } else {
-        const translations = {
-            '.hero-title': 'Products & Services',
-            '.hero-subtitle': 'Explore Our AI Solutions',
-            '.section-title': 'Our Services',
-            '.service-detail-title': 'Service Details',
-            '.service-detail-description': 'We provide customized AI services for enterprises, empowering digital transformation.'
-        };
-        Object.keys(translations).forEach(selector => {
-            const elements = document.querySelectorAll(selector);
-            elements.forEach(element => {
-                element.textContent = translations[selector];
-            });
+// Using standard i18n approach with data-i18n attributes
+// The translations are loaded from i18n-services.js and applied by i18n-common.js
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize particles.js for hero section background
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('hero-particles', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#ffffff' },
+                opacity: { value: 0.3, random: false },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.2, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: false, straight: false }
+            }
         });
     }
-}
-document.addEventListener('DOMContentLoaded', function() {
-    setTimeout(function() {
-        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-        applyDirectTranslationsServices(currentLang);
-        const languageToggle = document.getElementById('languageToggle');
-        if (languageToggle) {
-            languageToggle.addEventListener('click', function() {
-                const newLang = localStorage.getItem('bixingLanguage') || 'en';
-                applyDirectTranslationsServices(newLang);
-            });
-        }
-    }, 500);
 });
 </script>
 </head>
@@ -378,8 +529,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container services-hero-content d-flex align-items-center justify-content-center h-100">
             <div class="row align-items-center justify-content-center h-100 w-100">
                 <div class="col-12 text-center" data-aos="fade-up">
-                    <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="services.page.heroTitle">Comprehensive AI Solutions</h1>
-                    <p class="hero-subtitle lead" data-i18n="services.page.heroSubtitle">Transforming businesses through education, custom solutions, and strategic consultation</p>
+                    <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="services.hero.title">Comprehensive AI Solutions</h1>
+                    <p class="hero-subtitle lead" data-i18n="services.hero.subtitle">Transforming businesses through education, custom solutions, and strategic consultation</p>
                 </div>
             </div>
         </div>
@@ -391,100 +542,83 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 
     <!-- Services Overview Section -->
-    <section class="service-detail-section ai-nodes-bg">
+    <section class="service-detail-section ai-nodes-bg py-5">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto">
-                    <h2 class="section-title" data-i18n="services.overviewTitle">Our Products & Services</h2>
-                    <p class="lead" data-i18n="services.overviewSubtitle">Tailored AI solutions to meet your organization's unique needs</p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8 text-center">
+                    <h2 class="section-title" data-i18n="services.overview.title">Our Products & Services</h2>
+                    <p class="section-subtitle" data-i18n="services.overview.subtitle">Tailored AI solutions to meet your organization's unique needs</p>
                 </div>
             </div>
-            
-            <!-- AI Education & Training -->
-            <div class="row align-items-center mb-5 pb-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="service-image">
-                        <img src="/assets/images/ai-education-simple.svg" alt="AI Education & Training" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
+            <div class="row justify-content-center">
+                <!-- AI Education & Training -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
                     <div class="service-detail-card education-card">
+                        <div class="service-card-overlay"></div>
                         <div class="service-detail-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <h3 class="service-detail-title" data-i18n="services.education.title">AI Education & Training</h3>
-                        <p class="service-detail-description" data-i18n="services.education.detailDescription">
-                            Empower your workforce with the knowledge and skills needed to leverage AI technologies effectively. Our customized training programs are designed to bridge the AI knowledge gap at all levels of your organization.
-                        </p>
-                        <ul class="service-feature-list">
-                            <li data-i18n="services.education.feature1">Customized learning paths tailored to your team's needs</li>
-                            <li data-i18n="services.education.feature2">Hands-on workshops with real-world applications</li>
-                            <li data-i18n="services.education.feature3">Expert-led training from industry professionals</li>
-                            <li data-i18n="services.education.feature4">Comprehensive curriculum covering AI fundamentals to advanced topics</li>
-                            <li data-i18n="services.education.feature5">Ongoing support and resources for continuous learning</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="pages/services/education.html" class="btn btn-primary" data-i18n="services.education.learnMore">Explore AI Education Services</a>
+                        <div class="service-card-content">
+                            <h3 class="service-detail-title" data-i18n="services.education.title">AI Education & Training</h3>
+                            <p class="service-detail-description"><span data-i18n="services.education.description1">Empower your team with cutting-edge AI knowledge</span>,<br><span data-i18n="services.education.description2">comprehensive programs for all skill levels</span></p>
+                            <ul class="service-feature-list">
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.education.feature1">Customized AI training workshops</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.education.feature2">Hands-on learning with real AI models</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.education.feature3">Specialized courses for technical & non-technical staff</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.education.feature4">Certification programs for AI proficiency</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.education.feature5">Ongoing support and learning resources</span></li>
+                            </ul>
+                            <div class="text-center mt-4 mb-3">
+                                <a href="#contact" class="btn btn-primary btn-sm" data-i18n="services.education.cta">Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- AI Custom Solutions -->
-            <div class="row align-items-center mb-5 pb-5 flex-lg-row-reverse">
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="service-image">
-                        <img src="/assets/images/custom-solutions-enhanced.svg" alt="AI Custom Solutions" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-right">
+                
+                <!-- AI Custom Solutions -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-detail-card solutions-card">
+                        <div class="service-card-overlay"></div>
                         <div class="service-detail-icon">
                             <i class="fas fa-robot"></i>
                         </div>
-                        <h3 class="service-detail-title" data-i18n="services.customSolutions.title">AI Custom Solutions</h3>
-                        <p class="service-detail-description" data-i18n="services.customSolutions.detailDescription">
-                            From data preparation to model deployment, we develop end-to-end AI solutions tailored to your specific business challenges. Our team of experts works closely with you to create AI applications that deliver measurable results.
-                        </p>
-                        <ul class="service-feature-list">
-                            <li data-i18n="services.customSolutions.feature1">Comprehensive data preparation and analysis</li>
-                            <li data-i18n="services.customSolutions.feature2">Custom AI model development and training</li>
-                            <li data-i18n="services.customSolutions.feature3">Seamless integration with existing systems</li>
-                            <li data-i18n="services.customSolutions.feature4">Scalable solutions that grow with your business</li>
-                            <li data-i18n="services.customSolutions.feature5">Ongoing maintenance and optimization</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="custom-solutions.html" class="btn btn-primary" data-i18n="services.customSolutions.learnMore">Explore Custom AI Solutions</a>
+                        <div class="service-card-content">
+                            <h3 class="service-detail-title" data-i18n="services.customSolutions.title">AI Custom Solutions</h3>
+                            <p class="service-detail-description"><span data-i18n="services.customSolutions.description1">Transform your business with tailored AI solutions</span>,<br><span data-i18n="services.customSolutions.description2">address challenges and unlock new opportunities</span></p>
+                            <ul class="service-feature-list">
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.customSolutions.feature1">Custom AI model development</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.customSolutions.feature2">AI-powered automation systems</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.customSolutions.feature3">Data processing & analytics solutions</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.customSolutions.feature4">Computer vision & NLP applications</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.customSolutions.feature5">Seamless integration with existing systems</span></li>
+                            </ul>
+                            <div class="text-center mt-4 mb-3">
+                                <a href="#contact" class="btn btn-primary btn-sm" data-i18n="services.customSolutions.cta">Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Enterprise AI Consultation -->
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class="service-image">
-                        <img src="/assets/images/enterprise-consultation.svg" alt="Enterprise AI Consultation" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-lg-6" data-aos="fade-left">
+                
+                <!-- Enterprise AI Consultation -->
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-detail-card consultation-card">
+                        <div class="service-card-overlay"></div>
                         <div class="service-detail-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 class="service-detail-title" data-i18n="services.consultation.title">Enterprise AI Consultation</h3>
-                        <p class="service-detail-description" data-i18n="services.consultation.detailDescription">
-                            Navigate the complex AI landscape with strategic guidance from our experienced consultants. We help you identify opportunities, assess readiness, and develop a comprehensive roadmap for AI implementation across your organization.
-                        </p>
-                        <ul class="service-feature-list">
-                            <li data-i18n="services.consultation.feature1">Thorough AI readiness assessment</li>
-                            <li data-i18n="services.consultation.feature2">Strategic implementation roadmap development</li>
-                            <li data-i18n="services.consultation.feature3">Technology selection and vendor evaluation</li>
-                            <li data-i18n="services.consultation.feature4">ROI analysis and business case development</li>
-                            <li data-i18n="services.consultation.feature5">Change management and adoption strategies</li>
-                        </ul>
-                        <div class="service-cta">
-                            <a href="consultation.html" class="btn btn-primary" data-i18n="services.consultation.learnMore">Explore AI Consultation Services</a>
+                        <div class="service-card-content">
+                            <h3 class="service-detail-title" data-i18n="services.consultation.title">Enterprise AI Consultation</h3>
+                            <p class="service-detail-description"><span data-i18n="services.consultation.description1">Navigate the complex AI landscape with expert guidance</span>,<br><span data-i18n="services.consultation.description2">tailored to your organization's strategic goals</span></p>
+                            <ul class="service-feature-list">
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.consultation.feature1">AI readiness assessment</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.consultation.feature2">AI strategy development</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.consultation.feature3">Implementation roadmap creation</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.consultation.feature4">ROI analysis for AI initiatives</span></li>
+                                <li><i class="fas fa-check-circle"></i> <span data-i18n="services.consultation.feature5">Ethical AI governance frameworks</span></li>
+                            </ul>
+                            <div class="text-center mt-4 mb-3">
+                                <a href="#contact" class="btn btn-primary btn-sm" data-i18n="services.consultation.cta">Learn More</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -493,22 +627,22 @@ document.addEventListener('DOMContentLoaded', function() {
             <!-- Statistics Section -->
             <div class="service-stats" data-aos="fade-up">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4">
                         <div class="stat-item">
-                            <div class="stat-number" data-i18n="services.stats.projects">100+</div>
-                            <div class="stat-label" data-i18n="services.stats.projectsLabel">Successful Projects</div>
+                            <div class="stat-number education-number">95%</div>
+                            <div class="stat-label" data-i18n="services.stats.satisfaction">Client Satisfaction</div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4">
                         <div class="stat-item">
-                            <div class="stat-number" data-i18n="services.stats.clients">50+</div>
-                            <div class="stat-label" data-i18n="services.stats.clientsLabel">Enterprise Clients</div>
+                            <div class="stat-number solutions-number">12+</div>
+                            <div class="stat-label" data-i18n="services.stats.industries">Industries Served</div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-4">
                         <div class="stat-item">
-                            <div class="stat-number" data-i18n="services.stats.experts">30+</div>
-                            <div class="stat-label" data-i18n="services.stats.expertsLabel">AI Experts</div>
+                            <div class="stat-number consultation-number">24/7</div>
+                            <div class="stat-label" data-i18n="services.stats.support">Expert Support</div>
                         </div>
                     </div>
                 </div>
@@ -521,7 +655,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container">
             <div class="cta-content text-center" data-aos="zoom-in">
                 <h2 data-i18n="services.cta.title">Ready to Transform Your Business with AI?</h2>
-                <p data-i18n="services.cta.description">Contact us today to discuss how our AI solutions can address your specific challenges and opportunities.</p>
+                <p data-i18n="services.cta.subtitle">Contact us today to discuss how our AI solutions can address your specific needs.</p>
                 <a href="contact.html" class="btn btn-primary btn-lg mt-4" data-i18n="services.cta.button">Get Started</a>
             </div>
         </div>
@@ -541,18 +675,29 @@ document.addEventListener('DOMContentLoaded', function() {
     <!-- Particles.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     
-    <!-- Components JS -->
-    <script src="/assets/js/components.js"></script>
+    <!-- Path Helper and Components -->
+    <script src="../../assets/js/path-helper.js"></script>
+    <script src="../../assets/js/components.js"></script>
     
-    <!-- Critical scripts loaded first -->
-    <script src="/assets/js/path-helper.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Embedded minimal translations as fallback -->
-    <script src="/assets/js/embedded-translations.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    <!-- Non-critical scripts with defer attribute -->
-    <script src="/assets/js/i18n-module.js" defer></script>
-    <script src="/assets/js/main.js" defer></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Header scroll effect is handled by components.js
+        
+    </script>
+    
+    <!-- i18n Scripts already loaded in head section -->
     
     <script>
         // Initialize AOS animation
@@ -563,124 +708,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         // Header scroll effect
-        const header = document.querySelector('.header');
         window.addEventListener('scroll', function() {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+            const header = document.querySelector('.header');
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             }
-        });
-        
-    </script>
-    
-    <!-- i18n Scripts -->    
-    <script src="../../assets/js/i18n-common.js"></script>
-    <script src="../../assets/js/i18n-services.js"></script>
-    
-    <script>
-        // Add services page specific translations to the global translations object
-        if (!window.translations) {
-            window.translations = { en: {}, zh: {} };
-        }
-
-        window.translations.en = Object.assign({}, window.translations.en, {
-            "services.hero.title": "Comprehensive AI Solutions",
-            "services.hero.subtitle": "Transforming businesses through education, custom solutions, and strategic consultation",
-            "services.overview.title": "Our Products & Services",
-            "services.overview.subtitle": "Tailored AI solutions to meet your organization's unique needs",
-            "services.stats.projects": "Successful Projects",
-            "services.stats.clients": "Enterprise Clients",
-            "services.stats.experts": "AI Experts",
-            "services.cta.title": "Ready to Transform Your Business with AI?",
-            "services.cta.description": "Contact us today to discuss how our AI solutions can address your specific challenges and opportunities.",
-            "services.cta.button": "Get Started"
-        });
-
-        window.translations.zh = Object.assign({}, window.translations.zh, {
-            "services.hero.title": "全面的AI解决方案",
-            "services.hero.subtitle": "通过教育、定制解决方案和战略咨询转变企业",
-            "services.overview.title": "我们的产品与服务",
-            "services.overview.subtitle": "满足您组织独特需求的定制AI解决方案",
-            "services.stats.projects": "成功项目",
-            "services.stats.clients": "企业客户",
-            "services.stats.experts": "AI专家",
-            "services.cta.title": "准备好用AI转变您的业务了吗？",
-            "services.cta.description": "立即联系我们，讨论我们的AI解决方案如何解决您的特定挑战和机遇。",
-            "services.cta.button": "开始咨询"
-        });
-
-        // Apply translations to specific elements that don't use data-i18n attributes
-        function applyServicesTranslations(lang) {
-            // Get all the elements we need to translate
-            const heroTitle = document.querySelector('.hero-title');
-            const heroSubtitle = document.querySelector('.hero-subtitle');
-            const overviewTitle = document.querySelector('#services-overview h2');
-            const overviewSubtitle = document.querySelector('#services-overview .lead');
-            const statsProjectsLabel = document.querySelector('#stats-projects .stats-label');
-            const statsClientsLabel = document.querySelector('#stats-clients .stats-label');
-            const statsExpertsLabel = document.querySelector('#stats-experts .stats-label');
-            const ctaTitle = document.querySelector('#cta h2');
-            const ctaDescription = document.querySelector('#cta p');
-            const ctaButton = document.querySelector('#cta .cta-btn');
-            
-            const translations = lang === 'en' ? window.translations.en : window.translations.zh;
-            
-            // Apply translations
-            if (heroTitle) {
-                heroTitle.textContent = translations["services.hero.title"];
-            }
-            
-            if (heroSubtitle) {
-                heroSubtitle.textContent = translations["services.hero.subtitle"];
-            }
-            
-            if (overviewTitle) {
-                overviewTitle.textContent = translations["services.overview.title"];
-            }
-            
-            if (overviewSubtitle) {
-                overviewSubtitle.textContent = translations["services.overview.subtitle"];
-            }
-            
-            if (statsProjectsLabel) {
-                statsProjectsLabel.textContent = translations["services.stats.projects"];
-            }
-            
-            if (statsClientsLabel) {
-                statsClientsLabel.textContent = translations["services.stats.clients"];
-            }
-            
-            if (statsExpertsLabel) {
-                statsExpertsLabel.textContent = translations["services.stats.experts"];
-            }
-            
-            if (ctaTitle) {
-                ctaTitle.textContent = translations["services.cta.title"];
-            }
-            
-            if (ctaDescription) {
-                ctaDescription.textContent = translations["services.cta.description"];
-            }
-            
-            if (ctaButton) {
-                ctaButton.textContent = translations["services.cta.button"];
-            }
-        }
-
-        // Wait for components to load
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                // Apply initial translations based on stored language
-                const initialLang = localStorage.getItem('bixingLanguage') || 'en';
-                applyServicesTranslations(initialLang);
-                
-                // Listen for language toggle events from our global system
-                document.addEventListener('languageToggled', function(e) {
-                    const newLang = e.detail.language;
-                    applyServicesTranslations(newLang);
-                });
-            }, 500);
         });
     </script>
 </body>

@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="../../assets/css/custom-dropdown.css">
     <link rel="stylesheet" href="../../assets/css/education-section.css">
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <!-- Path Helper and Components -->
+    <script src="../../assets/js/path-helper.js"></script>
+    <script src="../../assets/js/components.js"></script>
     <style>
         /* Hero section specific styles */
         .services-hero-section {
@@ -86,6 +90,7 @@
     </style>
 </head>
 <body data-path-to-root="../../">
+    <div class="page-wrapper">
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
 
@@ -96,7 +101,7 @@
             <div class="row align-items-center justify-content-center h-100 w-100">
                 <div class="col-12 text-center" data-aos="fade-up">
                     <h1 class="hero-title display-4 fw-bold text-gradient" data-i18n="education.hero.title">AI Education & Training</h1>
-                    <p class="hero-subtitle lead" data-i18n="education.hero.subtitle">Empower your team with cutting-edge AI knowledge and practical skills through our comprehensive education and training programs.</p>
+                    <p class="hero-subtitle lead" data-i18n="education.hero.subtitle">Empower your team with the knowledge and skills needed to leverage AI effectively in your organization</p>
                 </div>
             </div>
         </div>
@@ -108,7 +113,7 @@
     </section>
 
     <!-- Overview Section -->
-    <section class="section-padding">
+    <section class="section-padding" style="background-color: var(--dark-bg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -123,8 +128,8 @@
                     <p data-i18n="education.overview.paragraph3">Our approach combines theoretical foundations with hands-on experience, ensuring participants not only understand AI concepts but can apply them confidently in their daily work.</p>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="overview-image">
-                        <img src="../../assets/images/ai-education-overview.svg" alt="AI Education Overview" class="img-fluid" data-i18n-alt="education.overview.imageAlt">
+                    <div class="overview-image" style="display: flex; align-items: center; height: 100%;">
+                        <img src="../../assets/images/ai-education-overview.svg" alt="AI Education Overview" class="img-fluid" data-i18n-alt="education.overview.imageAlt" style="max-height: 300px; margin: 0 auto;">
                     </div>
                 </div>
             </div>
@@ -132,7 +137,7 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="section-padding bg-gradient-dark">
+    <section class="section-padding" style="background-color: var(--testimonials-bg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -173,7 +178,7 @@
     </section>
 
     <!-- Training Process Section -->
-    <section class="section-padding">
+    <section class="section-padding bg-gradient-dark">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -251,7 +256,7 @@
     </section>
 
     <!-- Programs Section -->
-    <section id="programs" class="section-padding bg-gradient-dark">
+    <section id="programs" class="section-padding" style="background-color: var(--testimonials-bg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -273,7 +278,7 @@
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program1.feature4">Ethical AI considerations</span></li>
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program1.feature5">2-day intensive workshop</span></li>
                             </ul>
-                            <a href="../../contact.html" class="btn btn-primary w-100" data-i18n="education.programs.cta">Request Information</a>
+                            <a href="../../contact.html" class="btn w-100" style="background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500); border: none; color: white; font-weight: 600;" data-i18n="education.programs.cta">Request Information</a>
                         </div>
                     </div>
                 </div>
@@ -290,7 +295,7 @@
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program2.feature4">Hands-on project work</span></li>
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program2.feature5">5-day comprehensive program</span></li>
                             </ul>
-                            <a href="../../contact.html" class="btn btn-primary w-100" data-i18n="education.programs.cta">Request Information</a>
+                            <a href="../../contact.html" class="btn w-100" style="background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500); border: none; color: white; font-weight: 600;" data-i18n="education.programs.cta">Request Information</a>
                         </div>
                     </div>
                 </div>
@@ -307,7 +312,7 @@
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program3.feature4">ROI measurement frameworks</span></li>
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program3.feature5">Executive 3-day intensive</span></li>
                             </ul>
-                            <a href="../../contact.html" class="btn btn-primary w-100" data-i18n="education.programs.cta">Request Information</a>
+                            <a href="../../contact.html" class="btn w-100" style="background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500); border: none; color: white; font-weight: 600;" data-i18n="education.programs.cta">Request Information</a>
                         </div>
                     </div>
                 </div>
@@ -316,7 +321,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="section-padding">
+    <section class="section-padding" style="background-color: var(--dark-bg); display: none;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -358,7 +363,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="section-padding bg-gradient-dark">
+    <section class="section-padding" style="background-color: var(--insights-bg);">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -440,21 +445,15 @@
 
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
-
+    </div><!-- End page-wrapper -->
+    
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../../assets/js/components.js"></script>
     
-    <!-- Critical scripts loaded first -->
-    <script src="../../assets/js/path-helper.js"></script>
-    
-    <!-- Embedded minimal translations as fallback -->
-    <script src="../../assets/js/embedded-translations.js"></script>
-    
-    <!-- Non-critical scripts with defer attribute -->
-    <script src="../../assets/js/i18n-module.js" defer></script>
-    <script src="../../assets/js/main.js" defer></script>
+    <!-- i18n Scripts -->
+    <script src="../../assets/js/i18n-common.js"></script>
+    <script src="../../assets/js/i18n-education.js"></script>
     
     <script>
         // Initialize AOS
@@ -464,259 +463,6 @@
             once: true
         });
         
-        // Custom language toggle implementation for Education page
-        function updateEducationPageTranslations() {
-            // Get current language from BixingI18n or localStorage with proper fallbacks
-            let currentLang = 'en';
-            
-            if (window.BixingI18n && typeof window.BixingI18n.getCurrentLanguage === 'function') {
-                currentLang = window.BixingI18n.getCurrentLanguage();
-                console.log('Got language from BixingI18n:', currentLang);
-            } else if (localStorage.getItem('bixingLanguage')) {
-                currentLang = localStorage.getItem('bixingLanguage');
-                console.log('Got language from localStorage:', currentLang);
-            } else {
-                console.log('Using default language: en');
-            }
-            
-            console.log('Updating education page translations for language:', currentLang);
-            
-            // Store original English content if not already done
-            if (!window.originalEducationContent) {
-                try {
-                    window.originalEducationContent = {
-                        heroTitle: document.querySelector('[data-i18n="education.hero.title"]')?.textContent || 'AI Education & Training',
-                        heroSubtitle: document.querySelector('[data-i18n="education.hero.subtitle"]')?.textContent || 'Empower your team with cutting-edge AI knowledge and practical skills through our comprehensive education and training programs.',
-                        overviewTitle: document.querySelector('[data-i18n="education.overview.title"]')?.textContent || 'Bridging the AI Knowledge Gap',
-                        overviewSubtitle: document.querySelector('[data-i18n="education.overview.subtitle"]')?.textContent || 'Comprehensive AI education tailored to your organization\'s needs',
-                        overviewParagraph1: document.querySelector('[data-i18n="education.overview.paragraph1"]')?.textContent || '',
-                        overviewParagraph2: document.querySelector('[data-i18n="education.overview.paragraph2"]')?.textContent || '',
-                        overviewParagraph3: document.querySelector('[data-i18n="education.overview.paragraph3"]')?.textContent || '',
-                        benefitsTitle: document.querySelector('[data-i18n="education.benefits.title"]')?.textContent || 'Key Benefits',
-                        benefitsSubtitle: document.querySelector('[data-i18n="education.benefits.subtitle"]')?.textContent || 'Why choose our AI education and training programs'
-                    };
-                    console.log('Stored original English content for education page');
-                } catch (error) {
-                    console.error('Error storing original English content:', error);
-                }
-            }
-            
-            // Update page-specific elements based on language
-            if (currentLang === 'zh') {
-                console.log('Applying Chinese translations');
-                try {
-                    // Hero section
-                    const heroTitle = document.querySelector('[data-i18n="education.hero.title"]');
-                    if (heroTitle) heroTitle.textContent = 'AI教育与培训';
-                    
-                    const heroSubtitle = document.querySelector('[data-i18n="education.hero.subtitle"]');
-                    if (heroSubtitle) heroSubtitle.textContent = '通过我们全面的教育和培训计划，为您的团队提供前沿AI知识和实用技能。';
-                    
-                    // Overview section
-                    const overviewTitle = document.querySelector('[data-i18n="education.overview.title"]');
-                    if (overviewTitle) overviewTitle.textContent = '弥合AI知识差距';
-                    
-                    const overviewSubtitle = document.querySelector('[data-i18n="education.overview.subtitle"]');
-                    if (overviewSubtitle) overviewSubtitle.textContent = '根据您组织需求定制的全面AI教育';
-                    
-                    const overviewParagraph1 = document.querySelector('[data-i18n="education.overview.paragraph1"]');
-                    if (overviewParagraph1) overviewParagraph1.textContent = '在当今快速发展的技术环境中，AI素养已成为关键的竞争优势。碧星科技的AI教育和培训计划旨在为您的团队提供在特定行业背景下有效利用AI所需的实用知识和技能。';
-                    
-                    const overviewParagraph2 = document.querySelector('[data-i18n="education.overview.paragraph2"]');
-                    if (overviewParagraph2) overviewParagraph2.textContent = '无论您是希望提升技术团队的技能，帮助业务领导者做出明智的AI决策，还是创建全组织范围的AI素养，我们的定制计划都能提供可立即应用于实际挑战的实用、可行知识。';
-                    
-                    const overviewParagraph3 = document.querySelector('[data-i18n="education.overview.paragraph3"]');
-                    if (overviewParagraph3) overviewParagraph3.textContent = '我们的方法将理论基础与实践经验相结合，确保参与者不仅理解AI概念，还能在日常工作中自信地应用它们。';
-                    
-                    // Benefits section
-                    const benefitsTitle = document.querySelector('[data-i18n="education.benefits.title"]');
-                    if (benefitsTitle) benefitsTitle.textContent = '主要优势';
-                    
-                    const benefitsSubtitle = document.querySelector('[data-i18n="education.benefits.subtitle"]');
-                    if (benefitsSubtitle) benefitsSubtitle.textContent = '为什么选择我们的AI教育和培训计划';
-                    
-                    // Benefits cards
-                    const benefitsCard1Title = document.querySelector('[data-i18n="education.benefits.card1.title"]');
-                    if (benefitsCard1Title) benefitsCard1Title.textContent = '定制学习路径';
-                    
-                    const benefitsCard1Text = document.querySelector('[data-i18n="education.benefits.card1.text"]');
-                    if (benefitsCard1Text) benefitsCard1Text.textContent = '我们的课程根据您组织的具体需求和目标进行定制，确保内容与您的业务挑战直接相关。';
-                    
-                    const benefitsCard2Title = document.querySelector('[data-i18n="education.benefits.card2.title"]');
-                    if (benefitsCard2Title) benefitsCard2Title.textContent = '行业专家指导';
-                    
-                    const benefitsCard2Text = document.querySelector('[data-i18n="education.benefits.card2.text"]');
-                    if (benefitsCard2Text) benefitsCard2Text.textContent = '向在各行业实施AI解决方案方面拥有实际经验的资深AI从业者学习。';
-                    
-                    const benefitsCard3Title = document.querySelector('[data-i18n="education.benefits.card3.title"]');
-                    if (benefitsCard3Title) benefitsCard3Title.textContent = '实践导向方法';
-                    
-                    const benefitsCard3Text = document.querySelector('[data-i18n="education.benefits.card3.text"]');
-                    if (benefitsCard3Text) benefitsCard3Text.textContent = '专注于实际应用和真实场景，确保您的团队能够立即应用他们的新AI技能。';
-                    
-                    // Training Process section
-                    const processTitle = document.querySelector('[data-i18n="education.process.title"]');
-                    if (processTitle) processTitle.textContent = '我们的培训流程';
-                    
-                    const processSubtitle = document.querySelector('[data-i18n="education.process.subtitle"]');
-                    if (processSubtitle) processSubtitle.textContent = '从评估到实施的结构化方法';
-                    
-                    // Process steps
-                    const processStep1Title = document.querySelector('[data-i18n="education.process.step1.title"]');
-                    if (processStep1Title) processStep1Title.textContent = '需求评估';
-                    
-                    const processStep1Text = document.querySelector('[data-i18n="education.process.step1.text"]');
-                    if (processStep1Text) processStep1Text.textContent = '我们与您的团队合作，了解您的当前AI能力、目标和具体培训需求。';
-                    
-                    const processStep2Title = document.querySelector('[data-i18n="education.process.step2.title"]');
-                    if (processStep2Title) processStep2Title.textContent = '定制课程设计';
-                    
-                    const processStep2Text = document.querySelector('[data-i18n="education.process.step2.text"]');
-                    if (processStep2Text) processStep2Text.textContent = '根据评估结果，我们创建一个量身定制的培训计划，包括相关内容、实践练习和行业特定案例研究。';
-                    
-                    const processStep3Title = document.querySelector('[data-i18n="education.process.step3.title"]');
-                    if (processStep3Title) processStep3Title.textContent = '互动培训交付';
-                    
-                    const processStep3Text = document.querySelector('[data-i18n="education.process.step3.text"]');
-                    if (processStep3Text) processStep3Text.textContent = '我们的专家讲师通过互动讲座、实践研讨会和实时演示提供培训。';
-                    
-                    const processStep4Title = document.querySelector('[data-i18n="education.process.step4.title"]');
-                    if (processStep4Title) processStep4Title.textContent = '应用支持';
-                    
-                    const processStep4Text = document.querySelector('[data-i18n="education.process.step4.text"]');
-                    if (processStep4Text) processStep4Text.textContent = '培训后，我们提供持续支持，帮助您的团队将他们的新知识应用到实际项目中。';
-                    
-                    // Programs section
-                    const programsTitle = document.querySelector('[data-i18n="education.programs.title"]');
-                    if (programsTitle) programsTitle.textContent = '培训计划';
-                    
-                    const programsSubtitle = document.querySelector('[data-i18n="education.programs.subtitle"]');
-                    if (programsSubtitle) programsSubtitle.textContent = '为不同受众和需求设计的专业课程';
-                    
-                    // Program cards
-                    const program1Title = document.querySelector('[data-i18n="education.programs.program1.title"]');
-                    if (program1Title) program1Title.textContent = 'AI基础';
-                    
-                    const program1Text = document.querySelector('[data-i18n="education.programs.program1.text"]');
-                    if (program1Text) program1Text.textContent = '为非技术专业人员设计的入门级课程，涵盖AI基本概念、应用和商业影响。';
-                    
-                    const program2Title = document.querySelector('[data-i18n="education.programs.program2.title"]');
-                    if (program2Title) program2Title.textContent = '技术AI实施';
-                    
-                    const program2Text = document.querySelector('[data-i18n="education.programs.program2.text"]');
-                    if (program2Text) program2Text.textContent = '为开发人员和数据科学家设计的高级课程，专注于AI模型开发、部署和集成。';
-                    
-                    const program3Title = document.querySelector('[data-i18n="education.programs.program3.title"]');
-                    if (program3Title) program3Title.textContent = 'AI领导力';
-                    
-                    const program3Text = document.querySelector('[data-i18n="education.programs.program3.text"]');
-                    if (program3Text) program3Text.textContent = '为高管和决策者设计的战略课程，涵盖AI战略、治理和变革管理。';
-                    
-                    // FAQ section
-                    const faqTitle = document.querySelector('[data-i18n="education.faq.title"]');
-                    if (faqTitle) faqTitle.textContent = '常见问题';
-                    
-                    const faqSubtitle = document.querySelector('[data-i18n="education.faq.subtitle"]');
-                    if (faqSubtitle) faqSubtitle.textContent = '关于我们AI教育服务的常见问题';
-                    
-                    // FAQ questions and answers
-                    const faqQ1 = document.querySelector('[data-i18n="education.faq.q1"]');
-                    if (faqQ1) faqQ1.textContent = '培训需要多长时间？';
-                    
-                    const faqA1 = document.querySelector('[data-i18n="education.faq.a1"]');
-                    if (faqA1) faqA1.textContent = '我们的课程长度从一天的研讨会到为期数周的全面计划不等。我们根据您的具体目标和时间限制定制培训长度。';
-                    
-                    const faqQ2 = document.querySelector('[data-i18n="education.faq.q2"]');
-                    if (faqQ2) faqQ2.textContent = '参与者需要什么先决条件或技术背景？';
-                    
-                    const faqA2 = document.querySelector('[data-i18n="education.faq.a2"]');
-                    if (faqA2) faqA2.textContent = '这取决于课程。我们的AI基础课程不需要技术背景，而我们的技术实施课程需要编程和数据科学知识。我们可以根据您团队的现有技能水平定制内容。';
-                    
-                    const faqQ3 = document.querySelector('[data-i18n="education.faq.q3"]');
-                    if (faqQ3) faqQ3.textContent = '您能否针对我们的特定行业定制培训？';
-                    
-                    const faqA3 = document.querySelector('[data-i18n="education.faq.a3"]');
-                    if (faqA3) faqA3.textContent = '是的，我们专注于行业特定的定制。我们的培训计划可以根据您所在行业的独特AI应用、挑战和机遇进行定制，无论是医疗保健、金融、制造、零售还是任何其他行业。';
-                    
-                    const faqQ4 = document.querySelector('[data-i18n="education.faq.q4"]');
-                    if (faqQ4) faqQ4.textContent = '您是否提供虚拟培训选项？';
-                    
-                    const faqA4 = document.querySelector('[data-i18n="education.faq.a4"]');
-                    if (faqA4) faqA4.textContent = '是的，我们所有的培训计划都提供面对面和虚拟形式。我们的虚拟培训保持与面对面课程相同的互动、实践方法，并配备额外的数字协作工具，以确保引人入胜的学习体验。';
-                    
-                    const faqQ5 = document.querySelector('[data-i18n="education.faq.q5"]');
-                    if (faqQ5) faqQ5.textContent = '培训后您提供什么持续支持？';
-                    
-                    const faqA5 = document.querySelector('[data-i18n="education.faq.a5"]');
-                    if (faqA5) faqA5.textContent = '所有参与者在培训后6个月内都可以访问我们的在线学习门户，其中包含额外资源、练习和参考材料。我们还提供可选的后续咨询课程，帮助团队将新知识应用到特定项目中。';
-                    
-                    // CTA section
-                    const ctaTitle = document.querySelector('[data-i18n="education.cta.title"]');
-                    if (ctaTitle) ctaTitle.textContent = '准备好提升您团队的AI技能了吗？';
-                    
-                    const ctaSubtitle = document.querySelector('[data-i18n="education.cta.subtitle"]');
-                    if (ctaSubtitle) ctaSubtitle.textContent = '联系我们讨论您的AI教育需求';
-                    
-                    const ctaButton = document.querySelector('[data-i18n="education.cta.button"]');
-                    if (ctaButton) ctaButton.textContent = '安排咨询';
-                    
-                } catch (error) {
-                    console.error('Error applying Chinese translations:', error);
-                }
-            } else {
-                // Restore original English content
-                console.log('Restoring English content');
-                try {
-                    if (window.originalEducationContent) {
-                        const heroTitle = document.querySelector('[data-i18n="education.hero.title"]');
-                        if (heroTitle) heroTitle.textContent = window.originalEducationContent.heroTitle;
-                        
-                        const heroSubtitle = document.querySelector('[data-i18n="education.hero.subtitle"]');
-                        if (heroSubtitle) heroSubtitle.textContent = window.originalEducationContent.heroSubtitle;
-                        
-                        const overviewTitle = document.querySelector('[data-i18n="education.overview.title"]');
-                        if (overviewTitle) overviewTitle.textContent = window.originalEducationContent.overviewTitle;
-                        
-                        const overviewSubtitle = document.querySelector('[data-i18n="education.overview.subtitle"]');
-                        if (overviewSubtitle) overviewSubtitle.textContent = window.originalEducationContent.overviewSubtitle;
-                        
-                        const overviewParagraph1 = document.querySelector('[data-i18n="education.overview.paragraph1"]');
-                        if (overviewParagraph1) overviewParagraph1.textContent = window.originalEducationContent.overviewParagraph1;
-                        
-                        const overviewParagraph2 = document.querySelector('[data-i18n="education.overview.paragraph2"]');
-                        if (overviewParagraph2) overviewParagraph2.textContent = window.originalEducationContent.overviewParagraph2;
-                        
-                        const overviewParagraph3 = document.querySelector('[data-i18n="education.overview.paragraph3"]');
-                        if (overviewParagraph3) overviewParagraph3.textContent = window.originalEducationContent.overviewParagraph3;
-                        
-                        const benefitsTitle = document.querySelector('[data-i18n="education.benefits.title"]');
-                        if (benefitsTitle) benefitsTitle.textContent = window.originalEducationContent.benefitsTitle;
-                        
-                        const benefitsSubtitle = document.querySelector('[data-i18n="education.benefits.subtitle"]');
-                        if (benefitsSubtitle) benefitsSubtitle.textContent = window.originalEducationContent.benefitsSubtitle;
-                    } else {
-                        console.warn('No original English content stored for restoration');
-                    }
-                } catch (error) {
-                    console.error('Error restoring English content:', error);
-                }
-            }
-        }
-
-        // Force translation after a short delay to ensure i18n.js has loaded
-        setTimeout(function() {
-            // Get current language
-            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-            
-            // Apply custom translations for Education page
-            updateEducationPageTranslations();
-            
-            // Force translation update
-            if (window.updatePageLanguage) {
-                window.updatePageLanguage(currentLang);
-            }
-        }, 500);
-
         // FAQ Accordion
         document.addEventListener('DOMContentLoaded', function() {
             const faqItems = document.querySelectorAll('.faq-item');
@@ -727,16 +473,6 @@
                 header.addEventListener('click', function() {
                     item.classList.toggle('active');
                 });
-            });
-            
-            // Initialize custom translations
-            updateEducationPageTranslations();
-            
-            // Listen for language changes from the i18n-module
-            document.addEventListener('languageChanged', function(event) {
-                console.log('Language changed event received in education page:', event.detail);
-                // Update page-specific translations when language changes
-                updateEducationPageTranslations();
             });
         });
 
@@ -849,5 +585,12 @@
             });
         });
     </script>
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    </div><!-- End page-wrapper -->
+    
+    <!-- i18n Scripts -->
+    <script src="../../assets/js/i18n-common.js"></script>
+    <script src="../../assets/js/i18n-education.js"></script>
 </body>
 </html>

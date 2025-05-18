@@ -30,8 +30,18 @@ function loadHeader() {
     
     console.log('Loading header component');
     
+    // Safe localStorage access with fallback
+    function safeStorageAccess(key, defaultValue) {
+        try {
+            return localStorage.getItem(key) || defaultValue;
+        } catch (e) {
+            console.warn('localStorage access denied, using default value');
+            return defaultValue;
+        }
+    }
+    
     // Get current language before loading header
-    const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+    const currentLang = safeStorageAccess('bixingLanguage', 'en');
     console.log('Current language before loading header:', currentLang);
     
     // Get a consistent path-to-root value

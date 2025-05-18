@@ -3,8 +3,18 @@
 window.translations = window.translations || {};
 
 // --- i18n header logic extracted from i18n-logic.js ---
+// Safe localStorage access with fallback
+function safeStorageAccess(key, defaultValue) {
+  try {
+    return localStorage.getItem(key) || defaultValue;
+  } catch (e) {
+    console.warn('localStorage access denied, using default value');
+    return defaultValue;
+  }
+}
+
 function getCurrentLanguage() {
-  return localStorage.getItem('bixingLanguage') || 'en';
+  return safeStorageAccess('bixingLanguage', 'en');
 }
 
 function applyTranslations(lang) {
@@ -19,6 +29,8 @@ function applyTranslations(lang) {
       if (element.tagName === 'P' || element.classList.contains('company-description') || 
           window.translations[currentLanguage][key].includes('<br>')) {
         element.innerHTML = window.translations[currentLanguage][key];
+        
+        // No special handling needed
       } else {
         element.textContent = window.translations[currentLanguage][key];
       }
@@ -67,11 +79,22 @@ if (document.readyState === 'loading') {
   }
 }
 
+// Safe localStorage setter with fallback
+function safeStorageSet(key, value) {
+  try {
+    localStorage.setItem(key, value);
+    return true;
+  } catch (e) {
+    console.warn('localStorage write access denied');
+    return false;
+  }
+}
+
 // Global toggleLanguage function - this will be enhanced by components.js
 window.toggleLanguage = function() {
   const storedLanguage = getCurrentLanguage();
   const newLanguage = storedLanguage === 'en' ? 'zh' : 'en';
-  localStorage.setItem('bixingLanguage', newLanguage);
+  safeStorageSet('bixingLanguage', newLanguage);
   var currentLanguageElement = document.getElementById('currentLanguage');
   if (currentLanguageElement) {
     currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
@@ -118,7 +141,7 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   "nav.careers": "加入我们",
   "nav.contact": "联系我们",
   "footer.company": "毕行科技",
-  "footer.companyDescription": "国际前沿 AI 解决方案提供商，\n助你充满 AI 的力量。",
+  "footer.companyDescription": "国际前沿 AI 解决方案提供商，<br>助你充满 AI 的力量。",
   "footer.quickLinks": "快捷链接",
   "footer.home": "首页",
   "footer.about": "关于我们",
