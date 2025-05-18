@@ -415,15 +415,25 @@ The header.html file must have a consistent structure to ensure proper language 
   - AI Custom Solutions: `i18n-services-solutions.js`
   - Enterprise AI Consultation: `i18n-services-consultation.js`
 
-### 4. Industry Insights Page
+### 7. Education & Training Page
 
-- **Translation File**: `i18n-insights.js`
+- **Translation File**: `i18n-education.js`
 - **Key Sections**:
-  - Blog posts listing
-  - Categories
-  - Featured articles
+  - Hero section
+  - Overview section (AI Knowledge Gap)
+  - Benefits section
+  - Training Process section (6 steps)
+  - Programs section (3 program cards)
+  - FAQ section
 
-### 5. Careers Page
+**Implementation Details**:
+- The Education page follows the same language toggle pattern as other pages
+- All text elements use `data-i18n` attributes for translation
+- The page includes both `i18n-common.js` and `i18n-education.js` scripts
+- Custom styling includes alternating dark-themed backgrounds for better section differentiation
+- Orange gradient buttons match the hero title gradient for visual consistency
+
+### Pages with Instant Language Toggle
 
 - **Translation File**: `i18n-careers.js`
 - **Key Sections**:
@@ -439,6 +449,17 @@ The header.html file must have a consistent structure to ensure proper language 
   - Contact information
   - Contact form
   - Office locations
+
+## Implementation Status
+
+The following pages have implemented the instant language toggle functionality:
+
+1. Home page
+2. About Us page
+3. Contact page
+4. Industry Insights page
+5. AI Custom Solutions page
+6. Education & Training page
 
 ## Adding New Pages
 
