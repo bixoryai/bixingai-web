@@ -3,6 +3,11 @@
 ## Last Updated: May 18, 2025
 
 ### Recent Changes
+- Modified: assets/js/i18n-consultation.js
+- Modified: pages/services/consultation.html
+
+
+### Recent Changes
 - Modified: assets/js/i18n-solutions.js
 - Modified: docs/language-toggle-implementation.md
 - Modified: pages/services/custom-solutions.html
