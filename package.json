@@ -1,0 +1,8 @@
+{
+  "name": "bixingai-web",
+  "version": "1.0.0",
+  "description": "Bixing Technology Website",
+  "scripts": {
+    "serve": "python -m http.server"
+  }
+}

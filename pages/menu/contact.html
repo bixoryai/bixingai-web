@@ -883,15 +883,18 @@ function getCurrentLanguage() {
                 "retina_detect": true
             });
             
-            // Form submission handling
-            const forms = document.querySelectorAll('form');
-            forms.forEach(form => {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    alert('Thank you for your submission! We will get back to you soon.');
-                    form.reset();
-                });
-            });
+            // Form submission is now handled by form-security.js
+            console.log('Particles.js initialized for contact page');
+        });
+    </script>
+    <!-- Form security script -->
+    <script src="../../assets/js/form-security.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form handling is now managed by form-security.js
+            // This script remains for backward compatibility
+            console.log('Contact forms secured with form-security.js');
         });
     </script>
 </body>

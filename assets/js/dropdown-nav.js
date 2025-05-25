@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle mobile dropdown behavior
     const mediaQuery = window.matchMedia('(max-width: 991.98px)');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
     
     function handleMobileDropdown(e) {
         if (e.matches) {
@@ -40,6 +41,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             dropdownToggles.forEach(toggle => {
                 toggle.setAttribute('data-bs-toggle', 'dropdown');
+            });
+            
+            // Add event listeners to close mobile menu when links are clicked
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Check if navbar is expanded (menu is open)
+                    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                        // Get the Bootstrap navbar toggler button
+                        const navbarToggler = document.querySelector('.navbar-toggler');
+                        if (navbarToggler) {
+                            navbarToggler.click(); // Programmatically click the toggler to close the menu
+                        }
+                    }
+                });
             });
         } else {
             // Desktop view - remove Bootstrap's dropdown toggle
@@ -50,6 +67,25 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+    
+    // Add a single document click listener outside the media query handler
+    // This ensures we only have one event listener regardless of screen size
+    document.addEventListener('click', function(event) {
+        // Check if navbar is expanded (menu is open)
+        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+            // Check if the click is outside both the navbar-collapse and the navbar-toggler
+            const isClickInsideMenu = navbarCollapse.contains(event.target);
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const isClickOnToggler = navbarToggler && navbarToggler.contains(event.target);
+            
+            if (!isClickInsideMenu && !isClickOnToggler) {
+                // Close the menu by clicking the toggler
+                if (navbarToggler) {
+                    navbarToggler.click();
+                }
+            }
+        }
+    });
     
     // Run once at initialization
     handleMobileDropdown(mediaQuery);

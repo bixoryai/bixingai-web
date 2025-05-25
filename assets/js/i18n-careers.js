@@ -1,7 +1,7 @@
 // Careers page translations
 window.translations = window.translations || {};
 window.translations.en = Object.assign({}, window.translations.en, {
-  "page.title": "Careers - Bixing Technology",
+  "careers.page.title": "Careers - Bixing Technology",
   "careers.hero.title": "Join Our Team",
   "careers.hero.subtitle": "Be part of a team that's shaping the future of AI technology and making a real impact",
   "careers.culture.title": "Our Culture",
@@ -86,7 +86,7 @@ window.translations.en = Object.assign({}, window.translations.en, {
 });
 
 window.translations.zh = Object.assign({}, window.translations.zh, {
-  "page.title": "加入我们 - 毕行科技",
+  "careers.page.title": "加入我们 - 毕行科技",
   "careers.hero.title": "加入我们的团队",
   "careers.hero.subtitle": "成为塑造AI技术未来并产生真正影响的团队的一员",
   "careers.culture.title": "我们的文化",
@@ -188,8 +188,8 @@ window.applyTranslations = function(lang) {
   });
   
   // Set page title
-  if (window.translations[lang]['page.title']) {
-    document.title = window.translations[lang]['page.title'];
+  if (window.translations[lang]['careers.page.title']) {
+    document.title = window.translations[lang]['careers.page.title'];
   }
 };
 

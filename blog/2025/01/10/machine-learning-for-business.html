@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Set preventBlogTranslations flag before any scripts load -->
+<!-- Blog post with direct translation implementation -->
 
 <head>
     <meta charset="UTF-8">
@@ -390,6 +390,44 @@
     </style>
 </head>
 <body data-path-to-root="../../../../">
+    <!-- Add a loading overlay that will hide content until translations are ready -->
+    <style>
+        .translation-loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0f172a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .translation-loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .translation-loading .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: #3b82f6;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    <div id="translation-loading" class="translation-loading">
+        <div class="spinner"></div>
+    </div>
     <!-- Header Placeholder -->
     <div id="header-placeholder"></div>
     
@@ -691,7 +729,7 @@
                                     
                                     <i class="fas fa-exchange-alt" style="color: #10b981; font-size: 2rem; margin-bottom: 15px;"></i>
                                     <h4 data-i18n="blog.machine-learning-business.applications.finance.card3.title">Algorithmic Trading</h4>
-                                    <div class="stat-number" style="font-size: 1.5rem; font-weight: 700; color: #10b981;" data-i18n="blog.machine-learning-business.applications.finance.card3.stat">Milliseconds</div>
+                                    <div class="stat-number" style="font-size: 1.5rem; font-weight: 700; color: #10b981;" data-i18n="blog.machine-learning-business.applications.finance.card3.stat">0.02 seconds</div>
                                     <p data-i18n="blog.machine-learning-business.applications.finance.card3.desc">Financial institutions use ML to analyze market data and execute trades at optimal times</p>
                                 </div>
                             </div>
@@ -708,21 +746,21 @@
                                 
                                 <div class="row">
                                     <div class="col-md-4 text-center mb-4">
-                                        <div class="step-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(16, 185, 129, 0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                                        <div class="step-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6, #60a5fa); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                                             <i class="fas fa-search" style="font-size: 2rem; color: #3b82f6;"></i>
                                         </div>
                                         <h4 data-i18n="blog.machine-learning-business.implementation.roadmap.step1">Identify</h4>
                                         <p data-i18n="blog.machine-learning-business.implementation.roadmap.step1.desc">Define specific business problems where ML can create measurable value</p>
                                     </div>
                                     <div class="col-md-4 text-center mb-4">
-                                        <div class="step-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(239, 68, 68, 0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                                        <div class="step-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #f59e0b, #fbbf24); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                                             <i class="fas fa-database" style="font-size: 2rem; color: #f59e0b;"></i>
                                         </div>
                                         <h4 data-i18n="blog.machine-learning-business.implementation.roadmap.step2">Prepare</h4>
                                         <p data-i18n="blog.machine-learning-business.implementation.roadmap.step2.desc">Collect, clean, and organize high-quality data for model training</p>
                                     </div>
                                     <div class="col-md-4 text-center mb-4">
-                                        <div class="step-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(139, 92, 246, 0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                                        <div class="step-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, #10b981, #34d399); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
                                             <i class="fas fa-rocket" style="font-size: 2rem; color: #10b981;"></i>
                                         </div>
                                         <h4 data-i18n="blog.machine-learning-business.implementation.roadmap.step3">Deploy</h4>
@@ -926,9 +964,9 @@
                     <div class="post-share">
                         <h4 data-i18n="blog.share">Share:</h4>
                         <div class="social-share">
-                            <a href="https://twitter.com/intent/tweet?text=Machine Learning for Business: Practical Applications&url=https://bixingtech.com/blog/2023/11/10/machine-learning-for-business.html" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://bixingtech.com/blog/2023/11/10/machine-learning-for-business.html&title=Machine Learning for Business: Practical Applications" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://bixingtech.com/blog/2023/11/10/machine-learning-for-business.html" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://twitter.com/intent/tweet?text=Machine Learning for Business: Practical Applications&url=https://bixingtech.com/blog/2025/01/10/machine-learning-for-business.html" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://bixingtech.com/blog/2025/01/10/machine-learning-for-business.html&title=Machine Learning for Business: Practical Applications" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://bixingtech.com/blog/2025/01/10/machine-learning-for-business.html" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
                         </div>
                     </div>
                 </div>
@@ -963,47 +1001,47 @@
     </section>
 
     <!-- Related Posts Section -->
-    <section class="related-section">
+    <section class="related-section" style="display: none;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="text-center mb-5">Related Insights</h2>
+                    <h2 class="text-center mb-5" id="related-title">Related Insights</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="insights-card">
-                        <img src="../../../../assets/images/blog/blog-ai-enterprise.jpg" alt="The Future of AI in Enterprise" class="insights-image">
+                        <img src="../../../../assets/images/insights/future-ai-enterprise.svg" alt="The Future of AI in Enterprise" class="insights-image" style="width: 100%; height: 200px; object-fit: cover; display: block;">
                         <div class="insights-content">
-                            <div class="insights-date">October 15, 2023</div>
-                            <span class="insights-category">AI Trends</span>
-                            <h3 class="insights-title">The Future of AI in Enterprise: Trends and Predictions</h3>
-                            <p class="insights-excerpt">Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how businesses can prepare for the AI-driven future.</p>
-                            <a href="../../../../blog/2023/10/15/the-future-of-ai-in-enterprise.html" class="insights-read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                            <div class="insights-date" id="card1-date">October 15, 2023</div>
+                            <span class="insights-category" id="card1-category">AI Trends</span>
+                            <h3 class="insights-title" id="card1-title">The Future of AI in Enterprise: Trends and Predictions</h3>
+                            <p class="insights-excerpt" id="card1-excerpt">Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how businesses can prepare for the AI-driven future.</p>
+                            <a href="../../../../blog/2023/10/15/the-future-of-ai-in-enterprise.html" class="insights-read-more"><span id="read-more-text">Read More</span> <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="insights-card">
-                        <img src="../../../../assets/images/insights/insight-2.svg" alt="Coming Soon" class="insights-image">
+                        <img src="../../../../assets/images/insights/data-science-practices.svg" alt="Data Science Best Practices" class="insights-image" style="width: 100%; height: 200px; object-fit: cover; display: block;">
                         <div class="insights-content">
-                            <div class="insights-date">Coming Soon</div>
-                            <span class="insights-category">Data Science</span>
-                            <h3 class="insights-title">Data Science Best Practices for Business</h3>
-                            <p class="insights-excerpt">A comprehensive guide to implementing data science practices in your organization for better decision-making.</p>
-                            <a href="#" class="insights-read-more">Coming Soon <i class="fas fa-arrow-right"></i></a>
+                            <div class="insights-date" id="card2-date">Coming Soon</div>
+                            <span class="insights-category" id="card2-category">Data Science</span>
+                            <h3 class="insights-title" id="card2-title">Data Science Best Practices for Business</h3>
+                            <p class="insights-excerpt" id="card2-excerpt">A comprehensive guide to implementing data science practices in your organization for better decision-making.</p>
+                            <a href="#" class="insights-read-more"><span id="coming-soon-text">Coming Soon</span> <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="insights-card">
-                        <img src="../../../../assets/images/insights/insight-3.svg" alt="Coming Soon" class="insights-image">
+                        <img src="../../../../assets/images/insights/implementing-ai.svg" alt="Implementing AI" class="insights-image" style="width: 100%; height: 200px; object-fit: cover; display: block;">
                         <div class="insights-content">
-                            <div class="insights-date">Coming Soon</div>
-                            <span class="insights-category">AI Implementation</span>
-                            <h3 class="insights-title">Implementing AI in Your Organization</h3>
-                            <p class="insights-excerpt">Strategies and best practices for successfully implementing AI solutions in your business.</p>
-                            <a href="#" class="insights-read-more">Coming Soon <i class="fas fa-arrow-right"></i></a>
+                            <div class="insights-date" id="card3-date">Coming Soon</div>
+                            <span class="insights-category" id="card3-category">AI Implementation</span>
+                            <h3 class="insights-title" id="card3-title">Implementing AI in Your Organization</h3>
+                            <p class="insights-excerpt" id="card3-excerpt">Strategies and best practices for successfully implementing AI solutions in your business.</p>
+                            <a href="#" class="insights-read-more"><span id="coming-soon-text-2">Coming Soon</span> <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1025,177 +1063,178 @@
     <!-- Components JS -->
     <script src="../../../../assets/js/components.js"></script>
 
-    <!-- i18n Module -->
-    <script src="../../../../assets/js/i18n-module.js"></script>
+    <!-- i18n Scripts -->
+    <script src="../../../../assets/js/i18n-common.js"></script>
 
-    <!-- Custom script to ensure translations are applied correctly -->
+    <!-- Direct translation script for blog post -->
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Immediately toggle social icons based on current language
-        if (window.BixingI18n && window.BixingI18n.getCurrentLanguage) {
-            toggleSocialIcons(window.BixingI18n.getCurrentLanguage());
-        }
-
-        // Add direct event listener to language toggle button
-        const languageToggleBtn = document.getElementById('languageToggle');
-        if (languageToggleBtn) {
-            languageToggleBtn.addEventListener('click', function() {
-                setTimeout(function() {
-                    if (window.BixingI18n && window.BixingI18n.getCurrentLanguage) {
-                        const currentLang = window.BixingI18n.getCurrentLanguage();
-                        toggleSocialIcons(currentLang);
-                        // Delay restoration to guarantee it runs last
-                        if (currentLang === 'en' && window.originalEnglishContent) {
-                            setTimeout(function() {
-                                document.querySelectorAll('[data-i18n]').forEach(element => {
-                                    const key = element.getAttribute('data-i18n');
-                                    if (window.originalEnglishContent[key]) {
-                                        if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
-                                            element.placeholder = window.originalEnglishContent[key];
-                                        } else if ((element.tagName === 'BUTTON' || element.tagName === 'INPUT') && element.hasAttribute('value')) {
-                                            element.value = window.originalEnglishContent[key];
-                                        } else {
-                                            element.textContent = window.originalEnglishContent[key];
-                                        }
-                                    }
-                                });
-                            }, 350);
-                        }
-                    }
-                }, 200);
-            });
-        }
-
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-
-        // Header scroll effect (robust to missing header)
-        const header = document.querySelector('.header');
-        window.addEventListener('scroll', function() {
-            if (!header) return;
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
+        // Function to toggle social media icons based on language
+        function toggleSocialIcons(lang) {
+            const westernSocial = document.querySelectorAll('.social-share a:not(.wechat)');
+            const chineseSocial = document.querySelectorAll('.social-share a.wechat');
+            
+            if (lang === 'zh') {
+                westernSocial.forEach(icon => icon.style.display = 'none');
+                chineseSocial.forEach(icon => icon.style.display = 'inline-block');
             } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Ensure translations are applied correctly
-        if (window.BixingI18n) {
-            window.BixingI18n.applyTranslations();
-            toggleSocialIcons(window.BixingI18n.getCurrentLanguage());
-
-            // Create a backup of the original English content if not already done
-            if (!window.originalEnglishContent) {
-                window.originalEnglishContent = {};
-                document.querySelectorAll('[data-i18n]').forEach(element => {
-                    const key = element.getAttribute('data-i18n');
-                    window.originalEnglishContent[key] = element.textContent || element.innerText;
-                });
-            }
-
-            // Listen for language changes (reference blog pattern)
-            document.addEventListener('languageChanged', function(event) {
-                const currentLang = window.BixingI18n.getCurrentLanguage();
-                setTimeout(function() {
-                    if (currentLang === 'en') {
-                        document.querySelectorAll('[data-i18n]').forEach(element => {
-                            const key = element.getAttribute('data-i18n');
-                            if (window.originalEnglishContent[key]) {
-                                if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
-                                    element.placeholder = window.originalEnglishContent[key];
-                                } else if ((element.tagName === 'BUTTON' || element.tagName === 'INPUT') && element.hasAttribute('value')) {
-                                    element.value = window.originalEnglishContent[key];
-                                } else {
-                                    element.textContent = window.originalEnglishContent[key];
-                                }
-                            }
-                        });
-                    } else {
-                        window.BixingI18n.applyTranslations();
-                    }
-                    toggleSocialIcons(currentLang);
-                }, 100);
-            });
-
-            // On DOMContentLoaded, also restore English after a short delay if needed (reference blog pattern)
-            setTimeout(function() {
-                const currentLang = window.BixingI18n.getCurrentLanguage();
-                if (currentLang === 'en' && window.originalEnglishContent) {
-                    document.querySelectorAll('[data-i18n]').forEach(element => {
-                        const key = element.getAttribute('data-i18n');
-                        if (window.originalEnglishContent[key]) {
-                            if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
-                                element.placeholder = window.originalEnglishContent[key];
-                            } else if ((element.tagName === 'BUTTON' || element.tagName === 'INPUT') && element.hasAttribute('value')) {
-                                element.value = window.originalEnglishContent[key];
-                            } else {
-                                element.textContent = window.originalEnglishContent[key];
-                            }
-                        }
-                    });
-                }
-            }, 200);
-
-
-            // Create a backup of the original English content if not already done
-            if (!window.originalEnglishContent) {
-                window.originalEnglishContent = {};
-                document.querySelectorAll('[data-i18n]').forEach(element => {
-                    const key = element.getAttribute('data-i18n');
-                    window.originalEnglishContent[key] = element.textContent || element.innerText;
-                });
-            }
-
-            // Listen for language changes
-            document.addEventListener('languageChanged', function(event) {
-                const currentLang = window.BixingI18n.getCurrentLanguage();
-                setTimeout(function() {
-                    if (currentLang === 'en') {
-                        document.querySelectorAll('[data-i18n]').forEach(element => {
-                            const key = element.getAttribute('data-i18n');
-                            if (window.originalEnglishContent[key]) {
-                                if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
-                                    element.placeholder = window.originalEnglishContent[key];
-                                } else if ((element.tagName === 'BUTTON' || element.tagName === 'INPUT') && element.hasAttribute('value')) {
-                                    element.value = window.originalEnglishContent[key];
-                                } else {
-                                    element.textContent = window.originalEnglishContent[key];
-                                }
-                            }
-                        });
-                    } else {
-                        window.BixingI18n.applyTranslations();
-                    }
-                    toggleSocialIcons(currentLang);
-                }, 100);
-            });
-
-            // Force a page reload if language toggle doesn't work after 3 attempts
-            if (!window.languageToggleAttempts) {
-                window.languageToggleAttempts = 0;
-                if (languageToggleBtn) {
-                    const originalOnClick = languageToggleBtn.onclick;
-                    languageToggleBtn.onclick = function(e) {
-                        window.languageToggleAttempts++;
-                        if (window.languageToggleAttempts > 3) {
-                            const currentLang = window.BixingI18n.getCurrentLanguage();
-                            const targetLang = currentLang === 'en' ? 'zh' : 'en';
-                            localStorage.setItem('bixingLanguage', targetLang);
-                            window.location.reload();
-                            return;
-                        }
-                        if (originalOnClick) originalOnClick.call(this, e);
-                    };
-                }
+                westernSocial.forEach(icon => icon.style.display = 'inline-block');
+                chineseSocial.forEach(icon => icon.style.display = 'none');
             }
         }
+        
+        // Function to translate Related Insights section
+        function translateRelatedInsights(translations) {
+            // Section title
+            document.getElementById('related-title').textContent = translations['blog.machine-learning-business.related.title'] || 'Related Insights';
+            
+            // Card 1
+            document.getElementById('card1-date').textContent = translations['blog.future_ai_date'] || 'October 15, 2023';
+            document.getElementById('card1-category').textContent = translations['blog.category.ai_trends'] || 'AI Trends';
+            document.getElementById('card1-title').textContent = translations['blog.machine-learning-business.related.enterprise'] || 'The Future of AI in Enterprise: Trends and Predictions';
+            document.getElementById('card1-excerpt').textContent = translations['blog.future_ai_excerpt'] || 'Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how businesses can prepare for the AI-driven future.';
+            document.getElementById('read-more-text').textContent = translations['blog.read_more'] || 'Read More';
+            
+            // Card 2
+            document.getElementById('card2-date').textContent = translations['blog.coming_soon'] || 'Coming Soon';
+            document.getElementById('card2-category').textContent = translations['blog.category.data_science'] || 'Data Science';
+            document.getElementById('card2-title').textContent = translations['blog.machine-learning-business.related.datascience'] || 'Data Science Best Practices for Business';
+            document.getElementById('card2-excerpt').textContent = translations['blog.datascience_excerpt'] || 'A comprehensive guide to implementing data science practices in your organization for better decision-making.';
+            document.getElementById('coming-soon-text').textContent = translations['blog.coming_soon_link'] || 'Coming Soon';
+            
+            // Card 3
+            document.getElementById('card3-date').textContent = translations['blog.coming_soon'] || 'Coming Soon';
+            document.getElementById('card3-category').textContent = translations['blog.category.ai_implementation'] || 'AI Implementation';
+            document.getElementById('card3-title').textContent = translations['blog.machine-learning-business.related.implementation'] || 'Implementing AI in Your Organization';
+            document.getElementById('card3-excerpt').textContent = translations['blog.implementation_excerpt'] || 'Strategies and best practices for successfully implementing AI solutions in your business.';
+            document.getElementById('coming-soon-text-2').textContent = translations['blog.coming_soon_link'] || 'Coming Soon';
+        }
 
-        // Toggle visibility of social icons based on language
+        // Check language and show loading overlay if Chinese
+        const savedLang = localStorage.getItem('bixingLanguage');
+        if (savedLang === 'zh') {
+            document.getElementById('translation-loading').classList.remove('hidden');
+        }
+        
+        // Wait for DOM to be ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Store original English content
+            window.originalEnglishContent = {};
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                window.originalEnglishContent[key] = element.innerHTML || element.textContent;
+            });
+            
+            // Get current language
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            console.log('Current language:', currentLang);
+            
+            // Debug all elements with data-i18n attributes
+            const elementsWithI18n = document.querySelectorAll('[data-i18n]');
+            console.log(`Found ${elementsWithI18n.length} elements with data-i18n attributes:`);
+            
+            // Load translations from JSON file
+            if (currentLang === 'zh') {
+                fetch('./machine-learning-for-business-translations.json')
+                    .then(response => response.json())
+                    .then(translations => {
+                        console.log('Loaded translations:', translations);
+                        
+                        // Apply translations to all elements with data-i18n attribute
+                        document.querySelectorAll('[data-i18n]').forEach(element => {
+                            const key = element.getAttribute('data-i18n');
+                            if (translations[key]) {
+                                // Use innerHTML for elements that might contain HTML
+                                if (element.tagName === 'P' || element.classList.contains('company-description') || 
+                                    translations[key].includes('<br>')) {
+                                    element.innerHTML = translations[key];
+                                } else {
+                                    element.textContent = translations[key];
+                                }
+                            } else {
+                                console.warn(`No translation found for ${key}`);
+                            }
+                        });
+                        
+                        // Additionally translate the Related Insights section using IDs
+                        translateRelatedInsights(translations);
+                        
+                        // Toggle social icons
+                        toggleSocialIcons('zh');
+                        
+                        // Hide loading overlay after translations are applied
+                        setTimeout(function() {
+                            const loadingOverlay = document.getElementById('translation-loading');
+                            if (loadingOverlay) {
+                                loadingOverlay.classList.add('hidden');
+                            }
+                        }, 200);
+                    })
+                    .catch(error => {
+                        console.error('Error loading translations:', error);
+                    });
+            } else {
+                // For English, ensure original content is displayed
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (window.originalEnglishContent[key]) {
+                        if (element.tagName === 'P' || element.classList.contains('company-description')) {
+                            element.innerHTML = window.originalEnglishContent[key];
+                        } else {
+                            element.textContent = window.originalEnglishContent[key];
+                        }
+                    }
+                });
+                
+                // Toggle social icons
+                toggleSocialIcons('en');
+                
+                // Hide loading overlay for English content
+                setTimeout(function() {
+                    const loadingOverlay = document.getElementById('translation-loading');
+                    if (loadingOverlay) {
+                        loadingOverlay.classList.add('hidden');
+                    }
+                }, 100);
+            }
+            
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (!header) return;
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Language toggle button handler
+            const languageToggle = document.getElementById('languageToggle');
+            if (languageToggle) {
+                languageToggle.addEventListener('click', function() {
+                    const newLang = currentLang === 'en' ? 'zh' : 'en';
+                    localStorage.setItem('bixingLanguage', newLang);
+                    // Force page reload to apply new language
+                    window.location.reload();
+                });
+            }
+            
+            // Listen for language toggle events from the header
+            document.addEventListener('languageToggled', function(e) {
+                console.log('Language toggled event received:', e.detail.language);
+                // Force page reload to apply new language
+                window.location.reload();
+            });
+        });
+        
+        // Function to toggle social icons based on language
         function toggleSocialIcons(language) {
             const twitterShare = document.getElementById('twitter-share');
             const linkedinShare = document.getElementById('linkedin-share');
@@ -1214,85 +1253,13 @@
                 wechatShare.style.display = 'none';
             }
         }
-    });
-    </script>
-
-        function restoreEnglishContent() {
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (window.originalEnglishContent[key]) {
-                    if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
-                        element.placeholder = window.originalEnglishContent[key];
-                    } else if ((element.tagName === 'BUTTON' || element.tagName === 'INPUT') && element.hasAttribute('value')) {
-                        element.value = window.originalEnglishContent[key];
-                    } else {
-                        element.textContent = window.originalEnglishContent[key];
-                    }
-                }
-            });
-        }
-
-        // Apply language (EN: restore, ZH: use i18n module)
-        function applyLanguage() {
-            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-            if (currentLang === 'en') {
-                restoreEnglishContent();
-            } else {
-                if (window.BixingI18n) {
-                    window.BixingI18n.applyTranslations();
-                }
-            }
-        }
-
-        // Initial application
-        setTimeout(applyLanguage, 100);
-
-        // Language toggle button handler
-        if (languageToggle) {
-            languageToggle.addEventListener('click', function() {
-                const targetLang = (localStorage.getItem('bixingLanguage') || 'en') === 'en' ? 'zh' : 'en';
-                localStorage.setItem('bixingLanguage', targetLang);
-                window.location.reload();
-            });
-        }
-    });
     </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true
-            });
-            
             // Load header and footer components
             loadComponent('header-placeholder', 'header.html');
             loadComponent('footer-placeholder', 'footer.html');
-            
-            // Header scroll effect
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('.header');
-                if (header) {
-                    if (window.scrollY > 50) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
-                }
-            });
-            
-            // Simple fix for language toggle
-            const languageToggle = document.getElementById('languageToggle');
-            if (languageToggle) {
-                languageToggle.addEventListener('click', function() {
-                    // Force page reload when language is toggled
-                    setTimeout(function() {
-                        window.location.reload();
-                    }, 100);
-                });
-            }
         });
     </script>
 

@@ -1,6 +1,50 @@
 # Bixing Technology Website Project Status
 
-## Last Updated: May 18, 2025
+## Last Updated: May 25, 2025
+
+### Recent Changes
+- Modified: _layouts/post-new.html
+- Modified: _layouts/post.html
+- Modified: assets/css/breakpoints.css
+- Modified: assets/css/consolidated/layout-components.css
+- Modified: assets/css/consolidated/relative-units.css
+- Modified: assets/css/consolidated/sections.css
+- Modified: assets/css/header.css
+- Modified: assets/css/hero-section.css
+- Modified: assets/css/variables.css
+- Modified: assets/images/insights/data-science-practices.svg
+- Modified: assets/images/insights/future-ai-enterprise.svg
+- Modified: assets/images/insights/implementing-ai.svg
+- Modified: assets/js/components.js
+- Modified: assets/js/dropdown-nav.js
+- Modified: assets/js/form-security.js
+- Modified: assets/js/i18n-blog.js
+- Modified: assets/js/i18n-careers.js
+- Modified: assets/js/i18n-common.js
+- Modified: assets/js/i18n-home.js
+- Modified: assets/js/main.js
+- Modified: assets/js/storage-utils.js
+- Modified: assets/js/translations/en.json
+- Modified: assets/js/translations/zh.json
+- Modified: blog/2023/10/15/the-future-of-ai-in-enterprise-fixed.html
+- Modified: blog/2023/10/15/the-future-of-ai-in-enterprise-minimal.html
+- Modified: blog/2023/10/15/the-future-of-ai-in-enterprise-new.html
+- Modified: blog/2023/10/15/the-future-of-ai-in-enterprise-translations.json
+- Modified: blog/2023/10/15/the-future-of-ai-in-enterprise.html
+- Modified: blog/2023/11/10/machine-learning-for-business.html
+- Modified: blog/2025/01/10/machine-learning-for-business-translations.json
+- Modified: blog/2025/01/10/machine-learning-for-business.html
+- Modified: components/header-home.html
+- Modified: docs/css-audit.md
+- Modified: docs/language-toggle-implementation.md
+- Modified: index.html
+- Modified: package.json
+- Modified: pages/menu/careers.html
+- Modified: pages/menu/contact.html
+- Modified: pages/menu/insights.html
+- Modified: pages/services/consultation.html
+- Modified: project-status.md
+
 
 ### Recent Changes
 - Modified: assets/js/i18n-consultation.js
@@ -418,12 +462,76 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - Python HTTP server used for local development
 
 ## Next Steps
+
+### Website Optimization Checklist (Added May 25, 2025)
+
+#### Phase 1: CSS Organization and Optimization
+1. **Create a CSS audit spreadsheet** ✅
+   - Created docs/css-audit.md with comprehensive analysis
+   - Listed all CSS files and their sizes
+   - Identified duplicate styles across files
+   - Documented CSS variables usage
+
+2. **Consolidate common CSS variables** ✅
+   - Created a unified variables.css file
+   - Consolidated all color, spacing, and typography values
+   - Added detailed comments for better organization
+   - Updated index.html to reference the new file
+
+3. **Merge component-specific CSS files** ✅
+   - Created consolidated/sections.css combining section-specific styles
+   - Created consolidated/layout-components.css for header and footer
+   - Added consolidated files to index.html
+   - Kept original files temporarily to ensure functionality
+
+4. **Implement responsive improvements** ✅
+   - Created breakpoints.css with standardized media query variables
+   - Created consolidated/relative-units.css with relative sizing classes
+   - Added both files to index.html
+   - Fixed hamburger menu positioning on homepage in mobile view
+   - Provided comprehensive documentation for consistent usage (rem, em, %)
+   - Ensure mobile-first approach in all styles
+
+#### Phase 2: Asset Optimization
+5. **Optimize image assets** ✅
+   - Added width and height attributes to all images
+   - Specified dimensions to prevent layout shifts
+   - Prepared for future compression and WebP conversion
+
+6. **Implement lazy loading for images** ✅
+   - Added loading="lazy" attribute to all non-critical images
+   - Kept eager loading for above-the-fold hero images
+   - Added proper width and height attributes to prevent layout shifts
+
+#### Phase 3: JavaScript Improvements
+7. **Standardize localStorage access** ✅
+   - Created a unified BixingStorage utility
+   - Implemented consistent error handling
+   - Updated key files to use the storage utility
+
+8. **Optimize translation system**
+   - Consolidate translation files
+   - Implement lazy loading for non-critical translations
+   - Improve language switching performance
+
+#### Phase 4: Performance Enhancements
+9. **Add resource hints** ✅
+   - Implemented preconnect for external domains (CDNs, Google Fonts)
+   - Added preload for critical CSS and JavaScript files
+   - Optimized font loading with proper resource hints
+
+10. **Implement basic security improvements** ✅
+     - Added form validation and sanitization
+     - Implemented CSRF protection for all forms
+     - Verified all resources use HTTPS
+
+### Previous Next Steps
 1. **Push Path Standardization Changes**: Push the path standardization changes to GitHub
 2. **Consolidate CSS Files**: Combine related CSS files to reduce HTTP requests
-2. **Testing**: Verify all changes work correctly across different browsers and devices
-3. **Additional Pages**: Continue implementing multilingual support for remaining pages
-4. **Optimization**: Review site performance and optimize as needed
-5. **Content Updates**: Add more detailed content for services and insights sections
+3. **Testing**: Verify all changes work correctly across different browsers and devices
+4. **Additional Pages**: Continue implementing multilingual support for remaining pages
+5. **Optimization**: Review site performance and optimize as needed
+6. **Content Updates**: Add more detailed content for services and insights sections
 
 ## Technical Notes
 - The website uses a custom translation mechanism in i18n.js

@@ -129,6 +129,10 @@
   "portfolio.manufacturing.description": "Implemented predictive maintenance AI that reduced downtime by 35% for a global manufacturing client.",
   "portfolio.healthcare.title": "Healthcare Innovation",
   "portfolio.healthcare.description": "Developed an AI-powered diagnostic assistant that improved accuracy by 28% and reduced time-to-diagnosis.",
+  "portfolio.healthcare.readMore": "Read Case Study",
+  "portfolio.financial.title": "Financial Services",
+  "portfolio.financial.description": "Created a fraud detection system for a financial institution that reduced false positives by 42% while improving detection accuracy.",
+  "portfolio.financial.readMore": "Read Case Study",
   "portfolio.finance.title": "Financial Intelligence",
   "portfolio.finance.description": "Created a custom fraud detection system that increased detection rates by 47% while reducing false positives.",
   "portfolio.retail.title": "Retail Transformation",
@@ -165,6 +169,11 @@
   "insights.article3.excerpt": "A practical guide to successfully implementing AI solutions in various business contexts.",
   "insights.article3.readMore": "Read More",
   "insights.viewAll": "View All Insights",
+  
+  "demo.heading": "See AI in Action",
+  "demo.description1": "Explore our interactive demos to understand how our AI solutions can transform your business processes and drive innovation.",
+  "demo.description2": "These demos showcase just a small fraction of what's possible with our custom AI development services.",
+  "demo.viewAll": "View All Demos",
   
   "cta.title": "Ready to Transform Your Business with AI?",
   "cta.subtitle": "Get in touch with our experts to discuss your specific needs and challenges",

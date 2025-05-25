@@ -450,6 +450,54 @@ The header.html file must have a consistent structure to ensure proper language 
   - Contact form
   - Office locations
 
+## Blog Posts Translation Approach
+
+Blog posts use a different translation approach than regular pages due to their content-heavy nature and specific requirements:
+
+### Direct Translation Approach for Blog Posts
+
+1. **Implementation Details**:
+   - Each blog post has its own dedicated JSON translation file (e.g., `machine-learning-for-business-translations.json`)
+   - Translations are loaded directly from the JSON file based on the current language in localStorage
+   - The blog post requires a page reload when language is toggled
+   - Uses the same `data-i18n` attribute system but processes it locally within the blog post
+
+2. **Blog-Specific Script Structure**:
+
+```javascript
+// Wait for DOM to be ready
+document.addEventListener('DOMContentLoaded', function() {
+  // Get current language
+  const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+  
+  // Load translations from JSON file when in Chinese mode
+  if (currentLang === 'zh') {
+    fetch('blog-post-translations.json')
+      .then(response => response.json())
+      .then(translations => {
+        // Apply translations directly to elements
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+          const key = element.getAttribute('data-i18n');
+          if (translations[key]) {
+            element.innerHTML = translations[key];
+          }
+        });
+      });
+  }
+});
+```
+
+3. **Advantages of This Approach for Blog Posts**:
+   - **Simplicity**: No complex configuration with the i18n module
+   - **Reliability**: Directly targets specific elements, reducing the chance of mismatched keys
+   - **Performance**: Works by fetching the JSON file only when needed
+   - **Maintainability**: All translations are centralized in one JSON file for each blog post
+
+4. **Implementation Notes**:
+   - Blog posts listen for the 'languageToggled' event from the header but trigger a page reload
+   - Social media sharing icons are toggled based on language (Western platforms for English, WeChat for Chinese)
+   - The blog post preserves special styling (like gradient effects) after translation is applied
+
 ## Implementation Status
 
 The following pages have implemented the instant language toggle functionality:
@@ -460,6 +508,11 @@ The following pages have implemented the instant language toggle functionality:
 4. Industry Insights page
 5. AI Custom Solutions page
 6. Education & Training page
+
+The following blog posts have implemented the direct translation approach:
+
+1. Machine Learning for Business (2025/01/10)
+2. The Future of AI in Enterprise (2023/10/15)
 
 ## Adding New Pages
 

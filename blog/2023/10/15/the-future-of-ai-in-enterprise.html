@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Set preventBlogTranslations flag before any scripts load -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Future of AI in Enterprise: Trends and Predictions - Bixing Technology</title>
+    <title data-i18n="blog.future-ai-enterprise.title">The Future of AI in Enterprise: Trends and Predictions - Bixing Technology</title>
     
     <!-- Favicon -->
     <link rel="icon" href="../../../../assets/images/favicon.ico" type="image/x-icon">
@@ -36,12 +37,89 @@
     <link rel="stylesheet" href="../../../../assets/css/footer-section.css">
     <link rel="stylesheet" href="../../../../assets/css/secondary-hero.css">
     
+    <!-- Loading overlay style to prevent flash of untranslated content -->
+    <style>
+        .translation-loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0f172a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .translation-loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .translation-loading .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: #3b82f6;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    
+    <!-- Simple script to handle language toggle -->
+    <script>
+        // Basic language toggle function
+        function toggleLanguage() {
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            const newLang = currentLang === 'en' ? 'zh' : 'en';
+            localStorage.setItem('bixingLanguage', newLang);
+            window.location.reload();
+        }
+        
+        // Set up language toggle button when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up language toggle button
+            const languageToggle = document.getElementById('languageToggle');
+            if (languageToggle) {
+                languageToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    toggleLanguage();
+                });
+            }
+        });
+    </script>
+    
     <style>
         /* Blog post specific styles */
         .post-header {
             background-color: #0f172a;
             padding: 100px 0 60px;
             position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background pattern for enterprise AI banner */
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.4;
+        }
+        
+        .enterprise-ai-svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
         }
         
         .post-header::before {
@@ -60,6 +138,13 @@
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: var(--white);
+        }
+        
+        .post-title.gradient-text {
+            background: linear-gradient(135deg, #f59e0b, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .post-meta {
@@ -416,6 +501,44 @@
     </style>
 </head>
 <body data-path-to-root="../../../../">
+    <!-- Add a loading overlay that will hide content until translations are ready -->
+    <style>
+        .translation-loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0f172a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        .translation-loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .translation-loading .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            border-top-color: #3b82f6;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+    <div id="translation-loading" class="translation-loading">
+        <div class="spinner"></div>
+    </div>
     <div class="page-wrapper">
     <!-- Header -->
     <div id="header-placeholder"></div>
@@ -425,31 +548,32 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="post-meta">
-                        <span class="post-date">December 28, 2024</span>
+                        <span class="post-date" data-i18n="blog.future-ai-enterprise.date">December 28, 2024</span>
                         <span class="post-categories">
                             <a href="../../../../pages/menu/insights.html?filter=ai-trends" data-i18n="blog.future-ai-enterprise.category1">AI Trends</a>,
                             <a href="../../../../pages/menu/insights.html?filter=enterprise" data-i18n="blog.future-ai-enterprise.category2">Enterprise</a>
                         </span>
                     </div>
-                    <h1 class="post-title" style="background: linear-gradient(135deg, #f59e0b, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;" data-i18n="blog.future-ai-enterprise.title">The Future of AI in Enterprise: Trends and Predictions</h1>
+                    <h1 class="post-title gradient-text" data-i18n="blog.future-ai-enterprise.title">The Future of AI in Enterprise: Trends and Predictions</h1>
                     <div class="post-author">
                         <span data-i18n="blog.future-ai-enterprise.author">By Bixing Technology</span>
                     </div>
                     <div class="mt-4 position-relative">
-                        <div class="enterprise-ai-banner rounded" style="width: 100%; height: 400px; background: linear-gradient(135deg, #0f172a, #1e293b); overflow: hidden; position: relative; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);">
+                        <div class="enterprise-ai-banner rounded">
                             <!-- Background Pattern -->
-                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.1"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); opacity: 0.4;"></div>
+                            <div class="background-pattern"></div>
                             
                             <!-- Glow Effects -->
                             <div class="glow-effect glow-effect-primary"></div>
                             <div class="glow-effect glow-effect-secondary"></div>
                             
                             <!-- Enterprise AI Visualization -->
-                            <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 100%; height: 100%;">
+                            <svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" class="enterprise-ai-svg">
                                 <!-- Define gradients and filters -->
                                 <defs>
                                     <radialGradient id="enterpriseGradient" cx="0.5" cy="0.5" r="0.5" fx="0.25" fy="0.25">
                                         <stop offset="0%" stop-color="#3b82f6" />
+                                        <stop offset="100%" stop-color="#10b981" />
                                         <stop offset="100%" stop-color="#1e40af" />
                                     </radialGradient>
                                     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
@@ -1292,7 +1416,7 @@
                             <h3 data-i18n="blog.recent-posts">Recent Posts</h3>
                             <ul class="recent-posts">
                                 <li>
-                                    <a href="../../../../blog/2023/11/10/machine-learning-for-business.html">
+                                    <a href="../../../../blog/2025/01/10/machine-learning-for-business.html">
                                         <h4 data-i18n="blog.recent-post1-title">Machine Learning for Business: Practical Applications</h4>
                                         <span class="post-date" data-i18n="blog.recent-post1-date">November 10, 2023</span>
                                     </a>
@@ -1334,7 +1458,7 @@
                             <span class="insights-category" data-i18n="blog.related1-category">Machine Learning</span>
                             <h3 class="insights-title" data-i18n="blog.related1-title">Machine Learning for Business: Practical Applications</h3>
                             <p class="insights-excerpt" data-i18n="blog.related1-excerpt">Discover practical applications of machine learning that are transforming businesses today and how you can implement these solutions in your organization.</p>
-                            <a href="../../../../blog/2023/11/10/machine-learning-for-business.html" class="insights-read-more"><span data-i18n="blog.read-more">Read More</span> <i class="fas fa-arrow-right"></i></a>
+                            <a href="../../../../blog/2025/01/10/machine-learning-for-business.html" class="insights-read-more"><span data-i18n="blog.read-more">Read More</span> <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1384,163 +1508,352 @@
     <!-- Components JS -->
     <script src="../../../../assets/js/components.js"></script>
 
-    <!-- i18n Module -->
-    <script src="../../../../assets/js/i18n-module.js"></script>
+    <!-- i18n Scripts -->
+    <script src="../../../../assets/js/i18n-common.js"></script>
+    <script src="../../../../assets/js/i18n-blog.js"></script>
 
     <!-- Custom script to ensure translations are applied correctly -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Immediately toggle social icons based on current language
-            if (window.BixingI18n && window.BixingI18n.getCurrentLanguage) {
-                console.log('Initial social icon toggle with language:', window.BixingI18n.getCurrentLanguage());
-                toggleSocialIcons(window.BixingI18n.getCurrentLanguage());
-            }
-            
-            // Add direct event listener to language toggle button
-            const languageToggleBtn = document.querySelector('button[onclick="toggleLanguage()"]');
-            if (languageToggleBtn) {
-                console.log('Found language toggle button, adding direct event listener');
-                languageToggleBtn.addEventListener('click', function() {
-                    // Use setTimeout to ensure the language has been updated before toggling icons
-                    setTimeout(function() {
-                        if (window.BixingI18n && window.BixingI18n.getCurrentLanguage) {
-                            console.log('Language button clicked, toggling icons with language:', window.BixingI18n.getCurrentLanguage());
-                            toggleSocialIcons(window.BixingI18n.getCurrentLanguage());
-                        }
-                    }, 200);
-                });
-            }
-            // Initialize AOS
-            AOS.init({
-                duration: 800,
-                easing: 'ease-in-out',
-                once: true
-            });
-            
-            // Header scroll effect
-            const header = document.querySelector('.header');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
+    // Set preventBlogTranslations flag to true to prevent the global i18n from handling this page
+    window.preventBlogTranslations = true;
+    
+    // Direct translations approach - immediately available
+    const zhTranslations = {
+        "blog.future-ai-enterprise.title": "企业AI的未来：趋势与预测",
+        "blog.future-ai-enterprise.subtitle": "通过智能技术转变业务运营",
+        "blog.future-ai-enterprise.date": "2024年12月28日",
+        "blog.future-ai-enterprise.author": "毕行科技",
+        "blog.future-ai-enterprise.category1": "AI趋势",
+        "blog.future-ai-enterprise.category2": "企业",
+        "blog.future-ai-enterprise.intro": "人工智能(AI)不再只是一个流行词或未来的技术——它已经到来，并正在改变各行各业企业的运营方式。随着我们的前进，AI融入业务流程的速度正以前所未有的速度加快。",
+        "blog.future-ai-enterprise.section1.title": "AI正在革新企业运营",
+        "blog.future-ai-enterprise.section1.manufacturing": "制造业",
+        "blog.future-ai-enterprise.section1.manufacturing.desc": "预测性维护、质量控制和供应链优化",
+        "blog.future-ai-enterprise.section1.finance": "金融",
+        "blog.future-ai-enterprise.section1.finance.desc": "欺诈检测、算法交易和风险评估",
+        "blog.future-ai-enterprise.section1.healthcare": "医疗保健",
+        "blog.future-ai-enterprise.section1.healthcare.desc": "诊断辅助、个性化治疗和医学研究",
+        "blog.future-ai-enterprise.section1.retail": "零售",
+        "blog.future-ai-enterprise.section1.retail.desc": "个性化推荐、库存管理和客户洞察",
+        "blog.future-ai-enterprise.section1.logistics": "物流",
+        "blog.future-ai-enterprise.section1.logistics.desc": "路线优化、需求预测和自主车辆",
+        "blog.future-ai-enterprise.section1.customer-service": "客户服务",
+        "blog.future-ai-enterprise.section1.customer-service.desc": "聊天机器人、情感分析和个性化支持",
+        "blog.future-ai-enterprise.visual-caption": "AI正在改变企业在多个行业中的运营、创新和竞争方式",
+        "blog.future-ai-enterprise.current-state": "企业AI的当前状态",
+        "blog.future-ai-enterprise.current-state-intro": "在深入未来趋势之前，让我们简要评估一下企业AI当前的状态："
+    };
+    
+    // Create a global storage for original content
+    if (!window.originalEnglishContent) {
+        window.originalEnglishContent = {};
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOM loaded, initializing blog translations');
+        
+        // Store original English content on page load
+        setTimeout(function() {
+            // Store all original English content
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (key) {
+                    window.originalEnglishContent[key] = element.innerHTML || element.textContent;
+                    console.log(`Stored original content for ${key}`);
                 }
             });
             
-            // Ensure translations are applied correctly
-            // This is needed because the blog post might load after i18n module initializes
-            if (window.BixingI18n) {
-                // Force apply translations based on current language
-                window.BixingI18n.applyTranslations();
-                toggleSocialIcons(window.BixingI18n.getCurrentLanguage());
-                
-                // Create a backup of the original English content if not already done
-                if (!window.originalEnglishContent) {
-                    window.originalEnglishContent = {};
-                    document.querySelectorAll('[data-i18n]').forEach(element => {
-                        const key = element.getAttribute('data-i18n');
-                        window.originalEnglishContent[key] = element.textContent || element.innerText;
-                        console.log('Saved original English content for key:', key, window.originalEnglishContent[key]);
-                    });
-                }
-                
-                // Listen for language changes
-                document.addEventListener('languageChanged', function(event) {
-                    console.log('Language changed event detected in blog post');
-                    // Get the current language
-                    const currentLang = window.BixingI18n.getCurrentLanguage();
-                    console.log('Current language after change:', currentLang);
-                    
-                    // Re-apply translations after a short delay to ensure everything is loaded
-                    setTimeout(function() {
-                        if (currentLang === 'en') {
-                            console.log('Switching back to English, restoring original content');
-                            // Restore original English content from our backup
-                            document.querySelectorAll('[data-i18n]').forEach(element => {
-                                const key = element.getAttribute('data-i18n');
-                                if (window.originalEnglishContent[key]) {
-                                    // For English, restore the original content
-                                    if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
-                                        element.placeholder = window.originalEnglishContent[key];
-                                    } else if ((element.tagName === 'BUTTON' || element.tagName === 'INPUT') && element.hasAttribute('value')) {
-                                        element.value = window.originalEnglishContent[key];
-                                    } else {
-                                        element.textContent = window.originalEnglishContent[key];
-                                    }
-                                    console.log('Restored English content for', key, ':', window.originalEnglishContent[key]);
-                                }
-                            });
-                        } else {
-                            // For Chinese, apply translations normally
-                            window.BixingI18n.applyTranslations();
-                        }
-                        
-                        // Update social icons
-                        toggleSocialIcons(currentLang);
-                    }, 100);
-                });
-                
-                // Force a page reload if language toggle doesn't work after 3 attempts
-                if (!window.languageToggleAttempts) {
-                    window.languageToggleAttempts = 0;
-                    
-                    // Add a click handler to the language toggle button
-                    const languageToggleBtn = document.querySelector('button[onclick="toggleLanguage()"]');
-                    if (languageToggleBtn) {
-                        const originalOnClick = languageToggleBtn.onclick;
-                        languageToggleBtn.onclick = function(e) {
-                            window.languageToggleAttempts++;
-                            if (window.languageToggleAttempts > 3) {
-                                console.log('Language toggle not working after 3 attempts, forcing page reload');
-                                // Store the target language
-                                const currentLang = window.BixingI18n.getCurrentLanguage();
-                                const targetLang = currentLang === 'en' ? 'zh' : 'en';
-                                localStorage.setItem('bixingLanguage', targetLang);
-                                // Force reload the page
-                                window.location.reload();
-                                return;
-                            }
-                            // Call the original onclick handler
-                            if (originalOnClick) originalOnClick.call(this, e);
-                        };
+            // Also store the page title
+            const titleElement = document.querySelector('title[data-i18n]');
+            if (titleElement) {
+                const key = titleElement.getAttribute('data-i18n');
+                window.originalEnglishContent[key] = titleElement.textContent;
+            }
+            
+            console.log('Original content stored, total items:', Object.keys(window.originalEnglishContent).length);
+            
+            // Apply translations if current language is Chinese
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            console.log('Current language on load:', currentLang);
+            
+            if (currentLang === 'zh') {
+                applyTranslations();
+            }
+            
+            // Set up language toggle button
+            setupLanguageToggle();
+            
+            // Toggle social icons based on language
+            toggleSocialIcons(currentLang);
+        }, 100);
+    });
+    
+    // Simple function to apply translations
+    function applyTranslations() {
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        
+        // Only apply Chinese translations if language is set to Chinese
+        if (currentLang === 'zh') {
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (key && zhTranslations[key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = zhTranslations[key];
+                    } else if (element.tagName === 'IMG') {
+                        element.src = zhTranslations[key];
+                    } else {
+                        element.innerHTML = zhTranslations[key];
                     }
                 }
-            } else {
-                console.warn('BixingI18n module not found. Translations may not work correctly.');
+            });
+            
+            // Also translate the page title
+            const titleElement = document.querySelector('title[data-i18n]');
+            if (titleElement) {
+                const key = titleElement.getAttribute('data-i18n');
+                if (zhTranslations[key]) {
+                    titleElement.textContent = zhTranslations[key];
+                }
             }
             
-            // Toggle visibility of social icons based on language
-            function toggleSocialIcons(language) {
-                console.log('Toggling social icons for language:', language);
-                const twitterShare = document.getElementById('twitter-share');
-                const linkedinShare = document.getElementById('linkedin-share');
-                const facebookShare = document.getElementById('facebook-share');
-                const wechatShare = document.getElementById('wechat-share');
+            // Toggle social icons for Chinese
+            const twitterShare = document.getElementById('twitter-share');
+            const linkedinShare = document.getElementById('linkedin-share');
+            const facebookShare = document.getElementById('facebook-share');
+            const wechatShare = document.getElementById('wechat-share');
+            
+            if (twitterShare) twitterShare.style.display = 'none';
+            if (linkedinShare) linkedinShare.style.display = 'none';
+            if (facebookShare) facebookShare.style.display = 'none';
+            if (wechatShare) wechatShare.style.display = 'inline-block';
+        } else {
+            // For English, ensure Western social icons are displayed
+            const twitterShare = document.getElementById('twitter-share');
+            const linkedinShare = document.getElementById('linkedin-share');
+            const facebookShare = document.getElementById('facebook-share');
+            const wechatShare = document.getElementById('wechat-share');
+            
+            if (twitterShare) twitterShare.style.display = 'inline-block';
+            if (linkedinShare) linkedinShare.style.display = 'inline-block';
+            if (facebookShare) facebookShare.style.display = 'inline-block';
+            if (wechatShare) wechatShare.style.display = 'none';
+        }
+    }
+    
+    // Set up language toggle button
+    function setupLanguageToggle() {
+        const languageToggleBtn = document.getElementById('languageToggle');
+        if (languageToggleBtn) {
+            // Remove any existing event listeners by cloning and replacing the button
+            const newLanguageToggleBtn = languageToggleBtn.cloneNode(true);
+            languageToggleBtn.parentNode.replaceChild(newLanguageToggleBtn, languageToggleBtn);
+            
+            // Add new event listener
+            newLanguageToggleBtn.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default behavior
+                console.log('Language toggle clicked');
                 
-                if (!facebookShare || !wechatShare) {
-                    console.error('Social share elements not found!');
-                    return;
+                // Toggle language
+                const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+                const newLang = currentLang === 'en' ? 'zh' : 'en';
+                
+                // Save new language preference
+                localStorage.setItem('bixingLanguage', newLang);
+                console.log(`Language changed from ${currentLang} to ${newLang}`);
+                
+                // Force page reload to apply new language
+                window.location.reload();
+            });
+            
+            console.log('Language toggle button set up');
+        }
+        
+        // Apply translations when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apply translations based on current language
+            // Apply Chinese translations
+            document.querySelectorAll('[data-i18n]').forEach(function(element) {
+                const key = element.getAttribute('data-i18n');
+                if (key && zhTranslations[key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = zhTranslations[key];
+                    } else if (element.tagName === 'IMG') {
+                        element.src = zhTranslations[key];
+                    } else {
+                        element.innerHTML = zhTranslations[key];
+                    }
                 }
-                
-                console.log('Found social media elements');
-                
-                if (language === 'zh') {
-                    // Chinese mode: Show WeChat only, hide others
-                    console.log('Chinese mode: Showing WeChat only');
-                    twitterShare.style.display = 'none';
-                    linkedinShare.style.display = 'none';
-                    facebookShare.style.display = 'none';
-                    wechatShare.style.display = 'inline-block';
-                } else {
-                    // English mode: Show Twitter, LinkedIn, Facebook, hide WeChat
-                    console.log('English mode: Showing Twitter, LinkedIn, Facebook');
-                    twitterShare.style.display = 'inline-block';
-                    linkedinShare.style.display = 'inline-block';
-                    facebookShare.style.display = 'inline-block';
-                    wechatShare.style.display = 'none';
+            });
+            
+            // Toggle social icons for Chinese
+            const twitterShare = document.getElementById('twitter-share');
+            const linkedinShare = document.getElementById('linkedin-share');
+            const facebookShare = document.getElementById('facebook-share');
+            const wechatShare = document.getElementById('wechat-share');
+            
+            if (twitterShare) twitterShare.style.display = 'none';
+            if (linkedinShare) linkedinShare.style.display = 'none';
+            if (facebookShare) facebookShare.style.display = 'none';
+            if (wechatShare) wechatShare.style.display = 'inline-block';
+        }
+        
+        // Set up language toggle button
+        const languageToggle = document.getElementById('languageToggle');
+        if (languageToggle) {
+            languageToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+                const newLang = currentLang === 'en' ? 'zh' : 'en';
+                localStorage.setItem('bixingLanguage', newLang);
+                window.location.reload();
+            });
+        }
+    });
+    
+    // Simple function to apply translations on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get current language
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        
+        // Apply translations if language is Chinese
+        if (currentLang === 'zh') {
+            document.querySelectorAll('[data-i18n]').forEach(function(element) {
+                const key = element.getAttribute('data-i18n');
+                if (key && zhTranslations[key]) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                        element.value = zhTranslations[key];
+                    } else if (element.tagName === 'IMG') {
+                        element.src = zhTranslations[key];
+                    } else {
+                        element.innerHTML = zhTranslations[key];
+                    }
                 }
-            }
+            });
+            
+            // Toggle social icons for Chinese
+            const twitterShare = document.getElementById('twitter-share');
+            const linkedinShare = document.getElementById('linkedin-share');
+            const facebookShare = document.getElementById('facebook-share');
+            const wechatShare = document.getElementById('wechat-share');
+            
+            if (twitterShare) twitterShare.style.display = 'none';
+            if (linkedinShare) linkedinShare.style.display = 'none';
+            if (facebookShare) facebookShare.style.display = 'none';
+            if (wechatShare) wechatShare.style.display = 'inline-block';
+        }
+        
+        // Set up language toggle button
+        const languageToggle = document.getElementById('languageToggle');
+        if (languageToggle) {
+            languageToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+                const newLang = currentLang === 'en' ? 'zh' : 'en';
+                localStorage.setItem('bixingLanguage', newLang);
+                window.location.reload();
+            });
+        }
+        
+        // Load header and footer components
+        loadComponent('header-placeholder', 'header.html');
+        loadComponent('footer-placeholder', 'footer.html');
+    });
+    </script>
+    
+    // Function to set up language toggle button
+    function setupLanguageToggle() {
+        const languageToggleBtn = document.getElementById('languageToggle');
+        if (!languageToggleBtn) {
+            console.warn('Language toggle button not found');
+            return;
+        }
+        
+        // Remove any existing event listeners by cloning and replacing the button
+        const newLanguageToggleBtn = languageToggleBtn.cloneNode(true);
+        languageToggleBtn.parentNode.replaceChild(newLanguageToggleBtn, languageToggleBtn);
+        
+        // Add new event listener
+        newLanguageToggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default behavior
+            console.log('Language toggle clicked');
+            
+            // Toggle language
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            const newLang = currentLang === 'en' ? 'zh' : 'en';
+            
+            // Save new language preference
+            localStorage.setItem('bixingLanguage', newLang);
+            console.log(`Language changed from ${currentLang} to ${newLang}`);
+            
+            // Force page reload to apply new language
+            window.location.reload();
         });
+        
+        console.log('Language toggle button set up');
+    }
+    // We're using applyBlogTranslations instead of the previous applyChineseTranslations function
+    
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
+
+    // Header scroll effect (robust to missing header)
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', function() {
+        if (!header) return;
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+    </script>
+    
+    <!-- Legacy script for compatibility with global i18n system -->
+    <script>
+    // This script ensures backward compatibility with the global i18n system
+    document.addEventListener('DOMContentLoaded', function() {
+        // Prevent the global i18n system from handling this page
+        window.preventBlogTranslations = true;
+        
+        // Check if the language toggle already exists from the header component
+        const headerLanguageToggle = document.getElementById('languageToggle');
+        if (headerLanguageToggle) {
+            console.log('Found language toggle button from header');
+            // Override any existing click handlers with our custom implementation
+            setTimeout(function() {
+                setupLanguageToggle();
+            }, 500);
+        }
+        
+        // If global i18n system is loaded, handle any events it might trigger
+        if (window.BixingI18n) {
+            // Create a backup of the original English content if not already done
+            if (!window.originalEnglishContent) {
+                window.originalEnglishContent = {};
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    window.originalEnglishContent[key] = element.textContent || element.innerText;
+                });
+            }
+
+            // Listen for language changes from the global system
+            document.addEventListener('languageChanged', function(event) {
+                const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+                console.log('Global language change detected:', currentLang);
+                
+                // Use our direct translation system instead
+                if (currentLang === 'zh') {
+                    applyChineseTranslations();
+                } else {
+                    restoreEnglishContent();
+                }
+            });
+        }
+    });
     </script>
 
 </body>

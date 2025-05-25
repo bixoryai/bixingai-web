@@ -30,8 +30,11 @@ function loadHeader() {
     
     console.log('Loading header component');
     
-    // Safe localStorage access with fallback
+    // Use BixingStorage utility if available, otherwise fallback to local implementation
     function safeStorageAccess(key, defaultValue) {
+        if (window.BixingStorage) {
+            return BixingStorage.getItem(key, defaultValue);
+        }
         try {
             return localStorage.getItem(key) || defaultValue;
         } catch (e) {
@@ -41,7 +44,7 @@ function loadHeader() {
     }
     
     // Get current language before loading header
-    const currentLang = safeStorageAccess('bixingLanguage', 'en');
+    const currentLang = window.BixingStorage ? BixingStorage.getLanguage() : safeStorageAccess('bixingLanguage', 'en');
     console.log('Current language before loading header:', currentLang);
     
     // Get a consistent path-to-root value
@@ -244,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Dispatch componentsLoaded event after a short delay to ensure both components are loaded
     setTimeout(function() {
         // Apply translations based on current language preference
-        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        const currentLang = window.BixingStorage ? BixingStorage.getLanguage() : (localStorage.getItem('bixingLanguage') || 'en');
         if (typeof applyTranslations === 'function') {
             applyTranslations(currentLang);
         }
@@ -265,11 +268,15 @@ function setupGlobalLanguageToggle() {
     // Create a new toggleLanguage function that handles both header/footer and page content
     window.toggleLanguage = function() {
         // Get current and next language
-        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+        const currentLang = window.BixingStorage ? BixingStorage.getLanguage() : (localStorage.getItem('bixingLanguage') || 'en');
         const nextLang = currentLang === 'en' ? 'zh' : 'en';
         
-        // Update localStorage
-        localStorage.setItem('bixingLanguage', nextLang);
+        // Update language preference
+        if (window.BixingStorage) {
+            BixingStorage.setLanguage(nextLang);
+        } else {
+            localStorage.setItem('bixingLanguage', nextLang);
+        }
         
         // Update language toggle button text
         const currentLanguageElement = document.getElementById('currentLanguage');

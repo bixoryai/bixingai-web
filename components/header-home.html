@@ -1,0 +1,82 @@
+<!-- Header for Homepage -->
+<link rel="stylesheet" href="assets/css/custom-dropdown.css">
+<script src="assets/js/dropdown-nav.js" defer></script>
+<header class="header">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="logo">
+                    <span class="company-name" data-i18n="footer.company">Bixing Technology</span>
+                </a>
+                <!-- Hamburger menu with explicit styling -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); z-index: 2000; display: block;">
+                    <div class="navbar-toggler-icon">
+                        <span></span>
+                    </div>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="pages/menu/services.html" role="button" aria-expanded="false" data-i18n="nav.services">Products & Services</a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="pages/services/education.html" data-i18n="nav.education">AI Education/Training</a></li>
+                                <li><a class="dropdown-item" href="pages/services/custom-solutions.html" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                                <li><a class="dropdown-item" href="pages/services/consultation.html" data-i18n="nav.consultation">Enterprise AI Consultation</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/menu/insights.html" data-i18n="nav.industryInsights">Industry Insights</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/menu/about.html" data-i18n="nav.about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/menu/careers.html" data-i18n="nav.careers">Careers</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/menu/contact.html" data-i18n="nav.contact">Contact Us</a>
+                        </li>
+                        <!-- Language Selector -->
+                        <li class="nav-item">
+                            <div class="language-selector">
+                                <button id="languageToggle" onclick="toggleLanguage()" class="btn btn-sm btn-outline-light rounded-pill px-3">
+                                    <span id="currentLanguage">EN</span>
+                                </button>
+                            </div>
+                        </li>
+                        <script>
+                            // Initialize language toggle based on stored preference
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
+                                const currentLanguageElement = document.getElementById('currentLanguage');
+                                if (currentLanguageElement) {
+                                    currentLanguageElement.textContent = storedLanguage === 'en' ? 'EN' : '中文';
+                                }
+                            });
+                            
+                            // Override the global toggleLanguage function if it doesn't exist
+                            if (typeof window.toggleLanguage !== 'function') {
+                                window.toggleLanguage = function() {
+                                    const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
+                                    const newLanguage = storedLanguage === 'en' ? 'zh' : 'en';
+                                    // Save to localStorage
+                                    localStorage.setItem('bixingLanguage', newLanguage);
+                                    // Update the toggle button text
+                                    const currentLanguageElement = document.getElementById('currentLanguage');
+                                    if (currentLanguageElement) {
+                                        currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
+                                    }
+                                    // Instantly apply translations everywhere
+                                    if (window.applyTranslations) {
+                                        window.applyTranslations(newLanguage);
+                                    }
+                                };
+                            }
+                        </script>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

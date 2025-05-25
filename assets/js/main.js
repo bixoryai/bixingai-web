@@ -89,17 +89,51 @@ function animateOnScroll() {
 }
 
 /**
- * Handle form submissions
- * This is a placeholder for form handling functionality
+ * Handle form submissions with security measures
+ * @param {Event} event - The form submission event
+ * @param {Object} sanitizedData - Sanitized form data from BixingFormSecurity
  */
-function handleFormSubmit(event) {
-    event.preventDefault();
+function handleFormSubmit(event, sanitizedData) {
+    // If called directly without sanitizedData (legacy support)
+    if (!sanitizedData) {
+        event.preventDefault();
+        console.log('Form submitted without security validation - redirecting to secure handler');
+        
+        // Let the form security utility handle it
+        if (window.BixingFormSecurity) {
+            const form = event.target;
+            BixingFormSecurity.protectForm(form);
+            return;
+        }
+        
+        // Fallback if security utility isn't available
+        alert('Thank you for your submission! This is a placeholder - actual form handling will be implemented in Phase 2.');
+        return;
+    }
     
-    // This will be implemented in Phase 2 with proper form handling
-    console.log('Form handling will be implemented in Phase 2');
+    // Log the sanitized data
+    console.log('Form submitted with sanitized data:', sanitizedData);
     
-    // Show a placeholder success message
-    alert('Thank you for your submission! This is a placeholder - actual form handling will be implemented in Phase 2.');
+    // Get the form ID to determine which form was submitted
+    const formId = event.target.id;
+    
+    // Handle different forms
+    if (formId === 'generalInquiryForm') {
+        // Handle general inquiry form
+        alert('Thank you for your inquiry! We will get back to you soon.');
+    } else if (formId === 'businessPartnershipForm') {
+        // Handle business partnership form
+        alert('Thank you for your interest in partnering with us! Our team will review your information and contact you shortly.');
+    } else if (formId === 'supportForm') {
+        // Handle support form
+        alert('Thank you for contacting support! We will address your issue as soon as possible.');
+    } else {
+        // Generic success message for other forms
+        alert('Thank you for your submission! We will process your information and respond accordingly.');
+    }
+    
+    // Reset the form
+    event.target.reset();
 }
 
 // Add event listeners to forms when they exist

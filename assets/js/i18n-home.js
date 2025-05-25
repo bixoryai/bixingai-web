@@ -49,6 +49,7 @@ window.translations.en = Object.assign({}, window.translations.en, {
   "services.consultation.feature2": "Implementation roadmap",
   "services.consultation.feature3": "Technology selection",
   "services.learnMore": "Learn More",
+
   
   // Service Cards (legacy format)
   "service1.title": "AI Education & Training",
@@ -73,8 +74,9 @@ window.translations.en = Object.assign({}, window.translations.en, {
   "portfolio.healthcare.description": "Developed an AI diagnostic assistant that improved early detection rates by 28% for a leading healthcare provider.",
   "portfolio.healthcare.readMore": "Read Case Study",
   "portfolio.financial.title": "Financial Services",
-  "portfolio.financial.description": "Created a fraud detection system that reduced false positives by 42% while increasing detection accuracy for a financial institution.",
+  "portfolio.financial.description": "Created a fraud detection system for a financial institution that reduced false positives by 42% while improving detection accuracy.",
   "portfolio.financial.readMore": "Read Case Study",
+
   "portfolio.viewAll": "View All Case Studies",
   
   // Demo Section
@@ -82,7 +84,9 @@ window.translations.en = Object.assign({}, window.translations.en, {
   "demo.subtitle": "Experience our AI capabilities firsthand",
   "demo.heading": "See AI in Action",
   "demo.description1": "Explore our interactive demos to understand how our AI solutions can transform your business processes and drive innovation.",
-  "demo.description2": "These demos showcase just a fraction of what's possible with our custom AI development services.",
+  "demo.description2": "These demos showcase just a small fraction of what's possible with our custom AI development services.",
+  "demo.viewAll": "View All Demos",
+
   "demo.placeholder": "Interactive AI Demo",
   "demo.placeholderSmall": "Click to experience AI in action",
   "demo.viewAll": "View All Demos",

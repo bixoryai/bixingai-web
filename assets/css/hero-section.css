@@ -89,6 +89,11 @@
   letter-spacing: 0.5px;
 }
 
+/* Ensure hero buttons don't interfere with header elements */
+.hero-buttons[style*="z-index: 9999"] {
+  z-index: 999 !important; /* Lower z-index to prevent conflict with header */
+}
+
 /* ===== Floating Cards ===== */
 /* Floating cards container */
 .hero-image-container {

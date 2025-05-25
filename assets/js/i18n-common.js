@@ -3,18 +3,13 @@
 window.translations = window.translations || {};
 
 // --- i18n header logic extracted from i18n-logic.js ---
-// Safe localStorage access with fallback
+// Safe localStorage access using BixingStorage utility
 function safeStorageAccess(key, defaultValue) {
-  try {
-    return localStorage.getItem(key) || defaultValue;
-  } catch (e) {
-    console.warn('localStorage access denied, using default value');
-    return defaultValue;
-  }
+  return window.BixingStorage ? BixingStorage.getItem(key, defaultValue) : defaultValue;
 }
 
 function getCurrentLanguage() {
-  return safeStorageAccess('bixingLanguage', 'en');
+  return window.BixingStorage ? BixingStorage.getLanguage() : 'en';
 }
 
 function applyTranslations(lang) {
@@ -79,22 +74,24 @@ if (document.readyState === 'loading') {
   }
 }
 
-// Safe localStorage setter with fallback
+// Safe localStorage setter using BixingStorage utility
 function safeStorageSet(key, value) {
-  try {
-    localStorage.setItem(key, value);
-    return true;
-  } catch (e) {
-    console.warn('localStorage write access denied');
-    return false;
-  }
+  return window.BixingStorage ? BixingStorage.setItem(key, value) : false;
 }
 
 // Global toggleLanguage function - this will be enhanced by components.js
 window.toggleLanguage = function() {
   const storedLanguage = getCurrentLanguage();
   const newLanguage = storedLanguage === 'en' ? 'zh' : 'en';
-  safeStorageSet('bixingLanguage', newLanguage);
+  
+  // Use BixingStorage to set language
+  if (window.BixingStorage) {
+    BixingStorage.setLanguage(newLanguage);
+  } else {
+    safeStorageSet('bixingLanguage', newLanguage);
+  }
+  
+  // Update UI
   var currentLanguageElement = document.getElementById('currentLanguage');
   if (currentLanguageElement) {
     currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
