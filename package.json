@@ -3,6 +3,29 @@
   "version": "1.0.0",
   "description": "Bixing Technology Website",
   "scripts": {
-    "serve": "python -m http.server"
+    "serve": "python -m http.server",
+    "lint": "npm run lint:js && npm run lint:html && npm run lint:css",
+    "lint:js": "eslint assets/js/**/*.js",
+    "lint:html": "htmlhint **/*.html",
+    "lint:css": "stylelint assets/css/**/*.css",
+    "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
+    "eslint-plugin-promise": "^6.1.1",
+    "htmlhint": "^1.1.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0"
+  },
+  "lint-staged": {
+    "*.js": "eslint --fix",
+    "*.html": "htmlhint",
+    "*.css": "stylelint --fix"
   }
 }

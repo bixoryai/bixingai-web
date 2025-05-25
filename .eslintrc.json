@@ -1,0 +1,30 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": "standard",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "indent": ["error", 2],
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "no-alert": "warn",
+    "camelcase": "warn",
+    "eqeqeq": ["error", "always"],
+    "no-var": "error",
+    "prefer-const": "warn",
+    "max-len": ["warn", { "code": 100 }]
+  },
+  "globals": {
+    "AOS": "readonly",
+    "particlesJS": "readonly",
+    "BixingStorage": "readonly",
+    "BixingFormSecurity": "readonly"
+  }
+}
