@@ -1,9 +1,28 @@
 #!/bin/bash
 
-# Version Management Script for BixingAI Web
-# Usage: ./scripts/version.sh [patch|minor|major] "Release description"
+# DEPRECATED: Version Management Script for BixingAI Web
+# This script is no longer needed as releases are now fully automated.
+# Every push to main automatically creates a release with intelligent version bumping.
+#
+# Old Usage: ./scripts/version.sh [patch|minor|major] "Release description"
+# New Usage: Simply push/merge to main branch - releases are created automatically!
+#
+# For more information, see: .github/workflows/release.yml
 
-set -e
+echo "⚠️  DEPRECATED: This script is no longer needed!"
+echo ""
+echo "🎉 Releases are now fully automated!"
+echo "   Every push to main automatically creates a release with intelligent version bumping."
+echo ""
+echo "📋 How it works:"
+echo "   - Push/merge changes to main branch"
+echo "   - GitHub Actions automatically determines version bump (patch/minor/major)"
+echo "   - Version is bumped, tagged, and released automatically"
+echo "   - No manual intervention required!"
+echo ""
+echo "🔗 Check the release workflow: .github/workflows/release.yml"
+echo ""
+exit 0
 
 # Colors for output
 RED='\033[0;31m'
