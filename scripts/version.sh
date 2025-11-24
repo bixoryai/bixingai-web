@@ -2,23 +2,33 @@
 
 # DEPRECATED: Version Management Script for BixingAI Web
 # This script is no longer needed as releases are now fully automated.
-# Every push to main automatically creates a release with intelligent version bumping.
 #
-# Old Usage: ./scripts/version.sh [patch|minor|major] "Release description"
-# New Usage: Simply push/merge to main branch - releases are created automatically!
+# 🎉 NEW AUTOMATED PROCESS:
+#   - Create feature branches from 'develop'
+#   - Make changes and commit with descriptive messages
+#   - Create PR from feature branch to 'develop'
+#   - Merge develop to main via PR
+#   - GitHub Actions automatically creates release with intelligent version bumping!
 #
-# For more information, see: .github/workflows/release.yml
+# Version bumping is based on commit analysis:
+#   - PATCH: fix, bug, patch, hotfix, security, lint, style, refactor, docs, chore
+#   - MINOR: feat, feature, add, new, implement, create, enhance, improve
+#   - MAJOR: breaking, major, breaking change, api change, remove, delete, drop
+#
+# Manual override available via GitHub Actions workflow_dispatch if needed.
 
 echo "⚠️  DEPRECATED: This script is no longer needed!"
 echo ""
 echo "🎉 Releases are now fully automated!"
-echo "   Every push to main automatically creates a release with intelligent version bumping."
 echo ""
-echo "📋 How it works:"
-echo "   - Push/merge changes to main branch"
-echo "   - GitHub Actions automatically determines version bump (patch/minor/major)"
-echo "   - Version is bumped, tagged, and released automatically"
-echo "   - No manual intervention required!"
+echo "📋 New workflow:"
+echo "   1. Work on 'develop' branch (or feature branches)"
+echo "   2. Create PR to merge develop → main"
+echo "   3. GitHub Actions automatically:"
+echo "      - Analyzes commits for version bump type"
+echo "      - Creates new version tag"
+echo "      - Generates release notes"
+echo "      - Creates GitHub release"
 echo ""
 echo "🔗 Check the release workflow: .github/workflows/release.yml"
 echo ""
