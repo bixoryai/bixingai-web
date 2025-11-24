@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - main
-    # Skip automated releases for version tags and dependabot
-    paths-ignore:
-      - '.github/workflows/**'
-      - '**/package-lock.json'
-      - '**/yarn.lock'
   # Allow manual trigger for testing
   workflow_dispatch:
     inputs:
