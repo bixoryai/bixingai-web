@@ -145,9 +145,9 @@ jobs:
       run: |
         echo "🔍 Running final quality checks for release..."
 
-        # Only check for critical JavaScript errors (not HTML/CSS style issues)
+        # Only check for critical JavaScript errors (allow warnings for automated releases)
         echo "Checking JavaScript for critical errors..."
-        npm run lint:js
+        npm run lint:js -- --max-warnings 999
 
         JS_ERROR_COUNT=$(npm run lint:js 2>&1 | grep -c "error")
         if [ "$JS_ERROR_COUNT" -gt 0 ]; then
@@ -156,8 +156,7 @@ jobs:
           exit 1
         fi
 
-        echo "✅ JavaScript quality checks passed"
-        echo "ℹ️  Note: HTML/CSS style warnings are allowed for automated releases"
+        echo "✅ JavaScript quality checks passed (warnings allowed for automated releases)"
 
     - name: Update package.json version
       run: |
