@@ -1,9 +1,9 @@
 name: Automated Release
 
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+    types: [closed]
+    branches: [main]
   # Allow manual trigger for testing
   workflow_dispatch:
     inputs:
@@ -24,11 +24,14 @@ permissions:
 
 jobs:
   determine-version:
+    # Only run when PR is merged to main from develop
+    if: |
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'develop') ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     outputs:
       version_type: ${{ steps.version-determination.outputs.version_type }}
       new_version: ${{ steps.version-determination.outputs.new_version }}
-      should_release: ${{ steps.version-determination.outputs.should_release }}
 
     steps:
     - name: Checkout code
@@ -49,15 +52,21 @@ jobs:
           VERSION_TYPE="${{ github.event.inputs.version_type }}"
           echo "Using manual version type: $VERSION_TYPE"
         else
-          # Auto-determine version type based on recent commits
-          echo "Auto-determining version type..."
+          # Auto-determine version type based on PR commits
+          echo "Auto-determining version type from PR commits..."
 
-          # Get commits since last tag
-          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-          if [ -n "$LAST_TAG" ]; then
-            COMMITS=$(git log --oneline ${LAST_TAG}..HEAD)
+          if [ "${{ github.event_name }}" == "pull_request" ]; then
+            # Get commits from the merged PR
+            PR_NUMBER=${{ github.event.pull_request.number }}
+            COMMITS=$(gh pr view $PR_NUMBER --json commits --jq '.commits[].messageHeadline' || git log --oneline --max-count=20)
           else
-            COMMITS=$(git log --oneline --max-count=20)
+            # For manual dispatch, analyze recent commits
+            LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+            if [ -n "$LAST_TAG" ]; then
+              COMMITS=$(git log --oneline ${LAST_TAG}..HEAD)
+            else
+              COMMITS=$(git log --oneline --max-count=20)
+            fi
           fi
 
           # Analyze commits for version bump determination
@@ -113,17 +122,8 @@ jobs:
         echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
         echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
 
-        # Check if we should create a release (skip for automated pushes from this workflow)
-        if [[ "${{ github.event.head_commit.message }}" == *"🤖 Automated release"* ]]; then
-          echo "should_release=false" >> $GITHUB_OUTPUT
-          echo "Skipping release creation (automated commit)"
-        else
-          echo "should_release=true" >> $GITHUB_OUTPUT
-        fi
-
   release:
     needs: determine-version
-    if: needs.determine-version.outputs.should_release == 'true'
     runs-on: ubuntu-latest
 
     steps:
@@ -147,12 +147,12 @@ jobs:
 
         # Only check for critical JavaScript errors (allow warnings for automated releases)
         echo "Checking JavaScript for critical errors..."
-        npm run lint:js -- --max-warnings 999
+        LINT_OUTPUT=$(npm run lint:js 2>&1 || true)
 
-        JS_ERROR_COUNT=$(npm run lint:js 2>&1 | grep -c "error")
+        JS_ERROR_COUNT=$(echo "$LINT_OUTPUT" | grep -c "error")
         if [ "$JS_ERROR_COUNT" -gt 0 ]; then
           echo "❌ Cannot release: Found $JS_ERROR_COUNT critical JavaScript errors"
-          npm run lint:js
+          echo "$LINT_OUTPUT"
           exit 1
         fi
 
@@ -189,17 +189,16 @@ jobs:
       run: |
         NEW_TAG="${{ needs.determine-version.outputs.new_tag }}"
         VERSION_TYPE="${{ needs.determine-version.outputs.version_type }}"
-        PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD~1 2>/dev/null || echo "")
 
-        if [ -n "$PREVIOUS_TAG" ]; then
-          CHANGES=$(git log --pretty=format:"- %s" ${PREVIOUS_TAG}..HEAD)
-        else
-          CHANGES=$(git log --pretty=format:"- %s" --max-count=20)
-        fi
-
-        echo "## 🚀 Release ${NEW_TAG}
+        if [ "${{ github.event_name }}" == "pull_request" ]; then
+          # For PR merges, get changes from the PR
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          CHANGES=$(gh pr view $PR_NUMBER --json commits --jq '.commits[].messageHeadline' | sed 's/^/- /')
+          PR_TITLE="${{ github.event.pull_request.title }}"
+          echo "## 🚀 Release ${NEW_TAG}
         **Date:** $(date -u)
         **Type:** ${VERSION_TYPE^} release
+        **Source:** PR #${PR_NUMBER} - ${PR_TITLE}
 
         ### Changes
         $CHANGES
@@ -212,7 +211,34 @@ jobs:
         ### Deployment
         Ready for production deployment ✨
 
-        _This release was automatically created by GitHub Actions_" > release_notes.md
+        _This release was automatically created by GitHub Actions from PR merge_" > release_notes.md
+        else
+          # For manual dispatch, get changes since last tag
+          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD~1 2>/dev/null || echo "")
+          if [ -n "$PREVIOUS_TAG" ]; then
+            CHANGES=$(git log --pretty=format:"- %s" ${PREVIOUS_TAG}..HEAD)
+          else
+            CHANGES=$(git log --pretty=format:"- %s" --max-count=20)
+          fi
+
+          echo "## 🚀 Release ${NEW_TAG}
+        **Date:** $(date -u)
+        **Type:** ${VERSION_TYPE^} release
+        **Source:** Manual trigger
+
+        ### Changes
+        $CHANGES
+
+        ### Quality Metrics
+        - **JavaScript Linting Status:** ✅ Passed
+        - **Critical JS Errors:** 0
+        - **Total JS Issues:** $(npm run lint:js 2>&1 | grep -o "[0-9]* problems" | head -1)
+
+        ### Deployment
+        Ready for production deployment ✨
+
+        _This release was manually triggered via GitHub Actions_" > release_notes.md
+        fi
 
         echo "release_notes<<EOF" >> $GITHUB_OUTPUT
         cat release_notes.md >> $GITHUB_OUTPUT
