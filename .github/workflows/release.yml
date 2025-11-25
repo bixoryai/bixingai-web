@@ -4,128 +4,10 @@ on:
   pull_request:
     types: [closed]
     branches: [main]
-  # Allow manual trigger for testing
-  workflow_dispatch:
-    inputs:
-      version_type:
-        description: 'Version bump type (auto, patch, minor, major)'
-        required: false
-        default: 'auto'
-        type: choice
-        options:
-          - auto
-          - patch
-          - minor
-          - major
-
-permissions:
-  contents: write
-  pull-requests: read
 
 jobs:
-  determine-version:
-    # Only run when PR is merged to main from develop
-    if: |
-      (github.event_name == 'pull_request' && github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main' && github.event.pull_request.head.ref == 'develop') ||
-      github.event_name == 'workflow_dispatch'
-    runs-on: ubuntu-latest
-    outputs:
-      version_type: ${{ steps.version-determination.outputs.version_type }}
-      new_version: ${{ steps.version-determination.outputs.new_version }}
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0  # Fetch full history for version analysis
-
-    - name: Determine version bump type
-      id: version-determination
-      env:
-        GH_TOKEN: ${{ github.token }}
-      run: |
-        # Get current version
-        CURRENT_VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
-        CURRENT_VERSION=${CURRENT_VERSION#v}
-        echo "Current version: v${CURRENT_VERSION}"
-
-        # Get the version bump type from input or auto-determine
-        if [ "${{ github.event.inputs.version_type }}" != "" ] && [ "${{ github.event.inputs.version_type }}" != "auto" ]; then
-          VERSION_TYPE="${{ github.event.inputs.version_type }}"
-          echo "Using manual version type: $VERSION_TYPE"
-        else
-          # Auto-determine version type based on PR commits
-          echo "Auto-determining version type from PR commits..."
-
-          if [ "${{ github.event_name }}" == "pull_request" ]; then
-            # Get commits from the merged PR
-            PR_NUMBER=${{ github.event.pull_request.number }}
-            COMMITS=$(gh pr view $PR_NUMBER --json commits --jq '.commits[].messageHeadline' || git log --oneline --max-count=20)
-          else
-            # For manual dispatch, analyze recent commits
-            LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-            if [ -n "$LAST_TAG" ]; then
-              COMMITS=$(git log --oneline ${LAST_TAG}..HEAD)
-            else
-              COMMITS=$(git log --oneline --max-count=20)
-            fi
-          fi
-
-          # Analyze commits for version bump determination
-          MAJOR_KEYWORDS="breaking|major|breaking change|api change|remove|delete|drop"
-          MINOR_KEYWORDS="feat|feature|add|new|implement|create|enhance|improve"
-          PATCH_KEYWORDS="fix|bug|patch|hotfix|security|lint|style|refactor|docs|chore"
-
-          MAJOR_COUNT=$(echo "$COMMITS" | grep -i -c -E "$MAJOR_KEYWORDS" || true)
-          MINOR_COUNT=$(echo "$COMMITS" | grep -i -c -E "$MINOR_KEYWORDS" || true)
-          PATCH_COUNT=$(echo "$COMMITS" | grep -i -c -E "$PATCH_KEYWORDS" || true)
-
-          echo "Analysis results:"
-          echo "  Major indicators: $MAJOR_COUNT"
-          echo "  Minor indicators: $MINOR_COUNT"
-          echo "  Patch indicators: $PATCH_COUNT"
-
-          # Determine version type based on analysis
-          if [ "$MAJOR_COUNT" -gt 0 ]; then
-            VERSION_TYPE="major"
-          elif [ "$MINOR_COUNT" -gt 0 ]; then
-            VERSION_TYPE="minor"
-          else
-            VERSION_TYPE="patch"
-          fi
-
-          echo "Auto-determined version type: $VERSION_TYPE"
-        fi
-
-        # Parse current version
-        IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
-
-        # Increment version
-        case $VERSION_TYPE in
-          major)
-            MAJOR=$((MAJOR + 1))
-            MINOR=0
-            PATCH=0
-            ;;
-          minor)
-            MINOR=$((MINOR + 1))
-            PATCH=0
-            ;;
-          patch)
-            PATCH=$((PATCH + 1))
-            ;;
-        esac
-
-        NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
-        NEW_TAG="v${NEW_VERSION}"
-
-        echo "New version: $NEW_TAG"
-        echo "version_type=$VERSION_TYPE" >> $GITHUB_OUTPUT
-        echo "new_version=$NEW_VERSION" >> $GITHUB_OUTPUT
-        echo "new_tag=$NEW_TAG" >> $GITHUB_OUTPUT
-
   release:
-    needs: determine-version
+    if: github.event.pull_request.merged == true && github.event.pull_request.head.ref == 'develop'
     runs-on: ubuntu-latest
 
     steps:
@@ -143,114 +25,48 @@ jobs:
     - name: Install dependencies
       run: npm ci
 
-    - name: Run quality checks
+    - name: Bump version and create release
       run: |
-        echo "🔍 Running final quality checks for release..."
+        # Get current version from package.json
+        CURRENT_VERSION=$(node -p "require('./package.json').version")
+        echo "Current version: $CURRENT_VERSION"
 
-        # Skip JavaScript linting for automated releases to allow warnings
-        echo "Skipping JavaScript linting for automated release (warnings allowed)"
-        echo "✅ Quality checks passed (automated release)"
+        # Simple patch bump for all releases
+        IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
+        PATCH=$((PATCH + 1))
+        NEW_VERSION="${MAJOR}.${MINOR}.${PATCH}"
+        NEW_TAG="v${NEW_VERSION}"
 
-    - name: Update package.json version
-      run: |
-        NEW_VERSION="${{ needs.determine-version.outputs.new_version }}"
-        echo "Updating package.json to version $NEW_VERSION"
+        echo "New version: $NEW_TAG"
+
+        # Update package.json
         npm version $NEW_VERSION --no-git-tag-version
 
-    - name: Create and push version commit
-      run: |
-        NEW_TAG="${{ needs.determine-version.outputs.new_tag }}"
-        VERSION_TYPE="${{ needs.determine-version.outputs.version_type }}"
-
+        # Configure git
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+        # Commit version bump
         git add package.json
-        git commit -m "🤖 Automated release: Bump version to $NEW_TAG" || echo "No changes to commit"
+        git commit -m "🤖 Release $NEW_TAG" || echo "No changes to commit"
 
-        git tag -a "$NEW_TAG" -m "Release $NEW_TAG
-
-        Automated release created on $(date -u)
-        Version type: $VERSION_TYPE
-        Generated by GitHub Actions"
-
+        # Create and push tag
+        git tag "$NEW_TAG"
         git push origin main
         git push origin "$NEW_TAG"
-
-    - name: Generate release notes
-      id: release-notes
-      run: |
-        NEW_TAG="${{ needs.determine-version.outputs.new_tag }}"
-        VERSION_TYPE="${{ needs.determine-version.outputs.version_type }}"
-
-        if [ "${{ github.event_name }}" == "pull_request" ]; then
-          # For PR merges, get changes from the PR
-          PR_NUMBER=${{ github.event.pull_request.number }}
-          CHANGES=$(gh pr view $PR_NUMBER --json commits --jq '.commits[].messageHeadline' | sed 's/^/- /')
-          PR_TITLE="${{ github.event.pull_request.title }}"
-          echo "## 🚀 Release ${NEW_TAG}
-        **Date:** $(date -u)
-        **Type:** ${VERSION_TYPE^} release
-        **Source:** PR #${PR_NUMBER} - ${PR_TITLE}
-
-        ### Changes
-        $CHANGES
-
-        ### Quality Metrics
-        - **JavaScript Linting Status:** ✅ Passed
-        - **Critical JS Errors:** 0
-        - **Total JS Issues:** $(npm run lint:js 2>&1 | grep -o "[0-9]* problems" | head -1)
-
-        ### Deployment
-        Ready for production deployment ✨
-
-        _This release was automatically created by GitHub Actions from PR merge_" > release_notes.md
-        else
-          # For manual dispatch, get changes since last tag
-          PREVIOUS_TAG=$(git describe --tags --abbrev=0 HEAD~1 2>/dev/null || echo "")
-          if [ -n "$PREVIOUS_TAG" ]; then
-            CHANGES=$(git log --pretty=format:"- %s" ${PREVIOUS_TAG}..HEAD)
-          else
-            CHANGES=$(git log --pretty=format:"- %s" --max-count=20)
-          fi
-
-          echo "## 🚀 Release ${NEW_TAG}
-        **Date:** $(date -u)
-        **Type:** ${VERSION_TYPE^} release
-        **Source:** Manual trigger
-
-        ### Changes
-        $CHANGES
-
-        ### Quality Metrics
-        - **JavaScript Linting Status:** ✅ Passed
-        - **Critical JS Errors:** 0
-        - **Total JS Issues:** $(npm run lint:js 2>&1 | grep -o "[0-9]* problems" | head -1)
-
-        ### Deployment
-        Ready for production deployment ✨
-
-        _This release was manually triggered via GitHub Actions_" > release_notes.md
-        fi
-
-        echo "release_notes<<EOF" >> $GITHUB_OUTPUT
-        cat release_notes.md >> $GITHUB_OUTPUT
-        echo "EOF" >> $GITHUB_OUTPUT
 
     - name: Create GitHub Release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ needs.determine-version.outputs.new_tag }}
-        release_name: Release ${{ needs.determine-version.outputs.new_tag }}
-        body: ${{ steps.release-notes.outputs.release_notes }}
+        tag_name: ${{ env.NEW_TAG }}
+        release_name: Release ${{ env.NEW_TAG }}
+        body: |
+          ## 🚀 Release ${{ env.NEW_TAG }}
+
+          Automated release created from PR merge to main.
+
+          **Source:** ${{ github.event.pull_request.html_url }}
         draft: false
         prerelease: false
-
-    - name: Notify deployment team
-      run: |
-        NEW_TAG="${{ needs.determine-version.outputs.new_tag }}"
-        echo "📢 Release ${NEW_TAG} is ready for deployment!"
-        echo "Release notes have been generated and attached to the GitHub release."
-        echo "🔗 Release URL: https://github.com/bixoryai/bixingai-web/releases/tag/${NEW_TAG}"
