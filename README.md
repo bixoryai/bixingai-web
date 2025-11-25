@@ -24,9 +24,10 @@ This website serves as the digital presence for Bixing Technology, a company spe
 - Bootstrap 5 for responsive layout
 - AOS (Animate On Scroll) for scroll animations
 - Custom internationalization (i18n) system for language switching
+- Jekyll for blog post processing and static site generation
 - Optimized for performance and SEO
 - Automated project status tracking via Git hooks
-- Jekyll is used ONLY for blog post management, NOT for page layouts or components
+- Jekyll is used for blog post management and static site generation
 
 ## Pages
 
@@ -52,18 +53,26 @@ The website supports both English and Chinese languages with a seamless toggle f
 
 - [x] Foundation (repository setup, core layouts, base styling)
 - [x] Core Pages (services, about, contact, career, blog structure)
-- [x] Multilingual support for Home and Education pages
-- [x] Multilingual support for Custom Solutions page
-- [ ] Multilingual support for remaining pages
-- [ ] Interactive Elements (JavaScript interactions, AI demos, visualizations)
-- [ ] Content & Optimization (content population, SEO, testing)
+- [x] Multilingual support for Home, Education, and Custom Solutions pages
+- [x] Multilingual support for remaining pages (About, Careers, Contact, Insights, Services)
+- [x] Interactive Elements (JavaScript interactions, blog visualizations)
+- [ ] AI demos and advanced visualizations
+- [x] Content population
+- [x] SEO optimization (meta tags, Open Graph)
+- [x] Mobile responsiveness testing
+- [x] Performance optimization and additional testing
 - [ ] Launch & Monitoring
 
 ## Getting Started
 
 1. Clone the repository
-2. Open any HTML file in your browser to view the site locally
-3. No build process is required as this is a static site
+2. For basic page viewing, open any HTML file in your browser
+3. For full site with blog posts, install dependencies and build:
+   ```bash
+   bundle install
+   bundle exec jekyll build
+   ```
+4. Serve the built site from the `_site` directory using any web server
 
 # Testing pre-commit hook
 

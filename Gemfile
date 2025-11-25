@@ -3,6 +3,12 @@ source "https://rubygems.org"
 # Jekyll version
 gem "jekyll", "~> 4.2.0"
 
+# Required for Ruby 3.4 compatibility
+gem "csv"
+gem "base64"
+gem "logger"
+gem "bigdecimal"
+
 # Jekyll plugins
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
