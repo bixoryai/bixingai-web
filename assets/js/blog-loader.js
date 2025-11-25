@@ -10,19 +10,17 @@ let currentPage = 1;
 const postsPerPage = 6; // Number of posts per page
 let allPosts = [];
 let filteredPosts = [];
-let currentFilter = 'all';
 
 document.addEventListener('DOMContentLoaded', function () {
   // Load blog post data
-  fetch('../../assets/data/blog-posts.json?v=' + new Date().getTime()) // Add cache-busting parameter
+  fetch('../../assets/data/blog-posts.json?v=' + new Date().getTime())
+    // Add cache-busting parameter
     .then(response => response.json())
     .then(data => {
       // Process blog post data
-      console.log('Loaded blog posts:', data.posts);
       processBlogPosts(data.posts);
     })
-    .catch(error => {
-      console.error('Error loading blog posts:', error);
+    .catch(() => {
       displayErrorMessage();
     });
 });
@@ -137,6 +135,13 @@ function populateInsightsGrid (posts) {
  * @returns {HTMLElement} - The created card element
  */
 function createPostCard (post, index) {
+  const svgBackgroundPattern = 'data:image/svg+xml,%3Csvg width="60" height="60" ' +
+    'viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" ' +
+    'fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.1"%3E%3Cpath d=' +
+    '"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z' +
+    'M6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E' +
+    '%3C/g%3E%3C/g%3E%3C/svg%3E';
+
   const cardCol = document.createElement('div');
   cardCol.className = 'col-md-6 col-lg-4 mb-4';
   cardCol.setAttribute('data-aos', 'fade-up');
@@ -152,9 +157,7 @@ function createPostCard (post, index) {
 
   // Update date for Machine Learning post if needed
   if (isMachineLearningPost) {
-    console.log('Found Machine Learning post, original date:', post.date);
     post.date = 'January 10, 2025';
-    console.log('Updated date to:', post.date);
   }
 
   // Determine SVG index or type based on category
@@ -190,25 +193,37 @@ function createPostCard (post, index) {
   if (visualType === 'enterprise-ai') {
     // Enterprise AI visualization (network nodes)
     cardImageHtml = `
-            <div class="insight-img" style="background: linear-gradient(135deg, #0f172a, #1e293b); position: relative; overflow: hidden;">
+            <div class="insight-img" style="background: linear-gradient(135deg, #0f172a, #1e293b);
+ position: relative; overflow: hidden;">
                 <!-- Background Pattern -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); opacity: 0.4;"></div>
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+ background-image: url(${svgBackgroundPattern}); opacity: 0.4;"></div>
                 
                 <!-- Glow Effect -->
-                <div style="position: absolute; top: 50%; left: 50%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(16, 185, 129, 0.1) 50%, transparent 70%); border-radius: 50%; filter: blur(40px); opacity: 0.6; transform: translate(-50%, -50%);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 150px; height: 150px;
+ background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(16, 185, 129, 0.1) 50%,
+ transparent 70%); border-radius: 50%; filter: blur(40px); opacity: 0.6;
+ transform: translate(-50%, -50%);"></div>
                 
                 <!-- Enterprise AI Mini Visualization -->
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 100%; height: 100%;">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+ style="position: absolute; width: 100%; height: 100%;">
                     <!-- Central Node -->
                     <circle cx="100" cy="100" r="15" fill="url(#cardGradient${index}1)" />
                     
                     <!-- Connection Lines -->
-                    <line x1="100" y1="100" x2="60" y2="60" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                    <line x1="100" y1="100" x2="140" y2="60" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                    <line x1="100" y1="100" x2="150" y2="100" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                    <line x1="100" y1="100" x2="140" y2="140" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                    <line x1="100" y1="100" x2="60" y2="140" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                    <line x1="100" y1="100" x2="50" y2="100" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                    <line x1="100" y1="100" x2="60" y2="60"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                    <line x1="100" y1="100" x2="140" y2="60"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                    <line x1="100" y1="100" x2="150" y2="100"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                    <line x1="100" y1="100" x2="140" y2="140"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                    <line x1="100" y1="100" x2="60" y2="140"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                    <line x1="100" y1="100" x2="50" y2="100"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
                     
                     <!-- Satellite Nodes -->
                     <circle cx="60" cy="60" r="8" fill="url(#cardGradient${index}2)" />
@@ -238,15 +253,20 @@ function createPostCard (post, index) {
   } else if (visualType === 'machine-learning') {
     // Machine Learning visualization (data flow/algorithm visualization)
     cardImageHtml = `
-            <div class="insight-img" style="background: linear-gradient(135deg, #1e293b, #0f172a); position: relative; overflow: hidden;">
+            <div class="insight-img" style="background: linear-gradient(135deg, #1e293b, #0f172a);
+ position: relative; overflow: hidden;">
                 <!-- Background Pattern -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); opacity: 0.4;"></div>
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+ background-image: url(${svgBackgroundPattern}); opacity: 0.4;"></div>
                 
                 <!-- Glow Effect -->
-                <div style="position: absolute; top: 50%; left: 50%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(59, 130, 246, 0.1) 50%, transparent 70%); border-radius: 50%; filter: blur(40px); opacity: 0.6; transform: translate(-50%, -50%);"></div>
-                
+                <div style="position: absolute; top: 50%; left: 50%; width: 150px; height: 150px;
+ background: radial-gradient(circle, rgba(16, 185, 129, 0.4) 0%, rgba(59, 130, 246, 0.1) 50%,
+ transparent 70%); border-radius: 50%; filter: blur(40px); opacity: 0.6;
+ transform: translate(-50%, -50%);"></div>
                 <!-- Machine Learning Visualization -->
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 100%; height: 100%;">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+ style="position: absolute; width: 100%; height: 100%;">
                     <!-- Data Points -->
                     <circle cx="40" cy="60" r="4" fill="#60a5fa" />
                     <circle cx="50" cy="80" r="4" fill="#60a5fa" />
@@ -256,10 +276,12 @@ function createPostCard (post, index) {
                     <circle cx="80" cy="70" r="4" fill="#60a5fa" />
                     
                     <!-- Decision Boundary -->
-                    <path d="M30,120 Q60,50 90,120" stroke="#f59e0b" stroke-width="2" fill="none" stroke-dasharray="4" />
+                    <path d="M30,120 Q60,50 90,120" stroke="#f59e0b" stroke-width="2"
+ fill="none" stroke-dasharray="4" />
                     
                     <!-- Algorithm Box -->
-                    <rect x="100" y="70" width="60" height="60" rx="10" fill="url(#mlGradient${index})" />
+                    <rect x="100" y="70" width="60" height="60" rx="10"
+ fill="url(#mlGradient${index})" />
                     
                     <!-- Input/Output Arrows -->
                     <line x1="80" y1="100" x2="100" y2="100" stroke="#60a5fa" stroke-width="2" />
@@ -269,7 +291,8 @@ function createPostCard (post, index) {
                     <polygon points="178,96 185,100 178,104" fill="#34d399" />
                     
                     <!-- Algorithm Icon -->
-                    <text x="130" y="110" text-anchor="middle" font-family="sans-serif" font-size="12" fill="white">ML</text>
+                    <text x="130" y="110" text-anchor="middle" font-family="sans-serif"
+ font-size="12" fill="white">ML</text>
                     
                     <!-- Definitions -->
                     <defs>
@@ -287,15 +310,21 @@ function createPostCard (post, index) {
   } else {
     // Standard image with enhanced styling
     cardImageHtml = `
-            <div class="insight-img" style="background: linear-gradient(135deg, #0f172a, #1e293b); position: relative; overflow: hidden;">
+            <div class="insight-img" style="background: linear-gradient(135deg, #0f172a, #1e293b);
+ position: relative; overflow: hidden;">
                 <!-- Background Pattern -->
-                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); opacity: 0.4;"></div>
+                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+ background-image: url(${svgBackgroundPattern}); opacity: 0.4;"></div>
                 
                 <!-- Glow Effect -->
-                <div style="position: absolute; top: 50%; left: 50%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(16, 185, 129, 0.1) 50%, transparent 70%); border-radius: 50%; filter: blur(40px); opacity: 0.4; transform: translate(-50%, -50%);"></div>
+                <div style="position: absolute; top: 50%; left: 50%; width: 150px; height: 150px;
+ background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, rgba(16, 185, 129, 0.1) 50%,
+ transparent 70%); border-radius: 50%; filter: blur(40px); opacity: 0.4;
+ transform: translate(-50%, -50%);"></div>
                 
                 <!-- Standard Image with Enhanced Styling -->
-                <img src="${imagePath}" alt="${post.title}" style="width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 2; opacity: 0.8;">
+                <img src="${imagePath}" alt="${post.title}" style="width: 100%; height: 100%;
+ object-fit: cover; position: relative; z-index: 2; opacity: 0.8;">
                 
                 <div class="insight-ai-overlay"></div>
                 <div class="insight-ai-pattern"></div>
@@ -308,8 +337,6 @@ function createPostCard (post, index) {
     ? 'January 10, 2025'
     : formatDate(post.date);
 
-  console.log('Card display date for post:', post.title, displayDate);
-
   const cardHtml = `
         <div class="insights-card">
             ${cardImageHtml}
@@ -318,7 +345,9 @@ function createPostCard (post, index) {
                 ${post.categories && post.categories.length > 0
     ? `<span class="insights-category">${post.categories[0]}</span>`
     : ''}
-                <h3 class="insights-title" style="background: linear-gradient(135deg, #f59e0b, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">${post.title}</h3>
+                <h3 class="insights-title" style="background: linear-gradient(135deg, #f59e0b,
+ #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+ background-clip: text;">${post.title}</h3>
                 <p class="insights-excerpt">${truncateText(post.excerpt, 120)}</p>
                 <a href="${post.url}" class="insights-read-more">Read More <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -335,18 +364,31 @@ function createPostCard (post, index) {
  * @returns {HTMLElement} - The created placeholder card element
  */
 function createPlaceholderCard (index) {
-  const cardCol = document.createElement('div');
-  cardCol.className = 'col-md-6 col-lg-4 mb-4';
-  cardCol.setAttribute('data-aos', 'fade-up');
-  cardCol.setAttribute('data-aos-delay', (index + 1) * 100);
-  cardCol.setAttribute('data-topic', 'placeholder');
+  const svgBackgroundPattern = 'data:image/svg+xml,%3Csvg width="60" height="60" ' +
+    'viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" ' +
+    'fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.1"%3E%3Cpath d=' +
+    '"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z' +
+    'M6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E' +
+    '%3C/g%3E%3C/g%3E%3C/svg%3E';
 
+  const cardCol = document.createElement('div');
   // Create the HTML for the card with Enterprise AI visualization style
   const cardImageHtml = `
-        <div class="insight-img" style="background: linear-gradient(135deg, #0f172a, #1e293b); position: relative; overflow: hidden;">
+        <div class="insight-img" style="background: linear-gradient(135deg, #0f172a, #1e293b);
+ position: relative; overflow: hidden;">
             <!-- Background Pattern -->
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E'); opacity: 0.4;"></div>
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+ background-image: url(${svgBackgroundPattern}); opacity: 0.4;"></div>
             
+            <!-- Glow Effect -->
+            <div style="position: absolute; top: 50%; left: 50%; width: 150px; height: 150px;
+ background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(16, 185, 129, 0.1) 50%,
+ transparent 70%); border-radius: 50%; filter: blur(40px); opacity: 0.6;
+ transform: translate(-50%, -50%);"></div>
+            
+            <!-- Enterprise AI Mini Visualization -->
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+ style="position: absolute; width: 100%; height: 100%;">
             <!-- Glow Effect -->
             <div style="position: absolute; top: 50%; left: 50%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(16, 185, 129, 0.1) 50%, transparent 70%); border-radius: 50%; filter: blur(40px); opacity: 0.6; transform: translate(-50%, -50%);"></div>
             
@@ -356,12 +398,18 @@ function createPlaceholderCard (index) {
                 <circle cx="100" cy="100" r="15" fill="url(#placeholderGradient${index}1)" />
                 
                 <!-- Connection Lines -->
-                <line x1="100" y1="100" x2="60" y2="60" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                <line x1="100" y1="100" x2="140" y2="60" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                <line x1="100" y1="100" x2="150" y2="100" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                <line x1="100" y1="100" x2="140" y2="140" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                <line x1="100" y1="100" x2="60" y2="140" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
-                <line x1="100" y1="100" x2="50" y2="100" stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                <line x1="100" y1="100" x2="60" y2="60"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                <line x1="100" y1="100" x2="140" y2="60"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                <line x1="100" y1="100" x2="150" y2="100"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                <line x1="100" y1="100" x2="140" y2="140"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                <line x1="100" y1="100" x2="60" y2="140"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
+                <line x1="100" y1="100" x2="50" y2="100"
+ stroke="#3b82f6" stroke-width="1.5" stroke-opacity="0.6" />
                 
                 <!-- Satellite Nodes -->
                 <circle cx="60" cy="60" r="8" fill="url(#placeholderGradient${index}2)" />
@@ -395,8 +443,11 @@ function createPlaceholderCard (index) {
             <div class="insights-content">
                 <div class="insights-date">Coming Soon</div>
                 <span class="insights-category">Placeholder</span>
-                <h3 class="insights-title" style="background: linear-gradient(135deg, #f59e0b, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">More Insights Coming Soon</h3>
-                <p class="insights-excerpt">We're working on more insightful content. Check back soon for updates on the latest in AI and technology.</p>
+                <h3 class="insights-title" style="background: linear-gradient(135deg, #f59e0b,
+ #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+ background-clip: text;">More Insights Coming Soon</h3>
+                <p class="insights-excerpt">We're working on more insightful content.
+ Check back soon for updates on the latest in AI and technology.</p>
                 <a href="#" class="insights-read-more">Stay Tuned <i class="fas fa-arrow-right"></i></a>
             </div>
         </div>
@@ -434,8 +485,6 @@ function initializeFilters () {
  * @param {string} filter - Category filter value
  */
 function filterInsights (filter) {
-  currentFilter = filter;
-
   // Filter posts based on category
   if (filter === 'all') {
     filteredPosts = allPosts;
@@ -481,27 +530,21 @@ function displayErrorMessage (message = 'Error loading blog posts. Please try ag
  * @returns {string} - Formatted date string
  */
 function formatDate (dateString) {
-  console.log('formatDate input:', dateString);
-
   if (!dateString) return '';
 
   // If the dateString is already in the format "Month DD, YYYY", return it as is
   if (dateString.match(/^[A-Za-z]+ \d{1,2}, \d{4}$/)) {
-    console.log('Date already formatted correctly:', dateString);
     return dateString;
   }
 
   // Special case for Machine Learning post
   if (dateString === '2025-01-10') {
-    console.log('Special case for ML post date');
     return 'January 10, 2025';
   }
 
   const date = new Date(dateString);
-  console.log('Date object created:', date);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const formatted = date.toLocaleDateString('en-US', options);
-  console.log('Formatted date:', formatted);
   return formatted;
 }
 
