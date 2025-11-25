@@ -147,7 +147,7 @@ jobs:
 
         # Only check for critical JavaScript errors (allow warnings for automated releases)
         echo "Checking JavaScript for critical errors..."
-        LINT_OUTPUT=$(npm run lint:js 2>&1 || true)
+        LINT_OUTPUT=$(npx eslint assets/js/**/*.js --max-warnings 1000 2>&1 || true)
 
         JS_ERROR_COUNT=$(echo "$LINT_OUTPUT" | grep -c "error")
         if [ "$JS_ERROR_COUNT" -gt 0 ]; then
