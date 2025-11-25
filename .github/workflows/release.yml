@@ -147,11 +147,16 @@ jobs:
 
         # Only check for critical JavaScript errors (allow warnings for automated releases)
         echo "Checking JavaScript for critical errors..."
-        LINT_OUTPUT=$(npx eslint assets/js/**/*.js --max-warnings 1000 2>&1 || true)
+        set +e  # Don't exit on command failure
+        npx eslint assets/js/**/*.js --max-warnings 1000 > lint_output.txt 2>&1
+        LINT_EXIT_CODE=$?
+        LINT_OUTPUT=$(cat lint_output.txt)
+        set -e  # Restore exit on error
 
-        JS_ERROR_COUNT=$(echo "$LINT_OUTPUT" | grep -c "error")
-        if [ "$JS_ERROR_COUNT" -gt 0 ]; then
-          echo "❌ Cannot release: Found $JS_ERROR_COUNT critical JavaScript errors"
+        JS_ERROR_COUNT=$(echo "$LINT_OUTPUT" | grep -c "error" || true)
+        if [ "$JS_ERROR_COUNT" -gt 0 ] || [ "$LINT_EXIT_CODE" -ne 0 ]; then
+          echo "❌ ESLint failed with exit code $LINT_EXIT_CODE"
+          echo "Error count: $JS_ERROR_COUNT"
           echo "$LINT_OUTPUT"
           exit 1
         fi
