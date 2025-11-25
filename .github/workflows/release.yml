@@ -41,6 +41,8 @@ jobs:
 
     - name: Determine version bump type
       id: version-determination
+      env:
+        GH_TOKEN: ${{ github.token }}
       run: |
         # Get current version
         CURRENT_VERSION=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
@@ -147,21 +149,19 @@ jobs:
 
         # Only check for critical JavaScript errors (allow warnings for automated releases)
         echo "Checking JavaScript for critical errors..."
-        set +e  # Don't exit on command failure
-        npx eslint assets/js/**/*.js --max-warnings 1000 > lint_output.txt 2>&1
-        LINT_EXIT_CODE=$?
-        LINT_OUTPUT=$(cat lint_output.txt)
-        set -e  # Restore exit on error
+        LINT_OUTPUT=$(npx eslint assets/js/**/*.js --max-warnings 1000 2>&1 || true)
 
         JS_ERROR_COUNT=$(echo "$LINT_OUTPUT" | grep -c "error" || true)
-        if [ "$JS_ERROR_COUNT" -gt 0 ] || [ "$LINT_EXIT_CODE" -ne 0 ]; then
-          echo "❌ ESLint failed with exit code $LINT_EXIT_CODE"
-          echo "Error count: $JS_ERROR_COUNT"
+        TOTAL_ISSUES=$(echo "$LINT_OUTPUT" | grep -o "✖ [0-9]* problems" | grep -o "[0-9]*" || echo "0")
+
+        if [ "$JS_ERROR_COUNT" -gt 0 ]; then
+          echo "❌ Cannot release: Found $JS_ERROR_COUNT critical JavaScript errors"
           echo "$LINT_OUTPUT"
           exit 1
         fi
 
         echo "✅ JavaScript quality checks passed (warnings allowed for automated releases)"
+        echo "Total linting issues: $TOTAL_ISSUES ($JS_ERROR_COUNT errors, $(($TOTAL_ISSUES - $JS_ERROR_COUNT)) warnings)"
 
     - name: Update package.json version
       run: |
