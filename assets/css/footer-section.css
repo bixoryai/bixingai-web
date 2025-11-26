@@ -12,13 +12,12 @@
   position: relative;
   background-color: var(--dark-color);
   color: var(--text-light);
-  padding: 2rem 0 0.5rem; /* Reduced top padding from 3rem to 2rem */
+  padding: 1.5rem 0 0.25rem; /* Reduced bottom padding from 0.5rem to 0.25rem */
   overflow: hidden;
   width: 100%;
   margin-top: auto; /* Push footer to bottom of flex container */
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.5rem;
 }
 
 /* Footer background elements */
@@ -121,8 +120,8 @@
   color: var(--white);
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 10px; /* Reduced from 15px */
-  padding-bottom: 0.5rem; /* Reduced from 0.625rem */
+  margin-bottom: 8px; /* Reduced from 10px */
+  padding-bottom: 0.3rem; /* Reduced from 0.5rem */
   padding-top: 0.25rem;
   margin-top: 0; /* Ensure consistent top margin */
 }
@@ -146,7 +145,7 @@
 }
 
 .footer-links li {
-  margin-bottom: 6px; /* Reduced from 10px */
+  margin-bottom: 4px; /* Reduced from 6px */
 }
 
 .footer-links li a {
@@ -156,8 +155,9 @@
   opacity: 0.8;
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0;
+  padding: 0.15rem 0; /* Reduced from 0.25rem */
   position: relative;
+  font-size: 0.9rem; /* Added smaller font size */
 }
 
 .footer-links li a i {
@@ -261,8 +261,9 @@
 /* Footer bottom section */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 1rem; /* Reduced from 2rem */
-  padding-top: 0.75rem; /* Reduced from 1rem */
+  margin-top: 0.5rem; /* Reduced from 1rem */
+  padding-top: 0.25rem; /* Reduced from 0.5rem */
+  padding-bottom: 0.25rem; /* Added minimal bottom padding */
   text-align: center;
 }
 
@@ -313,15 +314,15 @@
 
 @media (max-width: 768px) {
   .footer {
-    padding: 1.5rem 0 0.5rem; /* Reduced from 3rem */
+    padding: 1.25rem 0 0.5rem; /* Reduced from 1.5rem */
     text-align: center;
     margin-top: 1rem; /* Reduced spacing */
   }
   
   .footer-heading {
-    margin-top: 0.75rem; /* Reduced from 1rem */
-    margin-bottom: 0.75rem; /* Reduced from 1rem */
-    padding-bottom: 0.4rem; /* Reduced from 0.5rem */
+    margin-top: 0.5rem; /* Reduced from 0.75rem */
+    margin-bottom: 0.5rem; /* Reduced from 0.75rem */
+    padding-bottom: 0.3rem; /* Reduced from 0.4rem */
   }
   
   .footer-heading::after {
@@ -377,9 +378,9 @@
   }
   
   .footer-bottom {
-    margin-top: 1rem; /* Reduced from 1.5rem */
+    margin-top: 0.75rem; /* Reduced from 1rem */
     padding-top: 0.25rem;
-    margin-bottom: 0.5rem; /* Small vertical margin to the page bottom */
+    margin-bottom: 0.25rem; /* Reduced bottom margin */
   }
   
   /* Make Privacy Policy and Terms of Service appear in the same row */

@@ -28,7 +28,7 @@ window.embeddedTranslations = {
     'nav.services': '产品与服务',
     'nav.about': '关于我们',
     'nav.contact': '联系我们',
-    'hero.title': 'AI创新赋能企业',
+    'hero.title': 'AI赋能 势在毕行',
     'hero.contactUs': '联系我们',
     'footer.company': '毕行科技',
     'footer.copyright': '© 2023 成都毕行科技有限公司 版权所有'

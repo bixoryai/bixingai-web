@@ -167,8 +167,8 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'nav.contact': '联系我们',
 
   // Hero Section
-  'hero.title': 'AI创新赋能企业',
-  'hero.subtitle': '定制AI解决方案、教育和咨询服务，转变您的业务',
+  'hero.title': 'AI赋能 势在毕行',
+  'hero.subtitle': '企业级定制化AI智能化落地方案提供商',
   'hero.exploreServices': '探索服务',
   'hero.contactUs': '联系我们',
   'hero.empoweredBy': '技术支持',

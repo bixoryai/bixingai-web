@@ -113,7 +113,7 @@
     </section>
 
     <!-- Overview Section -->
-    <section class="section-padding" style="background-color: var(--dark-bg);">
+    <section class="section-padding bg-dark">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -128,8 +128,8 @@
                     <p data-i18n="education.overview.paragraph3">Our approach combines theoretical foundations with hands-on experience, ensuring participants not only understand AI concepts but can apply them confidently in their daily work.</p>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
-                    <div class="overview-image" style="display: flex; align-items: center; height: 100%;">
-                        <img src="../../assets/images/ai-education-overview.svg" alt="AI Education Overview" class="img-fluid" data-i18n-alt="education.overview.imageAlt" style="max-height: 300px; margin: 0 auto;">
+                    <div class="overview-image d-flex align-items-center h-100">
+                        <img src="../../assets/images/ai-education-overview.svg" alt="AI Education Overview" class="img-fluid max-h-300 mx-auto" data-i18n-alt="education.overview.imageAlt">
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="section-padding" style="background-color: var(--testimonials-bg);">
+    <section class="section-padding bg-testimonials">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -256,7 +256,7 @@
     </section>
 
     <!-- Programs Section -->
-    <section id="programs" class="section-padding" style="background-color: var(--testimonials-bg);">
+    <section id="programs" class="section-padding bg-testimonials">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -278,7 +278,7 @@
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program1.feature4">Ethical AI considerations</span></li>
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program1.feature5">2-day intensive workshop</span></li>
                             </ul>
-                            <a href="../../contact.html" class="btn w-100" style="background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500); border: none; color: white; font-weight: 600;" data-i18n="education.programs.cta">Request Information</a>
+                            <a href="../../contact.html" class="btn w-100 bg-gradient-gold" data-i18n="education.programs.cta">Request Information</a>
                         </div>
                     </div>
                 </div>
@@ -295,7 +295,7 @@
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program2.feature4">Hands-on project work</span></li>
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program2.feature5">5-day comprehensive program</span></li>
                             </ul>
-                            <a href="../../contact.html" class="btn w-100" style="background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500); border: none; color: white; font-weight: 600;" data-i18n="education.programs.cta">Request Information</a>
+                            <a href="../../contact.html" class="btn w-100 bg-gradient-gold" data-i18n="education.programs.cta">Request Information</a>
                         </div>
                     </div>
                 </div>
@@ -312,7 +312,7 @@
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program3.feature4">ROI measurement frameworks</span></li>
                                 <li><i class="fas fa-check-circle"></i> <span data-i18n="education.programs.program3.feature5">Executive 3-day intensive</span></li>
                             </ul>
-                            <a href="../../contact.html" class="btn w-100" style="background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500); border: none; color: white; font-weight: 600;" data-i18n="education.programs.cta">Request Information</a>
+                            <a href="../../contact.html" class="btn w-100 bg-gradient-gold" data-i18n="education.programs.cta">Request Information</a>
                         </div>
                     </div>
                 </div>
@@ -321,7 +321,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="section-padding" style="background-color: var(--dark-bg); display: none;">
+    <section class="section-padding bg-dark d-none">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -363,7 +363,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="section-padding" style="background-color: var(--insights-bg);">
+    <section class="section-padding bg-insights">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center" data-aos="fade-up">
@@ -455,136 +455,8 @@
     <script src="../../assets/js/i18n-common.js"></script>
     <script src="../../assets/js/i18n-education.js"></script>
     
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
-        
-        // FAQ Accordion
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const header = item.querySelector('.faq-header');
-                
-                header.addEventListener('click', function() {
-                    item.classList.toggle('active');
-                });
-            });
-        });
-
-        // Initialize particles.js
-        document.addEventListener('DOMContentLoaded', function() {
-            particlesJS('particles-js', {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#ffffff"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        },
-                        "polygon": {
-                            "nb_sides": 5
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.3,
-                        "random": false,
-                        "anim": {
-                            "enable": false,
-                            "speed": 1,
-                            "opacity_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true,
-                        "anim": {
-                            "enable": false,
-                            "speed": 40,
-                            "size_min": 0.1,
-                            "sync": false
-                        }
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#ffffff",
-                        "opacity": 0.2,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false,
-                        "attract": {
-                            "enable": false,
-                            "rotateX": 600,
-                            "rotateY": 1200
-                        }
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "bubble": {
-                            "distance": 400,
-                            "size": 40,
-                            "duration": 2,
-                            "opacity": 8,
-                            "speed": 3
-                        },
-                        "repulse": {
-                            "distance": 200,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        },
-                        "remove": {
-                            "particles_nb": 2
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
-        });
-    </script>
+    <!-- Page-specific scripts -->
+    <script src="../../assets/js/education-page.js"></script>
     <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
     </div><!-- End page-wrapper -->

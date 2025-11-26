@@ -1,19 +1,23 @@
-<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <pattern id="educationPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
-      <path d="M50 10L90 30L50 50L10 30L50 10Z" fill="none" stroke="#0066FF" stroke-width="1" opacity="0.2"/>
-      <path d="M50 50L90 70L50 90L10 70L50 50Z" fill="none" stroke="#0066FF" stroke-width="1" opacity="0.2"/>
-      <path d="M10 30L10 70" fill="none" stroke="#0066FF" stroke-width="1" opacity="0.2"/>
-      <path d="M90 30L90 70" fill="none" stroke="#0066FF" stroke-width="1" opacity="0.2"/>
-      <path d="M50 10L50 50" fill="none" stroke="#0066FF" stroke-width="1" opacity="0.2"/>
-      <circle cx="50" cy="10" r="3" fill="#0066FF" opacity="0.3"/>
-      <circle cx="90" cy="30" r="3" fill="#0066FF" opacity="0.3"/>
-      <circle cx="50" cy="50" r="3" fill="#0066FF" opacity="0.3"/>
-      <circle cx="10" cy="30" r="3" fill="#0066FF" opacity="0.3"/>
-      <circle cx="10" cy="70" r="3" fill="#0066FF" opacity="0.3"/>
-      <circle cx="50" cy="90" r="3" fill="#0066FF" opacity="0.3"/>
-      <circle cx="90" cy="70" r="3" fill="#0066FF" opacity="0.3"/>
+    <pattern id="educationPattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <!-- Graduation cap -->
+      <path d="M15 12 L40 12 L40 10 L45 8 L40 6 L40 4 L15 4 Z" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <rect x="17" y="4" width="21" height="2" fill="#FFD700" opacity="0.4"/>
+      <!-- Book -->
+      <rect x="8" y="25" width="18" height="12" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <line x1="8" y1="28" x2="26" y2="28" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <line x1="8" y1="32" x2="26" y2="32" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <line x1="8" y1="36" x2="26" y2="36" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <!-- Light bulb -->
+      <circle cx="45" cy="35" r="4" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <rect x="44" y="39" width="2" height="5" fill="#FFD700" opacity="0.4"/>
+      <line x1="43" y1="41" x2="40" y2="44" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <line x1="47" y1="41" x2="50" y2="44" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <!-- Brain/learning icon -->
+      <path d="M8 45 Q8 40 12 40 Q16 40 16 45 Q16 48 12 48 Q8 48 8 45" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <circle cx="12" cy="42" r="1" fill="#FFD700" opacity="0.4"/>
     </pattern>
   </defs>
-  <rect width="500" height="500" fill="url(#educationPattern)"/>
+  <rect width="200" height="200" fill="url(#educationPattern)"/>
 </svg>
