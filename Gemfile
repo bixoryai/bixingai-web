@@ -8,6 +8,7 @@ gem "csv"
 gem "base64"
 gem "logger"
 gem "bigdecimal"
+gem "webrick"
 
 # Jekyll plugins
 group :jekyll_plugins do
