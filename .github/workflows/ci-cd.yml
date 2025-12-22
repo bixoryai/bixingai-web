@@ -28,10 +28,8 @@ jobs:
 
     - name: Check for critical errors
       run: |
-        ERROR_COUNT=$(npm run lint 2>&1 | grep -c "error")
-        if [ "$ERROR_COUNT" -gt 0 ]; then
-          echo "❌ Found $ERROR_COUNT critical linting errors"
-          npm run lint
+        if ! npm run lint; then
+          echo "❌ Linting failed with critical errors"
           exit 1
         else
           echo "✅ No critical linting errors found"
