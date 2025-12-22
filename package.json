@@ -1,6 +1,6 @@
 {
   "name": "bixingai-web",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Bixing Technology Website",
   "scripts": {
     "serve": "python -m http.server",
