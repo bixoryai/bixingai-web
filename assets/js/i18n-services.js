@@ -5,21 +5,23 @@
 
 // Initialize translations object if it doesn't exist
 if (!window.translations) {
-  window.translations = { en: {}, zh: {} };
+  window.translations = {en: {}, zh: {}};
 }
 
 // English translations
 window.translations.en = Object.assign({}, window.translations.en, {
   'page.title': 'Products & Services - Bixing Technology',
   'services.hero.title': 'Comprehensive AI Solutions',
-  'services.hero.subtitle': 'Transforming businesses through education, custom solutions, and strategic consultation',
+  'services.hero.subtitle':
+    'Transforming businesses through education, custom solutions, and strategic consultation',
   'services.overview.title': 'Our Products & Services',
   'services.overview.subtitle': 'Tailored AI solutions to meet your organization\'s unique needs',
   'services.stats.projects': 'Projects Completed',
   'services.stats.clients': 'Satisfied Clients',
   'services.stats.experts': 'AI Experts',
   'services.cta.title': 'Ready to Transform Your Business with AI?',
-  'services.cta.subtitle': 'Contact us today to discuss how our AI solutions can address your specific needs.',
+  'services.cta.subtitle':
+    'Contact us today to discuss how our AI solutions can address your specific needs.',
   'services.cta.button': 'Get in Touch',
 
   // Education service
@@ -66,11 +68,14 @@ window.translations.en = Object.assign({}, window.translations.en, {
 
   // Other services
   'services.integration.title': 'AI Integration',
-  'services.integration.description': 'Seamless integration of AI capabilities into your existing systems and workflows.',
+  'services.integration.description':
+    'Seamless integration of AI capabilities into your existing systems and workflows.',
   'services.analytics.title': 'Advanced Analytics',
-  'services.analytics.description': 'Powerful data analysis tools that uncover insights and drive informed decision-making.',
+  'services.analytics.description':
+    'Powerful data analysis tools that uncover insights and drive informed decision-making.',
   'services.automation.title': 'Process Automation',
-  'services.automation.description': 'Intelligent automation solutions that increase efficiency and reduce operational costs.'
+  'services.automation.description':
+    'Intelligent automation solutions that increase efficiency and reduce operational costs.'
 });
 
 // Chinese translations

@@ -14,14 +14,14 @@
   z-index: 1000;
   transition: all var(--transition-normal);
   padding: 15px 0;
-  background-color: rgba(10, 25, 41, 0.8);
+  background-color: rgb(10 25 41 / 80%);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .header-scrolled {
-  background-color: rgba(10, 25, 41, 0.95);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgb(10 25 41 / 95%);
+  box-shadow: 0 5px 20px rgb(0 0 0 / 20%);
   padding: 10px 0;
 }
 
@@ -45,17 +45,17 @@
   font-size: 2.2rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
-  -webkit-background-clip: text;
+  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
   line-height: 1;
-  text-shadow: 0 0 15px rgba(0, 168, 255, 0.3);
+  text-shadow: 0 0 15px rgb(0 168 255 / 30%);
   transition: text-shadow var(--transition-normal);
 }
 
 .navbar-brand:hover .company-name {
-  text-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
+  text-shadow: 0 0 20px rgb(0 168 255 / 50%);
 }
 
 .navbar-toggler {
@@ -144,13 +144,13 @@
 }
 
 .dropdown-menu {
-  background-color: rgba(10, 25, 41, 0.9);
+  background-color: rgb(10 25 41 / 90%);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgb(255 255 255 / 10%);
   border-radius: var(--border-radius-md);
   padding: 0.5rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 30%);
   margin-top: 10px;
 }
 
@@ -163,7 +163,7 @@
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  background-color: rgba(0, 168, 255, 0.1);
+  background-color: rgb(0 168 255 / 10%);
   color: var(--accent-blue);
 }
 
@@ -197,24 +197,24 @@
 
 .language-toggle:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
 }
 
 .language-toggle:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.3);
+  box-shadow: 0 0 0 3px rgb(0 168 255 / 30%);
 }
 
 /* Responsive styles for header */
-@media (max-width: 992px) {
+@media (width <= 992px) {
   .navbar-collapse {
-    background-color: rgba(10, 25, 41, 0.95);
+    background-color: rgb(10 25 41 / 95%);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     padding: 1rem;
     border-radius: var(--border-radius-md);
     margin-top: 1rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgb(0 0 0 / 30%);
   }
   
   .navbar-nav .nav-link::after {
@@ -222,7 +222,7 @@
   }
   
   .dropdown-menu {
-    background-color: rgba(10, 25, 41, 0.5);
+    background-color: rgb(10 25 41 / 50%);
     border: none;
     box-shadow: none;
     margin-top: 0;
@@ -239,7 +239,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (width <= 576px) {
   .company-name {
     font-size: 1.8rem;
   }
@@ -288,7 +288,7 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255 255 255 / 10%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -299,7 +299,7 @@
 .social-icon:hover {
   background-color: var(--accent-blue);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgb(0 0 0 / 20%);
 }
 
 .footer-links h3 {
@@ -382,7 +382,7 @@
 }
 
 .footer-bottom {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgb(0 0 0 / 20%);
   padding: var(--spacing-md) 0;
   margin-top: var(--spacing-xl);
 }
@@ -407,7 +407,7 @@
 }
 
 /* Responsive styles for footer */
-@media (max-width: 992px) {
+@media (width <= 992px) {
   .footer-links h3,
   .footer-contact h4 {
     margin-top: var(--spacing-lg);
@@ -427,7 +427,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .footer-contact .wechat-container {
     align-items: center;
     margin-bottom: var(--spacing-lg);

@@ -11,7 +11,7 @@ const postsPerPage = 6; // Number of posts per page
 let allPosts = [];
 let filteredPosts = [];
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Load blog post data
   fetch('../../assets/data/blog-posts.json?v=' + new Date().getTime())
     // Add cache-busting parameter
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
  * Process blog post data and populate the page
  * @param {Array} posts - Array of blog post objects
  */
-function processBlogPosts (posts) {
+function processBlogPosts(posts) {
   if (!posts || posts.length === 0) {
     displayErrorMessage('No blog posts found');
     return;
@@ -59,7 +59,7 @@ function processBlogPosts (posts) {
  * Set the featured post content
  * @param {Object} post - Featured post object
  */
-function setFeaturedPost (post) {
+function setFeaturedPost(post) {
   const featuredTitle = document.getElementById('featured-title');
   const featuredExcerpt = document.getElementById('featured-excerpt');
   const featuredLink = document.getElementById('featured-link');
@@ -75,7 +75,7 @@ function setFeaturedPost (post) {
  * Generate category filter buttons
  * @param {Array} posts - Array of blog post objects
  */
-function generateCategoryFilters (posts) {
+function generateCategoryFilters(posts) {
   const categoryFiltersContainer = document.getElementById('category-filters');
   if (!categoryFiltersContainer) return;
 
@@ -101,7 +101,7 @@ function generateCategoryFilters (posts) {
  * Populate the insights grid with blog post cards
  * @param {Array} posts - Array of blog post objects
  */
-function populateInsightsGrid (posts) {
+function populateInsightsGrid(posts) {
   const insightsGrid = document.getElementById('insights-grid');
   if (!insightsGrid) return;
 
@@ -134,8 +134,9 @@ function populateInsightsGrid (posts) {
  * @param {number} index - Index of the post
  * @returns {HTMLElement} - The created card element
  */
-function createPostCard (post, index) {
-  const svgBackgroundPattern = 'data:image/svg+xml,%3Csvg width="60" height="60" ' +
+function createPostCard(post, index) {
+  const svgBackgroundPattern =
+    'data:image/svg+xml,%3Csvg width="60" height="60" ' +
     'viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" ' +
     'fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.1"%3E%3Cpath d=' +
     '"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z' +
@@ -333,18 +334,21 @@ function createPostCard (post, index) {
   }
 
   // Special handling for Machine Learning post date
-  const displayDate = post.title && post.title.includes('Machine Learning for Business')
-    ? 'January 10, 2025'
-    : formatDate(post.date);
+  const displayDate =
+    post.title && post.title.includes('Machine Learning for Business')
+      ? 'January 10, 2025'
+      : formatDate(post.date);
 
   const cardHtml = `
         <div class="insights-card">
             ${cardImageHtml}
             <div class="insights-content">
                 <div class="insights-date">${displayDate}</div>
-                ${post.categories && post.categories.length > 0
+                ${
+  post.categories && post.categories.length > 0
     ? `<span class="insights-category">${post.categories[0]}</span>`
-    : ''}
+    : ''
+}
                 <h3 class="insights-title" style="background: linear-gradient(135deg, #f59e0b,
  #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
  background-clip: text;">${post.title}</h3>
@@ -363,8 +367,9 @@ function createPostCard (post, index) {
  * @param {number} index - Index for the placeholder
  * @returns {HTMLElement} - The created placeholder card element
  */
-function createPlaceholderCard (index) {
-  const svgBackgroundPattern = 'data:image/svg+xml,%3Csvg width="60" height="60" ' +
+function createPlaceholderCard(index) {
+  const svgBackgroundPattern =
+    'data:image/svg+xml,%3Csvg width="60" height="60" ' +
     'viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" ' +
     'fill-rule="evenodd"%3E%3Cg fill="%233b82f6" fill-opacity="0.1"%3E%3Cpath d=' +
     '"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z' +
@@ -460,11 +465,11 @@ function createPlaceholderCard (index) {
 /**
  * Initialize filter functionality
  */
-function initializeFilters () {
+function initializeFilters() {
   const filterButtons = document.querySelectorAll('.filter-button');
 
   filterButtons.forEach(button => {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function() {
       // Remove active class from all buttons
       filterButtons.forEach(btn => btn.classList.remove('active'));
 
@@ -484,7 +489,7 @@ function initializeFilters () {
  * Filter insights cards based on category
  * @param {string} filter - Category filter value
  */
-function filterInsights (filter) {
+function filterInsights(filter) {
   // Filter posts based on category
   if (filter === 'all') {
     filteredPosts = allPosts;
@@ -511,7 +516,7 @@ function filterInsights (filter) {
  * Display error message in the insights grid
  * @param {string} message - Error message to display
  */
-function displayErrorMessage (message = 'Error loading blog posts. Please try again later.') {
+function displayErrorMessage(message = 'Error loading blog posts. Please try again later.') {
   const insightsGrid = document.getElementById('insights-grid');
   if (!insightsGrid) return;
 
@@ -529,7 +534,7 @@ function displayErrorMessage (message = 'Error loading blog posts. Please try ag
  * @param {string} dateString - Date string in YYYY-MM-DD format
  * @returns {string} - Formatted date string
  */
-function formatDate (dateString) {
+function formatDate(dateString) {
   if (!dateString) return '';
 
   // If the dateString is already in the format "Month DD, YYYY", return it as is
@@ -543,7 +548,7 @@ function formatDate (dateString) {
   }
 
   const date = new Date(dateString);
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options = {year: 'numeric', month: 'long', day: 'numeric'};
   const formatted = date.toLocaleDateString('en-US', options);
   return formatted;
 }
@@ -554,7 +559,7 @@ function formatDate (dateString) {
  * @param {number} maxLength - Maximum length
  * @returns {string} - Truncated text
  */
-function truncateText (text, maxLength) {
+function truncateText(text, maxLength) {
   if (!text) return '';
   if (text.length <= maxLength) return text;
 
@@ -566,10 +571,12 @@ function truncateText (text, maxLength) {
  * @param {string} text - Text to convert
  * @returns {string} - Slug format
  */
-function slugify (text) {
+function slugify(text) {
   if (!text) return '';
 
-  return text.toString().toLowerCase()
+  return text
+    .toString()
+    .toLowerCase()
     .replace(/\s+/g, '-') // Replace spaces with -
     .replace(/[^\w-]+/g, '') // Remove all non-word chars
     .replace(/--+/g, '-') // Replace multiple - with single -
@@ -581,7 +588,7 @@ function slugify (text) {
  * Paginate posts based on current page
  * @param {number} page - Current page number
  */
-function paginatePosts (page) {
+function paginatePosts(page) {
   // Calculate start and end indices for the current page
   const startIndex = (page - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
@@ -600,7 +607,7 @@ function paginatePosts (page) {
  * Update pagination UI based on current page
  * @param {number} page - Current page number
  */
-function updatePaginationUI (page) {
+function updatePaginationUI(page) {
   const paginationContainer = document.querySelector('.pagination');
   if (!paginationContainer) return;
 
@@ -653,12 +660,12 @@ function updatePaginationUI (page) {
 /**
  * Initialize pagination functionality
  */
-function initializePagination () {
+function initializePagination() {
   const paginationContainer = document.querySelector('.pagination');
   if (!paginationContainer) return;
 
   // Add click event listener to pagination container for event delegation
-  document.querySelector('.pagination-container').addEventListener('click', function (e) {
+  document.querySelector('.pagination-container').addEventListener('click', function(e) {
     e.preventDefault();
 
     // Find closest page link
@@ -671,7 +678,7 @@ function initializePagination () {
         currentPage--;
         paginatePosts(currentPage);
         // Scroll to top of insights grid
-        document.getElementById('insights-grid').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('insights-grid').scrollIntoView({behavior: 'smooth'});
       }
       return;
     }
@@ -683,7 +690,7 @@ function initializePagination () {
         currentPage++;
         paginatePosts(currentPage);
         // Scroll to top of insights grid
-        document.getElementById('insights-grid').scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('insights-grid').scrollIntoView({behavior: 'smooth'});
       }
       return;
     }
@@ -694,7 +701,7 @@ function initializePagination () {
       currentPage = pageNumber;
       paginatePosts(currentPage);
       // Scroll to top of insights grid
-      document.getElementById('insights-grid').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('insights-grid').scrollIntoView({behavior: 'smooth'});
     }
   });
 }

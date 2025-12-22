@@ -4,7 +4,7 @@
  */
 
 // Force a hard refresh on page load to clear cache
-window.onload = function () {
+window.onload = function() {
   // Add a timestamp to all component URLs to prevent caching
   const links = document.querySelectorAll('a');
   links.forEach(link => {
@@ -16,6 +16,4 @@ window.onload = function () {
       link.href = url.toString();
     }
   });
-
-  console.log('Cache refresh applied to prevent component caching issues');
 };

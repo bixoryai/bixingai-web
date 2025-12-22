@@ -1,7 +1,6 @@
 /**
  * Contact page translations for Bixing Technology website
  */
-/* global applyTranslations */
 
 // Contact page specific translations
 const contactTranslations = {
@@ -15,17 +14,20 @@ const contactTranslations = {
 
     // Contact cards
     'contact.email.title': 'Email Us',
-    'contact.email.description': 'For general inquiries, partnership opportunities, or any questions about our services.',
+    'contact.email.description':
+      'For general inquiries, partnership opportunities, or any questions about our services.',
 
     'contact.wechat.title': 'Connect on WeChat',
-    'contact.wechat.description': 'Add our WeChat account for quick responses and updates about our services.',
+    'contact.wechat.description':
+      'Add our WeChat account for quick responses and updates about our services.',
 
     'contact.wechatService.title': 'WeChat Service Number',
     'contact.wechatService.description': 'Scan the QR code to connect with us on WeChat',
 
     // Contact form
     'contact.form.title': 'Send Us a Message',
-    'contact.form.subtitle': 'Fill out the form below and we\'ll get back to you as soon as possible',
+    'contact.form.subtitle':
+      'Fill out the form below and we\'ll get back to you as soon as possible',
 
     // Contact tabs
     'contact.tab.general': 'General Inquiry',
@@ -142,7 +144,7 @@ const contactTranslations = {
 };
 
 // Apply contact page translations
-function applyContactTranslations () {
+function applyContactTranslations() {
   const currentLang = localStorage.getItem('bixingLanguage') || 'en';
 
   // Apply translations to elements with data-contact-i18n attribute
@@ -157,27 +159,40 @@ function applyContactTranslations () {
   document.title = contactTranslations[currentLang]['page.title'];
 
   // Apply translations to hero section
-  document.querySelector('.hero-title').textContent = contactTranslations[currentLang]['contact.hero.title'];
-  document.querySelector('.hero-subtitle').textContent = contactTranslations[currentLang]['contact.hero.subtitle'];
+  document.querySelector('.hero-title').textContent =
+    contactTranslations[currentLang]['contact.hero.title'];
+  document.querySelector('.hero-subtitle').textContent =
+    contactTranslations[currentLang]['contact.hero.subtitle'];
 
   // Apply translations to contact cards
-  document.querySelectorAll('.contact-card h3')[0].textContent = contactTranslations[currentLang]['contact.email.title'];
-  document.querySelectorAll('.contact-card p')[0].textContent = contactTranslations[currentLang]['contact.email.description'];
+  document.querySelectorAll('.contact-card h3')[0].textContent =
+    contactTranslations[currentLang]['contact.email.title'];
+  document.querySelectorAll('.contact-card p')[0].textContent =
+    contactTranslations[currentLang]['contact.email.description'];
 
-  document.querySelectorAll('.contact-card h3')[1].textContent = contactTranslations[currentLang]['contact.wechat.title'];
-  document.querySelectorAll('.contact-card p')[1].textContent = contactTranslations[currentLang]['contact.wechat.description'];
+  document.querySelectorAll('.contact-card h3')[1].textContent =
+    contactTranslations[currentLang]['contact.wechat.title'];
+  document.querySelectorAll('.contact-card p')[1].textContent =
+    contactTranslations[currentLang]['contact.wechat.description'];
 
-  document.querySelectorAll('.contact-card h3')[2].textContent = contactTranslations[currentLang]['contact.wechatService.title'];
-  document.querySelectorAll('.contact-card p')[2].textContent = contactTranslations[currentLang]['contact.wechatService.description'];
+  document.querySelectorAll('.contact-card h3')[2].textContent =
+    contactTranslations[currentLang]['contact.wechatService.title'];
+  document.querySelectorAll('.contact-card p')[2].textContent =
+    contactTranslations[currentLang]['contact.wechatService.description'];
 
   // Apply translations to contact form section
-  document.querySelector('.contact-form-section h2').textContent = contactTranslations[currentLang]['contact.form.title'];
-  document.querySelector('.contact-form-section .lead').textContent = contactTranslations[currentLang]['contact.form.subtitle'];
+  document.querySelector('.contact-form-section h2').textContent =
+    contactTranslations[currentLang]['contact.form.title'];
+  document.querySelector('.contact-form-section .lead').textContent =
+    contactTranslations[currentLang]['contact.form.subtitle'];
 
   // Apply translations to contact tabs
-  document.querySelector('#general-tab').textContent = contactTranslations[currentLang]['contact.tab.general'];
-  document.querySelector('#business-tab').textContent = contactTranslations[currentLang]['contact.tab.business'];
-  document.querySelector('#support-tab').textContent = contactTranslations[currentLang]['contact.tab.support'];
+  document.querySelector('#general-tab').textContent =
+    contactTranslations[currentLang]['contact.tab.general'];
+  document.querySelector('#business-tab').textContent =
+    contactTranslations[currentLang]['contact.tab.business'];
+  document.querySelector('#support-tab').textContent =
+    contactTranslations[currentLang]['contact.tab.support'];
 
   // Apply translations to form labels
   const formLabels = document.querySelectorAll('.form-label');
@@ -187,7 +202,8 @@ function applyContactTranslations () {
   formLabels[3].textContent = contactTranslations[currentLang]['contact.form.phone'];
   formLabels[4].textContent = contactTranslations[currentLang]['contact.form.subject'];
   formLabels[5].textContent = contactTranslations[currentLang]['contact.form.message'];
-  document.querySelector('#generalInquiryForm .submit-btn').textContent = contactTranslations[currentLang]['contact.form.submit'];
+  document.querySelector('#generalInquiryForm .submit-btn').textContent =
+    contactTranslations[currentLang]['contact.form.submit'];
 
   // Apply translations to business form
   formLabels[6].textContent = contactTranslations[currentLang]['contact.form.companyName'];
@@ -204,7 +220,8 @@ function applyContactTranslations () {
   options[4].textContent = contactTranslations[currentLang]['contact.form.other'];
 
   formLabels[11].textContent = contactTranslations[currentLang]['contact.form.partnershipDetails'];
-  document.querySelector('#businessPartnershipForm .submit-btn').textContent = contactTranslations[currentLang]['contact.form.submitPartnership'];
+  document.querySelector('#businessPartnershipForm .submit-btn').textContent =
+    contactTranslations[currentLang]['contact.form.submitPartnership'];
 
   // Apply translations to support form
   formLabels[12].textContent = contactTranslations[currentLang]['contact.form.name'];
@@ -225,37 +242,18 @@ function applyContactTranslations () {
   options[14].textContent = contactTranslations[currentLang]['contact.form.other'];
 
   formLabels[16].textContent = contactTranslations[currentLang]['contact.form.issueDescription'];
-  document.querySelector('#supportForm .submit-btn').textContent = contactTranslations[currentLang]['contact.form.submitSupport'];
+  document.querySelector('#supportForm .submit-btn').textContent =
+    contactTranslations[currentLang]['contact.form.submitSupport'];
 
   // Apply translations to map section
-  document.querySelector('.map-section').previousElementSibling.querySelector('h2').textContent = contactTranslations[currentLang]['contact.map.title'];
-  document.querySelector('.map-section').previousElementSibling.querySelector('p').textContent = contactTranslations[currentLang]['contact.map.subtitle'];
-}
-
-// Custom toggle language function for contact page
-function contactToggleLanguage () {
-  const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-  const newLanguage = currentLang === 'en' ? 'zh' : 'en';
-
-  localStorage.setItem('bixingLanguage', newLanguage);
-
-  // Update the language toggle button
-  const languageToggle = document.getElementById('currentLanguage');
-  if (languageToggle) {
-    languageToggle.textContent = newLanguage.toUpperCase();
-  }
-
-  // Apply translations
-  if (typeof applyTranslations === 'function') {
-    applyTranslations();
-  }
-
-  // Apply contact-specific translations
-  applyContactTranslations();
+  document.querySelector('.map-section').previousElementSibling.querySelector('h2').textContent =
+    contactTranslations[currentLang]['contact.map.title'];
+  document.querySelector('.map-section').previousElementSibling.querySelector('p').textContent =
+    contactTranslations[currentLang]['contact.map.subtitle'];
 }
 
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Apply contact-specific translations
   applyContactTranslations();
 });

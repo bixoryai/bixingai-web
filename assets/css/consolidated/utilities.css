@@ -11,6 +11,7 @@
  */
 
 /* ===== Spacing Utilities ===== */
+
 /* Margins */
 .m-0 { margin: 0 !important; }
 .m-1 { margin: var(--spacing-xs) !important; }
@@ -256,12 +257,12 @@
 }
 
 /* ===== Border Utilities ===== */
-.border { border: 1px solid rgba(255, 255, 255, 0.1) !important; }
+.border { border: 1px solid rgb(255 255 255 / 10%) !important; }
 .border-0 { border: 0 !important; }
-.border-top { border-top: 1px solid rgba(255, 255, 255, 0.1) !important; }
-.border-bottom { border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important; }
-.border-start { border-left: 1px solid rgba(255, 255, 255, 0.1) !important; }
-.border-end { border-right: 1px solid rgba(255, 255, 255, 0.1) !important; }
+.border-top { border-top: 1px solid rgb(255 255 255 / 10%) !important; }
+.border-bottom { border-bottom: 1px solid rgb(255 255 255 / 10%) !important; }
+.border-start { border-left: 1px solid rgb(255 255 255 / 10%) !important; }
+.border-end { border-right: 1px solid rgb(255 255 255 / 10%) !important; }
 
 .border-primary { border-color: var(--primary-blue) !important; }
 .border-accent { border-color: var(--accent-blue) !important; }
@@ -311,8 +312,9 @@
 .z-1000 { z-index: 1000 !important; }
 
 /* ===== Responsive Utilities ===== */
+
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+@media (width >= 576px) {
   .d-sm-none { display: none !important; }
   .d-sm-inline { display: inline !important; }
   .d-sm-inline-block { display: inline-block !important; }
@@ -330,7 +332,7 @@
 }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .d-md-none { display: none !important; }
   .d-md-inline { display: inline !important; }
   .d-md-inline-block { display: inline-block !important; }
@@ -348,7 +350,7 @@
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .d-lg-none { display: none !important; }
   .d-lg-inline { display: inline !important; }
   .d-lg-inline-block { display: inline-block !important; }
@@ -366,7 +368,7 @@
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .d-xl-none { display: none !important; }
   .d-xl-inline { display: inline !important; }
   .d-xl-inline-block { display: inline-block !important; }
@@ -384,7 +386,7 @@
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) {
+@media (width >= 1400px) {
   .d-xxl-none { display: none !important; }
   .d-xxl-inline { display: inline !important; }
   .d-xxl-inline-block { display: inline-block !important; }
@@ -402,27 +404,27 @@
 }
 
 /* Hide on specific breakpoints */
-@media (max-width: 575.98px) {
+@media (width <= 575.98px) {
   .d-xs-only-none { display: none !important; }
 }
 
-@media (min-width: 576px) and (max-width: 767.98px) {
+@media (width >= 576px) and (width <= 767.98px) {
   .d-sm-only-none { display: none !important; }
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
+@media (width >= 768px) and (width <= 991.98px) {
   .d-md-only-none { display: none !important; }
 }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
+@media (width >= 992px) and (width <= 1199.98px) {
   .d-lg-only-none { display: none !important; }
 }
 
-@media (min-width: 1200px) and (max-width: 1399.98px) {
+@media (width >= 1200px) and (width <= 1399.98px) {
   .d-xl-only-none { display: none !important; }
 }
 
-@media (min-width: 1400px) {
+@media (width >= 1400px) {
   .d-xxl-only-none { display: none !important; }
 }
 
@@ -438,6 +440,7 @@
 }
 
 /* ===== Progress Bar Utilities ===== */
+
 /* Standard progress bar heights */
 .progress-xs {
   height: 3px !important;
@@ -511,7 +514,7 @@
 
 /* Progress bar base styling */
 .progress-clean {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgb(255 255 255 / 10%);
   border-radius: var(--border-radius-sm);
   overflow: hidden;
   margin-bottom: 0.5rem;
@@ -523,6 +526,7 @@
 }
 
 /* ===== Icon Color Utilities ===== */
+
 /* Standard icon colors for consistent styling */
 .icon-blue {
   color: #3b82f6 !important;

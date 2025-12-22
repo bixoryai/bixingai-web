@@ -537,7 +537,7 @@ function getCurrentLanguage() {
                     <p class="lead mb-5" data-i18n="contact.form.desc">Fill out the form below and we'll get back to you as soon as possible</p>
                     
                     <!-- Contact Tabs -->
-                    <ul class="nav nav-pills mb-4 justify-content-center contact-tabs" id="contactTabs" role="tablist">
+                    <ul class="nav nav-pills mb-4 justify-content-center contact-tabs" id="contact-tabs" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="general-tab" data-bs-toggle="pill" data-bs-target="#general" type="button" role="tab" aria-controls="general" aria-selected="true" data-i18n="contact.tab.general">General Inquiry</button>
                         </li>
@@ -551,19 +551,19 @@ function getCurrentLanguage() {
                 </div>
                 
                 <div class="col-lg-8 mx-auto" data-aos="fade-up">
-                    <div class="tab-content" id="contactTabsContent">
+                    <div class="tab-content" id="contact-tabs-content">
                         <!-- General Inquiry Form -->
                         <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
                             <div class="contact-form">
-                                <form id="generalInquiryForm">
+                                <form id="general-inquiry-form">
                                     <div class="row mb-4">
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <label for="firstName" class="form-label" data-i18n="contact.form.label.firstname">First Name</label>
-                                            <input type="text" class="form-control" id="firstName" required>
+                                            <label for="first-name" class="form-label" data-i18n="contact.form.label.firstname">First Name</label>
+                                            <input type="text" class="form-control" id="first-name" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="lastName" class="form-label" data-i18n="contact.form.label.lastname">Last Name</label>
-                                            <input type="text" class="form-control" id="lastName" required>
+                                            <label for="last-name" class="form-label" data-i18n="contact.form.label.lastname">Last Name</label>
+                                            <input type="text" class="form-control" id="last-name" required>
                                         </div>
                                     </div>
                                     
@@ -598,32 +598,32 @@ function getCurrentLanguage() {
                         <!-- Business Partnership Form -->
                         <div class="tab-pane fade" id="business" role="tabpanel" aria-labelledby="business-tab">
                             <div class="contact-form">
-                                <form id="businessPartnershipForm">
+                                <form id="business-partnership-form">
                                     <div class="row mb-4">
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <label for="businessName" class="form-label" data-i18n="contact.business.label.name">Company Name</label>
-                                            <input type="text" class="form-control" id="businessName" required>
+                                            <label for="business-name" class="form-label" data-i18n="contact.business.label.name">Company Name</label>
+                                            <input type="text" class="form-control" id="business-name" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="businessContact" class="form-label" data-i18n="contact.business.label.contact">Contact Person</label>
-                                            <input type="text" class="form-control" id="businessContact" required>
+                                            <label for="business-contact" class="form-label" data-i18n="contact.business.label.contact">Contact Person</label>
+                                            <input type="text" class="form-control" id="business-contact" required>
                                         </div>
                                     </div>
                                     
                                     <div class="row mb-4">
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <label for="businessEmail" class="form-label" data-i18n="contact.business.label.email">Email</label>
-                                            <input type="email" class="form-control" id="businessEmail" required>
+                                            <label for="business-email" class="form-label" data-i18n="contact.business.label.email">Email</label>
+                                            <input type="email" class="form-control" id="business-email" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="businessPhone" class="form-label" data-i18n="contact.business.label.phone">Phone</label>
-                                            <input type="tel" class="form-control" id="businessPhone" required>
+                                            <label for="business-phone" class="form-label" data-i18n="contact.business.label.phone">Phone</label>
+                                            <input type="tel" class="form-control" id="business-phone" required>
                                         </div>
                                     </div>
                                     
                                     <div class="mb-4">
-                                        <label for="partnershipType" class="form-label" data-i18n="contact.business.label.type">Partnership Type</label>
-                                        <select class="form-control" id="partnershipType" required>
+                                        <label for="partnership-type" class="form-label" data-i18n="contact.business.label.type">Partnership Type</label>
+                                        <select class="form-control" id="partnership-type" required>
                                             <option value="" selected disabled data-i18n="contact.business.type.select">Select partnership type</option>
                                             <option value="reseller" data-i18n="contact.business.type.reseller">Reseller Partnership</option>
                                             <option value="technology" data-i18n="contact.business.type.technology">Technology Partnership</option>
@@ -633,8 +633,8 @@ function getCurrentLanguage() {
                                     </div>
                                     
                                     <div class="mb-4">
-                                        <label for="businessMessage" class="form-label" data-i18n="contact.business.label.message">Partnership Details</label>
-                                        <textarea class="form-control" id="businessMessage" rows="5" required></textarea>
+                                        <label for="business-message" class="form-label" data-i18n="contact.business.label.message">Partnership Details</label>
+                                        <textarea class="form-control" id="business-message" rows="5" required></textarea>
                                     </div>
                                     
                                     <div class="text-center">
@@ -647,21 +647,21 @@ function getCurrentLanguage() {
                         <!-- Technical Support Form -->
                         <div class="tab-pane fade" id="support" role="tabpanel" aria-labelledby="support-tab">
                             <div class="contact-form">
-                                <form id="supportForm">
+                                <form id="support-form">
                                     <div class="row mb-4">
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <label for="supportName" class="form-label" data-i18n="contact.support.label.name">Name</label>
-                                            <input type="text" class="form-control" id="supportName" required>
+                                            <label for="support-name" class="form-label" data-i18n="contact.support.label.name">Name</label>
+                                            <input type="text" class="form-control" id="support-name" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="supportEmail" class="form-label" data-i18n="contact.support.label.email">Email</label>
-                                            <input type="email" class="form-control" id="supportEmail" required>
+                                            <label for="support-email" class="form-label" data-i18n="contact.support.label.email">Email</label>
+                                            <input type="email" class="form-control" id="support-email" required>
                                         </div>
                                     </div>
                                     
                                     <div class="mb-4">
-                                        <label for="productService" class="form-label" data-i18n="contact.support.label.product">Product/Service</label>
-                                        <select class="form-control" id="productService" required>
+                                        <label for="product-service" class="form-label" data-i18n="contact.support.label.product">Product/Service</label>
+                                        <select class="form-control" id="product-service" required>
                                             <option value="" selected disabled data-i18n="contact.support.product.select">Select product/service</option>
                                             <option value="aiEducation" data-i18n="contact.support.product.aiEducation">AI Education/Training</option>
                                             <option value="customSolutions" data-i18n="contact.support.product.customSolutions">AI Custom Solutions</option>
@@ -671,8 +671,8 @@ function getCurrentLanguage() {
                                     </div>
                                     
                                     <div class="mb-4">
-                                        <label for="issueType" class="form-label" data-i18n="contact.support.label.issue">Issue Type</label>
-                                        <select class="form-control" id="issueType" required>
+                                        <label for="issue-type" class="form-label" data-i18n="contact.support.label.issue">Issue Type</label>
+                                        <select class="form-control" id="issue-type" required>
                                             <option value="" selected disabled data-i18n="contact.support.issue.select">Select issue type</option>
                                             <option value="technical" data-i18n="contact.support.issue.technical">Technical Issue</option>
                                             <option value="billing" data-i18n="contact.support.issue.billing">Billing Question</option>
@@ -682,8 +682,8 @@ function getCurrentLanguage() {
                                     </div>
                                     
                                     <div class="mb-4">
-                                        <label for="supportMessage" class="form-label" data-i18n="contact.support.label.message">Issue Description</label>
-                                        <textarea class="form-control" id="supportMessage" rows="5" required></textarea>
+                                        <label for="support-message" class="form-label" data-i18n="contact.support.label.message">Issue Description</label>
+                                        <textarea class="form-control" id="support-message" rows="5" required></textarea>
                                     </div>
                                     
                                     <div class="text-center">

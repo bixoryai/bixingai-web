@@ -13,7 +13,7 @@
  */
 
 // Create a namespace for the i18n functionality
-const BixingI18n = (function () {
+const BixingI18n = (function() {
   // Private variables
   let currentLanguage = 'en';
   let translations = null;
@@ -23,18 +23,16 @@ const BixingI18n = (function () {
   /**
    * Initialize the language based on browser settings or localStorage
    */
-  function initLanguage () {
+  function initLanguage() {
     try {
       // Check localStorage first
       const savedLanguage = localStorage.getItem('bixingLanguage');
 
       if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'zh')) {
         currentLanguage = savedLanguage;
-        console.log(`Using saved language preference: ${currentLanguage}`);
       } else {
         // Check browser language
         const browserLanguage = navigator.language || navigator.userLanguage;
-        console.log(`Detected browser language: ${browserLanguage}`);
 
         // Set language based on browser preference
         if (browserLanguage.startsWith('zh')) {
@@ -45,7 +43,6 @@ const BixingI18n = (function () {
 
         // Save to localStorage
         localStorage.setItem('bixingLanguage', currentLanguage);
-        console.log(`Set initial language to: ${currentLanguage}`);
       }
 
       // Set the document language attribute
@@ -57,7 +54,6 @@ const BixingI18n = (function () {
       // Load translations and apply them
       loadTranslations();
     } catch (error) {
-      console.error('Error initializing language:', error);
       currentLanguage = 'en'; // Fallback to English
       document.documentElement.lang = currentLanguage;
     }
@@ -66,7 +62,7 @@ const BixingI18n = (function () {
   /**
    * Load translations based on current language
    */
-  function loadTranslations () {
+  function loadTranslations() {
     // If translations are already loaded, apply them immediately
     if (translationsLoaded) {
       applyTranslations();
@@ -75,8 +71,6 @@ const BixingI18n = (function () {
 
     // Path to translations file
     const translationsPath = `/assets/js/translations/${currentLanguage}.json`;
-
-    console.log(`Loading translations from: ${translationsPath}`);
 
     // Fetch translations
     fetch(translationsPath)
@@ -88,13 +82,11 @@ const BixingI18n = (function () {
       })
       .then(data => {
         translations = data;
-        console.log(`Main translations loaded for ${currentLanguage}`);
 
         // Check if we're on a blog page by looking at the URL
         const currentPath = window.location.pathname;
         if (currentPath.includes('/blog/') && !window.preventBlogTranslations) {
           // Skip loading blog-specific translations if preventBlogTranslations is set
-          console.log('Checking if blog-specific translations should be loaded');
 
           // Extract blog post slug from URL
           const pathParts = currentPath.split('/');
@@ -103,22 +95,18 @@ const BixingI18n = (function () {
           // Construct path to blog-specific translations
           const blogTranslationsPath = `/blog/${pathParts[2]}/${pathParts[3]}/${pathParts[4]}/${blogPostSlug}-translations.json`;
 
-          console.log(`Attempting to load blog-specific translations from: ${blogTranslationsPath}`);
-
           // Fetch blog-specific translations
           fetch(blogTranslationsPath)
             .then(response => {
               if (!response.ok) {
-                console.warn(`No blog-specific translations found at ${blogTranslationsPath}`);
                 return null;
               }
               return response.json();
             })
             .then(blogData => {
               if (blogData) {
-                console.log(`Blog-specific translations loaded for ${blogPostSlug}`);
                 // Merge blog translations with main translations
-                translations = { ...translations, ...blogData };
+                translations = {...translations, ...blogData};
               }
 
               translationsLoaded = true;
@@ -127,18 +115,29 @@ const BixingI18n = (function () {
               applyTranslations();
 
               // Call any callbacks waiting for translations
-              translationLoadCallbacks.forEach(callback => callback());
+              translationLoadCallbacks.forEach(callback => {
+                try {
+                  callback();
+                } catch (error) {
+                  // Handle callback error silently
+                }
+              });
               translationLoadCallbacks = [];
             })
-            .catch(error => {
-              console.error('Error loading blog-specific translations:', error);
+            .catch(() => {
               translationsLoaded = true;
 
               // Apply translations anyway with what we have
               applyTranslations();
 
               // Call any callbacks waiting for translations
-              translationLoadCallbacks.forEach(callback => callback());
+              translationLoadCallbacks.forEach(function(callback) {
+                try {
+                  callback();
+                } catch (error) {
+                  // Handle callback error silently
+                }
+              });
               translationLoadCallbacks = [];
             });
         } else {
@@ -153,12 +152,9 @@ const BixingI18n = (function () {
           translationLoadCallbacks = [];
         }
       })
-      .catch(error => {
-        console.error('Error loading translations:', error);
-
+      .catch(() => {
         // Fallback to embedded translations if available
         if (window.embeddedTranslations && window.embeddedTranslations[currentLanguage]) {
-          console.log('Using embedded translations as fallback');
           translations = window.embeddedTranslations[currentLanguage];
           translationsLoaded = true;
 
@@ -166,7 +162,13 @@ const BixingI18n = (function () {
           applyTranslations();
 
           // Call any callbacks waiting for translations
-          translationLoadCallbacks.forEach(callback => callback());
+          translationLoadCallbacks.forEach(function(callback) {
+            try {
+              callback();
+            } catch (error) {
+              // Handle callback error silently
+            }
+          });
           translationLoadCallbacks = [];
         }
       });
@@ -175,9 +177,7 @@ const BixingI18n = (function () {
   /**
    * Toggle between English and Chinese
    */
-  function toggleLanguage () {
-    console.log(`Toggling language from ${currentLanguage}`);
-
+  function toggleLanguage() {
     // Switch language
     currentLanguage = currentLanguage === 'en' ? 'zh' : 'en';
 
@@ -198,17 +198,15 @@ const BixingI18n = (function () {
 
     // Dispatch a custom event to notify other components about the language change
     const languageChangedEvent = new CustomEvent('languageChanged', {
-      detail: { language: currentLanguage }
+      detail: {language: currentLanguage}
     });
     document.dispatchEvent(languageChangedEvent);
-
-    console.log(`Language toggled to ${currentLanguage}, dispatched languageChanged event`);
   }
 
   /**
    * Update the language toggle button UI
    */
-  function updateLanguageToggle () {
+  function updateLanguageToggle() {
     const currentLanguageElement = document.getElementById('currentLanguage');
     if (currentLanguageElement) {
       currentLanguageElement.textContent = currentLanguage.toUpperCase();
@@ -235,21 +233,13 @@ const BixingI18n = (function () {
   /**
    * Apply translations to the page
    */
-  function applyTranslations () {
+  function applyTranslations() {
     try {
       if (!translations) {
-        console.warn(`No translations available for ${currentLanguage}`);
         return;
       }
 
-      console.log(`Applying translations for ${currentLanguage}`);
-
-      let translatedElements = 0;
       const missingTranslations = [];
-
-      // Force reload header and footer components to ensure they get updated translations
-      const headerPlaceholder = document.getElementById('header-placeholder');
-      const footerPlaceholder = document.getElementById('footer-placeholder');
 
       // Translate all elements with data-i18n attribute
       document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -260,17 +250,18 @@ const BixingI18n = (function () {
             element.innerHTML = translations[key];
           } else if (element.tagName === 'INPUT' && element.hasAttribute('placeholder')) {
             element.placeholder = translations[key];
-          // Check if this is a button or input with a value
-          } else if ((element.tagName === 'BUTTON' || element.tagName === 'INPUT') && element.hasAttribute('value')) {
+            // Check if this is a button or input with a value
+          } else if (
+            (element.tagName === 'BUTTON' || element.tagName === 'INPUT') &&
+            element.hasAttribute('value')
+          ) {
             element.value = translations[key];
-          // For all other elements, update the text content
+            // For all other elements, update the text content
           } else {
             element.textContent = translations[key];
           }
-          translatedElements++;
         } else {
           missingTranslations.push(key);
-          console.warn('Missing translation for key:', key, 'in language:', currentLanguage);
         }
       });
 
@@ -279,7 +270,6 @@ const BixingI18n = (function () {
         const key = element.getAttribute('data-i18n-placeholder');
         if (translations[key]) {
           element.placeholder = translations[key];
-          translatedElements++;
         } else {
           missingTranslations.push(key);
         }
@@ -289,7 +279,6 @@ const BixingI18n = (function () {
         const key = element.getAttribute('data-i18n-alt');
         if (translations[key]) {
           element.alt = translations[key];
-          translatedElements++;
         } else {
           missingTranslations.push(key);
         }
@@ -299,7 +288,6 @@ const BixingI18n = (function () {
         const key = element.getAttribute('data-i18n-value');
         if (translations[key]) {
           element.value = translations[key];
-          translatedElements++;
         } else {
           missingTranslations.push(key);
         }
@@ -311,7 +299,6 @@ const BixingI18n = (function () {
         const titleKey = titleElement.getAttribute('data-i18n');
         if (translations[titleKey]) {
           document.title = translations[titleKey];
-          translatedElements++;
         } else {
           missingTranslations.push(titleKey);
         }
@@ -325,29 +312,23 @@ const BixingI18n = (function () {
           element.style.display = 'none';
         }
       });
-
-      // Log translation statistics for debugging
-      console.log(`Translated ${translatedElements} elements`);
       if (missingTranslations.length > 0) {
-        console.warn('Missing translations for keys:', missingTranslations);
+        // Log missing translations for debugging
       }
 
       // Dispatch a custom event after translations are applied
       const translationsAppliedEvent = new CustomEvent('translationsApplied', {
-        detail: { language: currentLanguage }
+        detail: {language: currentLanguage}
       });
       document.dispatchEvent(translationsAppliedEvent);
-    } catch (error) {
-      console.error('Error applying translations:', error);
-    }
+    } catch (error) {}
   }
 
   /**
    * Get a translation for a specific key
    */
-  function getTranslation (key) {
+  function getTranslation(key) {
     if (!translations) {
-      console.warn('Translations not loaded yet');
       return key;
     }
 
@@ -355,14 +336,13 @@ const BixingI18n = (function () {
       return translations[key];
     }
 
-    console.warn(`Translation not found for key: ${key}`);
     return key;
   }
 
   /**
    * Register a callback to be called when translations are loaded
    */
-  function onTranslationsLoaded (callback) {
+  function onTranslationsLoaded(callback) {
     if (translationsLoaded) {
       // If translations are already loaded, call the callback immediately
       callback();
@@ -374,21 +354,18 @@ const BixingI18n = (function () {
 
   // Initialize when DOM is loaded
   document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM Content Loaded - initializing i18n module');
     initLanguage();
 
     // Add click event to language toggle
     const languageToggle = document.getElementById('languageToggle');
     if (languageToggle) {
-      languageToggle.addEventListener('click', function (e) {
+      languageToggle.addEventListener('click', function(e) {
         e.preventDefault();
-        console.log('Language toggle clicked');
+
         toggleLanguage();
       });
-
-      console.log('Language toggle event listener added');
     } else {
-      console.warn('Language toggle element not found');
+      // Language toggle element not found
     }
   });
 
@@ -396,7 +373,9 @@ const BixingI18n = (function () {
   return {
     init: initLanguage,
     toggleLanguage,
-    getCurrentLanguage: function () { return currentLanguage; },
+    getCurrentLanguage: function() {
+      return currentLanguage;
+    },
     getTranslation,
     applyTranslations,
     onTranslationsLoaded
@@ -410,11 +389,11 @@ window.BixingI18n = BixingI18n;
 window.i18n = BixingI18n;
 
 // Global function for toggling language (for backward compatibility)
-window.toggleLanguage = function () {
+window.toggleLanguage = function() {
   BixingI18n.toggleLanguage();
 };
 
 // Global function for getting current language (for backward compatibility)
-window.getCurrentLanguage = function () {
+window.getCurrentLanguage = function() {
   return BixingI18n.getCurrentLanguage();
 };

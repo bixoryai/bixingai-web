@@ -6,9 +6,9 @@
  */
 
 /* Import all consolidated CSS files */
-@import 'main.css';
-@import 'layout.css';
-@import 'components.css';
-@import 'pages.css';
-@import 'utilities.css';
-@import 'gradients.css';
+@import url('main.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('pages.css');
+@import url('utilities.css');
+@import url('gradients.css');

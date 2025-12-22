@@ -144,7 +144,7 @@
 }
 
 /* Responsive text size classes */
-@media (max-width: 575.98px) {
+@media (width <= 575.98px) {
   .text-xs-sm {
     font-size: 0.75rem;
   }
@@ -538,7 +538,7 @@
 }
 
 /* Responsive spacing classes */
-@media (max-width: 575.98px) {
+@media (width <= 575.98px) {
   .m-sm-0 {
     margin: 0;
   }
@@ -598,7 +598,7 @@
 }
 
 /* Responsive gap classes */
-@media (max-width: 575.98px) {
+@media (width <= 575.98px) {
   .gap-sm-0 {
     gap: 0;
   }

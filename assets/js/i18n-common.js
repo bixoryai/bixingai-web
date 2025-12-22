@@ -3,26 +3,24 @@
 window.translations = window.translations || {};
 
 // --- i18n header logic extracted from i18n-logic.js ---
-// Safe localStorage access using BixingStorage utility
-function safeStorageAccess (key, defaultValue) {
-  return window.BixingStorage ? BixingStorage.getItem(key, defaultValue) : defaultValue;
-}
-
-function getCurrentLanguage () {
+function getCurrentLanguage() {
   return window.BixingStorage ? BixingStorage.getLanguage() : 'en';
 }
 
-function applyTranslations (lang) {
+function applyTranslations(lang) {
   const currentLanguage = lang || getCurrentLanguage();
   if (!window.translations || !window.translations[currentLanguage]) return;
 
   // Apply translations to elements with data-i18n attribute
-  document.querySelectorAll('[data-i18n]').forEach(function (element) {
+  document.querySelectorAll('[data-i18n]').forEach(function(element) {
     const key = element.getAttribute('data-i18n');
     if (window.translations[currentLanguage] && window.translations[currentLanguage][key]) {
       // Use innerHTML for elements that might contain HTML tags
-      if (element.tagName === 'P' || element.classList.contains('company-description') ||
-          window.translations[currentLanguage][key].includes('<br>')) {
+      if (
+        element.tagName === 'P' ||
+        element.classList.contains('company-description') ||
+        window.translations[currentLanguage][key].includes('<br>')
+      ) {
         element.innerHTML = window.translations[currentLanguage][key];
 
         // No special handling needed
@@ -33,7 +31,7 @@ function applyTranslations (lang) {
   });
 
   // Handle placeholder translations
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(function (element) {
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(function(element) {
     const key = element.getAttribute('data-i18n-placeholder');
     if (window.translations[currentLanguage] && window.translations[currentLanguage][key]) {
       element.placeholder = window.translations[currentLanguage][key];
@@ -57,7 +55,7 @@ window.applyTranslations = applyTranslations;
 
 // Set up language on load
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     const lang = getCurrentLanguage();
     applyTranslations(lang);
     const currentLanguageElement = document.getElementById('currentLanguage');
@@ -75,12 +73,12 @@ if (document.readyState === 'loading') {
 }
 
 // Safe localStorage setter using BixingStorage utility
-function safeStorageSet (key, value) {
+function safeStorageSet(key, value) {
   return window.BixingStorage ? BixingStorage.setItem(key, value) : false;
 }
 
 // Global toggleLanguage function - this will be enhanced by components.js
-window.toggleLanguage = function () {
+window.toggleLanguage = function() {
   const storedLanguage = getCurrentLanguage();
   const newLanguage = storedLanguage === 'en' ? 'zh' : 'en';
 
@@ -99,7 +97,7 @@ window.toggleLanguage = function () {
   applyTranslations(newLanguage);
 
   // Dispatch an event so other scripts can react to language changes
-  document.dispatchEvent(new CustomEvent('languageToggled', { detail: { language: newLanguage } }));
+  document.dispatchEvent(new CustomEvent('languageToggled', {detail: {language: newLanguage}}));
 };
 // --- END i18n header logic ---
 
@@ -111,7 +109,8 @@ window.translations.en = Object.assign({}, window.translations.en, {
   'nav.careers': 'Careers',
   'nav.contact': 'Contact Us',
   'footer.company': 'Bixing Technology',
-  'footer.companyDescription': 'A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.',
+  'footer.companyDescription':
+    'A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.',
   'footer.quickLinks': 'Quick Links',
   'footer.home': 'Home',
   'footer.about': 'About',

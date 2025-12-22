@@ -31,7 +31,7 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
 });
 
 // Function to load blog-specific translations
-function loadBlogTranslations () {
+function loadBlogTranslations() {
   // Check if we're on a blog page by looking at the URL
   const currentPath = window.location.pathname;
   if (!currentPath.includes('/blog/')) {
@@ -52,76 +52,76 @@ function loadBlogTranslations () {
   // Construct path to blog-specific translations using the correct relative path
   const blogTranslationsPath = `${pathToRoot}blog/${pathParts[2]}/${pathParts[3]}/${pathParts[4]}/${blogPostSlug}-translations.json`;
 
-  console.log(`Attempting to load blog-specific translations from: ${blogTranslationsPath}`);
-
   // Fetch blog-specific translations
   return fetch(blogTranslationsPath)
     .then(response => {
       if (!response.ok) {
-        console.warn(`No blog-specific translations found at ${blogTranslationsPath}`);
         return null;
       }
       return response.json();
     })
     .then(blogData => {
       if (blogData) {
-        console.log(`Blog-specific translations loaded for ${blogPostSlug}`);
-
         // First, capture all the original English content from the HTML
         // This ensures we can switch back to English properly
         document.querySelectorAll('[data-i18n]').forEach(element => {
-          const key = element.getAttribute('data-i18n');
-          if (!window.translations.en[key]) {
-            window.translations.en[key] = element.innerHTML || element.textContent;
-            console.log(`Saved English content for ${key}: ${window.translations.en[key]}`);
+          try {
+            const key = element.getAttribute('data-i18n');
+            if (!window.translations.en[key]) {
+              window.translations.en[key] = element.innerHTML || element.textContent;
+            }
+          } catch (error) {
+            // Handle element processing error silently
           }
         });
 
         // Then merge the blog-specific Chinese translations
-        console.log('Merging Chinese translations:', blogData);
+
         window.translations.zh = Object.assign({}, window.translations.zh, blogData);
 
         // Log the translations to verify they're loaded correctly
-        console.log('Updated translations object:', window.translations);
       } else {
-        console.warn('No blog data loaded, translations may not work correctly');
+        // Blog data not found for this language
       }
       return blogData;
     })
-    .catch(error => {
-      console.error('Error loading blog translations:', error);
+    .catch(() => {
+      // Handle fetch error silently
     });
 }
 
 // Create a direct translation function specifically for blog posts
-function applyBlogTranslations (lang) {
+function applyBlogTranslations(lang) {
   if (!window.translations || !window.translations[lang]) {
-    console.warn(`No translations available for language: ${lang}`);
     return;
   }
 
-  console.log(`Applying blog translations for language: ${lang}`);
-
   // Apply translations to all elements with data-i18n attribute
-  document.querySelectorAll('[data-i18n]').forEach(function (element) {
-    const key = element.getAttribute('data-i18n');
-    if (window.translations[lang][key]) {
-      // Use innerHTML for elements that might contain HTML tags
-      if (element.tagName === 'P' || element.classList.contains('company-description') ||
-          window.translations[lang][key].includes('<br>')) {
-        element.innerHTML = window.translations[lang][key];
+  document.querySelectorAll('[data-i18n]').forEach(function(element) {
+    try {
+      const key = element.getAttribute('data-i18n');
+      if (window.translations[lang][key]) {
+        // Use innerHTML for elements that might contain HTML tags
+        if (
+          element.tagName === 'P' ||
+          element.classList.contains('company-description') ||
+          window.translations[lang][key].includes('<br>')
+        ) {
+          element.innerHTML = window.translations[lang][key];
+        } else {
+          element.textContent = window.translations[lang][key];
+        }
       } else {
-        element.textContent = window.translations[lang][key];
+        // Translation key not found, keep original content
       }
-      console.log(`Applied translation for ${key}: ${window.translations[lang][key]}`);
-    } else {
-      console.log(`No translation found for ${key} in language ${lang}`);
+    } catch (error) {
+      // Handle element processing error silently
     }
   });
 }
 
 // Load blog-specific translations when the document is ready
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Initial load of translations
   loadBlogTranslations().then(() => {
     // Apply translations with the current language
@@ -131,9 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Also reload translations when language is toggled
-  document.addEventListener('languageToggled', function (e) {
+  document.addEventListener('languageToggled', function(e) {
     const lang = e.detail.language;
-    console.log('Language toggled to:', lang);
 
     // Reload translations and apply them
     loadBlogTranslations().then(() => {
@@ -145,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Function to toggle social icons based on language
 // This is a common function used in blog posts
-window.toggleSocialIcons = function (language) {
+window.toggleSocialIcons = function(language) {
   const wechatShare = document.querySelector('.wechat-share');
   const twitterShare = document.querySelector('.twitter-share');
 

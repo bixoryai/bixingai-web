@@ -9,6 +9,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "handle-callback-err": "off",
     "semi": ["error", "always"],
     "quotes": ["error", "single"],
     "indent": ["error", 2],
@@ -19,7 +20,9 @@
     "eqeqeq": ["error", "always"],
     "no-var": "error",
     "prefer-const": "warn",
-    "max-len": ["warn", { "code": 100 }]
+    "max-len": ["warn", { "code": 400 }],
+    "space-before-function-paren": ["error", "never"],
+    "object-curly-spacing": ["error", "never"]
   },
   "globals": {
     "AOS": "readonly",
