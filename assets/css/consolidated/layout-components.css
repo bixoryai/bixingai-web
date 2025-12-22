@@ -16,7 +16,6 @@
   padding: 15px 0;
   background-color: rgb(10 25 41 / 80%);
   backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
 }
 
 .header-scrolled {
@@ -45,7 +44,6 @@
   font-size: 2.2rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
-  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
@@ -146,7 +144,6 @@
 .dropdown-menu {
   background-color: rgb(10 25 41 / 90%);
   backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   border: 1px solid rgb(255 255 255 / 10%);
   border-radius: var(--border-radius-md);
   padding: 0.5rem;
@@ -209,7 +206,6 @@
 @media (width <= 992px) {
   .navbar-collapse {
     background-color: rgb(10 25 41 / 95%);
-    backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     padding: 1rem;
     border-radius: var(--border-radius-md);

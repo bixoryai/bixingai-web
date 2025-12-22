@@ -284,7 +284,6 @@
   font-size: 1.8rem;
   background: linear-gradient(135deg, var(--accent-blue), var(--accent-teal));
   background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 

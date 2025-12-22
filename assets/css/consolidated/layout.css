@@ -59,7 +59,6 @@
   font-weight: 700;
   background: linear-gradient(135deg, var(--white) 30%, var(--accent-blue) 100%);
   background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 15px rgb(0 168 255 / 30%);
   transition: all 0.3s ease;
@@ -219,7 +218,6 @@
   font-size: 1.5rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--white) 30%, var(--accent-blue) 100%);
-  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 0 15px rgb(0 168 255 / 30%);

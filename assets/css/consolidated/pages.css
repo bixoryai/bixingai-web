@@ -52,7 +52,6 @@
   margin-bottom: 0.5rem;
   background: linear-gradient(135deg, var(--white), var(--accent-blue));
   background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -528,7 +527,7 @@
   margin-right: 10px;
 }
 
-.blog-author-name {
+.blog-author-name-small {
   font-size: 0.9rem;
   color: var(--white);
 }

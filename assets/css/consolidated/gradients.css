@@ -79,7 +79,6 @@
 .text-gradient-blue-teal {
   background: var(--text-gradient-blue-teal);
   background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent; /* Fallback */
 }
@@ -88,14 +87,12 @@
 .hero-title.text-gradient {
   background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500);
   background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 10px rgb(255 184 0 / 20%);
 }
 
 .text-gradient-purple-pink {
   background: var(--text-gradient-purple-pink);
-  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent; /* Fallback */
@@ -104,14 +101,12 @@
 .text-gradient-amber-orange {
   background: var(--text-gradient-amber-orange);
   background-clip: text;
-  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent; /* Fallback */
 }
 
 .text-gradient-blue-purple {
   background: var(--text-gradient-blue-purple);
-  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent; /* Fallback */
