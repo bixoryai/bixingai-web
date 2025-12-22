@@ -5,7 +5,7 @@
 
 // Initialize translations object if it doesn't exist
 if (!window.translations) {
-  window.translations = { en: {}, zh: {} };
+  window.translations = {en: {}, zh: {}};
 }
 
 // English translations
@@ -15,7 +15,8 @@ window.translations.en = Object.assign({}, window.translations.en, {
   'insights.hero.subtitle': 'Explore the latest developments, strategies, and applications in AI',
   'insights.featured.badge': 'Featured Insight',
   'insights.featured.title': '2025 Outlook: The Future of AI in Enterprise',
-  'insights.featured.excerpt': 'As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.',
+  'insights.featured.excerpt':
+    'As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.',
   'insights.featured.link': 'Read Full Article <i class="fas fa-arrow-right ms-2"></i>',
   'insights.latest.title': 'Latest Insights',
   'insights.filter.all': 'All Topics',
@@ -24,17 +25,20 @@ window.translations.en = Object.assign({}, window.translations.en, {
   'insights.card1.date': 'October 14, 2023',
   'insights.card1.category': 'AI Trends',
   'insights.card1.title': 'The Future of AI in Enterprise: Trends and Predictions',
-  'insights.card1.excerpt': 'Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how they can be applied.',
+  'insights.card1.excerpt':
+    'Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how they can be applied.',
 
   'insights.card2.date': 'January 10, 2025',
   'insights.card2.category': 'Machine Learning',
   'insights.card2.title': 'Machine Learning for Business: Practical Applications',
-  'insights.card2.excerpt': 'Discover practical applications of machine learning that are transforming businesses today and driving innovation.',
+  'insights.card2.excerpt':
+    'Discover practical applications of machine learning that are transforming businesses today and driving innovation.',
 
   'insights.card3.date': 'Coming Soon',
   'insights.card3.category': 'Placeholder',
   'insights.card3.title': 'More Insights Coming Soon',
-  'insights.card3.excerpt': 'We\'re working on more insightful content. Check back soon for updates on the latest in AI and technology.',
+  'insights.card3.excerpt':
+    'We\'re working on more insightful content. Check back soon for updates on the latest in AI and technology.',
 
   'insights.read.more': 'Read More <i class="fas fa-arrow-right"></i>'
 });
@@ -46,7 +50,8 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'insights.hero.subtitle': '探索人工智能领域的最新发展、策略和应用',
   'insights.featured.badge': '特色洞察',
   'insights.featured.title': '2025年企业AI发展趋势展望',
-  'insights.featured.excerpt': '随着人工智能的快速发展，企业面临着实施过程中的新机遇和挑战。了解将塑造未来一年AI应用的关键趋势。',
+  'insights.featured.excerpt':
+    '随着人工智能的快速发展，企业面临着实施过程中的新机遇和挑战。了解将塑造未来一年AI应用的关键趋势。',
   'insights.featured.link': '阅读全文 <i class="fas fa-arrow-right ms-2"></i>',
   'insights.latest.title': '最新洞察',
   'insights.filter.all': '所有主题',
@@ -75,7 +80,7 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
  * This function is called on page load and when the language is toggled
  * @param {string} lang - The language code ('en' or 'zh')
  */
-function updateInsightsPageTranslations (lang) {
+function updateInsightsPageTranslations(lang) {
   const currentLang = lang || localStorage.getItem('bixingLanguage') || 'en';
 
   // Update the main cards
@@ -98,15 +103,18 @@ function updateInsightsPageTranslations (lang) {
       }
 
       if (categoryElement) {
-        categoryElement.textContent = window.translations[currentLang][`insights.card${cardNum}.category`];
+        categoryElement.textContent =
+          window.translations[currentLang][`insights.card${cardNum}.category`];
       }
 
       if (titleElement) {
-        titleElement.textContent = window.translations[currentLang][`insights.card${cardNum}.title`];
+        titleElement.textContent =
+          window.translations[currentLang][`insights.card${cardNum}.title`];
       }
 
       if (excerptElement) {
-        excerptElement.textContent = window.translations[currentLang][`insights.card${cardNum}.excerpt`];
+        excerptElement.textContent =
+          window.translations[currentLang][`insights.card${cardNum}.excerpt`];
       }
 
       if (readMoreElement) {
@@ -174,16 +182,20 @@ function updateInsightsPageTranslations (lang) {
           if (window.translations[currentLang][translationKey]) {
             excerptElement.textContent = window.translations[currentLang][translationKey];
           } else if (index === 0) {
-            excerptElement.textContent = '探索AI在企业环境中采用的新兴趋势和未来预测，以及如何应用这些趋势。';
+            excerptElement.textContent =
+              '探索AI在企业环境中采用的新兴趋势和未来预测，以及如何应用这些趋势。';
           } else if (index === 1) {
             excerptElement.textContent = '发现正在改变当今企业并推动创新的机器学习实际应用。';
           } else if (index === 2) {
-            excerptElement.textContent = '我们正在开发更多有见地的内容。请稍后查看有关AI和技术最新动态的更新。';
+            excerptElement.textContent =
+              '我们正在开发更多有见地的内容。请稍后查看有关AI和技术最新动态的更新。';
           }
         }
 
         if (readMoreElement) {
-          readMoreElement.innerHTML = window.translations[currentLang]['insights.read.more'] || '阅读更多 <i class="fas fa-arrow-right"></i>';
+          readMoreElement.innerHTML =
+            window.translations[currentLang]['insights.read.more'] ||
+            '阅读更多 <i class="fas fa-arrow-right"></i>';
         }
       });
     }
@@ -194,7 +206,7 @@ function updateInsightsPageTranslations (lang) {
 window.updateInsightsPageTranslations = updateInsightsPageTranslations;
 
 // Initialize translations when the script loads
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   const currentLang = localStorage.getItem('bixingLanguage') || 'en';
   updateInsightsPageTranslations(currentLang);
 });

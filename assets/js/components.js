@@ -9,7 +9,7 @@ let pathToRoot = '';
 let cacheBuster = '';
 
 // Utility function to ensure we have a consistent path-to-root value
-function getConsistentPathToRoot () {
+function getConsistentPathToRoot() {
   // First try to get from the global variable
   if (pathToRoot !== undefined && pathToRoot !== null) {
     return pathToRoot;
@@ -21,32 +21,31 @@ function getConsistentPathToRoot () {
   }
 
   // Fallback to body attribute
-  return document.body ? (document.body.getAttribute('data-path-to-root') || '') : '';
+  return document.body ? document.body.getAttribute('data-path-to-root') || '' : '';
 }
 
 // Function to load the header component
-function loadHeader () {
+function loadHeader() {
   const headerPlaceholder = document.getElementById('header-placeholder');
   if (!headerPlaceholder) return;
 
-  console.log('Loading header component');
-
   // Use BixingStorage utility if available, otherwise fallback to local implementation
-  function safeStorageAccess (key, defaultValue) {
+  function safeStorageAccess(key, defaultValue) {
     if (window.BixingStorage) {
       return BixingStorage.getItem(key, defaultValue);
     }
     try {
       return localStorage.getItem(key) || defaultValue;
     } catch (e) {
-      console.warn('localStorage access denied, using default value');
+      // Handle localStorage error silently
       return defaultValue;
     }
   }
 
   // Get current language before loading header
-  const currentLang = window.BixingStorage ? BixingStorage.getLanguage() : safeStorageAccess('bixingLanguage', 'en');
-  console.log('Current language before loading header:', currentLang);
+  const currentLang = window.BixingStorage
+    ? BixingStorage.getLanguage()
+    : safeStorageAccess('bixingLanguage', 'zh');
 
   // Get a consistent path-to-root value
   const currentPathToRoot = getConsistentPathToRoot();
@@ -83,7 +82,10 @@ function loadHeader () {
         data = data.replace(/>Contact Us</g, '>联系我们<');
 
         // Pre-translate company name to avoid flashing
-        data = data.replace(/<span class="company-name"[^>]*>Bixing Technology<\/span>/g, '<span class="company-name" data-i18n="footer.company">毕行科技</span>');
+        data = data.replace(
+          /<span class="company-name"[^>]*>Bixing Technology<\/span>/g,
+          '<span class="company-name" data-i18n="footer.company">毕行科技</span>'
+        );
       }
 
       headerPlaceholder.innerHTML = data;
@@ -92,7 +94,6 @@ function loadHeader () {
       const currentLanguageElement = document.getElementById('currentLanguage');
       if (currentLanguageElement) {
         currentLanguageElement.textContent = currentLang === 'en' ? 'EN' : '中文';
-        console.log('Initialized language toggle to:', currentLanguageElement.textContent);
       }
 
       // Set active class for current page
@@ -119,7 +120,7 @@ function loadHeader () {
       // Initialize header scroll effect
       const header = document.querySelector('.header');
       if (header) {
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
           if (window.scrollY > 50) {
             header.classList.add('scrolled');
           } else {
@@ -133,24 +134,29 @@ function loadHeader () {
 
       // Apply translations if available
       if (window.i18n && typeof window.i18n.applyTranslations === 'function') {
-        window.i18n.applyTranslations();
+        try {
+          window.i18n.applyTranslations();
+        } catch (error) {
+          // Handle translation error silently
+        }
       } else if (typeof applyTranslations === 'function') {
-        applyTranslations();
+        try {
+          applyTranslations();
+        } catch (error) {
+          // Handle translation error silently
+        }
       }
     })
-    .catch(error => console.error('Error loading header:', error));
+    .catch(() => {
+      // Handle error silently
+    });
 }
-
-// Function to load the footer component
-function loadFooter () {
+function loadFooter() {
   const footerPlaceholder = document.getElementById('footer-placeholder');
   if (!footerPlaceholder) return;
 
-  console.log('Loading footer component');
-
   // Get current language before loading footer
-  const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-  console.log('Current language before loading footer:', currentLang);
+  const currentLang = localStorage.getItem('bixingLanguage') || 'zh';
 
   // Get a consistent path-to-root value
   const currentPathToRoot = getConsistentPathToRoot();
@@ -190,12 +196,18 @@ function loadFooter () {
         data = data.replace(/>Contact Us</g, '>联系我们<');
         data = data.replace(/>WeChat</g, '>微信<');
         data = data.replace(/>Scan to connect on WeChat</g, '>扫码关注微信<');
-        data = data.replace(/>&copy; 2025 Bixing Technology. All Rights Reserved.</g, '>&copy; 2025 毕行科技。保留所有权利。<');
+        data = data.replace(
+          />&copy; 2025 Bixing Technology. All Rights Reserved.</g,
+          '>&copy; 2025 毕行科技。保留所有权利。<'
+        );
         data = data.replace(/>Privacy Policy</g, '>隐私政策<');
         data = data.replace(/>Terms of Service</g, '>服务条款<');
 
         // Special handling for company description
-        data = data.replace(/A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation./g, '国际前沿AI解决方案提供商,<br>助你充满AI的力量。');
+        data = data.replace(
+          /A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation./g,
+          '国际前沿AI解决方案提供商,<br>助你充满AI的力量。'
+        );
       }
 
       footerPlaceholder.innerHTML = data;
@@ -205,26 +217,36 @@ function loadFooter () {
       const companyName = document.querySelector('.company-name');
 
       if (footerLogoLink && companyName) {
-        footerLogoLink.addEventListener('mouseenter', function () {
+        footerLogoLink.addEventListener('mouseenter', function() {
           companyName.style.textShadow = '0 0 15px rgba(0, 168, 255, 0.5)';
         });
 
-        footerLogoLink.addEventListener('mouseleave', function () {
+        footerLogoLink.addEventListener('mouseleave', function() {
           companyName.style.textShadow = '0 0 15px rgba(0, 168, 255, 0.3)';
         });
       }
 
       // Apply translations after footer is loaded
       if (window.i18n && typeof window.i18n.applyTranslations === 'function') {
-        window.i18n.applyTranslations();
+        try {
+          window.i18n.applyTranslations();
+        } catch (error) {
+          // Handle translation error silently
+        }
       } else if (typeof applyTranslations === 'function') {
-        applyTranslations();
+        try {
+          applyTranslations();
+        } catch (error) {
+          // Handle translation error silently
+        }
       }
     })
-    .catch(error => console.error('Error loading footer:', error));
+    .catch(() => {
+      // Handle error silently
+    });
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Determine the correct path to components based on the current page location
   const rawPathToRoot = document.body.getAttribute('data-path-to-root') || '';
 
@@ -239,16 +261,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // Add cache-busting parameter using a timestamp based on the date only, not time
   // This creates a new version each day rather than each page load
   const today = new Date();
-  cacheBuster = '?v=' + today.getFullYear() + (today.getMonth() + 1).toString().padStart(2, '0') + today.getDate().toString().padStart(2, '0');
+  cacheBuster =
+    '?v=' +
+    today.getFullYear() +
+    (today.getMonth() + 1).toString().padStart(2, '0') +
+    today.getDate().toString().padStart(2, '0');
 
   // Initial load of components
   loadHeader();
   loadFooter();
 
   // Dispatch componentsLoaded event after a short delay to ensure both components are loaded
-  setTimeout(function () {
+  setTimeout(function() {
     // Apply translations based on current language preference
-    const currentLang = window.BixingStorage ? BixingStorage.getLanguage() : (localStorage.getItem('bixingLanguage') || 'en');
+    const currentLang = window.BixingStorage
+      ? BixingStorage.getLanguage()
+      : localStorage.getItem('bixingLanguage') || 'en';
     if (typeof applyTranslations === 'function') {
       applyTranslations(currentLang);
     }
@@ -262,14 +290,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Function to set up a consistent language toggle across all pages
-function setupGlobalLanguageToggle () {
-  // Store the original toggleLanguage function
-  const originalToggleLanguage = window.toggleLanguage;
-
+function setupGlobalLanguageToggle() {
   // Create a new toggleLanguage function that handles both header/footer and page content
-  window.toggleLanguage = function () {
+  window.toggleLanguage = function() {
     // Get current and next language
-    const currentLang = window.BixingStorage ? BixingStorage.getLanguage() : (localStorage.getItem('bixingLanguage') || 'en');
+    const currentLang = window.BixingStorage
+      ? BixingStorage.getLanguage()
+      : localStorage.getItem('bixingLanguage') || 'en';
     const nextLang = currentLang === 'en' ? 'zh' : 'en';
 
     // Update language preference
@@ -291,7 +318,7 @@ function setupGlobalLanguageToggle () {
     }
 
     // Dispatch a custom event that pages can listen for
-    document.dispatchEvent(new CustomEvent('languageToggled', { detail: { language: nextLang } }));
+    document.dispatchEvent(new CustomEvent('languageToggled', {detail: {language: nextLang}}));
   };
 
   // Find all language toggle buttons and ensure they use our consistent function

@@ -17,16 +17,18 @@ const BASE_PATH = '';
  * @param {string} pathToRoot - The relative path to the root directory (from data-path-to-root attribute)
  * @returns {string} - The resolved path
  */
-function resolvePath (path, pathToRoot = '') {
+function resolvePath(path, pathToRoot = '') {
   // If path already starts with http/https or is a protocol-relative URL, return it as is
   if (path.startsWith('http') || path.startsWith('//')) {
     return path;
   }
 
   // Handle CDN URLs that don't need path adjustment
-  if (path.includes('cdn.jsdelivr.net') ||
-        path.includes('cdnjs.cloudflare.com') ||
-        path.includes('unpkg.com')) {
+  if (
+    path.includes('cdn.jsdelivr.net') ||
+    path.includes('cdnjs.cloudflare.com') ||
+    path.includes('unpkg.com')
+  ) {
     return path;
   }
 
@@ -48,7 +50,7 @@ function resolvePath (path, pathToRoot = '') {
  * @param {string} pathToRoot - The relative path to the root directory
  * @returns {string} - The processed HTML with corrected paths
  */
-function updatePathReferences (html, pathToRoot = '') {
+function updatePathReferences(html, pathToRoot = '') {
   if (!html) return html;
 
   // Skip processing if the HTML is too small (likely not actual HTML content)
@@ -75,7 +77,6 @@ function updatePathReferences (html, pathToRoot = '') {
 
     return html;
   } catch (error) {
-    console.error('Error in updatePathReferences:', error);
     return html; // Return original HTML if there's an error
   }
 }
@@ -84,7 +85,7 @@ function updatePathReferences (html, pathToRoot = '') {
  * Gets the correct path-to-root value for the current page
  * @returns {string} - The path to root value
  */
-function getPathToRoot () {
+function getPathToRoot() {
   // Try to get from body attribute first
   const bodyPathAttr = document.body ? document.body.getAttribute('data-path-to-root') : null;
   if (bodyPathAttr !== null) {
@@ -109,7 +110,7 @@ function getPathToRoot () {
  * @param {string} pathToRoot - The path to root value to normalize
  * @returns {string} - The normalized path to root
  */
-function normalizePathToRoot (pathToRoot) {
+function normalizePathToRoot(pathToRoot) {
   if (!pathToRoot) return '';
 
   // Convert absolute root path to empty string

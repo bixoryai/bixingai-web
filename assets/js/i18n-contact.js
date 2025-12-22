@@ -5,14 +5,17 @@ window.translations.en = Object.assign({}, window.translations.en, {
   'contact.hero.title': 'Contact Us',
   'contact.hero.subtitle': 'Let Us Help You Achieve AI Transformation',
   'contact.card.email': 'Email Us',
-  'contact.card.email.desc': 'For general inquiries, partnership opportunities, or any questions about our services.',
+  'contact.card.email.desc':
+    'For general inquiries, partnership opportunities, or any questions about our services.',
   'contact.card.wechat': 'Connect on WeChat',
-  'contact.card.wechat.desc': 'Add our WeChat account for quick responses and updates about our services.',
+  'contact.card.wechat.desc':
+    'Add our WeChat account for quick responses and updates about our services.',
   'contact.card.phone': 'Call Us',
   'contact.card.phone.desc': 'Scan the QR code to connect with us on WeChat',
   'contact.social.title': 'Connect With Us',
   'contact.section.title': 'Contact Information',
-  'contact.info.text': 'For all business and media inquiries, please use the form below or contact us directly via email or phone.',
+  'contact.info.text':
+    'For all business and media inquiries, please use the form below or contact us directly via email or phone.',
   'contact.form.title': 'Send Us a Message',
   'contact.form.desc': 'Fill out the form below and we\'ll get back to you as soon as possible',
   'contact.tab.general': 'General Inquiry',

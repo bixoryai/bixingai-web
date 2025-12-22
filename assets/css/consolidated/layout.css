@@ -16,14 +16,14 @@
   z-index: 1000;
   transition: all 0.3s ease;
   padding: 15px 0;
-  background-color: rgba(10, 25, 41, 0.7);
+  background-color: rgb(10 25 41 / 70%);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgb(255 255 255 / 5%);
 }
 
 .header.scrolled {
-  background-color: rgba(10, 25, 41, 0.95);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  background-color: rgb(10 25 41 / 95%);
+  box-shadow: 0 5px 20px rgb(0 0 0 / 20%);
   padding: 10px 0;
 }
 
@@ -51,22 +51,21 @@
 
 .navbar-brand:hover .logo {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 8px rgba(0, 168, 255, 0.5));
+  filter: drop-shadow(0 0 8px rgb(0 168 255 / 50%));
 }
 
 .navbar-brand span {
   font-size: 2.2rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--white) 30%, var(--accent-blue) 100%);
-  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(0, 168, 255, 0.3);
+  text-shadow: 0 0 15px rgb(0 168 255 / 30%);
   transition: all 0.3s ease;
 }
 
 .navbar-brand:hover span {
-  text-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+  text-shadow: 0 0 15px rgb(0 168 255 / 50%);
 }
 
 .navbar-toggler {
@@ -93,8 +92,8 @@
   transition: all 0.3s ease;
 }
 
-.navbar-toggler-icon span:before,
-.navbar-toggler-icon span:after {
+.navbar-toggler-icon span::before,
+.navbar-toggler-icon span::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -103,11 +102,11 @@
   transition: all 0.3s ease;
 }
 
-.navbar-toggler-icon span:before {
+.navbar-toggler-icon span::before {
   transform: translateY(-8px);
 }
 
-.navbar-toggler-icon span:after {
+.navbar-toggler-icon span::after {
   transform: translateY(8px);
 }
 
@@ -115,11 +114,11 @@
   background-color: transparent;
 }
 
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:before {
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span::before {
   transform: rotate(45deg);
 }
 
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span:after {
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon span::after {
   transform: rotate(-45deg);
 }
 
@@ -155,11 +154,11 @@
 
 /* Dropdown styling */
 .dropdown-menu {
-  background-color: rgba(10, 25, 41, 0.9);
+  background-color: rgb(10 25 41 / 90%);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgb(255 255 255 / 5%);
   border-radius: var(--border-radius-md);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 30%);
   padding: 0.5rem;
   margin-top: 0.5rem;
 }
@@ -173,7 +172,7 @@
 
 .dropdown-item:hover,
 .dropdown-item:focus {
-  background-color: rgba(0, 168, 255, 0.1);
+  background-color: rgb(0 168 255 / 10%);
   color: var(--accent-blue);
 }
 
@@ -219,10 +218,9 @@
   font-size: 1.5rem;
   font-weight: 700;
   background: linear-gradient(135deg, var(--white) 30%, var(--accent-blue) 100%);
-  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(0, 168, 255, 0.3);
+  text-shadow: 0 0 15px rgb(0 168 255 / 30%);
 }
 
 /* No specific rule needed for company description - handled by general responsive rules */
@@ -230,7 +228,7 @@
 
 
 .footer-logo-link:hover .company-name {
-  text-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+  text-shadow: 0 0 15px rgb(0 168 255 / 50%);
 }
 
 .footer-heading {
@@ -283,7 +281,7 @@
 .contact-info li i {
   width: 30px;
   height: 30px;
-  background: rgba(0, 168, 255, 0.1);
+  background: rgb(0 168 255 / 10%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -312,7 +310,7 @@
 .footer-bottom {
   margin-top: 3rem;
   padding: 1.5rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgb(255 255 255 / 5%);
   text-align: center;
 }
 
@@ -426,14 +424,14 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
+@media (width <= 992px) {
   .navbar-collapse {
-    background-color: rgba(10, 25, 41, 0.95);
+    background-color: rgb(10 25 41 / 95%);
     backdrop-filter: blur(10px);
     padding: 1rem;
     border-radius: var(--border-radius-md);
     margin-top: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgb(255 255 255 / 5%);
   }
   
   .nav-link {
@@ -441,13 +439,13 @@
   }
   
   .dropdown-menu {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgb(0 0 0 / 20%);
     border: none;
     box-shadow: none;
   }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .header {
     padding: 10px 0;
   }
@@ -501,7 +499,7 @@
   }
 }
 
-@media (max-width: 576px) {
+@media (width <= 576px) {
   .navbar-brand span {
     font-size: 1.5rem;
   }

@@ -21,7 +21,8 @@ window.translations.en = Object.assign({}, window.translations.en, {
 
   // Hero Section
   'hero.title': 'Empowering Enterprises with AI Innovation',
-  'hero.subtitle': 'Custom AI solutions, education, and consultation services to transform your business',
+  'hero.subtitle':
+    'Custom AI solutions, education, and consultation services to transform your business',
   'hero.exploreServices': 'Explore Services',
   'hero.contactUs': 'Contact Us',
   'hero.empoweredBy': 'Empowered by',
@@ -35,17 +36,20 @@ window.translations.en = Object.assign({}, window.translations.en, {
   'services.title': 'Our Services',
   'services.subtitle': 'Comprehensive AI solutions tailored to your business needs',
   'services.education.title': 'AI Education & Training',
-  'services.education.description': 'Empower your team with AI knowledge through customized training programs and workshops.',
+  'services.education.description':
+    'Empower your team with AI knowledge through customized training programs and workshops.',
   'services.education.feature1': 'Customized learning paths',
   'services.education.feature2': 'Hands-on workshops',
   'services.education.feature3': 'Expert-led training',
   'services.customSolutions.title': 'AI Custom Solutions',
-  'services.customSolutions.description': 'From data services to model training and deployment, we build tailored AI solutions for your unique challenges.',
+  'services.customSolutions.description':
+    'From data services to model training and deployment, we build tailored AI solutions for your unique challenges.',
   'services.customSolutions.feature1': 'Data preparation & analysis',
   'services.customSolutions.feature2': 'Custom model development',
   'services.customSolutions.feature3': 'AI application integration',
   'services.consultation.title': 'Enterprise AI Consultation',
-  'services.consultation.description': 'Strategic guidance for implementing AI across your organization to drive innovation and efficiency.',
+  'services.consultation.description':
+    'Strategic guidance for implementing AI across your organization to drive innovation and efficiency.',
   'services.consultation.feature1': 'AI readiness assessment',
   'services.consultation.feature2': 'Implementation roadmap',
   'services.consultation.feature3': 'Technology selection',
@@ -53,28 +57,34 @@ window.translations.en = Object.assign({}, window.translations.en, {
 
   // Service Cards (legacy format)
   'service1.title': 'AI Education & Training',
-  'service1.description': 'Empower your team with the knowledge and skills needed to leverage AI effectively in your organization.',
+  'service1.description':
+    'Empower your team with the knowledge and skills needed to leverage AI effectively in your organization.',
   'service1.learnMore': 'Learn More',
 
   'service2.title': 'AI Custom Solutions',
-  'service2.description': 'Custom AI applications and models designed specifically for your unique business challenges and opportunities.',
+  'service2.description':
+    'Custom AI applications and models designed specifically for your unique business challenges and opportunities.',
   'service2.learnMore': 'Learn More',
 
   'service3.title': 'Enterprise AI Consultation',
-  'service3.description': 'Strategic guidance on implementing AI across your organization to maximize ROI and competitive advantage.',
+  'service3.description':
+    'Strategic guidance on implementing AI across your organization to maximize ROI and competitive advantage.',
   'service3.learnMore': 'Learn More',
 
   // Portfolio Section
   'portfolio.title': 'Success Stories',
   'portfolio.subtitle': 'Real-world AI implementations that delivered results',
   'portfolio.education.title': 'AI Education for Siemens',
-  'portfolio.education.description': 'Delivered comprehensive AI training program for Siemens, upskilling 200+ professionals from fundamentals to advanced AI application development and deployment.',
+  'portfolio.education.description':
+    'Delivered comprehensive AI training program for Siemens, upskilling 200+ professionals from fundamentals to advanced AI application development and deployment.',
   'portfolio.education.readMore': 'Read Case Study',
   'portfolio.healthcare.title': 'Healthcare Innovation',
-  'portfolio.healthcare.description': 'Developed an AI diagnostic assistant that improved early detection rates by 28% for a leading healthcare provider.',
+  'portfolio.healthcare.description':
+    'Developed an AI diagnostic assistant that improved early detection rates by 28% for a leading healthcare provider.',
   'portfolio.healthcare.readMore': 'Read Case Study',
   'portfolio.financial.title': 'Financial Services',
-  'portfolio.financial.description': 'Created a fraud detection system for a financial institution that reduced false positives by 42% while improving detection accuracy.',
+  'portfolio.financial.description':
+    'Created a fraud detection system for a financial institution that reduced false positives by 42% while improving detection accuracy.',
   'portfolio.financial.readMore': 'Read Case Study',
 
   'portfolio.viewAll': 'View All Case Studies',
@@ -83,8 +93,10 @@ window.translations.en = Object.assign({}, window.translations.en, {
   'demo.title': 'Interactive AI Demos',
   'demo.subtitle': 'Experience our AI capabilities firsthand',
   'demo.heading': 'See AI in Action',
-  'demo.description1': 'Explore our interactive demos to understand how our AI solutions can transform your business processes and drive innovation.',
-  'demo.description2': 'These demos showcase just a small fraction of what\'s possible with our custom AI development services.',
+  'demo.description1':
+    'Explore our interactive demos to understand how our AI solutions can transform your business processes and drive innovation.',
+  'demo.description2':
+    'These demos showcase just a small fraction of what\'s possible with our custom AI development services.',
   'demo.viewAll': 'View All Demos',
 
   'demo.placeholder': 'Interactive AI Demo',
@@ -92,17 +104,20 @@ window.translations.en = Object.assign({}, window.translations.en, {
 
   // Empowered By Section
   'empoweredBy.title': 'Empowered By Leading AI Models',
-  'empoweredBy.subtitle': 'We leverage the most advanced AI technologies to deliver exceptional results',
+  'empoweredBy.subtitle':
+    'We leverage the most advanced AI technologies to deliver exceptional results',
 
   // Testimonials
   'testimonials.title': 'Client Testimonials',
   'testimonials.subtitle': 'What our clients say about our services',
   'testimonials.author1': 'Sarah Chen',
   'testimonials.position1': 'CTO, Financial Services Company',
-  'testimonials.quote1': 'Bixing Technology\'s AI education program transformed our development team\'s capabilities. Their hands-on approach and customized curriculum helped us implement AI solutions that have significantly improved our customer experience.',
+  'testimonials.quote1':
+    'Bixing Technology\'s AI education program transformed our development team\'s capabilities. Their hands-on approach and customized curriculum helped us implement AI solutions that have significantly improved our customer experience.',
   'testimonials.author2': 'Michael Johnson',
   'testimonials.position2': 'Innovation Director, Tech Solutions',
-  'testimonials.quote2': 'The custom AI solution developed by Bixing has revolutionized our data analysis capabilities. Their team\'s expertise and collaborative approach ensured the final product perfectly aligned with our business needs.',
+  'testimonials.quote2':
+    'The custom AI solution developed by Bixing has revolutionized our data analysis capabilities. Their team\'s expertise and collaborative approach ensured the final product perfectly aligned with our business needs.',
 
   // Insights Section
   'insights.title': 'Latest Industry Insights',
@@ -110,17 +125,20 @@ window.translations.en = Object.assign({}, window.translations.en, {
   'insights.article1.date': 'October 15, 2023',
   'insights.article1.category': 'Enterprise AI',
   'insights.article1.title': 'The Future of AI in Enterprise',
-  'insights.article1.excerpt': 'Exploring how artificial intelligence is reshaping business operations and decision-making processes.',
+  'insights.article1.excerpt':
+    'Exploring how artificial intelligence is reshaping business operations and decision-making processes.',
   'insights.article1.readMore': 'Read More',
   'insights.article2.date': 'September 28, 2023',
   'insights.article2.category': 'Machine Learning',
   'insights.article2.title': 'Advances in Machine Learning Models',
-  'insights.article2.excerpt': 'Recent breakthroughs in machine learning models and their implications for business applications.',
+  'insights.article2.excerpt':
+    'Recent breakthroughs in machine learning models and their implications for business applications.',
   'insights.article2.readMore': 'Read More',
   'insights.article3.date': 'September 10, 2023',
   'insights.article3.category': 'AI Implementation',
   'insights.article3.title': 'Implementing AI in Your Business',
-  'insights.article3.excerpt': 'A practical guide to successfully implementing AI solutions across various business contexts.',
+  'insights.article3.excerpt':
+    'A practical guide to successfully implementing AI solutions across various business contexts.',
   'insights.article3.readMore': 'Read More',
   'insights.viewAll': 'View All Insights',
 
@@ -131,7 +149,8 @@ window.translations.en = Object.assign({}, window.translations.en, {
 
   // Footer
   'footer.company': 'Bixing Technology',
-  'footer.companyDescription': 'A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.',
+  'footer.companyDescription':
+    'A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.',
   'footer.quickLinks': 'Quick Links',
   'footer.home': 'Home',
   'footer.about': 'About',
@@ -187,7 +206,8 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'services.education.feature2': '实践工作坊',
   'services.education.feature3': '专家指导培训',
   'services.customSolutions.title': 'AI定制解决方案',
-  'services.customSolutions.description': '从数据服务到模型训练和部署，我们为您的独特挑战构建量身定制的AI解决方案。',
+  'services.customSolutions.description':
+    '从数据服务到模型训练和部署，我们为您的独特挑战构建量身定制的AI解决方案。',
   'services.customSolutions.feature1': '数据准备与分析',
   'services.customSolutions.feature2': '定制模型开发',
   'services.customSolutions.feature3': 'AI应用集成',
@@ -215,13 +235,16 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'portfolio.title': '成功案例',
   'portfolio.subtitle': '实际产生效果的AI实施',
   'portfolio.education.title': '西门子AI教育',
-  'portfolio.education.description': '为西门子提供全面的AI培训计划，使200多名专业人士从基础到高级AI应用开发和部署的技能得到提升。',
+  'portfolio.education.description':
+    '为西门子提供全面的AI培训计划，使200多名专业人士从基础到高级AI应用开发和部署的技能得到提升。',
   'portfolio.education.readMore': '阅读案例',
   'portfolio.healthcare.title': '医疗创新',
-  'portfolio.healthcare.description': '为领先的医疗保健提供商开发了一个AI诊断助手，将早期检测率提高28%。',
+  'portfolio.healthcare.description':
+    '为领先的医疗保健提供商开发了一个AI诊断助手，将早期检测率提高28%。',
   'portfolio.healthcare.readMore': '阅读案例',
   'portfolio.financial.title': '金融服务',
-  'portfolio.financial.description': '为一家金融机构创建了一个欺诈检测系统，将误报减少42%，同时提高了检测准确性。',
+  'portfolio.financial.description':
+    '为一家金融机构创建了一个欺诈检测系统，将误报减少42%，同时提高了检测准确性。',
   'portfolio.financial.readMore': '阅读案例',
   'portfolio.viewAll': '查看所有案例',
 
@@ -244,10 +267,12 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'testimonials.subtitle': '客户对我们服务的评价',
   'testimonials.author1': '陈女士',
   'testimonials.position1': '金融服务公司首席技术官',
-  'testimonials.quote1': '毕行科技的AI教育项目提升了我们开发团队的能力。他们的实践方法和定制课程帮助我们实施了显著改善客户体验的AI解决方案。',
+  'testimonials.quote1':
+    '毕行科技的AI教育项目提升了我们开发团队的能力。他们的实践方法和定制课程帮助我们实施了显著改善客户体验的AI解决方案。',
   'testimonials.author2': 'Michael Johnson',
   'testimonials.position2': '科技解决方案公司创新总监',
-  'testimonials.quote2': '毕行开发的定制AI解决方案彻底改变了我们的数据分析能力。他们团队的专业知识和协作方法确保最终产品完全符合我们的业务需求。',
+  'testimonials.quote2':
+    '毕行开发的定制AI解决方案彻底改变了我们的数据分析能力。他们团队的专业知识和协作方法确保最终产品完全符合我们的业务需求。',
 
   // Insights Section
   'insights.title': '最新行业洞察',
@@ -296,7 +321,7 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
 });
 
 // Apply translations when DOM is ready
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   if (typeof applyTranslations === 'function') {
     applyTranslations();
   }

@@ -32,20 +32,24 @@ const translations = {
 
     // Service Cards
     'service1.title': 'AI Education & Training',
-    'service1.description': 'Empower your team with the knowledge and skills needed to leverage AI effectively in your organization.',
+    'service1.description':
+      'Empower your team with the knowledge and skills needed to leverage AI effectively in your organization.',
     'service1.learnMore': 'Learn More',
 
     'service2.title': 'AI Custom Solutions',
-    'service2.description': 'Custom AI applications and models designed specifically for your unique business challenges and opportunities.',
+    'service2.description':
+      'Custom AI applications and models designed specifically for your unique business challenges and opportunities.',
     'service2.learnMore': 'Learn More',
 
     'service3.title': 'Enterprise AI Consultation',
-    'service3.description': 'Strategic guidance on implementing AI across your organization to maximize ROI and competitive advantage.',
+    'service3.description':
+      'Strategic guidance on implementing AI across your organization to maximize ROI and competitive advantage.',
     'service3.learnMore': 'Learn More',
 
     // Empowered By Section
     'empoweredBy.title': 'Empowered By Leading AI Models',
-    'empoweredBy.subtitle': 'We leverage the most advanced AI technologies to deliver exceptional results',
+    'empoweredBy.subtitle':
+      'We leverage the most advanced AI technologies to deliver exceptional results',
 
     // Testimonials
     'testimonials.title': 'Client Testimonials',
@@ -58,7 +62,8 @@ const translations = {
 
     // Footer
     'footer.company': 'Bixing Technology',
-    'footer.companyDescription': 'A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.',
+    'footer.companyDescription':
+      'A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.',
     'footer.quickLinks': 'Quick Links',
     'footer.home': 'Home',
     'footer.about': 'About',
@@ -153,7 +158,7 @@ const translations = {
 /**
  * Apply translations based on current language
  */
-function applyTranslations () {
+function applyTranslations() {
   const currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
 
   document.querySelectorAll('[data-i18n]').forEach(element => {
@@ -187,17 +192,6 @@ function applyTranslations () {
   if (translations[currentLanguage] && translations[currentLanguage][titleKey]) {
     document.title = translations[currentLanguage][titleKey];
   }
-}
-
-/**
- * Toggle between English and Chinese
- */
-function toggleLanguage () {
-  const currentLanguage = localStorage.getItem('bixingLanguage') || 'en';
-  const newLanguage = currentLanguage === 'en' ? 'zh' : 'en';
-
-  localStorage.setItem('bixingLanguage', newLanguage);
-  applyTranslations();
 }
 
 // Apply translations when the document is loaded

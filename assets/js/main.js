@@ -3,7 +3,7 @@
  * Main JavaScript File
  */
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Initialize components
   initNavbar();
   initTestimonialSlider();
@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function () {
 /**
  * Handle navbar behavior on scroll
  */
-function initNavbar () {
+function initNavbar() {
   const header = document.querySelector('.site-header');
 
   // Change navbar style on scroll
-  window.addEventListener('scroll', function () {
+  window.addEventListener('scroll', function() {
     if (window.scrollY > 50) {
       header.classList.add('scrolled');
       header.style.backgroundColor = 'rgba(10, 25, 41, 0.95)';
@@ -33,13 +33,13 @@ function initNavbar () {
   const navbarCollapse = document.querySelector('.navbar-collapse');
 
   if (navbarToggler) {
-    navbarToggler.addEventListener('click', function () {
+    navbarToggler.addEventListener('click', function() {
       navbarToggler.classList.toggle('active');
     });
   }
 
   // Close mobile menu when clicking outside
-  document.addEventListener('click', function (event) {
+  document.addEventListener('click', function(event) {
     if (navbarCollapse && navbarCollapse.classList.contains('show')) {
       if (!navbarCollapse.contains(event.target) && !navbarToggler.contains(event.target)) {
         navbarToggler.click();
@@ -53,10 +53,9 @@ function initNavbar () {
  * Note: This is a placeholder function that will be replaced with actual slider
  * implementation when a slider library (like Swiper.js) is added
  */
-function initTestimonialSlider () {
+function initTestimonialSlider() {
   // This is a placeholder for testimonial slider functionality
   // Will be implemented with a proper slider library in Phase 2
-  console.log('Testimonial slider will be implemented in Phase 2');
 
   // For now, we'll just add a simple manual rotation for demonstration
   const testimonials = document.querySelectorAll('.testimonial-item');
@@ -80,24 +79,14 @@ function initTestimonialSlider () {
 }
 
 /**
- * Animate elements when they come into view
- * This is a placeholder for custom animations beyond AOS library
- */
-function animateOnScroll () {
-  // This will be expanded in Phase 2 with custom animations
-  console.log('Custom scroll animations will be implemented in Phase 2');
-}
-
-/**
  * Handle form submissions with security measures
  * @param {Event} event - The form submission event
  * @param {Object} sanitizedData - Sanitized form data from BixingFormSecurity
  */
-function handleFormSubmit (event, sanitizedData) {
+function handleFormSubmit(event, sanitizedData) {
   // If called directly without sanitizedData (legacy support)
   if (!sanitizedData) {
     event.preventDefault();
-    console.log('Form submitted without security validation - redirecting to secure handler');
 
     // Let the form security utility handle it
     if (window.BixingFormSecurity) {
@@ -107,12 +96,10 @@ function handleFormSubmit (event, sanitizedData) {
     }
 
     // Fallback if security utility isn't available
-    alert('Thank you for your submission! This is a placeholder - actual form handling will be implemented in Phase 2.');
     return;
   }
 
   // Log the sanitized data
-  console.log('Form submitted with sanitized data:', sanitizedData);
 
   // Get the form ID to determine which form was submitted
   const formId = event.target.id;
@@ -120,16 +107,12 @@ function handleFormSubmit (event, sanitizedData) {
   // Handle different forms
   if (formId === 'generalInquiryForm') {
     // Handle general inquiry form
-    alert('Thank you for your inquiry! We will get back to you soon.');
   } else if (formId === 'businessPartnershipForm') {
     // Handle business partnership form
-    alert('Thank you for your interest in partnering with us! Our team will review your information and contact you shortly.');
   } else if (formId === 'supportForm') {
     // Handle support form
-    alert('Thank you for contacting support! We will address your issue as soon as possible.');
   } else {
     // Generic success message for other forms
-    alert('Thank you for your submission! We will process your information and respond accordingly.');
   }
 
   // Reset the form
@@ -137,7 +120,7 @@ function handleFormSubmit (event, sanitizedData) {
 }
 
 // Add event listeners to forms when they exist
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   const forms = document.querySelectorAll('form');
   forms.forEach(form => {
     form.addEventListener('submit', handleFormSubmit);
@@ -145,19 +128,21 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Handle dropdown navigation
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Get the Products & Services dropdown
-  const servicesDropdown = document.querySelector('.nav-item.dropdown .nav-link.dropdown-toggle[data-i18n="nav.services"]');
+  const servicesDropdown = document.querySelector(
+    '.nav-item.dropdown .nav-link.dropdown-toggle[data-i18n="nav.services"]'
+  );
 
   if (servicesDropdown) {
     // Get the href attribute
     const href = servicesDropdown.getAttribute('href');
 
     // Add click event listener
-    servicesDropdown.addEventListener('click', function (e) {
+    servicesDropdown.addEventListener('click', function(e) {
       // Check if the click was on the dropdown arrow (the ::after pseudo-element)
       const rect = servicesDropdown.getBoundingClientRect();
-      const isClickOnDropdownArrow = (e.clientX > rect.right - 20);
+      const isClickOnDropdownArrow = e.clientX > rect.right - 20;
 
       if (!isClickOnDropdownArrow) {
         // Navigate to the services page
@@ -176,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
  * @param {string[]} texts - Array of texts to cycle through
  * @param {number} speed - Typing speed in milliseconds
  */
-function typeWriter (elementId, texts, speed = 100) {
+function typeWriter(elementId, texts, speed = 100) {
   const element = document.getElementById(elementId);
   if (!element) return;
 
@@ -185,7 +170,7 @@ function typeWriter (elementId, texts, speed = 100) {
   let isDeleting = false;
   let typingDelay = speed;
 
-  function type () {
+  function type() {
     const currentText = texts[textIndex];
 
     if (isDeleting) {
@@ -221,9 +206,7 @@ function typeWriter (elementId, texts, speed = 100) {
  * Placeholder for future AI demo integration
  * This will be expanded in Phase 2 with actual demo functionality
  */
-function initAiDemos () {
-  console.log('AI demos will be integrated in Phase 2');
-
+function initAiDemos() {
   // This is where we'll add code to load and initialize Hugging Face demos
   // or custom TensorFlow.js models
 }
@@ -232,9 +215,6 @@ function initAiDemos () {
  * Create a particle background effect
  * This will be implemented in Phase 2 for visual enhancement
  */
-function initParticleBackground () {
-  console.log('Particle background will be implemented in Phase 2');
-}
 
 // Export functions for potential use in other scripts
 window.bixingTech = {

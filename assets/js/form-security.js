@@ -5,7 +5,7 @@
  */
 
 // Create a namespace for form security utilities
-window.BixingFormSecurity = (function () {
+window.BixingFormSecurity = (function() {
   // Regular expressions for validation
   const PATTERNS = {
     // Basic email validation pattern
@@ -19,7 +19,7 @@ window.BixingFormSecurity = (function () {
     // URL validation
     URL: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/
   };
-  function sanitizeInput (input) {
+  function sanitizeInput(input) {
     if (!input || typeof input !== 'string') return '';
 
     // Replace potentially dangerous characters with HTML entities
@@ -32,12 +32,12 @@ window.BixingFormSecurity = (function () {
   }
 
   /**
-     * Validate input against a specific pattern
-     * @param {string} input - The input to validate
-     * @param {string} type - The type of validation to perform (email, name, text, phone, url)
-     * @returns {boolean} - Whether the input is valid
-     */
-  function validateInput (input, type) {
+   * Validate input against a specific pattern
+   * @param {string} input - The input to validate
+   * @param {string} type - The type of validation to perform (email, name, text, phone, url)
+   * @returns {boolean} - Whether the input is valid
+   */
+  function validateInput(input, type) {
     if (!input || typeof input !== 'string') return false;
 
     const pattern = PATTERNS[type.toUpperCase()];
@@ -47,46 +47,42 @@ window.BixingFormSecurity = (function () {
   }
 
   /**
-     * Generate a CSRF token for form submission
-     * @returns {string} - CSRF token
-     */
-  function generateCSRFToken () {
+   * Generate a CSRF token for form submission
+   * @returns {string} - CSRF token
+   */
+  function generateCSRFToken() {
     // Generate a random token
-    const token = Math.random().toString(36).substring(2) +
-                     Math.random().toString(36).substring(2);
+    const token = Math.random().toString(36).substring(2) + Math.random().toString(36).substring(2);
 
     // Store in sessionStorage for verification
     try {
       sessionStorage.setItem('bixing_csrf_token', token);
-    } catch (e) {
-      console.warn('Could not store CSRF token in sessionStorage');
-    }
+    } catch (e) {}
 
     return token;
   }
 
   /**
-     * Verify a CSRF token
-     * @param {string} token - The token to verify
-     * @returns {boolean} - Whether the token is valid
-     */
-  function verifyCSRFToken (token) {
+   * Verify a CSRF token
+   * @param {string} token - The token to verify
+   * @returns {boolean} - Whether the token is valid
+   */
+  function verifyCSRFToken(token) {
     if (!token) return false;
 
     try {
       const storedToken = sessionStorage.getItem('bixing_csrf_token');
       return token === storedToken;
     } catch (e) {
-      console.warn('Could not verify CSRF token from sessionStorage');
       return false;
     }
   }
 
   /**
-     * Add CSRF protection to a form
-     * @param {HTMLFormElement} form - The form to protect
-     */
-  function protectForm (form) {
+   * Add CSRF protection to a form
+   * @param {HTMLFormElement} form - The form to protect
+   */
+  function protectForm(form) {
     if (!form || !(form instanceof HTMLFormElement)) return;
 
     // Remove any existing CSRF token input
@@ -105,13 +101,13 @@ window.BixingFormSecurity = (function () {
   }
 
   /**
-     * Validate a form's inputs
-     * @param {HTMLFormElement} form - The form to validate
-     * @returns {Object} - Validation result with isValid flag and errors object
-     */
-  function validateForm (form) {
+   * Validate a form's inputs
+   * @param {HTMLFormElement} form - The form to validate
+   * @returns {Object} - Validation result with isValid flag and errors object
+   */
+  function validateForm(form) {
     if (!form || !(form instanceof HTMLFormElement)) {
-      return { isValid: false, errors: { form: 'Invalid form element' } };
+      return {isValid: false, errors: {form: 'Invalid form element'}};
     }
 
     const result = {
@@ -149,8 +145,7 @@ window.BixingFormSecurity = (function () {
           result.errors[name] = 'Please enter a valid email address';
           return;
         }
-      } else if (input.classList.contains('validate-name') ||
-                      name.toLowerCase().includes('name')) {
+      } else if (input.classList.contains('validate-name') || name.toLowerCase().includes('name')) {
         if (!validateInput(value, 'name')) {
           result.isValid = false;
           result.errors[name] = 'Please enter a valid name';
@@ -185,11 +180,11 @@ window.BixingFormSecurity = (function () {
   }
 
   /**
-     * Display validation errors on a form
-     * @param {HTMLFormElement} form - The form to display errors on
-     * @param {Object} errors - The errors object from validateForm
-     */
-  function displayErrors (form, errors) {
+   * Display validation errors on a form
+   * @param {HTMLFormElement} form - The form to display errors on
+   * @param {Object} errors - The errors object from validateForm
+   */
+  function displayErrors(form, errors) {
     if (!form || !errors) return;
 
     // Clear existing error messages
@@ -227,15 +222,15 @@ window.BixingFormSecurity = (function () {
   }
 
   /**
-     * Initialize form security for all forms on the page
-     */
-  function init () {
+   * Initialize form security for all forms on the page
+   */
+  function init() {
     // Add CSRF protection to all forms
     document.querySelectorAll('form').forEach(form => {
       protectForm(form);
 
       // Add submit event listener for validation
-      form.addEventListener('submit', function (event) {
+      form.addEventListener('submit', function(event) {
         // Prevent the default form submission
         event.preventDefault();
 
@@ -253,7 +248,6 @@ window.BixingFormSecurity = (function () {
           window.handleFormSubmit(event, validationResult.sanitizedData);
         } else {
           // Default success message
-          alert('Form submitted successfully!');
           form.reset();
         }
       });
@@ -272,6 +266,6 @@ window.BixingFormSecurity = (function () {
 })();
 
 // Initialize form security when the DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   BixingFormSecurity.init();
 });
