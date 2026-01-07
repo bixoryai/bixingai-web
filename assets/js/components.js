@@ -314,15 +314,36 @@ function setupGlobalLanguageToggle() {
 
     // Apply translations to all elements with data-i18n attributes
     if (typeof applyTranslations === 'function') {
+      console.log('Applying translations globally:', nextLang);
       applyTranslations(nextLang);
     }
+
+    // Apply translations specifically to dynamically loaded header components with multiple retries
+    setTimeout(function() {
+      if (typeof applyTranslations === 'function') {
+        console.log('Applying translations to dynamic content (50ms):', nextLang);
+        applyTranslations(nextLang);
+      }
+    }, 50);
+    setTimeout(function() {
+      if (typeof applyTranslations === 'function') {
+        console.log('Applying translations to dynamic content (100ms):', nextLang);
+        applyTranslations(nextLang);
+      }
+    }, 100);
+    setTimeout(function() {
+      if (typeof applyTranslations === 'function') {
+        console.log('Applying translations to dynamic content (200ms):', nextLang);
+        applyTranslations(nextLang);
+      }
+    }, 200);
 
     // Dispatch a custom event that pages can listen for
     document.dispatchEvent(new CustomEvent('languageToggled', {detail: {language: nextLang}}));
   };
 
   // Find all language toggle buttons and ensure they use our consistent function
-  const languageToggleButtons = document.querySelectorAll('#languageToggle');
+  const languageToggleButtons = document.querySelectorAll('#language-toggle');
   languageToggleButtons.forEach(button => {
     button.onclick = window.toggleLanguage;
   });

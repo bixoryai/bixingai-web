@@ -1093,7 +1093,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLanguage();
 
   // Add click event to language toggle
-  const languageToggle = document.getElementById('languageToggle');
+  const languageToggle = document.querySelector('#language-toggle');
   if (languageToggle) {
     languageToggle.addEventListener('click', function(e) {
       e.preventDefault();

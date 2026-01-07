@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
   applyEducationTranslations(currentLang);
 
   // Set up language toggle
-  const languageToggle = document.getElementById('languageToggle');
+  const languageToggle = document.querySelector('#language-toggle');
   if (languageToggle) {
     // Remove any existing event listeners by cloning
     const newToggle = languageToggle.cloneNode(true);

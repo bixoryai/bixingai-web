@@ -218,7 +218,7 @@ const BixingI18n = (function() {
       }, 500);
     }
 
-    const languageToggle = document.getElementById('languageToggle');
+    const languageToggle = document.querySelector('#language-toggle');
     if (languageToggle) {
       if (currentLanguage === 'en') {
         languageToggle.setAttribute('title', 'Switch to Chinese');
@@ -357,7 +357,7 @@ const BixingI18n = (function() {
     initLanguage();
 
     // Add click event to language toggle
-    const languageToggle = document.getElementById('languageToggle');
+    const languageToggle = document.querySelector('#language-toggle');
     if (languageToggle) {
       languageToggle.addEventListener('click', function(e) {
         e.preventDefault();
