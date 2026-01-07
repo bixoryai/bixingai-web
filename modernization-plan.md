@@ -96,7 +96,7 @@ Neutrals:
 - **Maintainability**: Cleaner code structure, easier to update
 - **Future-Ready**: Easy to add React/Vue components for AI demos
 - **Developer Experience**: Modern tooling, better hot reload
-- **Bundle Size**: Reduced from ~200KB to ~50KB (excluding particles.js)
+- **Bundle Size**: Reduced by ~60% (from ~200KB to ~80KB, excluding particles.js)
 
 ---
 
