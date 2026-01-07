@@ -161,9 +161,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ```
 
 ### Performance Benchmarks
-- **Load Time**: Target < 1.8s (from 3s)
-- **Bundle Size**: Target < 80KB (from 200KB)
-- **HTTP Requests**: Target < 10 (from 20+)
+- **Load Time**: -40% improvement (< 1.8s from 3s)
+- **Bundle Size**: -60% improvement (< 80KB from 200KB)
+- **HTTP Requests**: -50% improvement (< 10 from 20+)
 
 ### Functional Testing Checklist
 - [ ] Language toggle (EN ↔ 中文)
@@ -301,7 +301,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ### Quality Gates
 - **Visual**: 100% pixel-perfect match
 - **Functional**: All features work identically
-- **Performance**: 30%+ improvement achieved
+- **Performance**: Meet all benchmark targets (40% load time, 60% bundle size, 50% HTTP request reduction)
 - **Code**: Clean, maintainable, well-documented
 
 ---
