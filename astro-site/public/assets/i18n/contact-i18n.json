@@ -1,0 +1,14 @@
+{
+  "en": {
+    "contact.form.title": "Contact Us",
+    "contact.form.name": "Full Name",
+    "contact.form.email": "Email",
+    "contact.form.message": "Message"
+  },
+  "zh": {
+    "contact.form.title": "联系我们",
+    "contact.form.name": "姓名",
+    "contact.form.email": "电子邮箱",
+    "contact.form.message": "留言内容"
+  }
+}

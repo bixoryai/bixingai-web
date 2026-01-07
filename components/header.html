@@ -51,7 +51,7 @@ permalink: /components/header.html
                             // Initialize language toggle based on stored preference
                             document.addEventListener('DOMContentLoaded', function() {
                                 const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
-                                const currentLanguageElement = document.getElementById('currentLanguage');
+                                const currentLanguageElement = document.getElementById('current-language');
                                 if (currentLanguageElement) {
                                     currentLanguageElement.textContent = storedLanguage === 'en' ? 'EN' : '中文';
                                 }
@@ -65,7 +65,7 @@ permalink: /components/header.html
                                     // Save to localStorage
                                     localStorage.setItem('bixingLanguage', newLanguage);
                                     // Update the toggle button text
-                                    const currentLanguageElement = document.getElementById('currentLanguage');
+                                    const currentLanguageElement = document.getElementById('current-language');
                                     if (currentLanguageElement) {
                                         currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
                                     }

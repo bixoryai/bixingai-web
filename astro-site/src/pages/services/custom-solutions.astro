@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SecondaryHero from '../../components/SecondaryHero.astro';
+
+const title = "Custom AI Solutions - Bixing Technology";
+const description = "Transform your business with tailored AI solutions that address challenges and unlock new opportunities";
+---
+
+<BaseLayout title={title} description={description}>
+	<main>
+		<SecondaryHero 
+			title="Custom AI Solutions" 
+			subtitle="Transform your business with tailored AI solutions that address challenges and unlock new opportunities"
+			dataI18nTitle="customSolutions.hero.title"
+			dataI18nSubtitle="customSolutions.hero.subtitle"
+		/>
+		
+		<!-- Overview Section -->
+		<section class="section-padding bg-dark-bg py-20">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-12">
+					<h2 class="section-title text-4xl font-bold text-white mb-4" data-i18n="customSolutions.overview.title">Bespoke AI Solutions for Your Business</h2>
+					<p class="section-subtitle text-xl text-gray-400" data-i18n="customSolutions.overview.subtitle">Custom AI models and applications tailored to your unique business challenges</p>
+				</div>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+					<div class="animate-fade-right">
+						<p class="text-gray-300 mb-4" data-i18n="customSolutions.overview.paragraph1">Every business has unique challenges and opportunities. Off-the-shelf AI solutions often fall short of addressing your specific needs. That's where Bixing Technology's Custom AI Solutions come in.</p>
+						<p class="text-gray-300 mb-4" data-i18n="customSolutions.overview.paragraph2">Our team of expert AI developers and data scientists work closely with you to understand your business processes, identify optimization opportunities, and develop custom AI models and applications that deliver measurable results.</p>
+						<p class="text-gray-300" data-i18n="customSolutions.overview.paragraph3">From computer vision systems to natural language processing applications, we build AI solutions that seamlessly integrate with your existing infrastructure and scale with your business.</p>
+					</div>
+					<div class="animate-fade-left flex items-center justify-center">
+						<img src="/assets/images/custom-solutions-enhanced.svg" alt="Custom AI Solutions" class="max-w-full h-auto">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Services Section -->
+		<section class="section-padding bg-dark-surface py-20">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-12">
+					<h2 class="section-title text-4xl font-bold text-white mb-4" data-i18n="customSolutions.services.title">Our Custom AI Services</h2>
+					<p class="section-subtitle text-xl text-gray-400" data-i18n="customSolutions.services.subtitle">Comprehensive AI development services to meet your business needs</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+					<div class="service-card bg-dark-bg rounded-xl p-8 border border-dark-border hover:border-primary-color transition-all duration-300">
+						<div class="service-icon w-16 h-16 bg-gradient-to-r from-primary-color to-accent-color rounded-full flex items-center justify-center mb-6 mx-auto">
+							<svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 2a2 2 0 0 1 2 2h-4a2 2 0 0 1 2-2zm-1 5h2v2h-2V7zm-4 1v4H4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1h3zm10 0h3a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-3V8zm-5 7v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-4h10zm-3 2h-4v2h4v-2z"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-white mb-4 text-center" data-i18n="customSolutions.services.card1.title">Custom AI Model Development</h3>
+						<p class="text-gray-400 text-center" data-i18n="customSolutions.services.card1.text">Develop bespoke machine learning models tailored to your specific use cases and data.</p>
+					</div>
+					<div class="service-card bg-dark-bg rounded-xl p-8 border border-dark-border hover:border-primary-color transition-all duration-300">
+						<div class="service-icon w-16 h-16 bg-gradient-to-r from-primary-color to-accent-color rounded-full flex items-center justify-center mb-6 mx-auto">
+							<svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-white mb-4 text-center" data-i18n="customSolutions.services.card2.title">AI-Powered Automation</h3>
+						<p class="text-gray-400 text-center" data-i18n="customSolutions.services.card2.text">Automate complex business processes with intelligent AI systems that learn and adapt.</p>
+					</div>
+					<div class="service-card bg-dark-bg rounded-xl p-8 border border-dark-border hover:border-primary-color transition-all duration-300">
+						<div class="service-icon w-16 h-16 bg-gradient-to-r from-primary-color to-accent-color rounded-full flex items-center justify-center mb-6 mx-auto">
+							<svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-white mb-4 text-center" data-i18n="customSolutions.services.card3.title">Data Analytics Solutions</h3>
+						<p class="text-gray-400 text-center" data-i18n="customSolutions.services.card3.text">Extract actionable insights from your data with advanced AI-powered analytics.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="py-20 bg-dark-surface">
+			<div class="container mx-auto px-4 text-center">
+				<h2 class="text-3xl font-bold text-white mb-4" data-i18n="customSolutions.cta.title">Ready to Build Your Custom AI Solution?</h2>
+				<p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto" data-i18n="customSolutions.cta.subtitle">Contact us today to discuss how custom AI solutions can transform your business.</p>
+				<a href="/contact" class="inline-block px-8 py-3 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300" data-i18n="customSolutions.cta.button" style="background: linear-gradient(135deg, #00a8ff, #0e4377); border: none;">Get Started</a>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<script is:inline src="/assets/js/i18n-services.js"></script>
+<script is:inline>
+	// Function to apply translations once they're loaded
+	function applyPageTranslations() {
+		const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+		if (typeof applyTranslations === 'function' && window.translations && window.translations[currentLang]) {
+			applyTranslations(currentLang);
+			// Mark as initialized only after translations are successfully applied
+			window.pageTranslationsInitialized = true;
+			return true;
+		}
+		return false;
+	}
+	
+	// Try to apply translations immediately if scripts are ready
+	if (!applyPageTranslations()) {
+		// If not ready, wait for DOM and retry
+		function initPageTranslations() {
+			if (!applyPageTranslations()) {
+				// Retry after a short delay if translations aren't ready
+				setTimeout(initPageTranslations, 100);
+			}
+		}
+		
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initPageTranslations);
+		} else {
+			setTimeout(initPageTranslations, 50);
+		}
+	}
+	
+	// Listen for language toggle events
+	document.addEventListener('languageToggled', function(e) {
+		const lang = e.detail ? e.detail.language : localStorage.getItem('bixingLanguage') || 'en';
+		if (typeof applyTranslations === 'function') {
+			applyTranslations(lang);
+		}
+	});
+	
+	// Also listen for storage events (language changes from other tabs)
+	window.addEventListener('storage', function(e) {
+		if (e.key === 'bixingLanguage') {
+			const lang = e.newValue || 'en';
+			if (typeof applyTranslations === 'function') {
+				applyTranslations(lang);
+			}
+		}
+	});
+</script>
+
+<style>
+	:root {
+		--dark-bg: #121212;
+		--dark-surface: #1e1e1e;
+		--dark-border: rgba(255, 255, 255, 0.1);
+		--primary-color: #0066FF;
+		--accent-color: #00C2FF;
+	}
+	
+	.section-padding {
+		padding: 80px 0;
+	}
+	
+	.service-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+	}
+</style>
+
+

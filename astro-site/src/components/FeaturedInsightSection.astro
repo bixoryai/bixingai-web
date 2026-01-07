@@ -1,0 +1,250 @@
+---
+// Featured Insight Section Component
+---
+
+<section class="featured-insight-section">
+    <div class="container mx-auto px-4">
+        <div class="featured-insight">
+            <div class="featured-visual">
+                <div class="featured-visual-content">
+                    <!-- Enterprise AI Visualization -->
+                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="featured-visual-nodes">
+                        <!-- Central Node -->
+                        <circle cx="200" cy="200" r="30" fill="url(#gradient1)" filter="url(#glow)" />
+                        
+                        <!-- Connection Lines -->
+                        <line x1="200" y1="200" x2="120" y2="100" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                        <line x1="200" y1="200" x2="280" y2="100" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                        <line x1="200" y1="200" x2="300" y2="200" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                        <line x1="200" y1="200" x2="280" y2="300" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                        <line x1="200" y1="200" x2="120" y2="300" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                        <line x1="200" y1="200" x2="100" y2="200" stroke="#3b82f6" stroke-width="2" stroke-opacity="0.6" />
+                        
+                        <!-- Satellite Nodes -->
+                        <circle cx="120" cy="100" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                        <circle cx="280" cy="100" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                        <circle cx="300" cy="200" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                        <circle cx="280" cy="300" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                        <circle cx="120" cy="300" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                        <circle cx="100" cy="200" r="15" fill="url(#gradient2)" filter="url(#glow)" />
+                        
+                        <!-- Pulse Animation -->
+                        <circle cx="200" cy="200" r="40" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.5">
+                            <animate attributeName="r" values="40;70" dur="3s" repeatCount="indefinite" />
+                            <animate attributeName="opacity" values="0.5;0" dur="3s" repeatCount="indefinite" />
+                        </circle>
+                        
+                        <!-- Definitions -->
+                        <defs>
+                            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#3b82f6" />
+                                <stop offset="100%" stop-color="#10b981" />
+                            </linearGradient>
+                            <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#60a5fa" />
+                                <stop offset="100%" stop-color="#34d399" />
+                            </linearGradient>
+                            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="5" result="blur" />
+                                <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                            </filter>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+            <div class="featured-content">
+                <span class="featured-badge" data-i18n="insights.featured.badge">Featured Insight</span>
+                <h2 class="featured-title text-gradient-amber-orange" id="featured-title" data-i18n="insights.featured.title">2025 Outlook: The Future of AI in Enterprise</h2>
+                <p class="featured-excerpt" id="featured-excerpt" data-i18n="insights.featured.excerpt">As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.</p>
+                <a href="#" class="btn btn-primary btn-lg" id="featured-link" data-i18n="insights.featured.link">
+                    Read Full Article
+                    <svg class="w-4 h-4 ml-2 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    :root {
+        --dark-bg: #121212;
+        --dark-surface: #1e1e1e;
+        --primary-color: #0066FF;
+        --accent-color: #00C2FF;
+    }
+    
+    /* Featured Insight Section Background */
+    .featured-insight-section {
+        background-color: #0f172a;
+        padding: 80px 0;
+        position: relative;
+    }
+    
+    .featured-insight-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/assets/images/circuit-pattern.svg');
+        opacity: 0.03;
+        pointer-events: none;
+    }
+    
+    .featured-insight {
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        background-size: cover;
+        background-position: center;
+        border-radius: 16px;
+        padding: 0;
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 60px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        display: flex;
+        min-height: 400px;
+    }
+    
+    .featured-insight::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.5;
+        z-index: 1;
+    }
+    
+    .featured-visual {
+        width: 40%;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.05));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .featured-visual::before {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, rgba(16, 185, 129, 0.1) 50%, transparent 70%);
+        border-radius: 50%;
+        filter: blur(60px);
+        opacity: 0.6;
+        z-index: 1;
+    }
+    
+    .featured-visual-content {
+        position: relative;
+        z-index: 2;
+        width: 80%;
+        height: 80%;
+    }
+    
+    .featured-visual-nodes {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    
+    .featured-content {
+        width: 60%;
+        padding: 50px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .featured-badge {
+        background: linear-gradient(135deg, #3b82f6, #10b981);
+        color: white;
+        font-weight: 600;
+        padding: 8px 18px;
+        border-radius: 30px;
+        display: inline-block;
+        margin-bottom: 25px;
+        box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        width: fit-content;
+    }
+    
+    .featured-title {
+        font-size: 2.5rem;
+        margin-bottom: 25px;
+        color: white;
+        line-height: 1.2;
+        font-weight: 700;
+    }
+    
+    .text-gradient-amber-orange {
+        background: linear-gradient(135deg, #f59e0b, #f97316);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    
+    .featured-excerpt {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 30px;
+        max-width: 700px;
+        line-height: 1.6;
+    }
+    
+    .featured-content .btn {
+        background: linear-gradient(135deg, #3b82f6, #10b981);
+        border: none;
+        padding: 12px 25px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        color: white;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+    }
+    
+    .featured-content .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4);
+    }
+    
+    /* Responsive adjustments for featured insight */
+    @media (max-width: 992px) {
+        .featured-insight {
+            flex-direction: column;
+            min-height: auto;
+        }
+        
+        .featured-visual {
+            width: 100%;
+            height: 250px;
+        }
+        
+        .featured-content {
+            width: 100%;
+            padding: 40px 30px;
+        }
+        
+        .featured-title {
+            font-size: 2rem;
+        }
+    }
+</style>
+
+

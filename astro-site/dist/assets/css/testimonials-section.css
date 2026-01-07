@@ -1,0 +1,193 @@
+/* 
+ * Testimonials Section Styles - Bixing Technology
+ * Modern, sleek AI-themed testimonial cards
+ */
+
+.testimonials-section {
+  position: relative;
+  padding: 100px 0;
+  background-color: var(--testimonials-bg);
+  background-image: 
+    radial-gradient(circle at 10% 90%, rgba(0, 194, 255, 0.04) 0%, transparent 30%),
+    radial-gradient(circle at 90% 10%, rgba(112, 0, 255, 0.04) 0%, transparent 30%);
+  overflow: hidden;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230066FF' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.testimonials-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-section.ai-circuit-bg::before {
+  opacity: 0.1;
+}
+
+.testimonial-card {
+  position: relative;
+  padding: 30px;
+  border-radius: var(--radius-md);
+  background-color: var(--dark-surface);
+  border: 1px solid var(--dark-border);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 30px;
+  transition: all var(--transition-normal);
+  overflow: hidden;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
+}
+
+.testimonial-content {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  margin-bottom: 25px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.testimonial-text::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -15px;
+  font-size: 60px;
+  line-height: 1;
+  font-family: Georgia, serif;
+  color: var(--primary-color);
+  opacity: 0.3;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-right: 15px;
+  border: 2px solid var(--primary-color);
+}
+
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-info {
+  flex: 1;
+}
+
+.testimonial-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  color: var(--white);
+}
+
+.testimonial-position {
+  font-size: 0.9rem;
+  color: var(--text-medium);
+  margin-bottom: 5px;
+}
+
+.testimonial-company {
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-company-logo {
+  height: 20px;
+  margin-right: 8px;
+}
+
+.testimonial-company-name {
+  font-size: 0.85rem;
+  color: var(--text-medium);
+}
+
+/* AI-themed elements */
+.testimonial-ai-pattern {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9,0 L9,120 M0,9 L120,9 M27,0 L27,120 M0,27 L120,27 M45,0 L45,120 M0,45 L120,45 M63,0 L63,120 M0,63 L120,63 M81,0 L81,120 M0,81 L120,81 M99,0 L99,120 M0,99 L120,99' stroke='%230066FF' stroke-width='1' stroke-opacity='0.1'/%3E%3C/svg%3E");
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.testimonial-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--gradient-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-normal);
+}
+
+.testimonial-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Rating stars */
+.testimonial-rating {
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.testimonial-rating i {
+  margin-right: 3px;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .testimonials-section {
+    padding: 80px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 60px 0;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+  }
+  
+  .testimonial-avatar {
+    width: 50px;
+    height: 50px;
+  }
+}

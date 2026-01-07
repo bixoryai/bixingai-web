@@ -1,0 +1,347 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SecondaryHero from '../components/SecondaryHero.astro';
+
+const title = "Contact Us - Bixing Technology";
+const description = "Contact Bixing Technology for AI solutions. Get in touch to discuss AI education, custom development, or strategic consultation services.";
+---
+
+<BaseLayout title={title} description={description}>
+	<main>
+		<SecondaryHero 
+			title="Contact Us" 
+			subtitle="Get in touch to discuss how AI can transform your business"
+			dataI18nTitle="contact.hero.title"
+			dataI18nSubtitle="contact.hero.subtitle"
+		/>
+		
+		<!-- Contact Cards Section -->
+		<section class="py-12 bg-dark-surface">
+			<div class="container mx-auto px-4">
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+					<!-- Email Card -->
+					<div class="contact-card bg-white/5 rounded-xl p-6 border border-white/10 hover:border-primary-color/50 transition-all duration-300">
+						<div class="contact-icon w-14 h-14 rounded-full bg-primary-color/20 flex items-center justify-center mb-4 mx-auto">
+							<svg class="w-7 h-7 text-primary-color" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-white mb-3 text-center" data-i18n="contact.card.email">Email Us</h3>
+						<div class="flex items-start mb-3">
+							<svg class="w-5 h-5 text-primary-color mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+							</svg>
+							<a href="mailto:develop@bixory.ai" class="text-white hover:text-primary-color transition-colors">develop@bixory.ai</a>
+						</div>
+						<p class="text-gray-400 text-sm text-center" data-i18n="contact.card.email.desc">For general inquiries, partnership opportunities, or any questions about our services.</p>
+					</div>
+					
+					<!-- WeChat Card -->
+					<div class="contact-card bg-white/5 rounded-xl p-6 border border-white/10 hover:border-primary-color/50 transition-all duration-300">
+						<div class="contact-icon w-14 h-14 rounded-full bg-primary-color/20 flex items-center justify-center mb-4 mx-auto">
+							<svg class="w-7 h-7 text-primary-color" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213a.416.416 0 0 0 .314.412h.08a.626.626 0 0 0 .235-.019l1.723-.508a.864.864 0 0 1 .665.118 7.738 7.738 0 0 0 2.846.556h.047A7.876 7.876 0 0 0 13.509 8.937a7.888 7.888 0 0 0-4.818-6.75z"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-white mb-3 text-center" data-i18n="contact.card.wechat">Connect on WeChat</h3>
+						<div class="flex items-start justify-center mb-3">
+							<svg class="w-5 h-5 text-primary-color mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213a.416.416 0 0 0 .314.412h.08a.626.626 0 0 0 .235-.019l1.723-.508a.864.864 0 0 1 .665.118 7.738 7.738 0 0 0 2.846.556h.047A7.876 7.876 0 0 0 13.509 8.937a7.888 7.888 0 0 0-4.818-6.75z"/>
+							</svg>
+							<span class="text-white">WeChat ID: <strong>bixingai</strong></span>
+						</div>
+						<p class="text-gray-400 text-sm text-center" data-i18n="contact.card.wechat.desc">Add our WeChat account for quick responses and updates about our services.</p>
+					</div>
+					
+					<!-- QR Code Card -->
+					<div class="contact-card bg-white/5 rounded-xl p-6 border border-white/10 hover:border-primary-color/50 transition-all duration-300">
+						<div class="contact-icon w-14 h-14 rounded-full bg-primary-color/20 flex items-center justify-center mb-4 mx-auto">
+							<svg class="w-7 h-7 text-primary-color" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213a.416.416 0 0 0 .314.412h.08a.626.626 0 0 0 .235-.019l1.723-.508a.864.864 0 0 1 .665.118 7.738 7.738 0 0 0 2.846.556h.047A7.876 7.876 0 0 0 13.509 8.937a7.888 7.888 0 0 0-4.818-6.75z"/>
+							</svg>
+						</div>
+						<h3 class="text-xl font-bold text-white mb-3 text-center" data-i18n="contact.card.phone">Call Us</h3>
+						<div class="text-center mb-3">
+							<img src="/assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr w-48 h-48 mx-auto rounded-lg border-4 border-[#4CAF50]">
+						</div>
+						<p class="text-gray-400 text-sm text-center" data-i18n="contact.card.phone.desc">Scan the QR code to connect with us on WeChat</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Contact Form Section -->
+		<section class="py-20 ai-nodes-bg contact-form-section relative bg-dark-bg overflow-hidden">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-12">
+					<h2 class="section-title text-4xl font-bold text-white mb-4 inline-block relative" data-i18n="contact.form.title">Send Us a Message</h2>
+					<p class="text-xl text-gray-400 max-w-2xl mx-auto" data-i18n="contact.form.desc">Fill out the form below and we'll get back to you as soon as possible</p>
+				</div>
+				
+				<!-- Contact Tabs -->
+				<div class="max-w-3xl mx-auto">
+					<div class="contact-tabs flex justify-center gap-4 mb-8 flex-wrap">
+						<button 
+							class="tab-button active px-6 py-3 rounded-lg text-white font-semibold transition-all duration-300 bg-gradient-to-r from-primary-color to-accent-color border-transparent" 
+							data-tab="general"
+							data-i18n="contact.tab.general"
+						>
+							General Inquiry
+						</button>
+						<button 
+							class="tab-button px-6 py-3 rounded-lg text-gray-400 font-semibold transition-all duration-300 bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white" 
+							data-tab="business"
+							data-i18n="contact.tab.business"
+						>
+							Business Partnership
+						</button>
+						<button 
+							class="tab-button px-6 py-3 rounded-lg text-gray-400 font-semibold transition-all duration-300 bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white" 
+							data-tab="support"
+							data-i18n="contact.tab.support"
+						>
+							Technical Support
+						</button>
+					</div>
+					
+					<!-- Tab Content -->
+					<div class="tab-content-wrapper">
+						<!-- General Inquiry Form -->
+						<div class="tab-content active" id="general-tab">
+							<div class="contact-form bg-white/5 rounded-xl p-8 border border-white/10">
+								<form id="general-inquiry-form" class="space-y-6">
+									<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.form.label.firstname">First Name</label>
+											<input type="text" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+										</div>
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.form.label.lastname">Last Name</label>
+											<input type="text" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+										</div>
+									</div>
+									<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.form.label.email">Email</label>
+											<input type="email" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+										</div>
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.form.label.phone">Phone (Optional)</label>
+											<input type="tel" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors">
+										</div>
+									</div>
+									<div>
+										<label class="block text-white mb-2 font-medium" data-i18n="contact.form.label.subject">Subject</label>
+										<input type="text" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+									</div>
+									<div>
+										<label class="block text-white mb-2 font-medium" data-i18n="contact.form.label.message">Message</label>
+										<textarea rows="5" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors resize-none" required></textarea>
+									</div>
+									<div class="text-center">
+										<button type="submit" class="px-8 py-3 bg-gradient-to-r from-primary-color to-accent-color text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300" data-i18n="contact.form.button.send">Send Message</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+						<!-- Business Partnership Form -->
+						<div class="tab-content hidden" id="business-tab">
+							<div class="contact-form bg-white/5 rounded-xl p-8 border border-white/10">
+								<form id="business-partnership-form" class="space-y-6">
+									<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.business.label.name">Company Name</label>
+											<input type="text" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+										</div>
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.business.label.contact">Contact Person</label>
+											<input type="text" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+										</div>
+									</div>
+									<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.business.label.email">Email</label>
+											<input type="email" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+										</div>
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.business.label.phone">Phone</label>
+											<input type="tel" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+										</div>
+									</div>
+									<div>
+										<label class="block text-white mb-2 font-medium" data-i18n="contact.business.label.type">Partnership Type</label>
+										<select class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+											<option value="" data-i18n="contact.business.type.select">Select partnership type</option>
+											<option value="reseller" data-i18n="contact.business.type.reseller">Reseller Partnership</option>
+											<option value="technology" data-i18n="contact.business.type.technology">Technology Partnership</option>
+											<option value="strategic" data-i18n="contact.business.type.strategic">Strategic Alliance</option>
+											<option value="other" data-i18n="contact.business.type.other">Other</option>
+										</select>
+									</div>
+									<div>
+										<label class="block text-white mb-2 font-medium" data-i18n="contact.business.label.message">Partnership Details</label>
+										<textarea rows="5" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors resize-none" required></textarea>
+									</div>
+									<div class="text-center">
+										<button type="submit" class="px-8 py-3 bg-gradient-to-r from-primary-color to-accent-color text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300" data-i18n="contact.business.button.send">Submit Partnership Inquiry</button>
+									</div>
+								</form>
+							</div>
+						</div>
+						
+						<!-- Technical Support Form -->
+						<div class="tab-content hidden" id="support-tab">
+							<div class="contact-form bg-white/5 rounded-xl p-8 border border-white/10">
+								<form id="support-form" class="space-y-6">
+									<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.support.label.name">Name</label>
+											<input type="text" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+										</div>
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.support.label.email">Email</label>
+											<input type="email" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+										</div>
+									</div>
+									<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.support.label.product">Product/Service</label>
+											<select class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+												<option value="" data-i18n="contact.support.product.select">Select product/service</option>
+												<option value="education" data-i18n="contact.support.product.aiEducation">AI Education/Training</option>
+												<option value="solutions" data-i18n="contact.support.product.customSolutions">AI Custom Solutions</option>
+												<option value="consultation" data-i18n="contact.support.product.consultation">Enterprise AI Consultation</option>
+												<option value="other" data-i18n="contact.support.product.other">Other</option>
+											</select>
+										</div>
+										<div>
+											<label class="block text-white mb-2 font-medium" data-i18n="contact.support.label.issue">Issue Type</label>
+											<select class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors" required>
+												<option value="" data-i18n="contact.support.issue.select">Select issue type</option>
+												<option value="technical" data-i18n="contact.support.issue.technical">Technical Issue</option>
+												<option value="billing" data-i18n="contact.support.issue.billing">Billing Question</option>
+												<option value="feedback" data-i18n="contact.support.issue.feedback">Feedback</option>
+												<option value="other" data-i18n="contact.support.issue.other">Other</option>
+											</select>
+										</div>
+									</div>
+									<div>
+										<label class="block text-white mb-2 font-medium" data-i18n="contact.support.label.message">Issue Description</label>
+										<textarea rows="5" class="form-input w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:border-primary-color focus:outline-none transition-colors resize-none" required></textarea>
+									</div>
+									<div class="text-center">
+										<button type="submit" class="px-8 py-3 bg-gradient-to-r from-primary-color to-accent-color text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300" data-i18n="contact.support.button.send">Submit Support Request</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<script is:inline src="/assets/js/i18n-contact.js"></script>
+
+<script>
+	// Tab switching functionality
+	document.addEventListener('DOMContentLoaded', function() {
+		const tabButtons = document.querySelectorAll('.tab-button');
+		const tabContents = document.querySelectorAll('.tab-content');
+		
+		tabButtons.forEach(button => {
+			button.addEventListener('click', function() {
+				const targetTab = this.getAttribute('data-tab');
+				
+				// Remove active class from all buttons and contents
+				tabButtons.forEach(btn => {
+					btn.classList.remove('active', 'bg-gradient-to-r', 'from-primary-color', 'to-accent-color', 'border-transparent');
+					btn.classList.add('bg-white/5', 'border', 'border-white/10', 'text-gray-400');
+				});
+				
+				tabContents.forEach(content => {
+					content.classList.remove('active');
+					content.classList.add('hidden');
+				});
+				
+				// Add active class to clicked button
+				this.classList.add('active', 'bg-gradient-to-r', 'from-primary-color', 'to-accent-color', 'border-transparent', 'text-white');
+				this.classList.remove('bg-white/5', 'border', 'border-white/10', 'text-gray-400');
+				
+				// Show corresponding content
+				const targetContent = document.getElementById(`${targetTab}-tab`);
+				if (targetContent) {
+					targetContent.classList.remove('hidden');
+					targetContent.classList.add('active');
+				}
+			});
+		});
+	});
+</script>
+
+<style>
+	:root {
+		--dark-surface: #1e1e1e;
+		--dark-bg: #121212;
+		--primary-color: #0066FF;
+		--accent-color: #00C2FF;
+	}
+	
+	/* Section Title Styling */
+	.section-title::after {
+		content: '';
+		position: absolute;
+		bottom: -10px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 60px;
+		height: 3px;
+		background: var(--primary-color);
+	}
+	
+	/* AI nodes background */
+	.ai-nodes-bg {
+		position: relative;
+	}
+	
+	.ai-nodes-bg::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('/assets/images/backgrounds/nodes-bg.svg');
+		background-size: cover;
+		background-position: center;
+		opacity: 0.1;
+		z-index: 0;
+		pointer-events: none;
+	}
+	
+	.contact-form-section {
+		position: relative;
+		z-index: 1;
+	}
+	
+	.form-input::placeholder {
+		color: rgba(255, 255, 255, 0.5);
+	}
+	
+	.tab-content {
+		animation: fadeIn 0.3s ease-in-out;
+	}
+	
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>

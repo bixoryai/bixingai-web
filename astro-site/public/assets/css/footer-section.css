@@ -1,0 +1,433 @@
+/* 
+ * Footer Section Styles - Bixing Technology
+ * Modern, sleek AI-themed footer with enhanced responsiveness
+ */
+
+:root {
+  --gold-light: #FFD700;
+  --gold-dark: #B8860B;
+}
+
+.footer {
+  position: relative;
+  background-color: var(--dark-color);
+  color: var(--text-light);
+  padding: 1.5rem 0 0.25rem; /* Reduced bottom padding from 0.5rem to 0.25rem */
+  overflow: hidden;
+  width: 100%;
+  margin-top: auto; /* Push footer to bottom of flex container */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer background elements */
+.footer-circuit-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M10 10h80v80H10z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M20 10v10h10' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M40 10v30h30' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M70 10v60h20' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M10 30h30v30H10z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M50 50h40v40H50z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3Ccircle cx='60' cy='60' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3Ccircle cx='80' cy='80' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+/* Company info - Adjusted to align with other headings */
+.footer .row > div {
+  margin-top: 0;
+  padding-top: 0.25rem; /* Reduced from 0.5rem */
+}
+
+/* Footer logo link with positioning for alignment */
+.footer-logo-link {
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  margin-bottom: 0;
+  margin-top: -10px; /* Move the logo up to align with headings */
+}
+
+.footer-logo {
+  margin-bottom: 0.5rem; /* Reduced from 1rem */
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-img {
+  height: 40px;
+  width: 40px; /* Added from inline style */
+  margin-right: 0.625rem;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(0, 168, 255, 0.5));
+}
+
+.footer-logo-link:hover .footer-logo-img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 8px rgba(0, 168, 255, 0.8));
+}
+
+/* Company name styling to match header */
+.company-name {
+  font-size: 1.2rem; /* Adjusted to match inline style */
+  font-weight: 600; /* Adjusted to match inline style */
+  background: linear-gradient(to right, #FFFFFF, #00A8FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 15px rgba(0, 168, 255, 0.3);
+  transition: text-shadow 0.3s ease;
+  margin-bottom: 0;
+  letter-spacing: 0.5px;
+  color: var(--white); /* Added from inline style */
+}
+
+.company-name:hover {
+  text-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+}
+
+.footer-logo-link:hover .company-name {
+  text-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+}
+
+.footer p {
+  margin-bottom: 1.25rem;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Special styling for company description paragraph */
+[data-i18n="footer.companyDescription"] {
+  margin-top: 5px; /* Reduced from 10px */
+  position: relative;
+  margin-top: -5px; /* Adjust the description to align properly with the logo */
+  max-width: 270px; /* Force wrapping at a consistent width */
+  white-space: pre-wrap; /* Preserve whitespace and wrapping */
+  word-break: break-word; /* Allow words to break if needed */
+}
+
+/* Footer headings */
+.footer-heading {
+  position: relative;
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px; /* Reduced from 10px */
+  padding-bottom: 0.3rem; /* Reduced from 0.5rem */
+  padding-top: 0.25rem;
+  margin-top: 0; /* Ensure consistent top margin */
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  border-radius: var(--radius-full);
+}
+
+/* Footer links with hover effect matching header */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 4px; /* Reduced from 6px */
+}
+
+.footer-links li a {
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0; /* Reduced from 0.25rem */
+  position: relative;
+  font-size: 0.9rem; /* Added smaller font size */
+}
+
+.footer-links li a i {
+  margin-right: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+.footer-links li a:hover {
+  color: var(--gold-light);
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.footer-links li a:hover i {
+  color: var(--gold-light);
+}
+
+.footer-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+  transition: width 0.3s ease;
+  opacity: 0;
+}
+
+.footer-links li a:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* Contact info */
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-info li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px; /* Reduced from 10px */
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+.contact-info i {
+  margin-right: 10px; /* Added from inline style */
+}
+
+/* WeChat QR code */
+.wechat-container {
+  margin-top: 0.5rem; /* Reduced spacing */
+  margin-bottom: 0.5rem; /* Reduced spacing */
+}
+
+.wechat-qr {
+  width: 100px; /* Slightly smaller QR code */
+  height: 100px;
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wechat-label {
+  font-size: 0.8rem;
+  color: var(--white);
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* QR code alignment - desktop vs mobile */
+.wechat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left align for desktop */
+  justify-content: flex-start;
+  width: 100%;
+}
+
+/* Mobile view - center alignment */
+@media (max-width: 767.98px) {
+  .wechat-container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .wechat-qr {
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+/* Footer bottom section */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0.5rem; /* Reduced from 1rem */
+  padding-top: 0.25rem; /* Reduced from 0.5rem */
+  padding-bottom: 0.25rem; /* Added minimal bottom padding */
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.9rem; /* Added from inline style */
+  color: var(--white); /* Added from inline style */
+  opacity: 0.8; /* Added from inline style */
+  display: flex;
+  justify-content: center; /* Center align the copyright text */
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.separator {
+  margin: 0 10px; /* Added from inline style */
+}
+
+.footer-bottom a {
+  color: var(--white); /* Added from inline style */
+  text-decoration: none; /* Added from inline style */
+  transition: all 0.3s ease; /* Added from inline style */
+}
+
+.footer-bottom a:hover {
+  color: var(--primary-color); /* Added from inline style */
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .footer {
+    padding: 2rem 0 0.5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .footer [class*="col-"] {
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-heading {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 1.25rem 0 0.5rem; /* Reduced from 1.5rem */
+    text-align: center;
+    margin-top: 1rem; /* Reduced spacing */
+  }
+  
+  .footer-heading {
+    margin-top: 0.5rem; /* Reduced from 0.75rem */
+    margin-bottom: 0.5rem; /* Reduced from 0.75rem */
+    padding-bottom: 0.3rem; /* Reduced from 0.4rem */
+  }
+  
+  .footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+  }
+  
+  .footer-logo {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .footer-links li a {
+    justify-content: center;
+    padding: 0.3rem 0; /* Reduced from 0.5rem */
+  }
+  
+  .footer-links li a:hover {
+    transform: translateX(0) scale(1.05);
+  }
+  
+  .contact-info li {
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+  
+  /* Center align the QR code block */
+  .wechat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .wechat-qr {
+    margin: 0 auto;
+    display: block;
+    width: 90px; /* Even smaller on mobile */
+    height: 90px;
+  }
+  
+  .wechat-label {
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-top: 0.3rem; /* Reduced from 0.5rem */
+  }
+  
+  .footer-bottom {
+    margin-top: 0.75rem; /* Reduced from 1rem */
+    padding-top: 0.25rem;
+    margin-bottom: 0.25rem; /* Reduced bottom margin */
+  }
+  
+  /* Make Privacy Policy and Terms of Service appear in the same row */
+  .copyright {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .copyright span:first-child {
+    flex-basis: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .separator {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer {
+    padding: 1.5rem 0 0.5rem; /* Reduced from 2.5rem */
+  }
+  
+  .footer p {
+    font-size: 0.9rem;
+  }
+  
+  .footer-heading {
+    font-size: 1rem; /* Slightly smaller */
+    margin-top: 0.5rem; /* Reduced spacing */
+    margin-bottom: 0.5rem; /* Reduced spacing */
+  }
+  
+  .copyright {
+    font-size: 0.8rem;
+  }
+  
+  .copyright a {
+    padding: 0.5rem; /* Larger touch target for mobile */
+  }
+  
+  .wechat-qr {
+    width: 80px; /* Even smaller on very small screens */
+    height: 80px;
+  }
+}

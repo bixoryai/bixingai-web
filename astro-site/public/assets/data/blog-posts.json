@@ -1,0 +1,64 @@
+{
+  "posts": [
+    {
+      "title": "The Future of AI in Enterprise: Trends and Predictions",
+      "date": "2023-10-15",
+      "author": "Dr. Sarah Chen",
+      "categories": ["AI Trends"],
+      "tags": ["artificial intelligence", "machine learning", "business transformation", "future tech"],
+      "featured_image": "blog-ai-enterprise.jpg",
+      "excerpt": "Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how businesses can prepare for the AI-driven future.",
+      "url": "/blog/2023/10/15/the-future-of-ai-in-enterprise.html"
+    },
+    {
+      "title": "Machine Learning for Business: Practical Applications",
+      "date": "2025-01-10",
+      "author": "Bixing Technology",
+      "categories": ["Machine Learning"],
+      "tags": ["machine learning", "business intelligence", "predictive analytics", "data science"],
+      "featured_image": "ml-business.jpg",
+      "excerpt": "Discover practical applications of machine learning that are transforming businesses today and how you can implement these solutions in your organization.",
+      "url": "/blog/2025/01/10/machine-learning-for-business.html"
+    },
+    {
+      "title": "Implementing AI Solutions: A Step-by-Step Guide",
+      "date": "2023-08-22",
+      "author": "Michael Wang",
+      "categories": ["AI Implementation"],
+      "tags": ["ai implementation", "enterprise ai", "ai strategy", "digital transformation"],
+      "featured_image": "ai-implementation.jpg",
+      "excerpt": "A comprehensive guide to implementing AI solutions in your organization, from planning to deployment and optimization.",
+      "url": "/blog/2023/08/22/implementing-ai-solutions.html"
+    },
+    {
+      "title": "AI Transformation in Healthcare: A Case Study",
+      "date": "2023-08-15",
+      "author": "Lisa Jiang",
+      "categories": ["Case Studies"],
+      "tags": ["healthcare", "ai in healthcare", "case study", "medical ai"],
+      "featured_image": "healthcare-ai.jpg",
+      "excerpt": "How a leading healthcare provider leveraged AI to improve patient outcomes and operational efficiency.",
+      "url": "/blog/2023/08/15/ai-transformation-healthcare.html"
+    },
+    {
+      "title": "Building AI Literacy in Your Organization",
+      "date": "2023-07-30",
+      "author": "Dr. Wei Zhang",
+      "categories": ["AI Education"],
+      "tags": ["ai education", "ai training", "workforce development", "ai literacy"],
+      "featured_image": "ai-education.jpg",
+      "excerpt": "Strategies for developing AI knowledge and skills across different levels of your company.",
+      "url": "/blog/2023/07/30/building-ai-literacy.html"
+    },
+    {
+      "title": "AI Ethics and Governance: Best Practices",
+      "date": "2023-07-20",
+      "author": "Bixing Technology",
+      "categories": ["AI Trends"],
+      "tags": ["ai ethics", "ai governance", "responsible ai", "ai policy"],
+      "featured_image": "ai-ethics.jpg",
+      "excerpt": "Establishing responsible AI practices and governance frameworks for enterprise implementation.",
+      "url": "/blog/2023/07/20/ai-ethics-governance.html"
+    }
+  ]
+}

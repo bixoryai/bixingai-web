@@ -1,0 +1,23 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="customPattern" x="0" y="0" width="70" height="70" patternUnits="userSpaceOnUse">
+      <!-- Gear -->
+      <circle cx="20" cy="20" r="8" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <path d="M20 12 L22 14 L24 12 L26 14 L28 12 L26 16 L28 20 L26 18 L24 20 L22 18 L20 20 L18 18 L16 20 L18 16 L16 12 L18 14 Z" fill="#FFD700" opacity="0.4"/>
+      <!-- Code brackets -->
+      <path d="M40 15 L35 15 L35 25 L40 25" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.4"/>
+      <path d="M50 15 L55 15 L55 25 L50 25" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.4"/>
+      <!-- Wrench/tool -->
+      <rect x="8" y="35" width="12" height="4" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <rect x="14" y="31" width="4" height="12" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <!-- Circuit/connection lines -->
+      <line x1="35" y1="40" x2="45" y2="40" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <line x1="40" y1="35" x2="40" y2="45" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <circle cx="40" cy="40" r="2" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <!-- Settings/cog icon -->
+      <circle cx="55" cy="45" r="6" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+      <path d="M55 39 L57 41 L59 39 L57 43 L59 47 L57 45 L55 47 L53 45 L51 47 L53 43 L51 39 L53 41 Z" fill="#FFD700" opacity="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="200" height="200" fill="url(#customPattern)"/>
+</svg>
