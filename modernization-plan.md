@@ -317,23 +317,24 @@ particlesJS('hero-particles', {
 <script>
   // Astro scripts run in browser context - use DOM events, not onMount
   document.addEventListener('DOMContentLoaded', function() {
-    // Lazy load particles.js when component becomes visible
-    const particlesEl = document.getElementById('hero-particles');
-    if (particlesEl) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            import('particles.js').then(({ default: particlesJS }) => {
+    // particles.js is loaded as global CDN script, not ES module
+    if (typeof particlesJS !== 'undefined') {
+      const particlesEl = document.getElementById('hero-particles');
+      if (particlesEl) {
+        // Use Intersection Observer for lazy loading
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
               particlesJS('hero-particles', {
-                // Exact same configuration
+                // Exact same configuration - particlesJS is global
               });
-            });
-            observer.disconnect();
-          }
-        });
-      }, { rootMargin: '50px' });
+              observer.disconnect(); // Stop observing after initialization
+            }
+          });
+        }, { rootMargin: '50px' });
 
-      observer.observe(particlesEl);
+        observer.observe(particlesEl);
+      }
     }
   });
 </script>
