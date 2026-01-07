@@ -87,7 +87,7 @@ Neutrals:
 - **JavaScript**: Vanilla ES6+ (consolidated, modular)
 - **Animations**: CSS animations (replacing AOS), Particles.js (optimized)
 - **Icons**: Heroicons or Lucide (SVG, replacing Font Awesome)
-- **Fonts**: Inter (single font family, optimized loading)
+- **Fonts**: Inter, Poppins, Space Grotesk (optimized loading)
 - **Build**: Astro + Vite
 - **Hosting**: GitHub Pages (static export)
 
@@ -315,15 +315,26 @@ particlesJS('hero-particles', {
 </div>
 
 <script>
-  import { onMount } from 'astro';
-  
-  onMount(() => {
-    // Load particles.js only when component is visible
-    import('particles.js').then(({ default: particlesJS }) => {
-      particlesJS('hero-particles', {
-        // Exact same configuration
-      });
-    });
+  // Astro scripts run in browser context - use DOM events, not onMount
+  document.addEventListener('DOMContentLoaded', function() {
+    // Lazy load particles.js when component becomes visible
+    const particlesEl = document.getElementById('hero-particles');
+    if (particlesEl) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            import('particles.js').then(({ default: particlesJS }) => {
+              particlesJS('hero-particles', {
+                // Exact same configuration
+              });
+            });
+            observer.disconnect();
+          }
+        });
+      }, { rootMargin: '50px' });
+
+      observer.observe(particlesEl);
+    }
   });
 </script>
 ```
@@ -392,8 +403,10 @@ particlesJS('hero-particles', {
 <link href="...Poppins...">
 <link href="...Space Grotesk...">
 
-<!-- After: Single optimized font -->
+<!-- After: Optimized multi-font loading -->
 <link rel="preload" href="fonts/inter.woff2" as="font" crossorigin>
+<link rel="preload" href="fonts/poppins.woff2" as="font" crossorigin>
+<link rel="preload" href="fonts/space-grotesk.woff2" as="font" crossorigin>
 ```
 
 #### 4.2 Icon Optimization
@@ -637,20 +650,29 @@ spacing: {
 </section>
 
 <script>
-  import { onMount } from 'astro';
-  
-  onMount(() => {
-    // Initialize particles with exact same config
-    if (typeof window !== 'undefined') {
-      import('particles.js').then(({ default: particlesJS }) => {
-        particlesJS('hero-particles', {
-          particles: {
-            number: { value: 80, density: { enable: true, value_area: 800 } },
-            color: { value: '#5ce1e6' },
-            // ... exact same configuration
-          }
-        });
-      });
+  // Correct Astro pattern: scripts run in browser context
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof particlesJS !== 'undefined') {
+      const particlesEl = document.getElementById('hero-particles');
+      if (particlesEl) {
+        // Use Intersection Observer for lazy loading
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              particlesJS('hero-particles', {
+                particles: {
+                  number: { value: 80, density: { enable: true, value_area: 800 } },
+                  color: { value: '#5ce1e6' },
+                  // ... exact same configuration
+                }
+              });
+              observer.disconnect(); // Stop observing after initialization
+            }
+          });
+        }, { rootMargin: '50px' });
+
+        observer.observe(particlesEl);
+      }
     }
   });
 </script>
