@@ -91,18 +91,11 @@
 
 /* Custom component styles that need to be preserved */
 @layer components {
-  /* Text gradient utility */
+  /* Text gradient utility - let individual components handle specific gradients */
   .text-gradient {
     @apply bg-gradient-to-r from-gold to-orange-500 bg-clip-text text-transparent;
   }
-  
-  /* Hero title specific gradient */
-  .hero-title.text-gradient {
-    background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 10px rgba(255, 184, 0, 0.2);
-  }
+
+  /* Hero title gradient is handled by hero-section.css to avoid conflicts */
 }
 

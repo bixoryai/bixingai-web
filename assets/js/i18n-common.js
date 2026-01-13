@@ -62,10 +62,10 @@ function applyTranslations(lang) {
   });
 
   // Update language toggle UI
-  const currentLanguageElement = document.getElementById('current-language');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
-  }
+  const currentLanguageElements = document.querySelectorAll('[id^="current-language"]');
+  currentLanguageElements.forEach(function(element) {
+    element.textContent = currentLanguage === 'en' ? 'EN' : '中文';
+  });
 
   // Update page title
   const titleKey = 'page.title';
@@ -81,10 +81,10 @@ window.applyTranslations = applyTranslations;
 function initCommonTranslations() {
   const lang = getCurrentLanguage();
   applyTranslations(lang);
-  const currentLanguageElement = document.getElementById('currentLanguage');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = lang === 'en' ? 'EN' : '中文';
-  }
+  const currentLanguageElements = document.querySelectorAll('[id^="current-language"]');
+  currentLanguageElements.forEach(function(element) {
+    element.textContent = lang === 'en' ? 'EN' : '中文';
+  });
 }
 
 // Only auto-apply if no page-specific script is handling it (fallback for pages without page-specific i18n)
@@ -125,10 +125,10 @@ window.toggleLanguage = function() {
   }
 
   // Update UI
-  const currentLanguageElement = document.getElementById('currentLanguage');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
-  }
+  const currentLanguageElements = document.querySelectorAll('[id^="current-language"]');
+  currentLanguageElements.forEach(function(element) {
+    element.textContent = newLanguage === 'en' ? 'EN' : '中文';
+  });
   applyTranslations(newLanguage);
 
   // Dispatch an event so other scripts can react to language changes

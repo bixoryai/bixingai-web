@@ -307,10 +307,10 @@ function setupGlobalLanguageToggle() {
     }
 
     // Update language toggle button text
-    const currentLanguageElement = document.getElementById('currentLanguage');
-    if (currentLanguageElement) {
-      currentLanguageElement.textContent = nextLang === 'en' ? 'EN' : '中文';
-    }
+    const currentLanguageElements = document.querySelectorAll('[id^="current-language"]');
+    currentLanguageElements.forEach(function(element) {
+      element.textContent = nextLang === 'en' ? 'EN' : '中文';
+    });
 
     // Apply translations to all elements with data-i18n attributes
     if (typeof applyTranslations === 'function') {

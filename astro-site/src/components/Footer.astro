@@ -1,6 +1,7 @@
 ---
 // Footer component - Converted to Tailwind with preserved styling
 ---
+<link rel="stylesheet" href="/assets/css/footer-section.css">
 
 <footer class="footer relative bg-dark-color text-text-light pt-6 pb-1 overflow-hidden w-full mt-auto flex flex-col">
     <div class="footer-circuit-bg absolute top-0 left-0 w-full h-full opacity-10 z-0"></div>
@@ -23,33 +24,25 @@
                 <ul class="footer-links list-none p-0 m-0">
                     <li class="mb-2">
                         <a href="/" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="Home">
-                            <svg class="w-3 h-3 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
+                            <i class="fas fa-chevron-right mr-2"></i>
                             <span data-i18n="footer.home">Home</span>
                         </a>
                     </li>
                     <li class="mb-2">
                         <a href="/about" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="About Us">
-                            <svg class="w-3 h-3 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
+                            <i class="fas fa-chevron-right mr-2"></i>
                             <span data-i18n="footer.about">About</span>
                         </a>
                     </li>
                     <li class="mb-2">
                         <a href="/careers" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="Careers">
-                            <svg class="w-3 h-3 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
+                            <i class="fas fa-chevron-right mr-2"></i>
                             <span data-i18n="footer.careers">Careers</span>
                         </a>
                     </li>
                     <li class="mb-2">
                         <a href="/insights" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="Industry Insights">
-                            <svg class="w-3 h-3 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
+                            <i class="fas fa-chevron-right mr-2"></i>
                             <span data-i18n="footer.industryInsights">Industry Insights</span>
                         </a>
                     </li>
@@ -61,26 +54,20 @@
                 <h4 class="footer-heading pt-2 text-lg font-semibold mb-4 text-white" data-i18n="footer.services">Products & Services</h4>
                 <ul class="footer-links list-none p-0 m-0">
                     <li class="mb-2">
-                        <a href="/pages/services/education.html" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="AI Education and Training">
-                            <svg class="w-3 h-3 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
+                        <a href="/services/education" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="AI Education and Training">
+                            <i class="fas fa-chevron-right mr-2"></i>
                             <span data-i18n="footer.aiEducation">AI Education & Training</span>
                         </a>
                     </li>
                     <li class="mb-2">
-                        <a href="/pages/services/custom-solutions.html" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="AI Custom Solutions">
-                            <svg class="w-3 h-3 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
+                        <a href="/services/custom-solutions" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="AI Custom Solutions">
+                            <i class="fas fa-chevron-right mr-2"></i>
                             <span data-i18n="footer.customSolutions">AI Custom Solutions</span>
                         </a>
                     </li>
                     <li class="mb-2">
-                        <a href="/pages/services/consultation.html" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="AI Strategy Consultation">
-                            <svg class="w-3 h-3 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M10 6L8.59 7.41L13.17 12l-4.58 4.59L10 18l6-6z"/>
-                            </svg>
+                        <a href="/services/consultation" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="AI Strategy Consultation">
+                            <i class="fas fa-chevron-right mr-2"></i>
                             <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span>
                         </a>
                     </li>
@@ -93,9 +80,7 @@
                 <ul class="contact-info list-none p-0 m-0 mb-4">
                     <li class="flex items-center text-gray-400">
                         <span data-i18n="footer.wechat">WeChat</span>
-                        <svg class="w-5 h-5 mx-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213a.416.416 0 0 0 .314.412h.08a.626.626 0 0 0 .235-.019l1.723-.508a.864.864 0 0 1 .665.118 7.738 7.738 0 0 0 2.846.556h.047A7.876 7.876 0 0 0 13.509 8.937a7.888 7.888 0 0 0-4.818-6.75zM5.785 5.991c.456 0 .826.37.826.826a.83.83 0 0 1-.826.826a.827.827 0 0 1-.826-.826a.83.83 0 0 1 .826-.826zm4.317 0c.456 0 .826.37.826.826a.83.83 0 0 1-.826.826a.827.827 0 0 1-.826-.826a.83.83 0 0 1 .826-.826zm4.492 2.913c-1.844 0-3.342 1.254-3.342 2.798c0 1.543 1.498 2.797 3.342 2.797c.67 0 1.292-.16 1.865-.442a.504.504 0 0 1 .484.026l1.265.729a.236.236 0 0 0 .224.019a.247.247 0 0 0 .15-.23l-.124-1.055a.502.502 0 0 1 .183-.556c1.008-.737 1.637-1.646 1.637-2.687c0-1.544-1.498-2.805-3.342-2.805zm-1.903 2.774a.604.604 0 0 1 .604-.604a.601.601 0 0 1 .605.604a.604.604 0 0 1-.605.604a.608.608 0 0 1-.604-.604zm2.846 0a.604.604 0 0 1 .604-.604a.601.601 0 0 1 .605.604a.604.604 0 0 1-.605.604a.608.608 0 0 1-.604-.604z"/>
-                        </svg>
+                        <i class="fab fa-weixin mx-2" aria-hidden="true"></i>
                         <span id="contact-email" data-i18n="footer.wechatId">bixingai</span>
                     </li>
                 </ul>
@@ -121,31 +106,10 @@
 </footer>
 
 <style>
-    :root {
-        --dark-color: #0a0a0a;
-        --text-light: #e0e0e0;
-        --accent-blue: #00A8FF;
-    }
-    
-    /* Footer background pattern */
-    .footer-circuit-bg {
-        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M10 10h80v80H10z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M20 10v10h10' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M40 10v30h30' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M70 10v60h20' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M10 30h30v30H10z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M50 50h40v40H50z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3Ccircle cx='60' cy='60' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3Ccircle cx='80' cy='80' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
-        background-size: 100px 100px;
-    }
-    
-    .footer-logo-link:hover .footer-logo-img {
-        transform: scale(1.05);
-        filter: drop-shadow(0 0 8px rgba(0, 168, 255, 0.8));
-    }
-    
-    .footer-logo-link:hover .company-name {
-        text-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
-    }
-    
-    @media (max-width: 768px) {
-        .footer {
-            padding-top: 3rem;
-            padding-bottom: 0.5rem;
-        }
+    /* Minimal custom styles for Astro-specific overrides */
+    .footer {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
     }
 </style>

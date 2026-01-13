@@ -1,8 +1,6 @@
 ---
 // Header component converted to Tailwind CSS
 ---
-<link rel="stylesheet" href="/assets/css/custom-dropdown.css">
-<script src="/assets/js/dropdown-nav.js" defer></script>
 
 <header class="fixed top-0 left-0 w-full z-[1000] m-0 py-1.5 bg-[rgba(10,16,32,0.85)] backdrop-blur-md border-b border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300" id="header">
     <div class="w-full px-4">
@@ -28,11 +26,11 @@
             </div>
             <div class="hidden lg:flex lg:ml-auto" id="navbar-menu">
                 <ul class="flex items-center space-x-1">
-                    <li class="relative group">
+                    <li class="relative services-menu-item">
                         <a href="/services" class="relative block px-4 py-2 font-medium text-white rounded-md transition-all duration-300 z-[1] hover:text-gold after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold after:to-orange-500 after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-4/5" data-i18n="nav.services">
                             Products & Services
                         </a>
-                        <ul class="absolute top-full left-0 mt-2.5 py-2.5 px-2.5 bg-[rgba(30,41,59,0.95)] backdrop-blur-md border border-white/5 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.25)] opacity-0 invisible translate-y-2.5 transition-all duration-300 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 min-w-[200px]">
+                        <ul class="services-dropdown absolute top-full left-0 mt-2.5 py-2.5 px-2.5 bg-[rgba(30,41,59,0.95)] backdrop-blur-md border border-white/5 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.25)] min-w-[200px] z-[1050] transition-all duration-300" style="opacity: 0; visibility: hidden; transform: translateY(10px); display: none;">
                             <li><a href="/services/education" class="block px-4 py-2 text-white rounded transition-all duration-200 hover:bg-accent-blue/10 hover:text-gold hover:translate-x-1.5" data-i18n="nav.aiEducation">AI Education/Training</a></li>
                             <li><a href="/services/custom-solutions" class="block px-4 py-2 text-white rounded transition-all duration-200 hover:bg-accent-blue/10 hover:text-gold hover:translate-x-1.5" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
                             <li><a href="/services/consultation" class="block px-4 py-2 text-white rounded transition-all duration-200 hover:bg-accent-blue/10 hover:text-gold hover:translate-x-1.5" data-i18n="nav.aiConsultation">Enterprise AI Consultation</a></li>
@@ -272,4 +270,19 @@
             transform: translateX(100%) rotate(45deg);
         }
     }
+
+    /* Services dropdown hover functionality - pure CSS with high specificity */
+    li.services-menu-item:hover > ul.services-dropdown,
+    .services-menu-item:hover .services-dropdown {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        display: block !important;
+        z-index: 9999 !important;
+    }
+
 </style>
+
+
+
+

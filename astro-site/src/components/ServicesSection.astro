@@ -1,6 +1,7 @@
 ---
 // Services Section Component - Converted to Tailwind with preserved styling
 ---
+<link rel="stylesheet" href="/assets/css/services-section.css">
 
 <section id="services" class="services-section ai-nodes-bg relative py-[100px] overflow-hidden">
     <div class="container mx-auto px-4">
@@ -28,7 +29,7 @@
                         <li class="text-gray-300 mb-2" data-i18n="services.education.feature2">Hands-on workshops</li>
                         <li class="text-gray-300 mb-2" data-i18n="services.education.feature3">Expert-led training</li>
                     </ul>
-                    <a href="/pages/services/education.html" class="btn btn-outline-primary mt-3 inline-block px-6 py-2.5 border-2 border-primary-color text-primary-color rounded-lg font-semibold transition-all duration-300 hover:bg-primary-color hover:text-white" data-i18n="services.learnMore">Learn More</a>
+                    <a href="/services/education" class="btn btn-outline-primary mt-3 inline-block px-6 py-2.5 border-2 border-primary-color text-primary-color rounded-lg font-semibold transition-all duration-300 hover:bg-primary-color hover:text-white" data-i18n="services.learnMore">Learn More</a>
                 </div>
             </div>
             
@@ -49,7 +50,7 @@
                         <li class="text-gray-300 mb-2" data-i18n="services.customSolutions.feature2">Custom model development</li>
                         <li class="text-gray-300 mb-2" data-i18n="services.customSolutions.feature3">AI application integration</li>
                     </ul>
-                    <a href="/pages/services/custom-solutions.html" class="btn btn-outline-primary mt-3 inline-block px-6 py-2.5 border-2 border-primary-color text-primary-color rounded-lg font-semibold transition-all duration-300 hover:bg-primary-color hover:text-white" data-i18n="services.learnMore">Learn More</a>
+                    <a href="/services/custom-solutions" class="btn btn-outline-primary mt-3 inline-block px-6 py-2.5 border-2 border-primary-color text-primary-color rounded-lg font-semibold transition-all duration-300 hover:bg-primary-color hover:text-white" data-i18n="services.learnMore">Learn More</a>
                 </div>
             </div>
             
@@ -70,149 +71,10 @@
                         <li class="text-gray-300 mb-2" data-i18n="services.consultation.feature2">Implementation roadmap</li>
                         <li class="text-gray-300 mb-2" data-i18n="services.consultation.feature3">Technology selection</li>
                     </ul>
-                    <a href="/pages/services/consultation.html" class="btn btn-outline-primary mt-3 inline-block px-6 py-2.5 border-2 border-primary-color text-primary-color rounded-lg font-semibold transition-all duration-300 hover:bg-primary-color hover:text-white" data-i18n="services.learnMore">Learn More</a>
+                    <a href="/services/consultation" class="btn btn-outline-primary mt-3 inline-block px-6 py-2.5 border-2 border-primary-color text-primary-color rounded-lg font-semibold transition-all duration-300 hover:bg-primary-color hover:text-white" data-i18n="services.learnMore">Learn More</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<style>
-    :root {
-        --dark-bg-primary: #121212;
-        --dark-surface: #1e1e1e;
-        --dark-border: rgba(255, 255, 255, 0.1);
-        --primary-color: #0066FF;
-    }
-    
-    /* Services Section Background - matches original */
-    .services-section {
-        background-color: #121212; /* --dark-bg-primary: same as hero section */
-        --accent-color: #00C2FF;
-        --transition-normal: 0.3s ease;
-        --gradient-blue: linear-gradient(135deg, #0066FF, #00C2FF);
-    }
-    
-    /* Service card backgrounds */
-    .service-card-1 {
-        background: linear-gradient(135deg, var(--dark-surface), var(--dark-surface)), 
-                    url('/assets/images/patterns/education-pattern.svg');
-        background-size: 200px 200px;
-        background-position: center;
-        background-blend-mode: overlay;
-        background-repeat: no-repeat;
-    }
-    
-    .service-card-2.featured {
-        background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 194, 255, 0.05)), 
-                    url('/assets/images/patterns/custom-pattern.svg');
-        background-size: 200px 200px;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
-    
-    .service-card-3 {
-        background: linear-gradient(135deg, var(--dark-surface), var(--dark-surface)), 
-                    url('/assets/images/patterns/enterprise-pattern.svg');
-        background-size: 200px 200px;
-        background-position: center;
-        background-blend-mode: overlay;
-        background-repeat: no-repeat;
-    }
-    
-    .service-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0.15;
-        z-index: -1;
-        transition: opacity var(--transition-normal);
-    }
-    
-    .service-card:hover::before {
-        opacity: 0.3;
-    }
-    
-    .service-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        border-color: #FF8A00;
-    }
-    
-    .service-card:hover .service-icon {
-        background: var(--gradient-blue);
-        color: white;
-        transform: scale(1.1);
-    }
-    
-    .service-card::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 3px;
-        background: var(--gradient-blue);
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform var(--transition-normal);
-    }
-    
-    .service-card:hover::after {
-        transform: scaleX(1);
-    }
-    
-    .service-card .btn {
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .service-card .btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s;
-    }
-    
-    .service-card .btn:hover::before {
-        left: 100%;
-    }
-    
-    .service-card .btn-outline-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(255, 184, 0, 0.3);
-    }
-    
-    @media (max-width: 992px) {
-        .services-section {
-            padding: 80px 0;
-        }
-        
-        .service-card {
-            margin-bottom: 30px;
-        }
-    }
-    
-    @media (max-width: 768px) {
-        .services-section {
-            padding: 60px 0;
-        }
-        
-        .service-icon {
-            width: 40px;
-            height: 40px;
-            font-size: 18px;
-        }
-        
-        .service-card h3 {
-            font-size: 18px;
-        }
-    }
-</style>

@@ -13,12 +13,12 @@ const { title, subtitle = "", dataI18nTitle, dataI18nSubtitle } = Astro.props;
 <section class="secondary-hero relative pt-[120px] pb-20 bg-dark-bg text-white h-[500px] flex items-center justify-center" style="overflow: visible;">
     <div class="hero-particles absolute top-0 left-0 w-full h-full z-[1]" id="secondary-hero-particles"></div>
     <div class="container mx-auto px-4">
-        <div class="secondary-hero-content relative z-[2] text-center max-w-4xl mx-auto">
-            <h1 class="secondary-hero-title text-5xl font-bold mb-4" data-i18n={`${dataI18nTitle}`} id="hero-title">
+        <div class="secondary-hero-content relative z-[2] text-center max-w-4xl mx-auto animate-fade-up">
+            <h1 class="secondary-hero-title text-5xl font-bold mb-4 bg-gradient-to-r from-[#FFD700] via-[#FF8C00] to-[#FFA500] bg-clip-text text-transparent inline-block" id="hero-title" data-i18n={dataI18nTitle} style="text-shadow: 0 2px 10px rgba(255, 184, 0, 0.2);">
                 {title}
             </h1>
             {subtitle && (
-                <p class="secondary-hero-subtitle text-xl text-gray-300 max-w-2xl mx-auto mb-8" data-i18n={`${dataI18nSubtitle}`} id="hero-subtitle">
+                <p class="secondary-hero-subtitle text-xl text-gray-300 max-w-2xl mx-auto mb-8" id="hero-subtitle" data-i18n={dataI18nSubtitle}>
                     {subtitle}
                 </p>
             )}
@@ -36,6 +36,8 @@ const { title, subtitle = "", dataI18nTitle, dataI18nSubtitle } = Astro.props;
 
 <script>
     console.log('SecondaryHero component loaded');
+
+    // Translation system removed - handled by parent page/component
 
     // Initialize particles for secondary hero section
     document.addEventListener('DOMContentLoaded', function() {
