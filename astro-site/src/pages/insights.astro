@@ -19,11 +19,11 @@ const description = "Stay updated with the latest insights, trends, and developm
 		
 		<FeaturedInsightSection />
 		<InsightsGridSection />
-		
+
 		<!-- Newsletter/Subscribe Section -->
 		<section class="newsletter-section">
 			<div class="container mx-auto px-4">
-				<div class="newsletter-content max-w-4xl mx-auto text-center">
+				<div class="newsletter-content max-w-4xl mx-auto text-center animate-fade-up">
 					<h2 class="section-title text-3xl font-bold text-white mb-4" data-i18n="insights.newsletter.title">Stay Updated with AI Trends</h2>
 					<p class="section-subtitle text-xl text-gray-400 mb-8" data-i18n="insights.newsletter.subtitle">Subscribe to our newsletter to receive the latest insights, articles, and updates in the world of AI</p>
 					
@@ -40,49 +40,135 @@ const description = "Stay updated with the latest insights, trends, and developm
 	</main>
 </BaseLayout>
 
-<script is:inline src="/assets/js/i18n-insights.js"></script>
-<script is:inline>
-	// Ensure translations are applied after page load and after dynamic content loads
-	function applyInsightsTranslations() {
-		const currentLang = localStorage.getItem('bixingLanguage') || 'en';
-		
-		// Apply translations if applyTranslations function exists
-		if (typeof applyTranslations === 'function') {
-			applyTranslations(currentLang);
-		}
-		
-		// Update insights page translations if function exists (handles dynamic content)
-		if (typeof window.updateInsightsPageTranslations === 'function') {
-			window.updateInsightsPageTranslations(currentLang);
-		}
-	}
-	
-	document.addEventListener('DOMContentLoaded', function() {
-		// Apply translations immediately
-		applyInsightsTranslations();
-		
-		// Apply translations again after delays to catch dynamically loaded content
-		setTimeout(applyInsightsTranslations, 500);
-		setTimeout(applyInsightsTranslations, 1500);
-		
-		// Listen for language toggle events
-		document.addEventListener('languageToggled', function(e) {
-			const lang = e.detail ? e.detail.language : localStorage.getItem('bixingLanguage') || 'en';
-			setTimeout(function() {
-				applyInsightsTranslations();
-			}, 100);
-		});
-		
-		// Also listen for custom language change events
-		window.addEventListener('storage', function(e) {
-			if (e.key === 'bixingLanguage') {
-				const lang = e.newValue || 'en';
-				setTimeout(function() {
-					applyInsightsTranslations();
-				}, 100);
-			}
-		});
-	});
+<script>
+    console.log('Insights page loaded');
+
+    // IMMEDIATELY disable global i18n system before anything else
+    window.applyTranslations = function() { return; };
+    window.translations = { en: {}, zh: {} };
+
+    // Isolated Insights page translations to prevent corruption
+    const insightsTranslations = {
+        en: {
+            // Hero section
+            'insights.hero.title': 'AI Industry Insights',
+            'insights.hero.subtitle': 'Explore the latest developments, strategies, and applications in AI',
+
+            // Featured insight
+            'insights.featured.badge': 'Featured Insight',
+            'insights.featured.title': '2025 Outlook: The Future of AI in Enterprise',
+            'insights.featured.excerpt': 'As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.',
+            'insights.featured.link': 'Read Full Article',
+
+            // Latest insights
+            'insights.latest.title': 'Latest Insights',
+            'insights.filter.all': 'All Topics',
+
+            // Newsletter section
+            'insights.newsletter.title': 'Stay Updated with AI Trends',
+            'insights.newsletter.subtitle': 'Subscribe to our newsletter to receive the latest insights, articles, and updates in the world of AI',
+            'insights.newsletter.emailPlaceholder': 'Your Email Address',
+            'insights.newsletter.subscribe': 'Subscribe',
+            'insights.newsletter.privacyNotice': 'We respect your privacy. Unsubscribe at any time.'
+        },
+        zh: {
+            // Hero section
+            'insights.hero.title': 'AI行业洞察',
+            'insights.hero.subtitle': '探索AI的最新发展、策略和应用',
+
+            // Featured insight
+            'insights.featured.badge': '精选洞察',
+            'insights.featured.title': '2025展望：企业AI的未来',
+            'insights.featured.excerpt': '随着AI的快速发展，企业面临着新的机遇和挑战。发现塑造下一年AI采用的关键趋势。',
+            'insights.featured.link': '阅读全文',
+
+            // Latest insights
+            'insights.latest.title': '最新洞察',
+            'insights.filter.all': '所有主题',
+
+            // Newsletter section
+            'insights.newsletter.title': '保持AI趋势更新',
+            'insights.newsletter.subtitle': '订阅我们的通讯，接收AI世界的最新洞察、文章和更新',
+            'insights.newsletter.emailPlaceholder': '您的电子邮件地址',
+            'insights.newsletter.subscribe': '订阅',
+            'insights.newsletter.privacyNotice': '我们尊重您的隐私。随时可以退订。'
+        }
+    };
+
+    // Force correct translations for Insights page
+    function forceInsightsTranslations() {
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+
+        if (insightsTranslations[currentLang]) {
+            // Apply translations to all insights page elements
+            Object.keys(insightsTranslations[currentLang]).forEach(key => {
+                const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
+                elements.forEach(element => {
+                    element.textContent = insightsTranslations[currentLang][key];
+                });
+            });
+        }
+    }
+
+    // Apply immediately and repeatedly
+    setTimeout(forceInsightsTranslations, 1);
+    setTimeout(forceInsightsTranslations, 10);
+    setTimeout(forceInsightsTranslations, 25);
+    setTimeout(forceInsightsTranslations, 50);
+    setTimeout(forceInsightsTranslations, 100);
+
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Insights page loaded');
+        forceInsightsTranslations();
+        setTimeout(forceInsightsTranslations, 50);
+        setTimeout(forceInsightsTranslations, 100);
+        setTimeout(forceInsightsTranslations, 200);
+        setTimeout(forceInsightsTranslations, 500);
+        setTimeout(forceInsightsTranslations, 1000);
+    });
+
+    // Keep applying correct translations periodically
+    setInterval(forceInsightsTranslations, 2000);
+
+    // Set up a MutationObserver to watch for text corruption and fix it immediately
+    const observer = new MutationObserver(function(mutations) {
+        let needsFix = false;
+        mutations.forEach(function(mutation) {
+            if (mutation.type === 'characterData' || mutation.type === 'childList') {
+                const target = mutation.target;
+                const text = target.textContent || '';
+                if (text.includes('comprehen ive') || text.includes('Cu tom') || text.includes('Enterpri e')) {
+                    needsFix = true;
+                }
+            }
+        });
+
+        if (needsFix) {
+            console.log('Detected corrupted text, applying Insights page fixes...');
+            forceInsightsTranslations();
+        }
+    });
+
+    // Start observing the document body for changes
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true,
+        characterData: true
+    });
+
+    // Listen for language toggle events
+    document.addEventListener('languageToggled', function(e) {
+        console.log('Language toggled event received - applying Insights page translations');
+        forceInsightsTranslations();
+    });
+
+    // Also listen for storage events
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'bixingLanguage') {
+            console.log('Language storage event received - applying Insights page translations');
+            forceInsightsTranslations();
+        }
+    });
 </script>
 
 <style>
