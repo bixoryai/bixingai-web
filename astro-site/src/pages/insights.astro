@@ -50,6 +50,16 @@ const description = "Stay updated with the latest insights, trends, and developm
     // Isolated Insights page translations to prevent corruption
     const insightsTranslations = {
         en: {
+            // Header Navigation
+            'nav.services': 'Products & Services',
+            'nav.aiEducation': 'AI Education & Training',
+            'nav.customSolutions': 'AI Custom Solutions',
+            'nav.aiConsultation': 'Enterprise AI Consultation',
+            'nav.industryInsights': 'Industry Insights',
+            'nav.about': 'About Us',
+            'nav.careers': 'Careers',
+            'nav.contact': 'Contact',
+
             // Hero section
             'insights.hero.title': 'AI Industry Insights',
             'insights.hero.subtitle': 'Explore the latest developments, strategies, and applications in AI',
@@ -72,6 +82,16 @@ const description = "Stay updated with the latest insights, trends, and developm
             'insights.newsletter.privacyNotice': 'We respect your privacy. Unsubscribe at any time.'
         },
         zh: {
+            // Header Navigation
+            'nav.services': '产品与服务',
+            'nav.aiEducation': 'AI教育与培训',
+            'nav.customSolutions': 'AI定制解决方案',
+            'nav.aiConsultation': '企业AI咨询',
+            'nav.industryInsights': '行业洞察',
+            'nav.about': '关于我们',
+            'nav.careers': '职业发展',
+            'nav.contact': '联系我们',
+
             // Hero section
             'insights.hero.title': 'AI行业洞察',
             'insights.hero.subtitle': '探索AI的最新发展、策略和应用',
@@ -99,13 +119,18 @@ const description = "Stay updated with the latest insights, trends, and developm
     function forceInsightsTranslations() {
         const currentLang = localStorage.getItem('bixingLanguage') || 'en';
 
+        // Only apply to elements that are NOT header navigation
+        const headerKeys = ['nav.services', 'nav.aiEducation', 'nav.customSolutions', 'nav.aiConsultation', 'nav.industryInsights', 'nav.about', 'nav.careers', 'nav.contact'];
+
         if (insightsTranslations[currentLang]) {
-            // Apply translations to all insights page elements
+            // Apply translations to insights page elements (excluding header navigation)
             Object.keys(insightsTranslations[currentLang]).forEach(key => {
-                const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
-                elements.forEach(element => {
-                    element.textContent = insightsTranslations[currentLang][key];
-                });
+                if (!headerKeys.includes(key)) {
+                    const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
+                    elements.forEach(element => {
+                        element.textContent = insightsTranslations[currentLang][key];
+                    });
+                }
             });
         }
     }
