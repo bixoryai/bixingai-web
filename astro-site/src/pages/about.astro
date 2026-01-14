@@ -437,9 +437,10 @@ const description = "Learn about Bixing Technology, pioneers in enterprise AI in
 <script>
     console.log('About page loaded');
 
-    // IMMEDIATELY disable global i18n system before anything else
-    window.applyTranslations = function() { return; };
-    window.translations = { en: {}, zh: {} };
+    // Keep global translations available but add page-specific overrides
+    if (!window.translations) {
+        window.translations = { en: {}, zh: {} };
+    }
 
     // Isolated About page translations to prevent corruption
     const aboutTranslations = {
@@ -637,12 +638,12 @@ const description = "Learn about Bixing Technology, pioneers in enterprise AI in
         }
     };
 
-    // Force correct translations for About page
-    function forceAboutTranslations() {
+    // Apply page-specific translations for About page
+    function applyAboutTranslations() {
         const currentLang = localStorage.getItem('bixingLanguage') || 'en';
 
+        // Apply page-specific translations (these override global translations)
         if (aboutTranslations[currentLang]) {
-            // Apply translations to all about page elements
             Object.keys(aboutTranslations[currentLang]).forEach(key => {
                 const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
                 elements.forEach(element => {
@@ -652,63 +653,25 @@ const description = "Learn about Bixing Technology, pioneers in enterprise AI in
         }
     }
 
-    // Apply immediately and repeatedly
-    setTimeout(forceAboutTranslations, 1);
-    setTimeout(forceAboutTranslations, 10);
-    setTimeout(forceAboutTranslations, 25);
-    setTimeout(forceAboutTranslations, 50);
-    setTimeout(forceAboutTranslations, 100);
-
+    // Apply translations immediately and on language changes
     document.addEventListener('DOMContentLoaded', function() {
         console.log('About page loaded');
-        forceAboutTranslations();
-        setTimeout(forceAboutTranslations, 50);
-        setTimeout(forceAboutTranslations, 100);
-        setTimeout(forceAboutTranslations, 200);
-        setTimeout(forceAboutTranslations, 500);
-        setTimeout(forceAboutTranslations, 1000);
+        // Apply page-specific translations after global translations
+        setTimeout(applyAboutTranslations, 100);
+        setTimeout(applyAboutTranslations, 200);
     });
 
-    // Keep applying correct translations periodically
-    setInterval(forceAboutTranslations, 2000);
-
-    // Set up a MutationObserver to watch for text corruption and fix it immediately
-    const observer = new MutationObserver(function(mutations) {
-        let needsFix = false;
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'characterData' || mutation.type === 'childList') {
-                const target = mutation.target;
-                const text = target.textContent || '';
-                if (text.includes('comprehen ive') || text.includes('Cu tom') || text.includes('Enterpri e')) {
-                    needsFix = true;
-                }
-            }
-        });
-
-        if (needsFix) {
-            console.log('Detected corrupted text, applying About page fixes...');
-            forceAboutTranslations();
-        }
-    });
-
-    // Start observing the document body for changes
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-        characterData: true
-    });
-
-    // Listen for language toggle events
+    // Listen for language toggle events and reapply page translations
     document.addEventListener('languageToggled', function(e) {
         console.log('Language toggled event received - applying About page translations');
-        forceAboutTranslations();
+        setTimeout(applyAboutTranslations, 50);
     });
 
     // Also listen for storage events
     window.addEventListener('storage', function(e) {
         if (e.key === 'bixingLanguage') {
             console.log('Language storage event received - applying About page translations');
-            forceAboutTranslations();
+            setTimeout(applyAboutTranslations, 50);
         }
     });
 

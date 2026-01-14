@@ -361,9 +361,10 @@ const description = "Join Bixing Technology and be part of the AI revolution. Ex
 <script>
     console.log('Careers page loaded');
 
-    // IMMEDIATELY disable global i18n system before anything else
-    window.applyTranslations = function() { return; };
-    window.translations = { en: {}, zh: {} };
+    // Keep global translations available but add page-specific overrides
+    if (!window.translations) {
+        window.translations = { en: {}, zh: {} };
+    }
 
     // Isolated Careers page translations to prevent corruption
     const careersTranslations = {
@@ -515,8 +516,8 @@ const description = "Join Bixing Technology and be part of the AI revolution. Ex
         }
     };
 
-    // Force correct translations for Careers page
-    function forceCareersTranslations() {
+    // Apply page-specific translations for Careers page
+    function applyCareersTranslations() {
         const currentLang = localStorage.getItem('bixingLanguage') || 'en';
 
         if (careersTranslations[currentLang]) {
@@ -530,63 +531,25 @@ const description = "Join Bixing Technology and be part of the AI revolution. Ex
         }
     }
 
-    // Apply immediately and repeatedly
-    setTimeout(forceCareersTranslations, 1);
-    setTimeout(forceCareersTranslations, 10);
-    setTimeout(forceCareersTranslations, 25);
-    setTimeout(forceCareersTranslations, 50);
-    setTimeout(forceCareersTranslations, 100);
-
+    // Apply translations immediately and on language changes
     document.addEventListener('DOMContentLoaded', function() {
         console.log('Careers page loaded');
-        forceCareersTranslations();
-        setTimeout(forceCareersTranslations, 50);
-        setTimeout(forceCareersTranslations, 100);
-        setTimeout(forceCareersTranslations, 200);
-        setTimeout(forceCareersTranslations, 500);
-        setTimeout(forceCareersTranslations, 1000);
+        // Apply page-specific translations after global translations
+        setTimeout(applyCareersTranslations, 100);
+        setTimeout(applyCareersTranslations, 200);
     });
 
-    // Keep applying correct translations periodically
-    setInterval(forceCareersTranslations, 2000);
-
-    // Set up a MutationObserver to watch for text corruption and fix it immediately
-    const observer = new MutationObserver(function(mutations) {
-        let needsFix = false;
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'characterData' || mutation.type === 'childList') {
-                const target = mutation.target;
-                const text = target.textContent || '';
-                if (text.includes('comprehen ive') || text.includes('Cu tom') || text.includes('Enterpri e')) {
-                    needsFix = true;
-                }
-            }
-        });
-
-        if (needsFix) {
-            console.log('Detected corrupted text, applying Careers page fixes...');
-            forceCareersTranslations();
-        }
-    });
-
-    // Start observing the document body for changes
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-        characterData: true
-    });
-
-    // Listen for language toggle events
+    // Listen for language toggle events and reapply page translations
     document.addEventListener('languageToggled', function(e) {
         console.log('Language toggled event received - applying Careers page translations');
-        forceCareersTranslations();
+        setTimeout(applyCareersTranslations, 50);
     });
 
     // Also listen for storage events
     window.addEventListener('storage', function(e) {
         if (e.key === 'bixingLanguage') {
             console.log('Language storage event received - applying Careers page translations');
-            forceCareersTranslations();
+            setTimeout(applyCareersTranslations, 50);
         }
     });
 

@@ -43,9 +43,10 @@ const description = "Stay updated with the latest insights, trends, and developm
 <script>
     console.log('Insights page loaded');
 
-    // IMMEDIATELY disable global i18n system before anything else
-    window.applyTranslations = function() { return; };
-    window.translations = { en: {}, zh: {} };
+    // Keep global translations available but add page-specific overrides
+    if (!window.translations) {
+        window.translations = { en: {}, zh: {} };
+    }
 
     // Isolated Insights page translations to prevent corruption
     const insightsTranslations = {
@@ -115,83 +116,40 @@ const description = "Stay updated with the latest insights, trends, and developm
         }
     };
 
-    // Force correct translations for Insights page
-    function forceInsightsTranslations() {
+    // Apply page-specific translations for Insights page
+    function applyInsightsTranslations() {
         const currentLang = localStorage.getItem('bixingLanguage') || 'en';
 
-        // Only apply to elements that are NOT header navigation
-        const headerKeys = ['nav.services', 'nav.aiEducation', 'nav.customSolutions', 'nav.aiConsultation', 'nav.industryInsights', 'nav.about', 'nav.careers', 'nav.contact'];
-
+        // Apply page-specific translations (these override global translations)
         if (insightsTranslations[currentLang]) {
-            // Apply translations to insights page elements (excluding header navigation)
             Object.keys(insightsTranslations[currentLang]).forEach(key => {
-                if (!headerKeys.includes(key)) {
-                    const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
-                    elements.forEach(element => {
-                        element.textContent = insightsTranslations[currentLang][key];
-                    });
-                }
+                const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
+                elements.forEach(element => {
+                    element.textContent = insightsTranslations[currentLang][key];
+                });
             });
         }
     }
 
-    // Apply immediately and repeatedly
-    setTimeout(forceInsightsTranslations, 1);
-    setTimeout(forceInsightsTranslations, 10);
-    setTimeout(forceInsightsTranslations, 25);
-    setTimeout(forceInsightsTranslations, 50);
-    setTimeout(forceInsightsTranslations, 100);
-
+    // Apply translations immediately and on language changes
     document.addEventListener('DOMContentLoaded', function() {
         console.log('Insights page loaded');
-        forceInsightsTranslations();
-        setTimeout(forceInsightsTranslations, 50);
-        setTimeout(forceInsightsTranslations, 100);
-        setTimeout(forceInsightsTranslations, 200);
-        setTimeout(forceInsightsTranslations, 500);
-        setTimeout(forceInsightsTranslations, 1000);
+        // Apply page-specific translations after global translations
+        setTimeout(applyInsightsTranslations, 100);
+        setTimeout(applyInsightsTranslations, 200);
     });
 
-    // Keep applying correct translations periodically
-    setInterval(forceInsightsTranslations, 2000);
-
-    // Set up a MutationObserver to watch for text corruption and fix it immediately
-    const observer = new MutationObserver(function(mutations) {
-        let needsFix = false;
-        mutations.forEach(function(mutation) {
-            if (mutation.type === 'characterData' || mutation.type === 'childList') {
-                const target = mutation.target;
-                const text = target.textContent || '';
-                if (text.includes('comprehen ive') || text.includes('Cu tom') || text.includes('Enterpri e')) {
-                    needsFix = true;
-                }
-            }
-        });
-
-        if (needsFix) {
-            console.log('Detected corrupted text, applying Insights page fixes...');
-            forceInsightsTranslations();
-        }
-    });
-
-    // Start observing the document body for changes
-    observer.observe(document.body, {
-        childList: true,
-        subtree: true,
-        characterData: true
-    });
-
-    // Listen for language toggle events
+    // Listen for language toggle events and reapply page translations
     document.addEventListener('languageToggled', function(e) {
         console.log('Language toggled event received - applying Insights page translations');
-        forceInsightsTranslations();
+        setTimeout(applyInsightsTranslations, 50);
     });
 
     // Also listen for storage events
     window.addEventListener('storage', function(e) {
         if (e.key === 'bixingLanguage') {
             console.log('Language storage event received - applying Insights page translations');
-            forceInsightsTranslations();
+            setTimeout(applyInsightsTranslations, 50);
         }
     });
 </script>
