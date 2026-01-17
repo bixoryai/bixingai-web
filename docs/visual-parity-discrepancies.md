@@ -111,6 +111,8 @@ These items require manual visual verification:
 | 2025-01-17 | Insights page - Card title missing gradient | Added gold/orange gradient via global CSS | ✅ |
 | 2025-01-17 | Insights page - Filter buttons styling | Applied global pill-button styling | ✅ |
 | 2025-01-17 | Insights page - Newsletter button color | Updated to gold/orange gradient matching Homepage | ✅ |
+| 2025-01-17 | Careers page - Submit button color | Updated to btn-primary class (gold gradient) | ✅ |
+| 2025-01-17 | Careers page - Footer subtitle showing `<br>` literally | Fixed i18n-careers.js to use innerHTML for HTML elements | ✅ |
 
 ---
 

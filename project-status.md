@@ -127,16 +127,16 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - ✅ Service pages (education, custom-solutions, consultation)
 - ✅ Menu pages (about, careers, contact, insights, services)
 - ✅ Blog pages (static HTML with Chinese translations working)
-- 🔄 Visual parity testing in progress (3/7 pages verified)
+- 🔄 Visual parity testing in progress (4/7 pages verified)
 
 ### 🔄 Phase 5: Testing & Validation — IN PROGRESS
 **Visual Parity Testing Status:**
 - ✅ Homepage - VERIFIED (January 17, 2025)
 - ✅ About Page - VERIFIED (January 17, 2025)
 - ✅ Insights Page - VERIFIED (January 17, 2025)
+- ✅ Careers Page - VERIFIED (January 17, 2025)
 - ☐ Services Page - Pending
 - ☐ Service Detail Pages (Education, Custom Solutions, Consultation) - Pending
-- ☐ Careers Page - Pending
 - ☐ Contact Page - Pending
 
 ### ⏳ Phase 4: Optimization & Polish — NOT STARTED
@@ -158,7 +158,10 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ---
 
 ### Recent Fixes (January 17, 2025 - Evening)
-- ✅ **Visual Parity Testing**: Verified Homepage, About, and Insights pages
+- ✅ **Visual Parity Testing**: Verified Homepage, About, Insights, and Careers pages (4/7 complete)
+- ✅ **Careers Page**: Fixed submit button to use btn-primary (gold gradient)
+- ✅ **Careers Page**: Fixed footer subtitle showing `<br>` literally - updated i18n-careers.js to use innerHTML
+- ✅ **i18n System**: Standardized translation application across all page-specific i18n scripts
 - ✅ **Insights Page**: Fixed blog card styles with `is:global` CSS for dynamic elements
 - ✅ **Insights Page**: Fixed newsletter button color (gold/orange gradient)
 - ✅ **Insights Page**: Fixed filter buttons and card title gradients
@@ -188,7 +191,7 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ---
 
 ### Where to Start Next Session
-1. **Continue Visual Parity Testing**: Services, Careers, Contact pages still need verification
+1. **Continue Visual Parity Testing**: Services, Contact pages still need verification
 2. **Service Detail Pages**: Verify Education, Custom Solutions, Consultation pages
 3. **After Parity Complete**: Start Phase 4 (Image optimization, font optimization, CSS purging)
 

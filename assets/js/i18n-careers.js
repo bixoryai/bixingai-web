@@ -234,10 +234,20 @@ window.applyTranslations = function(lang) {
   elements.forEach(element => {
     const key = element.getAttribute('data-i18n');
     if (window.translations[lang] && window.translations[lang][key]) {
+      const translation = window.translations[lang][key];
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-        element.placeholder = window.translations[lang][key];
+        element.placeholder = translation;
+      } else if (
+        element.tagName === 'P' ||
+        element.tagName === 'A' ||
+        element.tagName === 'SPAN' ||
+        element.classList.contains('company-description') ||
+        (translation.includes('<') && !translation.match(/^<[^>]+>$/))
+      ) {
+        // Use innerHTML for elements that might contain HTML tags
+        element.innerHTML = translation;
       } else {
-        element.textContent = window.translations[lang][key];
+        element.textContent = translation;
       }
     }
   });

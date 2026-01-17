@@ -178,7 +178,7 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'nav.careers': '加入我们',
   'nav.contact': '联系我们',
   'footer.company': '毕行科技',
-  'footer.companyDescription': '国际前沿 AI 解决方案提供商，<br>助你充满 AI 的力量。',
+  'footer.companyDescription': '国际前沿AI解决方案提供商<br>助你充满AI的力量',
   'footer.quickLinks': '快捷链接',
   'footer.home': '首页',
   'footer.about': '关于我们',

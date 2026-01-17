@@ -135,7 +135,7 @@ const translations = {
 
     // Footer
     'footer.company': '毕行科技',
-    'footer.companyDescription': '国际前沿AI解决方案提供商,<br>助你充满AI的力量。',
+    'footer.companyDescription': '国际前沿AI解决方案提供商<br>助你充满AI的力量',
     'footer.quickLinks': '快速链接',
     'footer.home': '首页',
     'footer.about': '关于我们',
