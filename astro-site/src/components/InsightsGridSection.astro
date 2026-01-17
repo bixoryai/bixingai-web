@@ -116,7 +116,7 @@
         });
     </script>
 
-    <style>
+    <style is:global>
     :root {
         --dark-bg: #121212;
         --dark-surface: #1e1e1e;
@@ -128,6 +128,7 @@
     }
 
     /* Insights card styling - matching Jekyll exactly */
+    /* Using :global to apply to dynamically generated cards */
     .insights-card {
         background: linear-gradient(145deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.9));
         border-radius: 12px;
@@ -215,10 +216,13 @@
         font-size: 1.25rem;
         margin-bottom: 15px;
         line-height: 1.4;
-        color: var(--white);
+        font-weight: 600;
+        /* Gold/orange gradient text - matching Jekyll exactly */
+        background: linear-gradient(135deg, #f59e0b, #f97316);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
-    
-    /* Title gradient is applied inline in card HTML to match Jekyll exactly */
 
     .insights-excerpt {
         color: var(--text-medium);
@@ -233,33 +237,39 @@
         display: inline-flex;
         align-items: center;
         transition: all 0.3s ease;
+        text-decoration: none;
     }
 
-    .insights-read-more i {
+    .insights-read-more i,
+    .insights-read-more svg {
         margin-left: 5px;
         transition: all 0.3s ease;
+        width: 12px;
+        height: 12px;
     }
 
     .insights-read-more:hover {
         color: var(--accent-color);
     }
 
-    .insights-read-more:hover i {
+    .insights-read-more:hover i,
+    .insights-read-more:hover svg {
         transform: translateX(5px);
     }
 
-    /* Filter buttons */
+    /* Filter buttons - matching Jekyll exactly */
     .insights-filter {
         margin-bottom: 40px;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        gap: 15px;
+        gap: 10px;
     }
 
     /* Section title styling - matching Jekyll's large h2 */
-    .section-title {
+    #insights-grid + .pagination-container,
+    .section-secondary .section-title {
         font-size: 2.5rem;
         font-weight: 700;
         color: var(--white);
@@ -275,22 +285,16 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 30px;
         padding: 8px 20px;
-        margin: 0 10px 10px;
+        margin: 0 5px 10px;
         transition: all 0.3s ease;
+        font-size: 0.9rem;
+        cursor: pointer;
     }
 
     .filter-button:hover, .filter-button.active {
         background: var(--primary-gradient);
         color: var(--white);
         border-color: transparent;
-    }
-
-    /* "All Topics" button should appear as plain white text when active (matching Jekyll visual) */
-    .filter-button[data-filter="all"].active {
-        background: transparent !important;
-        border: none !important;
-        color: var(--white) !important;
-        padding: 8px 20px;
     }
 
     /* Pagination styling */
@@ -751,15 +755,19 @@
 
             const category = post.categories && post.categories.length > 0 ? post.categories[0] : '';
 
+            // Get translated "Read More" text
+            const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+            const readMoreText = currentLang === 'zh' ? '阅读更多' : 'Read More';
+
             const cardHtml = `
                 <div class="insights-card">
                     ${cardImageHtml}
                     <div class="insights-content">
                         <div class="insights-date">${displayDate}</div>
                         ${category ? `<span class="insights-category">${category}</span>` : ''}
-                        <h3 class="insights-title" style="background: linear-gradient(135deg, #f59e0b, #f97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">${post.title}</h3>
+                        <h3 class="insights-title">${post.title}</h3>
                         <p class="insights-excerpt">${truncateText(post.excerpt, 120)}</p>
-                        <a href="${post.url}" class="insights-read-more" data-i18n="insights.read.more">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="${post.url}" class="insights-read-more">${readMoreText} <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
                     </div>
                 </div>
             `;

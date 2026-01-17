@@ -10,18 +10,34 @@ let cacheBuster = '';
 
 // Utility function to ensure we have a consistent path-to-root value
 function getConsistentPathToRoot() {
+  // For Astro pages, always use absolute paths (root is /)
+  // Check if we're on an Astro route (starts with /blog/, /insights, /services, etc.)
+  const currentPath = window.location.pathname;
+  if (currentPath.startsWith('/blog/') || currentPath.startsWith('/insights') || 
+      currentPath.startsWith('/services') || currentPath.startsWith('/about') ||
+      currentPath.startsWith('/contact') || currentPath.startsWith('/careers')) {
+    return '/';
+  }
+
   // First try to get from the global variable
-  if (pathToRoot !== undefined && pathToRoot !== null) {
+  if (pathToRoot !== undefined && pathToRoot !== null && pathToRoot !== '') {
     return pathToRoot;
   }
 
   // Then try to use the path helper if available
   if (window.pathHelper && typeof window.pathHelper.getPathToRoot === 'function') {
-    return window.pathHelper.getPathToRoot();
+    const helperPath = window.pathHelper.getPathToRoot();
+    if (helperPath) return helperPath;
   }
 
-  // Fallback to body attribute
-  return document.body ? document.body.getAttribute('data-path-to-root') || '' : '';
+  // Fallback to body attribute, but normalize to / for Astro
+  const bodyPath = document.body ? document.body.getAttribute('data-path-to-root') || '' : '';
+  // If body says /, use it. Otherwise, if empty and we're on a deep path, use /
+  if (bodyPath === '/') {
+    return '/';
+  }
+  // For Jekyll pages with relative paths, use the body attribute
+  return bodyPath || '/';
 }
 
 // Function to load the header component
@@ -50,9 +66,23 @@ function loadHeader() {
   // Get a consistent path-to-root value
   const currentPathToRoot = getConsistentPathToRoot();
 
-  fetch(currentPathToRoot + 'components/header.html' + cacheBuster)
-    .then(response => response.text())
+  // Ensure we use absolute path for components
+  const headerUrl = (currentPathToRoot === '/' ? '/' : (currentPathToRoot || '/')) + 'components/header.html' + cacheBuster;
+  console.log('Loading header from:', headerUrl);
+  
+  fetch(headerUrl)
+    .then(response => {
+      if (!response.ok) {
+        console.warn('Header not found at', headerUrl, '- status:', response.status);
+        return null;
+      }
+      return response.text();
+    })
     .then(data => {
+      if (!data) {
+        console.warn('No header data, skipping header load');
+        return; // Skip if header not found
+      }
       // Use path helper to standardize all path references
       if (window.pathHelper && typeof window.pathHelper.updatePathReferences === 'function') {
         data = window.pathHelper.updatePathReferences(data, currentPathToRoot);
@@ -160,10 +190,24 @@ function loadFooter() {
 
   // Get a consistent path-to-root value
   const currentPathToRoot = getConsistentPathToRoot();
+  
+  // Ensure we use absolute path for components
+  const footerUrl = (currentPathToRoot === '/' ? '/' : (currentPathToRoot || '/')) + 'components/footer.html' + cacheBuster;
+  console.log('Loading footer from:', footerUrl);
 
-  fetch(currentPathToRoot + 'components/footer.html' + cacheBuster)
-    .then(response => response.text())
+  fetch(footerUrl)
+    .then(response => {
+      if (!response.ok) {
+        console.warn('Footer not found at', footerUrl, '- status:', response.status);
+        return null;
+      }
+      return response.text();
+    })
     .then(data => {
+      if (!data) {
+        console.warn('No footer data, skipping footer load');
+        return; // Skip if footer not found
+      }
       // Update paths in the footer
       if (window.pathHelper && typeof window.pathHelper.updatePathReferences === 'function') {
         data = window.pathHelper.updatePathReferences(data, currentPathToRoot);
@@ -254,8 +298,13 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.pathHelper && typeof window.pathHelper.normalizePathToRoot === 'function') {
     pathToRoot = window.pathHelper.normalizePathToRoot(rawPathToRoot);
   } else {
-    // Simple normalization fallback
-    pathToRoot = rawPathToRoot === '/' ? '' : rawPathToRoot;
+    // For Astro pages (data-path-to-root="/"), keep it as "/" for absolute paths
+    // For Jekyll pages with relative paths, use as-is
+    if (rawPathToRoot === '/') {
+      pathToRoot = '/';  // Keep absolute path for Astro
+    } else {
+      pathToRoot = rawPathToRoot;  // Use relative path for Jekyll
+    }
   }
 
   // Add cache-busting parameter using a timestamp based on the date only, not time

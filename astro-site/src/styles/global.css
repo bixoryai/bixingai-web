@@ -2,79 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom animations to replace AOS */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+/* 
+ * Global Styles - Bixing Technology Astro Site
+ * Animations are now defined in tailwind.config.js
+ * This file contains base styles, component utilities, and delay variants
+ */
+
+/* Animation delay variants (extend Tailwind animations) */
+@layer utilities {
+  .animate-fade-up-delay-100 {
+    animation: fade-up 0.8s ease-out 0.1s both;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  
+  .animate-fade-up-delay-200 {
+    animation: fade-up 0.8s ease-out 0.2s both;
   }
-}
-
-@keyframes fade-down {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
+  
+  .animate-fade-up-delay-300 {
+    animation: fade-up 0.8s ease-out 0.3s both;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-left {
-  from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes fade-right {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Animation utility classes */
-.animate-fade-up {
-  animation: fade-up 0.8s ease-out;
-}
-
-.animate-fade-down {
-  animation: fade-down 0.8s ease-out;
-}
-
-.animate-fade-left {
-  animation: fade-left 0.8s ease-out;
-}
-
-.animate-fade-right {
-  animation: fade-right 0.8s ease-out;
-}
-
-/* Delay variants */
-.animate-fade-up-delay-100 {
-  animation: fade-up 0.8s ease-out 0.1s both;
-}
-
-.animate-fade-up-delay-200 {
-  animation: fade-up 0.8s ease-out 0.2s both;
-}
-
-.animate-fade-up-delay-300 {
-  animation: fade-up 0.8s ease-out 0.3s both;
 }
 
 /* Base styles matching original design */
@@ -87,15 +33,65 @@
   .page-wrapper {
     @apply min-h-screen flex flex-col;
   }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-/* Custom component styles that need to be preserved */
+/* Custom component styles */
 @layer components {
-  /* Text gradient utility - let individual components handle specific gradients */
+  /* Text gradient utility */
   .text-gradient {
     @apply bg-gradient-to-r from-gold to-orange-500 bg-clip-text text-transparent;
   }
-
-  /* Hero title gradient is handled by hero-section.css to avoid conflicts */
+  
+  /* Testimonials section hidden to match Jekyll (temporary) */
+  .testimonials-section {
+    display: none;
+  }
+  
+  /* Primary button styles - Gold gradient to match Jekyll */
+  .btn-primary {
+    background: linear-gradient(to right, #FFD700, #FFA07A);
+    color: #121212;
+    font-weight: 600;
+    @apply px-6 py-2.5 rounded-lg border-none;
+    @apply transition-all duration-300;
+  }
+  
+  .btn-primary:hover,
+  .btn-primary:focus {
+    background: linear-gradient(to right, #FFD700, #FFA07A);
+    box-shadow: 0 5px 15px rgba(255, 184, 0, 0.3);
+    transform: translateY(-2px);
+    color: #121212;
+  }
+  
+  /* Outline button styles - Gold border to match Jekyll */
+  .btn-outline-primary {
+    border: 2px solid #FFD700;
+    color: #FFD700;
+    background: transparent;
+    @apply px-6 py-2.5 rounded-lg font-semibold;
+    @apply transition-all duration-300;
+  }
+  
+  .btn-outline-primary:hover,
+  .btn-outline-primary:focus {
+    background-color: #FFD700;
+    color: #121212;
+    border-color: #FFD700;
+  }
+  
+  /* Section title with underline */
+  .section-title {
+    @apply relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-[60px] h-[3px] bg-primary-color;
+  }
 }
-

@@ -1,7 +1,6 @@
 ---
 // Hero Section Component - Converted to Tailwind with preserved styling
 ---
-<link rel="stylesheet" href="/assets/css/hero-section.css">
 
 <section class="hero-section ai-circuit-bg pt-[120px] pb-[140px] relative bg-dark-bg text-white" style="overflow: visible;">
     <div class="hero-particles absolute top-0 left-0 w-full h-full z-[1] pointer-events-none" id="hero-particles"></div>
@@ -138,19 +137,33 @@
 </section>
 
 <script>
-    // Optimized particles.js loading - only when component is visible
+    // Optimized particles.js loading - with mobile optimization and visibility pause
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof particlesJS !== 'undefined') {
             const particlesEl = document.getElementById('hero-particles');
             if (particlesEl) {
+                // Determine particle count based on viewport width
+                // Desktop: 80 particles, Tablet: 50, Mobile: 30
+                function getParticleCount() {
+                    const width = window.innerWidth;
+                    if (width <= 576) return 30;  // Mobile
+                    if (width <= 992) return 50;  // Tablet
+                    return 80;  // Desktop
+                }
+                
+                // Store reference to particles instance for pause/resume
+                let pJSInstance = null;
+                
                 // Use Intersection Observer for lazy loading
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
+                            const particleCount = getParticleCount();
+                            
                             particlesJS('hero-particles', {
                                 "particles": {
                                     "number": {
-                                        "value": 80,
+                                        "value": particleCount,
                                         "density": {
                                             "enable": true,
                                             "value_area": 800
@@ -252,34 +265,249 @@
                                 },
                                 "retina_detect": true
                             });
+                            
+                            // Store reference to pJS instance for pause/resume
+                            pJSInstance = window.pJSDom && window.pJSDom[0] ? window.pJSDom[0].pJS : null;
+                            
                             observer.disconnect(); // Stop observing after initialization
                         }
                     });
                 }, { rootMargin: '50px' });
                 
                 observer.observe(particlesEl);
+                
+                // Tab visibility change handler - pause animation when tab not visible
+                document.addEventListener('visibilitychange', function() {
+                    if (!pJSInstance) {
+                        pJSInstance = window.pJSDom && window.pJSDom[0] ? window.pJSDom[0].pJS : null;
+                    }
+                    
+                    if (pJSInstance && pJSInstance.particles && pJSInstance.particles.move) {
+                        if (document.hidden) {
+                            // Pause particles when tab is hidden
+                            pJSInstance.particles.move.enable = false;
+                        } else {
+                            // Resume particles when tab is visible
+                            pJSInstance.particles.move.enable = true;
+                        }
+                    }
+                });
             }
         }
     });
 </script>
 
 <style>
-    /* Minimal custom styles for Astro-specific overrides */
+    :root {
+        --dark-bg: #121212;
+        --white: #ffffff;
+        --gray-light: #a0a0a0;
+        --gradient-gold: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500);
+        --gradient-card-1: linear-gradient(135deg, #0066FF, #00C2FF);
+        --gradient-card-2: linear-gradient(135deg, #9c27b0, #e040fb);
+        --gradient-card-3: linear-gradient(135deg, #00bcd4, #00e5ff);
+        --gradient-card-4: linear-gradient(135deg, #ff9800, #ffb74d);
+        --gradient-card-5: linear-gradient(135deg, #4caf50, #81c784);
+        --radius-md: 8px;
+        --radius-full: 9999px;
+        --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Hero Section Container */
     .hero-section {
         overflow: visible !important;
+        position: relative;
+        background: var(--dark-bg);
     }
-
+    
+    .hero-section::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(to bottom, transparent, var(--dark-bg));
+        z-index: 1;
+    }
+    
     .hero-particles {
         pointer-events: none;
     }
-
+    
     .hero-buttons {
         pointer-events: auto;
     }
-
-    /* Ensure proper stacking context */
+    
     .hero-content {
         position: relative;
         z-index: 2;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    
+    /* Hero Wave Shape */
+    .hero-shape {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        line-height: 0;
+        z-index: 2;
+        transform: translateY(10px);
+    }
+    
+    /* Floating Cards - Desktop */
+    .floating-card {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--radius-md);
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: float 3s ease-in-out infinite;
+        z-index: 3;
+        max-width: 200px;
+    }
+    
+    .floating-card-1 { top: 15%; left: 5%; animation-delay: 0s; }
+    .floating-card-2 { bottom: 15%; right: 0%; animation-delay: 1.5s; }
+    .floating-card-3 { top: 10%; right: 10%; animation-delay: 0.8s; }
+    .floating-card-4 { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-name: float-centered; animation-delay: 2.2s; }
+    .floating-card-5 { bottom: 0%; left: 25%; animation-delay: 1.2s; }
+    
+    .floating-card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 1.2rem;
+        color: var(--white);
+    }
+    
+    .floating-card-1 .floating-card-icon { background: var(--gradient-card-1); }
+    .floating-card-2 .floating-card-icon { background: var(--gradient-card-2); }
+    .floating-card-3 .floating-card-icon { background: var(--gradient-card-3); }
+    .floating-card-4 .floating-card-icon { background: var(--gradient-card-4); }
+    .floating-card-5 .floating-card-icon { background: var(--gradient-card-5); }
+    
+    .floating-card-text { flex: 1; }
+    .floating-card-text span { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 5px; }
+    
+    .floating-card-progress {
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-full);
+        overflow: hidden;
+        width: 100px;
+    }
+    
+    .floating-card-progress .progress-bar { height: 100%; border-radius: var(--radius-full); }
+    .floating-card-1 .progress-bar { background: var(--gradient-card-1); }
+    .floating-card-2 .progress-bar { background: var(--gradient-card-2); }
+    .floating-card-3 .progress-bar { background: var(--gradient-card-3); }
+    .floating-card-4 .progress-bar { background: var(--gradient-card-4); }
+    .floating-card-5 .progress-bar { background: var(--gradient-card-5); }
+    
+    /* Mobile floating cards */
+    .floating-card-mobile { display: none; }
+    
+    @media (max-width: 768px) {
+        .floating-card { display: none; }
+        
+        .floating-card-mobile {
+            display: inline-flex;
+            align-items: center;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 4px 8px;
+            font-size: 12px;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: float-mobile 3s ease-in-out infinite;
+            z-index: 3;
+        }
+        
+        .floating-card-mobile i {
+            font-size: 12px;
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .floating-card-mobile-1 { top: 15%; left: 15%; animation-delay: 0s; }
+        .floating-card-mobile-2 { top: 20%; right: 20%; animation-delay: 0.5s; }
+        .floating-card-mobile-3 { bottom: 20%; left: 20%; animation-delay: 0.8s; }
+        .floating-card-mobile-4 { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 1.5s; animation-name: float-mobile-center; }
+        .floating-card-mobile-5 { bottom: 25%; right: 25%; animation-delay: 1.2s; }
+    }
+    
+    @media (min-width: 769px) {
+        .floating-card-mobile { display: none !important; }
+    }
+    
+    /* Animations */
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+    
+    @keyframes float-centered {
+        0% { transform: translate(-50%, -50%); }
+        50% { transform: translate(-50%, -60%); }
+        100% { transform: translate(-50%, -50%); }
+    }
+    
+    @keyframes float-mobile {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+        100% { transform: translateY(0); }
+    }
+    
+    @keyframes float-mobile-center {
+        0% { transform: translate(-50%, -50%); }
+        50% { transform: translate(-50%, -55%); }
+        100% { transform: translate(-50%, -50%); }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+        .hero-section { padding-top: 50px; padding-bottom: 50px; }
+        .hero-content { padding-right: 0; text-align: center; margin-bottom: 3rem; }
+        .hero-image-container { padding-left: 0; display: flex; flex-wrap: wrap; justify-content: center; }
+    }
+    
+    @media (max-width: 768px) {
+        .hero-section { padding-top: 80px; padding-bottom: 60px; text-align: center; }
+        .hero-row { display: flex; flex-direction: column; }
+        .hero-image-col { order: 1; margin-bottom: 1rem; }
+        .hero-text-col { order: 2; }
+        .hero-content { margin-bottom: 0; margin-top: 0; }
+        .hero-title { margin-bottom: 0.5rem; }
+        .hero-subtitle { margin-bottom: 1rem; }
+    }
+    
+    @media (max-width: 576px) {
+        .hero-title { font-size: 2rem; }
+        .hero-buttons { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-top: 1rem; }
+        .hero-buttons .btn { margin: 0; width: 80%; }
     }
 </style>
