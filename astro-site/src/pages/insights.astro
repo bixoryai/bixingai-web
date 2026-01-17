@@ -11,7 +11,7 @@ const description = "Stay updated with the latest insights, trends, and developm
 <BaseLayout title={title} description={description}>
 	<main>
 		<SecondaryHero 
-			title="Industry Insights" 
+			title="AI Industry Insights" 
 			subtitle="Explore the latest developments, strategies, and applications in AI"
 			dataI18nTitle="insights.hero.title"
 			dataI18nSubtitle="insights.hero.subtitle"
@@ -19,7 +19,7 @@ const description = "Stay updated with the latest insights, trends, and developm
 		
 		<FeaturedInsightSection />
 		<InsightsGridSection />
-
+		
 		<!-- Newsletter/Subscribe Section -->
 		<section class="newsletter-section">
 			<div class="container mx-auto px-4">
@@ -49,7 +49,8 @@ const description = "Stay updated with the latest insights, trends, and developm
     }
 
     // Isolated Insights page translations to prevent corruption
-    const insightsTranslations = {
+    // Make it available globally for components
+    window.insightsTranslations = {
         en: {
             // Header Navigation
             'nav.services': 'Products & Services',
@@ -80,7 +81,36 @@ const description = "Stay updated with the latest insights, trends, and developm
             'insights.newsletter.subtitle': 'Subscribe to our newsletter to receive the latest insights, articles, and updates in the world of AI',
             'insights.newsletter.emailPlaceholder': 'Your Email Address',
             'insights.newsletter.subscribe': 'Subscribe',
-            'insights.newsletter.privacyNotice': 'We respect your privacy. Unsubscribe at any time.'
+            'insights.newsletter.privacyNotice': 'We respect your privacy. Unsubscribe at any time.',
+
+            // Read More link
+            'insights.read.more': 'Read More',
+
+            // Blog post translations
+            "The Future of AI in Enterprise: Trends and Predictions": {
+                title: "The Future of AI in Enterprise: Trends and Predictions",
+                excerpt: "Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how businesses can prepare for the AI-driven future."
+            },
+            "Machine Learning for Business: Practical Applications": {
+                title: "Machine Learning for Business: Practical Applications",
+                excerpt: "Discover practical applications of machine learning that are transforming businesses today and how you can implement these solutions in your organization."
+            },
+            "Implementing AI Solutions: A Step-by-Step Guide": {
+                title: "Implementing AI Solutions: A Step-by-Step Guide",
+                excerpt: "A comprehensive guide to implementing AI solutions in your organization, from planning to deployment and optimization."
+            },
+            "AI Transformation in Healthcare: A Case Study": {
+                title: "AI Transformation in Healthcare: A Case Study",
+                excerpt: "How a leading healthcare provider leveraged AI to improve patient outcomes and operational efficiency."
+            },
+            "Building AI Literacy in Your Organization": {
+                title: "Building AI Literacy in Your Organization",
+                excerpt: "Strategies for developing AI knowledge and skills across different levels of your company."
+            },
+            "AI Ethics and Governance: Best Practices": {
+                title: "AI Ethics and Governance: Best Practices",
+                excerpt: "Establishing responsible AI practices and governance frameworks for enterprise implementation."
+            }
         },
         zh: {
             // Header Navigation
@@ -112,14 +142,53 @@ const description = "Stay updated with the latest insights, trends, and developm
             'insights.newsletter.subtitle': '订阅我们的通讯，接收AI世界的最新洞察、文章和更新',
             'insights.newsletter.emailPlaceholder': '您的电子邮件地址',
             'insights.newsletter.subscribe': '订阅',
-            'insights.newsletter.privacyNotice': '我们尊重您的隐私。随时可以退订。'
+            'insights.newsletter.privacyNotice': '我们尊重您的隐私。随时可以退订。',
+
+            // Read More link
+            'insights.read.more': '阅读更多',
+
+            // Category translations
+            'AI Trends': 'AI趋势',
+            'Machine Learning': '机器学习',
+            'AI Implementation': 'AI实施',
+            'Case Studies': '案例研究',
+            'AI Education': 'AI教育',
+
+            // Blog post translations
+            "The Future of AI in Enterprise: Trends and Predictions": {
+                title: "企业AI的未来：趋势与预测",
+                excerpt: "探索企业环境中AI采用的新兴趋势和未来预测，以及企业如何为AI驱动的未来做好准备。"
+            },
+            "Machine Learning for Business: Practical Applications": {
+                title: "商业机器学习：实用应用",
+                excerpt: "发现正在改变当今商业的机器学习实用应用，以及如何在您的组织中实施这些解决方案。"
+            },
+            "Implementing AI Solutions: A Step-by-Step Guide": {
+                title: "实施AI解决方案：逐步指南",
+                excerpt: "在您的组织中实施AI解决方案的综合指南，从规划到部署和优化。"
+            },
+            "AI Transformation in Healthcare: A Case Study": {
+                title: "医疗保健中的AI转型：案例研究",
+                excerpt: "领先的医疗保健提供商如何利用AI改善患者预后和运营效率。"
+            },
+            "Building AI Literacy in Your Organization": {
+                title: "在您的组织中构建AI素养",
+                excerpt: "在公司各个层面开发AI知识和技能的策略。"
+            },
+            "AI Ethics and Governance: Best Practices": {
+                title: "AI伦理与治理：最佳实践",
+                excerpt: "为企业实施建立负责任的AI实践和治理框架。"
+            }
         }
     };
 
-    // Apply page-specific translations for Insights page
-    function applyInsightsTranslations() {
-        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+    // Close the window assignment
+    console.log('Insights translations loaded globally');
 
+    // Apply page-specific translations for Insights page
+	function applyInsightsTranslations() {
+		const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+		
         // Apply page-specific translations (these override global translations)
         if (insightsTranslations[currentLang]) {
             Object.keys(insightsTranslations[currentLang]).forEach(key => {
@@ -132,7 +201,7 @@ const description = "Stay updated with the latest insights, trends, and developm
     }
 
     // Apply translations immediately and on language changes
-    document.addEventListener('DOMContentLoaded', function() {
+	document.addEventListener('DOMContentLoaded', function() {
         console.log('Insights page loaded');
         // Apply page-specific translations after global translations
         setTimeout(applyInsightsTranslations, 100);
@@ -140,18 +209,18 @@ const description = "Stay updated with the latest insights, trends, and developm
     });
 
     // Listen for language toggle events and reapply page translations
-    document.addEventListener('languageToggled', function(e) {
+		document.addEventListener('languageToggled', function(e) {
         console.log('Language toggled event received - applying Insights page translations');
         setTimeout(applyInsightsTranslations, 50);
     });
 
     // Also listen for storage events
-    window.addEventListener('storage', function(e) {
-        if (e.key === 'bixingLanguage') {
+		window.addEventListener('storage', function(e) {
+			if (e.key === 'bixingLanguage') {
             console.log('Language storage event received - applying Insights page translations');
             setTimeout(applyInsightsTranslations, 50);
         }
-    });
+	});
 </script>
 
 <style>

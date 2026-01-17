@@ -1,6 +1,6 @@
 # Bixing Technology Website Project Status
 
-## Last Updated: December 22, 2025
+## Last Updated: January 16, 2025
 
 ## 🚀 Current Release: v1.0.3
 
@@ -110,6 +110,14 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - [ ] Migrate JavaScript functionality
 - [ ] Preserve particles.js animation
 - [ ] Visual comparison testing
+
+### Recent Fixes (January 16, 2025)
+- ✅ Fixed Insights page title and subtitle styling (font size, center alignment)
+- ✅ Fixed Insights page filter button spacing (improved gap between buttons)
+- ✅ Fixed blog pages Chinese translation loading and application
+- ✅ Fixed footer component loading on blog pages (corrected path resolution)
+- ✅ Updated blog pages to use consolidated CSS (matching Astro theme consistency)
+- ✅ Fixed Insights page grid layout (2-column layout matching Jekyll)
 
 ### Long-term Goals
 1. **Content Enhancement**: Add more detailed service descriptions and case studies
