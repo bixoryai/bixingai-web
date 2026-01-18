@@ -151,14 +151,27 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 - [ ] Functional testing (forms, navigation, language toggle)
 - [ ] Performance benchmarking (LCP, FCP, bundle size)
 
-### ⏳ Phase 6: Deployment — NOT STARTED
-- [ ] Pre-deployment checklist
-- [ ] Staging deployment
-- [ ] Production cutover
+### ✅ Phase 6: Deployment — STAGING COMPLETE
+- [x] GitHub Actions workflow for Astro deployment (`astro-deploy.yml`)
+- [x] Staging deployment to GitHub Pages (develop branch)
+- [x] Site live at https://bixingai.bixory.ai
+- [ ] Final mobile responsive fixes
+- [ ] Production cutover (merge develop → main)
 
 ---
 
 ### Recent Work (January 18, 2025)
+**Phase 6 - Deployment (STAGING COMPLETE):**
+- ✅ **GitHub Actions Workflow**: Created `astro-deploy.yml` for automated build and deployment
+- ✅ **CI/CD Configuration**: Updated `ci-cd.yml` to work alongside new Astro workflow
+- ✅ **Package Lock**: Added `package-lock.json` for reproducible CI builds
+- ✅ **GitHub Pages**: Configured to deploy from GitHub Actions (source: GitHub Actions)
+- ✅ **Environment Protection**: Added develop branch to allowed deployment branches
+- ✅ **CNAME**: Added custom domain configuration (bixingai.bixory.ai)
+- ✅ **Astro Config**: Added site URL for proper GitHub Pages deployment
+- ✅ **Mobile Fix**: Adjusted hero section padding to fix CTA/Empowered By overlap
+- ✅ **Live Site**: Astro site now live at https://bixingai.bixory.ai
+
 **Phase 4 - Optimization (COMPLETE):**
 - ✅ **Image Lazy Loading**: Added `loading="lazy"` to all below-fold images (team photos, partner logos, service detail images)
 - ✅ **WebP Image Conversion**: Converted PNG/JPG to WebP with `<picture>` fallback (66% average savings)
@@ -211,10 +224,10 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ---
 
 ### Where to Start Next Session
-1. **Phase 6 - Deployment**: Configure GitHub Pages for Astro output
-2. **Phase 6 - Deployment**: Set up staging environment for stakeholder review
-3. **Phase 6 - Deployment**: Production cutover from Jekyll to Astro
-4. **Phase 6 - Deployment**: Prepare staging deployment after optimization complete
+1. **Mobile Optimization**: Fine-tune hero section CTA/Empowered By spacing on mobile
+2. **Image Optimization**: Fix WebP conversion for remaining blog images
+3. **Testing**: Continue testing all pages on mobile devices
+4. **Production Cutover**: When satisfied, merge develop → main to finalize migration
 
 ### Long-term Goals
 1. **Content Enhancement**: Add more detailed service descriptions and case studies
