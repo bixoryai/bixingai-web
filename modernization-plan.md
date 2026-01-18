@@ -52,7 +52,7 @@
 - [x] GitHub Actions workflow (`astro-deploy.yml`) created
 - [x] Staging deployment to GitHub Pages successful
 - [x] Site live at https://bixingai.bixory.ai
-- [ ] Jekyll cleanup from develop branch
+- [x] Jekyll cleanup from develop branch (completed 2026-01-18)
 - [ ] Final production cutover (merge develop → main)
 
 ---
@@ -108,24 +108,22 @@
 | `CNAME` | Custom domain | May keep for reference |
 | `tailwind.config.js` | Tailwind (root) | Review if needed |
 
-### Cleanup Execution Steps
+### Cleanup Execution Steps ✅ COMPLETED (2026-01-18)
 
-1. [ ] **Verify staging is working** - Confirm https://bixingai.bixory.ai loads correctly
-2. [ ] **Create backup tag** - `git tag jekyll-backup-$(date +%Y%m%d)` before cleanup
-3. [ ] **Remove Jekyll configs** - `_config.yml`, `_config.dev.yml`
-4. [ ] **Remove Jekyll directories** - `_layouts/`, `_posts/`
-5. [ ] **Remove Ruby files** - `Gemfile`, `Gemfile.lock`
-6. [ ] **Remove Jekyll scripts** - `jekyll-build.ps1`, `JEKYLL-README.md`
-7. [ ] **Remove root HTML** - `index.html`, `case-study-education.html`
-8. [ ] **Remove Jekyll pages** - `pages/` directory
-9. [ ] **Remove Jekyll components** - `components/` directory
-10. [ ] **Remove old assets** - `assets/` directory
-11. [ ] **Remove old blog** - `blog/` directory
-12. [ ] **Remove templates** - `templates/` directory
-13. [ ] **Review scripts** - Keep useful ones in `scripts/`
-14. [ ] **Update .gitignore** - Remove Jekyll-specific entries
-15. [ ] **Test deployment** - Verify site still works after cleanup
-16. [ ] **Commit cleanup** - Single commit with clear message
+1. [x] **Verify staging is working** - Confirmed https://bixingai.bixory.ai loads correctly
+2. [x] **Create backup tag** - `git tag jekyll-backup-20260118` pushed to remote
+3. [x] **Remove Jekyll configs** - `_config.yml`, `_config.dev.yml`
+4. [x] **Remove Jekyll directories** - `_layouts/`, `_posts/`
+5. [x] **Remove Ruby files** - `Gemfile`, `Gemfile.lock`
+6. [x] **Remove Jekyll scripts** - `jekyll-build.ps1`, `JEKYLL-README.md`
+7. [x] **Remove root HTML** - `index.html`, `case-study-education.html`
+8. [x] **Remove Jekyll pages** - `pages/` directory
+9. [x] **Remove Jekyll components** - `components/` directory
+10. [x] **Remove old assets** - `assets/` directory
+11. [x] **Remove old blog** - `blog/` directory
+12. [x] **Remove templates** - `templates/` directory
+13. [x] **Review scripts** - Kept `scripts/version.sh`
+14. [x] **Commit cleanup** - 195 files deleted in single commit (7e8ac9d)
 
 ---
 

@@ -224,57 +224,26 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ---
 
 ### Where to Start Next Session
-1. **Jekyll Cleanup**: Remove legacy Jekyll files from develop branch (see checklist below)
+1. ~~**Jekyll Cleanup**: Remove legacy Jekyll files from develop branch~~ ✅ DONE (2026-01-18)
 2. **Mobile Optimization**: Fine-tune hero section CTA/Empowered By spacing on mobile
 3. **Image Optimization**: Fix WebP conversion for remaining blog images
 4. **Production Cutover**: When satisfied, merge develop → main to finalize migration
 
 ---
 
-## 🧹 Jekyll Cleanup Checklist
+## 🧹 Jekyll Cleanup Checklist ✅ COMPLETED (2026-01-18)
 
-**Purpose**: Remove legacy Jekyll files from `develop` branch.  
-**Safety**: `main` branch retains full Jekyll implementation as backup.
+**Status**: All Jekyll files removed from `develop` branch.  
+**Backup**: Tag `jekyll-backup-20260118` pushed to remote. Main branch retains full Jekyll implementation.
 
-### Cleanup Steps (Execute in Order)
+### Cleanup Summary
 
-1. [ ] **Verify staging works** - Confirm https://bixingai.bixory.ai loads correctly
-2. [ ] **Create backup tag** - `git tag jekyll-backup-before-cleanup`
-3. [ ] **Remove Jekyll configs**:
-   - [ ] `_config.yml`
-   - [ ] `_config.dev.yml`
-4. [ ] **Remove Jekyll directories**:
-   - [ ] `_layouts/`
-   - [ ] `_posts/`
-5. [ ] **Remove Ruby dependencies**:
-   - [ ] `Gemfile`
-   - [ ] `Gemfile.lock`
-6. [ ] **Remove Jekyll scripts/docs**:
-   - [ ] `jekyll-build.ps1`
-   - [ ] `JEKYLL-README.md`
-   - [ ] `build.ps1`
-7. [ ] **Remove root HTML files**:
-   - [ ] `index.html`
-   - [ ] `case-study-education.html`
-8. [ ] **Remove Jekyll content directories**:
-   - [ ] `pages/` (Jekyll pages)
-   - [ ] `components/` (Jekyll components)
-   - [ ] `blog/` (static blog - exists in astro-site/public/)
-   - [ ] `templates/`
-9. [ ] **Remove old assets**:
-   - [ ] `assets/` (exists in astro-site/public/assets/)
-10. [ ] **Review and keep**:
-    - [x] `astro-site/` - The new site
-    - [x] `.github/` - CI/CD workflows
-    - [x] `docs/` - Documentation
-    - [x] `scripts/` - Review individually
-    - [x] `README.md`, `LICENSE`, `AGENTS.md`
-    - [x] `modernization-plan.md`, `project-status.md`
-    - [x] `package.json`, `package-lock.json`
-    - [x] Linting configs (`.eslintrc.json`, `.prettierrc`, etc.)
-11. [ ] **Update .gitignore** - Remove Jekyll-specific entries
-12. [ ] **Test deployment** - Verify site still works
-13. [ ] **Commit cleanup** - Single commit: "chore: remove legacy Jekyll files"
+- **195 files deleted** in commit 7e8ac9d
+- Removed: `_config.yml`, `_config.dev.yml`, `_layouts/`, `_posts/`, `Gemfile`, `Gemfile.lock`
+- Removed: `pages/`, `components/`, `assets/`, `blog/`, `templates/`
+- Removed: All Jekyll build scripts and documentation
+- Kept: `astro-site/`, `.github/`, `docs/`, `scripts/version.sh`, `README.md`, `LICENSE`, `AGENTS.md`
+- Kept: `modernization-plan.md`, `project-status.md`, `package.json`, linting configs
 
 ---
 
