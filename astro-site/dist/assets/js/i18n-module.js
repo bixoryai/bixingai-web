@@ -207,16 +207,16 @@ const BixingI18n = (function() {
    * Update the language toggle button UI
    */
   function updateLanguageToggle() {
-    const currentLanguageElement = document.getElementById('currentLanguage');
-    if (currentLanguageElement) {
-      currentLanguageElement.textContent = currentLanguage.toUpperCase();
+    // Update all language toggle elements (desktop and mobile)
+    document.querySelectorAll('[id^="current-language"]').forEach(el => {
+      el.textContent = currentLanguage.toUpperCase();
 
       // Add visual feedback
-      currentLanguageElement.classList.add('language-changed');
+      el.classList.add('language-changed');
       setTimeout(() => {
-        currentLanguageElement.classList.remove('language-changed');
+        el.classList.remove('language-changed');
       }, 500);
-    }
+    });
 
     const languageToggle = document.getElementById('languageToggle');
     if (languageToggle) {

@@ -181,11 +181,10 @@ function applyTranslations() {
     }
   });
 
-  // Update language toggle UI
-  const currentLanguageElement = document.getElementById('currentLanguage');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = currentLanguage.toUpperCase();
-  }
+  // Update language toggle UI (desktop and mobile)
+  document.querySelectorAll('[id^="current-language"]').forEach(el => {
+    el.textContent = currentLanguage.toUpperCase();
+  });
 
   // Update page title
   const titleKey = 'page.title';

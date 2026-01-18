@@ -25,11 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Update HTML lang attribute
   document.documentElement.lang = currentLang;
 
-  // Update language toggle display
-  const langDisplay = document.getElementById('currentLanguage');
-  if (langDisplay) {
-    langDisplay.textContent = currentLang.toUpperCase();
-  }
+  // Update language toggle display (desktop and mobile)
+  document.querySelectorAll('[id^="current-language"]').forEach(el => {
+    el.textContent = currentLang.toUpperCase();
+  });
 
   // Apply translations immediately
   applyEducationTranslations(currentLang);

@@ -38,11 +38,10 @@ function applyTranslations(lang) {
     }
   });
 
-  // Update language toggle UI
-  const currentLanguageElement = document.getElementById('currentLanguage');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
-  }
+  // Update language toggle UI (both desktop and mobile)
+  document.querySelectorAll('[id^="current-language"]').forEach(el => {
+    el.textContent = currentLanguage === 'en' ? 'EN' : '中文';
+  });
 
   // Update page title
   const titleKey = 'page.title';
@@ -58,18 +57,16 @@ if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', function() {
     const lang = getCurrentLanguage();
     applyTranslations(lang);
-    const currentLanguageElement = document.getElementById('currentLanguage');
-    if (currentLanguageElement) {
-      currentLanguageElement.textContent = lang === 'en' ? 'EN' : '中文';
-    }
+    document.querySelectorAll('[id^="current-language"]').forEach(el => {
+      el.textContent = lang === 'en' ? 'EN' : '中文';
+    });
   });
 } else {
   const lang = getCurrentLanguage();
   applyTranslations(lang);
-  const currentLanguageElement = document.getElementById('currentLanguage');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = lang === 'en' ? 'EN' : '中文';
-  }
+  document.querySelectorAll('[id^="current-language"]').forEach(el => {
+    el.textContent = lang === 'en' ? 'EN' : '中文';
+  });
 }
 
 // Safe localStorage setter using BixingStorage utility
@@ -89,11 +86,10 @@ window.toggleLanguage = function() {
     safeStorageSet('bixingLanguage', newLanguage);
   }
 
-  // Update UI
-  const currentLanguageElement = document.getElementById('currentLanguage');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
-  }
+  // Update UI (both desktop and mobile)
+  document.querySelectorAll('[id^="current-language"]').forEach(el => {
+    el.textContent = newLanguage === 'en' ? 'EN' : '中文';
+  });
   applyTranslations(newLanguage);
 
   // Dispatch an event so other scripts can react to language changes

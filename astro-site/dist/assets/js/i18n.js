@@ -974,11 +974,10 @@ function toggleLanguage() {
 
   // Log the language change
 
-  // Update the language toggle button text directly
-  const currentLanguageElement = document.getElementById('currentLanguage');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
-  }
+  // Update the language toggle button text directly (desktop and mobile)
+  document.querySelectorAll('[id^="current-language"]').forEach(el => {
+    el.textContent = currentLanguage === 'en' ? 'EN' : '中文';
+  });
 
   // Apply the new language immediately without page reload
   updateLanguageToggle();
@@ -987,18 +986,15 @@ function toggleLanguage() {
 
 // Update the language toggle button UI
 function updateLanguageToggle() {
-  const currentLanguageElement = document.getElementById('currentLanguage');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = currentLanguage === 'en' ? 'EN' : '中文';
+  document.querySelectorAll('[id^="current-language"]').forEach(el => {
+    el.textContent = currentLanguage === 'en' ? 'EN' : '中文';
 
     // Add visual feedback
-    currentLanguageElement.classList.add('language-changed');
+    el.classList.add('language-changed');
     setTimeout(() => {
-      currentLanguageElement.classList.remove('language-changed');
+      el.classList.remove('language-changed');
     }, 500);
-  } else {
-    // Language toggle element not found
-  }
+  });
 
   // Update HTML lang attribute
   document.documentElement.lang = currentLanguage;

@@ -249,9 +249,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Apply translations
   window.applyTranslations(currentLang);
 
-  // Update language toggle button text
-  const currentLanguageElement = document.getElementById('currentLanguage');
-  if (currentLanguageElement) {
-    currentLanguageElement.textContent = currentLang === 'en' ? 'EN' : '中文';
-  }
+  // Update language toggle button text (desktop and mobile)
+  document.querySelectorAll('[id^="current-language"]').forEach(el => {
+    el.textContent = currentLang === 'en' ? 'EN' : '中文';
+  });
 });

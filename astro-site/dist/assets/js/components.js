@@ -120,11 +120,10 @@ function loadHeader() {
 
       headerPlaceholder.innerHTML = data;
 
-      // Initialize language toggle based on stored preference
-      const currentLanguageElement = document.getElementById('currentLanguage');
-      if (currentLanguageElement) {
-        currentLanguageElement.textContent = currentLang === 'en' ? 'EN' : '中文';
-      }
+      // Initialize language toggle based on stored preference (desktop and mobile)
+      document.querySelectorAll('[id^="current-language"]').forEach(el => {
+        el.textContent = currentLang === 'en' ? 'EN' : '中文';
+      });
 
       // Set active class for current page
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
@@ -355,11 +354,10 @@ function setupGlobalLanguageToggle() {
       localStorage.setItem('bixingLanguage', nextLang);
     }
 
-    // Update language toggle button text
-    const currentLanguageElement = document.getElementById('currentLanguage');
-    if (currentLanguageElement) {
-      currentLanguageElement.textContent = nextLang === 'en' ? 'EN' : '中文';
-    }
+    // Update language toggle button text (desktop and mobile)
+    document.querySelectorAll('[id^="current-language"]').forEach(el => {
+      el.textContent = nextLang === 'en' ? 'EN' : '中文';
+    });
 
     // Apply translations to all elements with data-i18n attributes
     if (typeof applyTranslations === 'function') {
