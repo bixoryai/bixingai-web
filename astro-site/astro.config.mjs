@@ -3,6 +3,10 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  // Site URL for GitHub Pages with custom domain
+  site: 'https://bixingai.bixory.ai',
+  // No base path needed for custom domain (use '/repo-name/' for github.io URLs)
+  // base: '/bixingai-web/',
   output: 'static',
   adapter: undefined,
   integrations: [tailwind()],
