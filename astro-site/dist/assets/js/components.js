@@ -68,7 +68,6 @@ function loadHeader() {
 
   // Ensure we use absolute path for components
   const headerUrl = (currentPathToRoot === '/' ? '/' : (currentPathToRoot || '/')) + 'components/header.html' + cacheBuster;
-  console.log('Loading header from:', headerUrl);
   
   fetch(headerUrl)
     .then(response => {
@@ -192,7 +191,6 @@ function loadFooter() {
   
   // Ensure we use absolute path for components
   const footerUrl = (currentPathToRoot === '/' ? '/' : (currentPathToRoot || '/')) + 'components/footer.html' + cacheBuster;
-  console.log('Loading footer from:', footerUrl);
 
   fetch(footerUrl)
     .then(response => {
