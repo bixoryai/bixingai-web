@@ -1,12 +1,9 @@
 name: Deploy Astro Site
 
 on:
-  # Auto-build on develop branch pushes (validates build works)
+  # Auto-build on develop branch pushes
   push:
     branches: [develop]
-    paths:
-      - 'astro-site/**'
-      - '.github/workflows/astro-deploy.yml'
   
   # Manual trigger for preview deployment
   workflow_dispatch:
