@@ -18,11 +18,12 @@
 
 This document provides essential context and guidelines for AI assistants working on the Bixing Technology website modernization project.
 
-### Current State (Updated January 18, 2025)
-- **Production**: Jekyll + Bootstrap site on GitHub Pages (main branch)
-- **Development**: Astro + Tailwind migration in progress (develop branch)
+### Current State (Updated January 18, 2026)
+- **Production**: Jekyll + Bootstrap site on GitHub Pages (main branch) - BACKUP ONLY
+- **Staging**: Astro site deployed on develop branch at https://bixingai.bixory.ai
 - **Goal**: 50-70% performance improvement while maintaining exact UI/UX
-- **Progress**: Phase 1-3 complete, Phase 5 (Visual Parity Testing) COMPLETE - 7/7 pages verified
+- **Progress**: Migration COMPLETE. Jekyll cleanup DONE. Ready for production cutover.
+- **Backup**: Tag `jekyll-backup-20260118` preserves full Jekyll implementation
 
 ### Key Documents
 - **[modernization-plan.md](./modernization-plan.md)** - 🎯 **TRUTH SOURCE** for migration strategy
@@ -31,19 +32,21 @@ This document provides essential context and guidelines for AI assistants workin
 
 ---
 
-## 🏗️ Dual Architecture Context
+## 🏗️ Project Structure
 
-### Jekyll Structure (Current Production)
+### Current Structure (develop branch - Astro Only)
 ```
-├── index.html                    # Homepage
-├── pages/menu/                   # Main pages (about, careers, contact, insights, services)
-├── pages/services/               # Service detail pages
-├── assets/                       # CSS, JS, images
-├── components/                   # Reusable HTML components
-└── _layouts/                     # Jekyll layouts
+bixingai-web/
+├── astro-site/                   # Astro implementation (THE SITE)
+├── docs/                         # Documentation
+├── scripts/                      # Utility scripts
+├── .github/                      # CI/CD workflows
+└── [config files]                # Linting, git, npm configs
 ```
 
-### Astro Structure (New Development)
+> **Note**: Jekyll files removed from develop (2026-01-18). Backup tag: `jekyll-backup-20260118`
+
+### Astro Structure (Active)
 ```
 astro-site/
 ├── src/
@@ -113,9 +116,10 @@ particlesJS('hero-particles', {
 - **Team Section Updated**: Real team members (Andrew Bi - CEO, Yan Hong - CTO)
 
 ### Branch Strategy
-- **main**: Production Jekyll site
-- **develop**: Astro migration work
+- **main**: Production (currently Jekyll - pending cutover)
+- **develop**: Astro site (staging at https://bixingai.bixory.ai)
 - **feature/**: Specific feature branches
+- **Tags**: `jekyll-backup-20260118` - Full Jekyll backup before cleanup
 
 ### Commit Standards
 ```
@@ -318,64 +322,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 - [x] Language toggle functionality intact
 
 ### Current Priority Tasks
-1. **Jekyll Cleanup**: Remove legacy Jekyll files from develop branch
-2. **Mobile Fixes**: Fine-tune hero section spacing on mobile
+1. ~~**Jekyll Cleanup**: Remove legacy Jekyll files from develop branch~~ ✅ DONE
+2. **Mobile Fixes**: Fine-tune hero section spacing on mobile (optional)
 3. **Production Cutover**: Merge develop → main when ready
 
 ---
 
-## 🧹 Jekyll Cleanup Phase
+## 🧹 Jekyll Cleanup ✅ COMPLETED (2026-01-18)
 
-**Status**: Ready to execute  
-**Safety**: `main` branch retains full Jekyll as backup
+**Status**: COMPLETE - 195 files deleted  
+**Backup**: Tag `jekyll-backup-20260118` pushed to remote  
+**Commit**: `7e8ac9d`
 
-### Quick Reference - Files to Remove
+### What Was Removed
+- Jekyll configs: `_config.yml`, `_config.dev.yml`
+- Jekyll directories: `_layouts/`, `_posts/`
+- Ruby dependencies: `Gemfile`, `Gemfile.lock`
+- Content directories: `pages/`, `components/`, `assets/`, `blog/`, `templates/`
+- Build scripts: All Jekyll-related PowerShell scripts
+- Root HTML: `index.html`, `case-study-education.html`
+
+### What Remains (develop branch)
 ```
-REMOVE (Jekyll-specific):
-├── _config.yml, _config.dev.yml    # Jekyll config
-├── _layouts/                        # Jekyll layouts
-├── _posts/                          # Jekyll blog posts
-├── Gemfile, Gemfile.lock           # Ruby deps
-├── jekyll-build.ps1, JEKYLL-README.md
-├── index.html (root)               # Jekyll homepage
-├── pages/                          # Jekyll pages
-├── components/                     # Jekyll components
-├── blog/                           # Static blog (in astro-site/public/)
-├── assets/                         # Old assets (in astro-site/public/)
-├── case-study-education.html
-├── templates/
-└── build.ps1
-
-KEEP:
-├── astro-site/                     # THE NEW SITE
-├── .github/                        # CI/CD
+bixingai-web/
+├── astro-site/                     # THE ASTRO SITE
+├── .github/                        # CI/CD workflows
 ├── docs/                           # Documentation
-├── scripts/                        # Useful scripts
+├── scripts/version.sh              # Version utility
 ├── README.md, LICENSE, AGENTS.md
 ├── modernization-plan.md, project-status.md
 ├── package.json, package-lock.json
-└── Linting configs (.eslintrc.json, etc.)
-```
-
-### Cleanup Command Sequence
-```bash
-# 1. Create backup tag
-git tag jekyll-backup-before-cleanup
-
-# 2. Remove Jekyll files (run from repo root)
-rm -rf _config.yml _config.dev.yml _layouts _posts
-rm -rf Gemfile Gemfile.lock
-rm -rf jekyll-build.ps1 JEKYLL-README.md build.ps1
-rm -rf index.html case-study-education.html
-rm -rf pages components blog assets templates
-
-# 3. Commit
-git add -A
-git commit -m "chore: remove legacy Jekyll files after Astro migration"
-
-# 4. Push and verify
-git push origin develop
-# Trigger deployment and verify site works
+└── Linting configs
 ```
 
 ---
