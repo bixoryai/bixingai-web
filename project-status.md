@@ -224,10 +224,59 @@ The Bixing Technology website is a multilingual (English/Chinese) corporate site
 ---
 
 ### Where to Start Next Session
-1. **Mobile Optimization**: Fine-tune hero section CTA/Empowered By spacing on mobile
-2. **Image Optimization**: Fix WebP conversion for remaining blog images
-3. **Testing**: Continue testing all pages on mobile devices
+1. **Jekyll Cleanup**: Remove legacy Jekyll files from develop branch (see checklist below)
+2. **Mobile Optimization**: Fine-tune hero section CTA/Empowered By spacing on mobile
+3. **Image Optimization**: Fix WebP conversion for remaining blog images
 4. **Production Cutover**: When satisfied, merge develop → main to finalize migration
+
+---
+
+## 🧹 Jekyll Cleanup Checklist
+
+**Purpose**: Remove legacy Jekyll files from `develop` branch.  
+**Safety**: `main` branch retains full Jekyll implementation as backup.
+
+### Cleanup Steps (Execute in Order)
+
+1. [ ] **Verify staging works** - Confirm https://bixingai.bixory.ai loads correctly
+2. [ ] **Create backup tag** - `git tag jekyll-backup-before-cleanup`
+3. [ ] **Remove Jekyll configs**:
+   - [ ] `_config.yml`
+   - [ ] `_config.dev.yml`
+4. [ ] **Remove Jekyll directories**:
+   - [ ] `_layouts/`
+   - [ ] `_posts/`
+5. [ ] **Remove Ruby dependencies**:
+   - [ ] `Gemfile`
+   - [ ] `Gemfile.lock`
+6. [ ] **Remove Jekyll scripts/docs**:
+   - [ ] `jekyll-build.ps1`
+   - [ ] `JEKYLL-README.md`
+   - [ ] `build.ps1`
+7. [ ] **Remove root HTML files**:
+   - [ ] `index.html`
+   - [ ] `case-study-education.html`
+8. [ ] **Remove Jekyll content directories**:
+   - [ ] `pages/` (Jekyll pages)
+   - [ ] `components/` (Jekyll components)
+   - [ ] `blog/` (static blog - exists in astro-site/public/)
+   - [ ] `templates/`
+9. [ ] **Remove old assets**:
+   - [ ] `assets/` (exists in astro-site/public/assets/)
+10. [ ] **Review and keep**:
+    - [x] `astro-site/` - The new site
+    - [x] `.github/` - CI/CD workflows
+    - [x] `docs/` - Documentation
+    - [x] `scripts/` - Review individually
+    - [x] `README.md`, `LICENSE`, `AGENTS.md`
+    - [x] `modernization-plan.md`, `project-status.md`
+    - [x] `package.json`, `package-lock.json`
+    - [x] Linting configs (`.eslintrc.json`, `.prettierrc`, etc.)
+11. [ ] **Update .gitignore** - Remove Jekyll-specific entries
+12. [ ] **Test deployment** - Verify site still works
+13. [ ] **Commit cleanup** - Single commit: "chore: remove legacy Jekyll files"
+
+---
 
 ### Long-term Goals
 1. **Content Enhancement**: Add more detailed service descriptions and case studies

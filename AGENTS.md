@@ -318,10 +318,67 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 - [x] Language toggle functionality intact
 
 ### Current Priority Tasks
-1. **Phase 6 - Deployment**: Prepare staging deployment
-2. **Phase 6 - Deployment**: Configure GitHub Pages for Astro output
-3. **Phase 6 - Deployment**: Set up production CI/CD pipeline
-4. **Phase 6 - Deployment**: Post-deployment monitoring and QA
+1. **Jekyll Cleanup**: Remove legacy Jekyll files from develop branch
+2. **Mobile Fixes**: Fine-tune hero section spacing on mobile
+3. **Production Cutover**: Merge develop → main when ready
+
+---
+
+## 🧹 Jekyll Cleanup Phase
+
+**Status**: Ready to execute  
+**Safety**: `main` branch retains full Jekyll as backup
+
+### Quick Reference - Files to Remove
+```
+REMOVE (Jekyll-specific):
+├── _config.yml, _config.dev.yml    # Jekyll config
+├── _layouts/                        # Jekyll layouts
+├── _posts/                          # Jekyll blog posts
+├── Gemfile, Gemfile.lock           # Ruby deps
+├── jekyll-build.ps1, JEKYLL-README.md
+├── index.html (root)               # Jekyll homepage
+├── pages/                          # Jekyll pages
+├── components/                     # Jekyll components
+├── blog/                           # Static blog (in astro-site/public/)
+├── assets/                         # Old assets (in astro-site/public/)
+├── case-study-education.html
+├── templates/
+└── build.ps1
+
+KEEP:
+├── astro-site/                     # THE NEW SITE
+├── .github/                        # CI/CD
+├── docs/                           # Documentation
+├── scripts/                        # Useful scripts
+├── README.md, LICENSE, AGENTS.md
+├── modernization-plan.md, project-status.md
+├── package.json, package-lock.json
+└── Linting configs (.eslintrc.json, etc.)
+```
+
+### Cleanup Command Sequence
+```bash
+# 1. Create backup tag
+git tag jekyll-backup-before-cleanup
+
+# 2. Remove Jekyll files (run from repo root)
+rm -rf _config.yml _config.dev.yml _layouts _posts
+rm -rf Gemfile Gemfile.lock
+rm -rf jekyll-build.ps1 JEKYLL-README.md build.ps1
+rm -rf index.html case-study-education.html
+rm -rf pages components blog assets templates
+
+# 3. Commit
+git add -A
+git commit -m "chore: remove legacy Jekyll files after Astro migration"
+
+# 4. Push and verify
+git push origin develop
+# Trigger deployment and verify site works
+```
+
+---
 
 ### Quality Gates
 - **Visual**: 100% pixel-perfect match

@@ -48,7 +48,86 @@
 - ✅ HTML compression - Enabled `compressHTML` in Astro config
 - ✅ Resource hints - Preconnect to external domains already in place
 
-### ⏳ Phase 6: Deployment - **NOT STARTED**
+### ✅ Phase 6: Deployment - **STAGING COMPLETE**
+- [x] GitHub Actions workflow (`astro-deploy.yml`) created
+- [x] Staging deployment to GitHub Pages successful
+- [x] Site live at https://bixingai.bixory.ai
+- [ ] Jekyll cleanup from develop branch
+- [ ] Final production cutover (merge develop → main)
+
+---
+
+## 🧹 Phase 7: Jekyll Cleanup Checklist
+
+**Purpose**: Remove legacy Jekyll files from `develop` branch after successful Astro deployment.  
+**Safety**: `main` branch retains full Jekyll implementation as backup.
+
+### Files to Remove (Safe)
+
+| Item | Type | Reason Safe to Remove |
+|------|------|----------------------|
+| `_config.yml` | Jekyll config | Astro uses `astro.config.mjs` |
+| `_config.dev.yml` | Jekyll config | No longer needed |
+| `_layouts/` | Jekyll layouts | Astro has `src/layouts/` |
+| `_posts/` | Jekyll blog posts | Static HTML in `astro-site/public/blog/` |
+| `Gemfile` | Ruby deps | No Ruby in Astro |
+| `Gemfile.lock` | Ruby deps | No Ruby in Astro |
+| `jekyll-build.ps1` | Jekyll script | Not needed |
+| `JEKYLL-README.md` | Jekyll docs | Outdated |
+| `index.html` (root) | Jekyll homepage | Astro has `src/pages/index.astro` |
+| `pages/` | Jekyll pages | Astro has `src/pages/` |
+| `components/` | Jekyll components | Astro has `src/components/` |
+| `blog/` | Static blog HTML | Exists in `astro-site/public/blog/` |
+| `assets/` | Old assets | Exists in `astro-site/public/assets/` |
+| `case-study-education.html` | Jekyll page | Not used in Astro |
+| `templates/` | Jekyll templates | Not needed |
+| `build.ps1` | Jekyll build | Not needed |
+| `update-*.ps1` | Jekyll scripts | Review individually |
+
+### Files to Keep
+
+| Item | Type | Reason to Keep |
+|------|------|----------------|
+| `astro-site/` | Astro project | The new site |
+| `.github/` | CI/CD workflows | GitHub Actions |
+| `.husky/` | Git hooks | Code quality |
+| `docs/` | Documentation | Reference |
+| `scripts/` | Utility scripts | Some still useful |
+| `README.md` | Project readme | Keep updated |
+| `LICENSE` | License | Required |
+| `modernization-plan.md` | Migration plan | Reference |
+| `project-status.md` | Status tracker | Active |
+| `AGENTS.md` | AI guidelines | Active |
+| `package.json` | npm config | Root scripts |
+| `package-lock.json` | npm lock | CI/CD |
+| `.gitignore` | Git config | Keep |
+| `.eslintrc.json` | Linting | Keep |
+| `.prettierrc` | Formatting | Keep |
+| `.stylelintrc.json` | CSS linting | Keep |
+| `.htmlhintrc` | HTML linting | Keep |
+| `CNAME` | Custom domain | May keep for reference |
+| `tailwind.config.js` | Tailwind (root) | Review if needed |
+
+### Cleanup Execution Steps
+
+1. [ ] **Verify staging is working** - Confirm https://bixingai.bixory.ai loads correctly
+2. [ ] **Create backup tag** - `git tag jekyll-backup-$(date +%Y%m%d)` before cleanup
+3. [ ] **Remove Jekyll configs** - `_config.yml`, `_config.dev.yml`
+4. [ ] **Remove Jekyll directories** - `_layouts/`, `_posts/`
+5. [ ] **Remove Ruby files** - `Gemfile`, `Gemfile.lock`
+6. [ ] **Remove Jekyll scripts** - `jekyll-build.ps1`, `JEKYLL-README.md`
+7. [ ] **Remove root HTML** - `index.html`, `case-study-education.html`
+8. [ ] **Remove Jekyll pages** - `pages/` directory
+9. [ ] **Remove Jekyll components** - `components/` directory
+10. [ ] **Remove old assets** - `assets/` directory
+11. [ ] **Remove old blog** - `blog/` directory
+12. [ ] **Remove templates** - `templates/` directory
+13. [ ] **Review scripts** - Keep useful ones in `scripts/`
+14. [ ] **Update .gitignore** - Remove Jekyll-specific entries
+15. [ ] **Test deployment** - Verify site still works after cleanup
+16. [ ] **Commit cleanup** - Single commit with clear message
+
+---
 
 **Recent Work (January 18, 2025):**
 - ✅ **Phase 4 Complete**: All optimization tasks completed
