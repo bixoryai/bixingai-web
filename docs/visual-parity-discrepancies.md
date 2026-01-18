@@ -113,6 +113,12 @@ These items require manual visual verification:
 | 2025-01-17 | Insights page - Newsletter button color | Updated to gold/orange gradient matching Homepage | ✅ |
 | 2025-01-17 | Careers page - Submit button color | Updated to btn-primary class (gold gradient) | ✅ |
 | 2025-01-17 | Careers page - Footer subtitle showing `<br>` literally | Fixed i18n-careers.js to use innerHTML for HTML elements | ✅ |
+| 2025-01-17 | Contact page - Submit button colors | Updated all 3 form submit buttons to btn-primary class (gold gradient) | ✅ |
+| 2025-01-18 | Services page - CTA button color | Updated to btn-primary class (gold gradient) | ✅ |
+| 2025-01-18 | Service detail pages - Missing Chinese translations | Added all translations to i18n-services.js (education, customSolutions, consultation keys) | ✅ |
+| 2025-01-18 | Education page - Full i18n support | Added hero, overview, benefits, CTA translations in EN/ZH | ✅ |
+| 2025-01-18 | Custom Solutions page - Full i18n support | Added hero, overview, services, CTA translations in EN/ZH | ✅ |
+| 2025-01-18 | Consultation page - Full i18n support | Added hero, overview, services, CTA translations in EN/ZH | ✅ |
 
 ---
 

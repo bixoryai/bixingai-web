@@ -24,7 +24,7 @@ window.translations.en = Object.assign({}, window.translations.en, {
     'Contact us today to discuss how our AI solutions can address your specific needs.',
   'services.cta.button': 'Get in Touch',
 
-  // Education service
+  // Education service (main services page)
   'services.education.title': 'AI Education & Training',
   'services.education.description1': 'Empower your team with cutting-edge AI knowledge',
   'services.education.description2': 'comprehensive programs for all skill levels',
@@ -35,7 +35,7 @@ window.translations.en = Object.assign({}, window.translations.en, {
   'services.education.feature5': 'Ongoing support and learning resources',
   'services.education.cta': 'Learn More',
 
-  // Custom Solutions service
+  // Custom Solutions service (main services page)
   'services.customSolutions.title': 'AI Custom Solutions',
   'services.customSolutions.description1': 'Transform your business with tailored AI solutions',
   'services.customSolutions.description2': 'address challenges and unlock new opportunities',
@@ -46,7 +46,7 @@ window.translations.en = Object.assign({}, window.translations.en, {
   'services.customSolutions.feature5': 'Seamless integration with existing systems',
   'services.customSolutions.cta': 'Learn More',
 
-  // Consultation service
+  // Consultation service (main services page)
   'services.consultation.title': 'Enterprise AI Consultation',
   'services.consultation.description1': 'Navigate the complex AI landscape with expert guidance',
   'services.consultation.description2': 'tailored to your organization\'s strategic goals',
@@ -75,7 +75,69 @@ window.translations.en = Object.assign({}, window.translations.en, {
     'Powerful data analysis tools that uncover insights and drive informed decision-making.',
   'services.automation.title': 'Process Automation',
   'services.automation.description':
-    'Intelligent automation solutions that increase efficiency and reduce operational costs.'
+    'Intelligent automation solutions that increase efficiency and reduce operational costs.',
+
+  // === Education Detail Page ===
+  'education.hero.title': 'AI Education & Training',
+  'education.hero.subtitle': 'Empower your team with the knowledge and skills needed to leverage AI effectively in your organization',
+  'education.overview.title': 'Bridging the AI Knowledge Gap',
+  'education.overview.subtitle': 'Comprehensive AI education tailored to your organization\'s needs',
+  'education.overview.paragraph1': 'In today\'s rapidly evolving technological landscape, AI literacy has become a critical competitive advantage. Bixing Technology\'s AI Education and Training programs are designed to empower your teams with the practical knowledge and skills needed to leverage AI effectively in your specific industry context.',
+  'education.overview.paragraph2': 'Whether you\'re looking to upskill technical teams, help business leaders make informed AI decisions, or create organization-wide AI literacy, our customized programs deliver practical, actionable knowledge that can be immediately applied to real-world challenges.',
+  'education.overview.paragraph3': 'Our approach combines theoretical foundations with hands-on experience, ensuring participants not only understand AI concepts but can apply them confidently in their daily work.',
+  'education.benefits.title': 'Key Benefits',
+  'education.benefits.subtitle': 'Why choose our AI education and training programs',
+  'education.benefits.card1.title': 'Customized Learning Paths',
+  'education.benefits.card1.text': 'Tailored programs designed to meet the specific needs and goals of your organization, from AI fundamentals to advanced applications.',
+  'education.benefits.card2.title': 'Industry Expert Instructors',
+  'education.benefits.card2.text': 'Learn from seasoned AI practitioners with real-world experience in implementing AI solutions across various industries.',
+  'education.benefits.card3.title': 'Practical, Hands-On Learning',
+  'education.benefits.card3.text': 'Focus on practical applications and real-world scenarios to ensure your team can immediately apply their new AI skills.',
+  'education.cta.title': 'Ready to Transform Your Team with AI Education?',
+  'education.cta.subtitle': 'Contact us today to discuss how our AI training programs can benefit your organization.',
+  'education.cta.button': 'Get Started',
+
+  // === Custom Solutions Detail Page ===
+  'customSolutions.hero.title': 'AI Custom Solutions',
+  'customSolutions.hero.subtitle': 'Transform your business with tailored AI solutions designed to address your unique challenges and unlock new opportunities',
+  'customSolutions.overview.title': 'Bespoke AI Solutions for Your Business',
+  'customSolutions.overview.subtitle': 'Custom AI models and applications tailored to your unique business challenges',
+  'customSolutions.overview.paragraph1': 'Every business has unique challenges and opportunities. Off-the-shelf AI solutions often fall short of addressing your specific needs. That\'s where Bixing Technology\'s Custom AI Solutions come in.',
+  'customSolutions.overview.paragraph2': 'Our team of expert AI developers and data scientists work closely with you to understand your business processes, identify optimization opportunities, and develop custom AI models and applications that deliver measurable results.',
+  'customSolutions.overview.paragraph3': 'From computer vision systems to natural language processing applications, we build AI solutions that seamlessly integrate with your existing infrastructure and scale with your business.',
+  'customSolutions.services.title': 'Our Custom AI Services',
+  'customSolutions.services.subtitle': 'Comprehensive AI development services to meet your business needs',
+  'customSolutions.services.card1.title': 'Custom AI Model Development',
+  'customSolutions.services.card1.text': 'Develop bespoke machine learning models tailored to your specific use cases and data.',
+  'customSolutions.services.card2.title': 'AI-Powered Automation',
+  'customSolutions.services.card2.text': 'Automate complex business processes with intelligent AI systems that learn and adapt.',
+  'customSolutions.services.card3.title': 'Data Analytics Solutions',
+  'customSolutions.services.card3.text': 'Extract actionable insights from your data with advanced AI-powered analytics.',
+  'customSolutions.cta.title': 'Ready to Build Your Custom AI Solution?',
+  'customSolutions.cta.subtitle': 'Contact us today to discuss how custom AI solutions can transform your business.',
+  'customSolutions.cta.button': 'Get Started',
+
+  // === Consultation Detail Page ===
+  'consultation.hero.title': 'Enterprise AI Consultation',
+  'consultation.hero.subtitle': 'Strategic guidance for implementing AI across your organization to drive innovation, efficiency, and competitive advantage.',
+  'consultation.overview.title': 'Strategic AI Implementation',
+  'consultation.overview.subtitle': 'Transforming your business with a comprehensive AI strategy',
+  'consultation.overview.paragraph1': 'In today\'s rapidly evolving technological landscape, implementing AI effectively requires more than just technical expertise—it demands a strategic approach that aligns with your business objectives and organizational culture.',
+  'consultation.overview.paragraph2': 'Bixing Technology\'s Enterprise AI Consultation services provide comprehensive guidance to help your organization navigate the complexities of AI adoption and implementation. Our team of experienced consultants combines deep technical knowledge with business acumen to develop tailored strategies that drive measurable results.',
+  'consultation.overview.paragraph3': 'Whether you\'re just beginning your AI journey or looking to optimize existing initiatives, our consultative approach ensures that your AI investments deliver maximum value and competitive advantage.',
+  'consultation.services.title': 'Our Consultation Services',
+  'consultation.services.subtitle': 'Comprehensive AI consulting to guide your transformation',
+  'consultation.services.card1.title': 'AI Readiness Assessment',
+  'consultation.services.card1.text': 'Evaluate your organization\'s current state and readiness for AI implementation.',
+  'consultation.services.card2.title': 'AI Strategy Development',
+  'consultation.services.card2.text': 'Develop comprehensive AI strategies aligned with your business goals.',
+  'consultation.services.card3.title': 'Implementation Roadmap',
+  'consultation.services.card3.text': 'Create detailed roadmaps for phased AI implementation and adoption.',
+  'consultation.services.card4.title': 'ROI Analysis',
+  'consultation.services.card4.text': 'Measure and optimize the return on investment for your AI initiatives.',
+  'consultation.cta.title': 'Ready to Develop Your AI Strategy?',
+  'consultation.cta.subtitle': 'Contact us today to discuss how our AI consultation services can guide your transformation.',
+  'consultation.cta.button': 'Get Started'
 });
 
 // Chinese translations
@@ -92,7 +154,7 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'services.cta.subtitle': '立即联系我们，讨论我们的AI解决方案如何满足您的特定需求。',
   'services.cta.button': '联系我们',
 
-  // Education service
+  // Education service (main services page)
   'services.education.title': 'AI教育与培训',
   'services.education.description1': '为您的团队提供前沿AI知识',
   'services.education.description2': '适合各种技能水平的综合教育计划',
@@ -103,7 +165,7 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'services.education.feature5': '持续的支持和学习资源',
   'services.education.cta': '了解更多',
 
-  // Custom Solutions service
+  // Custom Solutions service (main services page)
   'services.customSolutions.title': 'AI定制解决方案',
   'services.customSolutions.description1': '通过定制AI解决方案转变您的业务',
   'services.customSolutions.description2': '解决特定挑战并开启新机遇',
@@ -114,7 +176,7 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'services.customSolutions.feature5': '与现有系统的无缝集成',
   'services.customSolutions.cta': '了解更多',
 
-  // Consultation service
+  // Consultation service (main services page)
   'services.consultation.title': '企业AI咨询',
   'services.consultation.description1': '通过专家指导驾驭复杂的AI领域',
   'services.consultation.description2': '针对您组织的战略目标和挑战',
@@ -140,5 +202,67 @@ window.translations.zh = Object.assign({}, window.translations.zh, {
   'services.analytics.title': '高级分析',
   'services.analytics.description': '强大的数据分析工具，揭示洞察并推动明智的决策。',
   'services.automation.title': '流程自动化',
-  'services.automation.description': '智能自动化解决方案，提高效率并降低运营成本。'
+  'services.automation.description': '智能自动化解决方案，提高效率并降低运营成本。',
+
+  // === Education Detail Page ===
+  'education.hero.title': 'AI教育与培训',
+  'education.hero.subtitle': '为您的团队提供有效利用AI所需的知识和技能',
+  'education.overview.title': '弥合AI知识鸿沟',
+  'education.overview.subtitle': '根据您组织的需求量身定制的全面AI教育',
+  'education.overview.paragraph1': '在当今快速发展的技术环境中，AI素养已成为关键的竞争优势。毕行科技的AI教育和培训课程旨在为您的团队提供在特定行业环境中有效利用AI所需的实用知识和技能。',
+  'education.overview.paragraph2': '无论您是希望提升技术团队的技能、帮助业务领导者做出明智的AI决策，还是创建组织范围内的AI素养，我们定制的课程都能提供可立即应用于实际挑战的实用、可操作的知识。',
+  'education.overview.paragraph3': '我们的方法将理论基础与实践经验相结合，确保参与者不仅理解AI概念，还能在日常工作中自信地应用它们。',
+  'education.benefits.title': '核心优势',
+  'education.benefits.subtitle': '为什么选择我们的AI教育和培训课程',
+  'education.benefits.card1.title': '定制学习路径',
+  'education.benefits.card1.text': '量身定制的课程设计，满足您组织的特定需求和目标，从AI基础到高级应用。',
+  'education.benefits.card2.title': '行业专家讲师',
+  'education.benefits.card2.text': '向在各行业实施AI解决方案方面具有丰富实战经验的资深AI从业者学习。',
+  'education.benefits.card3.title': '实践动手学习',
+  'education.benefits.card3.text': '专注于实际应用和真实场景，确保您的团队能够立即应用新掌握的AI技能。',
+  'education.cta.title': '准备好用AI教育改变您的团队了吗？',
+  'education.cta.subtitle': '立即联系我们，讨论我们的AI培训课程如何使您的组织受益。',
+  'education.cta.button': '立即开始',
+
+  // === Custom Solutions Detail Page ===
+  'customSolutions.hero.title': 'AI定制解决方案',
+  'customSolutions.hero.subtitle': '通过量身定制的AI解决方案改变您的业务，解决独特挑战并开启新机遇',
+  'customSolutions.overview.title': '为您的业务量身定制的AI解决方案',
+  'customSolutions.overview.subtitle': '针对您独特业务挑战定制的AI模型和应用',
+  'customSolutions.overview.paragraph1': '每个企业都有独特的挑战和机遇。现成的AI解决方案往往无法满足您的特定需求。这正是毕行科技定制AI解决方案发挥作用的地方。',
+  'customSolutions.overview.paragraph2': '我们的专业AI开发人员和数据科学家团队与您紧密合作，了解您的业务流程，识别优化机会，并开发能够带来可衡量成果的定制AI模型和应用。',
+  'customSolutions.overview.paragraph3': '从计算机视觉系统到自然语言处理应用，我们构建的AI解决方案能够与您现有的基础设施无缝集成，并随着您的业务发展而扩展。',
+  'customSolutions.services.title': '我们的定制AI服务',
+  'customSolutions.services.subtitle': '满足您业务需求的全面AI开发服务',
+  'customSolutions.services.card1.title': '定制AI模型开发',
+  'customSolutions.services.card1.text': '根据您特定的用例和数据开发定制的机器学习模型。',
+  'customSolutions.services.card2.title': 'AI驱动的自动化',
+  'customSolutions.services.card2.text': '通过能够学习和适应的智能AI系统自动化复杂的业务流程。',
+  'customSolutions.services.card3.title': '数据分析解决方案',
+  'customSolutions.services.card3.text': '通过先进的AI驱动分析从您的数据中提取可操作的洞察。',
+  'customSolutions.cta.title': '准备好构建您的定制AI解决方案了吗？',
+  'customSolutions.cta.subtitle': '立即联系我们，讨论定制AI解决方案如何改变您的业务。',
+  'customSolutions.cta.button': '立即开始',
+
+  // === Consultation Detail Page ===
+  'consultation.hero.title': '企业AI咨询',
+  'consultation.hero.subtitle': '为您的组织实施AI提供战略指导，推动创新、提高效率并获得竞争优势。',
+  'consultation.overview.title': '战略性AI实施',
+  'consultation.overview.subtitle': '通过全面的AI战略转变您的业务',
+  'consultation.overview.paragraph1': '在当今快速发展的技术环境中，有效实施AI不仅需要技术专长，还需要与您的业务目标和组织文化相一致的战略方法。',
+  'consultation.overview.paragraph2': '毕行科技的企业AI咨询服务提供全面指导，帮助您的组织应对AI采用和实施的复杂性。我们经验丰富的顾问团队将深厚的技术知识与商业洞察力相结合，制定量身定制的策略，推动可衡量的成果。',
+  'consultation.overview.paragraph3': '无论您是刚刚开始AI之旅，还是希望优化现有计划，我们的咨询方法都能确保您的AI投资带来最大价值和竞争优势。',
+  'consultation.services.title': '我们的咨询服务',
+  'consultation.services.subtitle': '为您的AI之旅提供全面支持',
+  'consultation.services.card1.title': 'AI就绪评估',
+  'consultation.services.card1.text': '评估您组织的当前状态和AI实施准备情况。',
+  'consultation.services.card2.title': 'AI战略制定',
+  'consultation.services.card2.text': '制定与您业务目标一致的全面AI战略。',
+  'consultation.services.card3.title': '实施路线图',
+  'consultation.services.card3.text': '创建分阶段AI实施和采用的详细路线图。',
+  'consultation.services.card4.title': '投资回报分析',
+  'consultation.services.card4.text': '衡量和优化您AI计划的投资回报。',
+  'consultation.cta.title': '准备好制定您的AI战略了吗？',
+  'consultation.cta.subtitle': '立即联系我们，讨论我们的AI咨询服务如何指导您的转型。',
+  'consultation.cta.button': '立即开始'
 });
