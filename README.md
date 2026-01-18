@@ -1,19 +1,19 @@
 # Bixing Technology Website
 
-[![Version](https://img.shields.io/badge/version-v1.0.2-blue.svg)](https://github.com/bixoryai/bixingai-web/releases/tag/v1.0.2)
-[![Status](https://img.shields.io/badge/status-production-green.svg)]()
+[![Version](https://img.shields.io/badge/version-v2.0.0--beta-blue.svg)](https://github.com/bixoryai/bixingai-web/releases)
+[![Status](https://img.shields.io/badge/status-migration--complete-orange.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A corporate website for Bixing Technology, showcasing AI solutions, education services, and enterprise consultation.
 
 ## 📋 Current Status
 
-**Latest Release:** v1.0.2 (December 22, 2025)
-- ✅ JavaScript linting issues resolved
-- ✅ Header component loading fixed
-- ✅ CSS quality improved (52% error reduction)
-- ✅ Automated release workflow active
-- ✅ Branch protection and safety measures implemented
+**Migration Status:** Astro + Tailwind migration complete (January 18, 2025)
+- ✅ **Phase 1-5 Complete**: Jekyll → Astro migration finished
+- ✅ **Visual Parity**: All 7 pages verified (Homepage, About, Insights, Careers, Contact, Services, Service Details)
+- ✅ **Performance Optimized**: WebP images (66% savings), lazy loading, async CSS/fonts
+- ✅ **i18n Working**: English/Chinese translations functional across all pages
+- ⏳ **Phase 6**: Deployment pending (staging → production cutover)
 
 ## Project Overview
 
@@ -33,25 +33,33 @@ This website serves as the digital presence for Bixing Technology, a company spe
 
 ## Technical Details
 
-- **Framework**: HTML5, CSS3, JavaScript (ES6+)
-- **UI Framework**: Bootstrap 5 for responsive layout
-- **Animations**: AOS (Animate On Scroll) for smooth interactions
-- **Internationalization**: Custom i18n system with localStorage persistence
-- **Static Site Generation**: Jekyll for blog processing and content management
+### New Astro Stack (v2.0)
+- **Framework**: Astro 4.x with static output
+- **Styling**: Tailwind CSS with custom design tokens
+- **Build**: Vite with esbuild minification and code splitting
+- **Images**: WebP with `<picture>` fallback (66% average savings)
+- **Fonts**: Async loading with preload hints
+- **i18n**: Custom JavaScript-based translation system
+- **Performance**: HTML compression, CSS purging, lazy loading
+
+### Legacy Jekyll Stack (v1.x - Production)
+- **Framework**: Jekyll + Bootstrap 5
+- **Styling**: Custom CSS with consolidated architecture
+- **i18n**: Custom JavaScript translation system
+
+### Shared Features
 - **Code Quality**: ESLint, Stylelint, HTMLHint with automated linting
 - **Build Tools**: npm scripts, automated CI/CD pipelines
-- **Performance**: Optimized assets, lazy loading, and caching strategies
-- **SEO**: Meta tags, structured data, and search engine optimization
-- **Version Control**: Git with protected branches and automated releases
-- **Branch Strategy**: Git-flow with `main` (production) and `develop` (active development)
+- **SEO**: Meta tags, Open Graph, structured data
+- **Version Control**: Git with protected branches
+- **Branch Strategy**: `main` (production Jekyll), `develop` (Astro migration)
 
-### Recent Improvements (v1.0.2)
-- ✅ **JavaScript**: 0 linting errors, modern syntax, improved error handling
-- ✅ **CSS**: 52% reduction in linting errors, consolidated stylesheets
-- ✅ **Header Component**: Fixed dynamic loading with proper Jekyll processing
-- ✅ **Code Formatting**: Prettier integration for consistent styling
-- ✅ **Asset Management**: Added missing resources and optimized loading
-- ✅ **Branch Protection**: Safety measures to prevent accidental deletions
+### Recent Improvements (v2.0-beta - January 2025)
+- ✅ **Astro Migration**: Complete Jekyll → Astro + Tailwind conversion
+- ✅ **Visual Parity**: 7/7 pages verified pixel-perfect match
+- ✅ **WebP Images**: 66% average file size reduction
+- ✅ **Performance**: Lazy loading, async fonts, HTML compression
+- ✅ **Code Splitting**: Vite bundles per-page JS chunks
 
 ## Pages
 
@@ -89,44 +97,58 @@ The website supports both English and Chinese languages with a seamless toggle f
 - [x] Production deployment with automated versioning
 - [x] Launch & Monitoring
 
-## Current Status
+## Migration Status
 
-**Latest Release**: v1.0.1 (November 25, 2025)
-- Automated release workflow active
-- Full CI/CD pipeline operational
-- Production deployment on GitHub Pages
-- Multilingual website (English/Chinese) fully functional
+**Astro Migration**: Phases 1-5 Complete (January 18, 2025)
+- ✅ All 9 pages migrated to Astro + Tailwind
+- ✅ 12 Astro components created
+- ✅ Visual parity verified for all pages
+- ✅ Performance optimizations applied
+- ⏳ Phase 6: Deployment pending
+
+**Production**: v1.0.2 (Jekyll + Bootstrap on GitHub Pages)
 
 ## Getting Started
 
-1. Clone the repository
-2. For basic page viewing, open any HTML file in your browser
-3. For full site with blog posts, install dependencies and build:
-   ```bash
-   bundle install
-   bundle exec jekyll build
-   ```
-4. Serve the built site from the `_site` directory using any web server
-
-### Local Development
+### Astro Development (Recommended - v2.0)
 
 1. Clone the repository
    ```bash
    git clone https://github.com/bixoryai/bixingai-web.git
    cd bixingai-web
+   git checkout develop
    ```
 
-2. Install dependencies
+2. Install dependencies and start dev server
    ```bash
+   cd astro-site
    npm install
+   npm run dev
    ```
 
-3. Start local development server
+3. Open http://localhost:4321 in your browser
+
+4. Build for production
    ```bash
-   npm run serve
+   npm run build
    ```
 
-4. Open http://localhost:8000 in your browser
+### Legacy Jekyll Development (v1.x)
+
+1. Clone and switch to main branch
+   ```bash
+   git clone https://github.com/bixoryai/bixingai-web.git
+   cd bixingai-web
+   git checkout main
+   ```
+
+2. Install Jekyll dependencies
+   ```bash
+   bundle install
+   bundle exec jekyll build
+   ```
+
+3. Serve the built site from the `_site` directory
 
 ### Code Quality
 

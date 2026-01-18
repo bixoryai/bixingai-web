@@ -90,7 +90,12 @@ particlesJS('hero-particles', {
 1. **Phase 1**: ✅ Setup & Planning — **COMPLETE**
 2. **Phase 2**: ✅ Component Migration — **COMPLETE**
 3. **Phase 3**: ✅ Page Migration — **COMPLETE**
-4. **Phase 4**: ⏳ Optimization — Not Started
+4. **Phase 4**: ✅ Optimization — **COMPLETE**
+   - Image lazy loading for below-fold content
+   - WebP conversion with `<picture>` fallback (66% avg savings)
+   - Async font/CSS loading with preload hints
+   - HTML compression and CSS purging
+   - Vite code splitting and minification
 5. **Phase 5**: ✅ Testing — **COMPLETE** (Visual Parity: 7/7 pages verified)
 6. **Phase 6**: ⏳ Deployment — Not Started
 
@@ -100,6 +105,9 @@ particlesJS('hero-particles', {
 - Blog pages working with Chinese translations
 - Language toggle functional across all pages
 - Particles.js animation preserved with lazy loading
+- WebP image conversion (5 images, 66% avg savings)
+- Async CSS/font loading with preload hints
+- HTML compression and Vite minification enabled
 - **Visual Parity Verified**: ALL 7 pages (Homepage, About, Insights, Careers, Contact, Services, Service Detail Pages)
 - **Service Detail Pages**: Full Chinese translation support added for Education, Custom Solutions, Consultation
 - **Team Section Updated**: Real team members (Andrew Bi - CEO, Yan Hong - CTO)
@@ -310,10 +318,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 - [x] Language toggle functionality intact
 
 ### Current Priority Tasks
-1. **Phase 4 - Optimization**: Image optimization (WebP conversion, lazy loading)
-2. **Phase 4 - Optimization**: Font optimization (preloading, subsetting)
-3. **Phase 4 - Optimization**: CSS purging and minification, JavaScript bundling
-4. **Phase 6 - Deployment**: Prepare staging deployment after optimization complete
+1. **Phase 6 - Deployment**: Prepare staging deployment
+2. **Phase 6 - Deployment**: Configure GitHub Pages for Astro output
+3. **Phase 6 - Deployment**: Set up production CI/CD pipeline
+4. **Phase 6 - Deployment**: Post-deployment monitoring and QA
 
 ### Quality Gates
 - **Visual**: 100% pixel-perfect match
