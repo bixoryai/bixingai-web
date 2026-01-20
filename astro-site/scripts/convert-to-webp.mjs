@@ -16,8 +16,6 @@ const imagesToConvert = [
   'team/andrew-bi.png',
   'team/yan-hong.png',
   'qrcode/qrcode-wechat.jpg',
-  'blog/blog-ai-enterprise.jpg',
-  'blog/ml-business.jpg',
   'bixingai-logo.png',
   'favicon.png'
 ];
