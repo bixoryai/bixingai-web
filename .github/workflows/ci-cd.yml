@@ -1,19 +1,22 @@
-# CI/CD Pipeline - Legacy Jekyll (being replaced by astro-deploy.yml)
-# This workflow is kept for backwards compatibility with main branch
-# The new Astro site uses .github/workflows/astro-deploy.yml
+# CI/CD Pipeline - Updated for Astro Migration
+# This workflow now tests the Astro site instead of legacy Jekyll
+# The new Astro site uses .github/workflows/astro-deploy.yml for deployment
 
-name: CI/CD Pipeline (Legacy)
+name: CI/CD Pipeline (Astro)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, develop ]
     paths-ignore:
-      - 'astro-site/**'
-      - '.github/workflows/astro-deploy.yml'
+      - 'docs/**'
+      - '*.md'
+      - 'LICENSE'
   pull_request:
-    branches: [ main ]
+    branches: [ main, develop ]
     paths-ignore:
-      - 'astro-site/**'
+      - 'docs/**'
+      - '*.md'
+      - 'LICENSE'
 
 jobs:
   lint-and-test:
@@ -26,33 +29,51 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
+        cache-dependency-path: 'astro-site/package-lock.json'
 
     - name: Install dependencies
+      working-directory: astro-site
       run: npm ci
 
-    - name: Run linting (non-blocking during migration)
-      continue-on-error: true
-      run: npm run lint || echo "⚠️ Lint warnings found (non-blocking during Astro migration)"
+    - name: Run linting
+      working-directory: astro-site
+      run: npm run lint || echo "⚠️ Lint warnings found"
+
+    - name: Build Astro site
+      working-directory: astro-site
+      run: npm run build
 
     - name: Basic functionality test
       run: |
-        # Start a simple HTTP server for testing
+        # Start a simple HTTP server for testing the built Astro site
+        cd astro-site/dist
         python3 -m http.server 8000 &
         SERVER_PID=$!
 
         # Wait for server to start
-        sleep 2
+        sleep 3
 
         # Test basic page load
         if curl -s -o /dev/null -w "%{http_code}" http://localhost:8000/index.html | grep -q "200"; then
-          echo "✅ Website loads successfully"
+          echo "✅ Astro website loads successfully"
         else
-          echo "❌ Website failed to load"
+          echo "❌ Astro website failed to load"
           kill $SERVER_PID
           exit 1
         fi
+
+        # Test a few key pages
+        for page in "about.html" "careers.html" "contact.html"; do
+          if curl -s -o /dev/null -w "%{http_code}" "http://localhost:8000/${page}" | grep -q "200"; then
+            echo "✅ ${page} loads successfully"
+          else
+            echo "❌ ${page} failed to load"
+            kill $SERVER_PID
+            exit 1
+          fi
+        done
 
         # Clean up
         kill $SERVER_PID
@@ -63,12 +84,17 @@ jobs:
     needs: lint-and-test
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
     - name: Deploy notification
       run: |
-        echo "## ℹ️ Legacy Jekyll Deployment" >> $GITHUB_STEP_SUMMARY
+        echo "## 🚀 Astro Site Ready for Production Deployment" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "This workflow handles the legacy Jekyll site on main branch." >> $GITHUB_STEP_SUMMARY
-        echo "The new Astro site is deployed via astro-deploy.yml workflow." >> $GITHUB_STEP_SUMMARY
+        echo "✅ **CI/CD tests passed** - Astro site is ready for production!" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Next Steps:" >> $GITHUB_STEP_SUMMARY
+        echo "1. Go to **Actions** tab" >> $GITHUB_STEP_SUMMARY
+        echo "2. Find **'Deploy Astro Site'** workflow" >> $GITHUB_STEP_SUMMARY
+        echo "3. Click **'Run workflow'**" >> $GITHUB_STEP_SUMMARY
+        echo "4. Select **'production'** target" >> $GITHUB_STEP_SUMMARY
+        echo "5. **Deploy to production!** 🎉" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Current live site:** https://bixingai.bixory.ai" >> $GITHUB_STEP_SUMMARY
