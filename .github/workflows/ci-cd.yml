@@ -65,7 +65,7 @@ jobs:
         fi
 
         # Test a few key pages
-        for page in "about.html" "careers.html" "contact.html"; do
+        for page in "about/" "careers/" "contact/"; do
           if curl -s -o /dev/null -w "%{http_code}" "http://localhost:8000/${page}" | grep -q "200"; then
             echo "✅ ${page} loads successfully"
           else
