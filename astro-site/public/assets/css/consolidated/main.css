@@ -23,9 +23,12 @@
   --gradient-gold: linear-gradient(to right, #FFD700, #FFA07A);
   
   /* Neutral Colors */
-  --dark-bg: #121212;
-  --dark-surface: #1e1e1e;
-  --gray-light: #a0a0a0;
+  --dark-bg: #080C14;
+  --surface-alt: #0E1420;
+  --dark-surface: rgba(14, 20, 32, 0.8);
+  --card-border: rgba(255, 255, 255, 0.06);
+  --card-glow: rgba(0, 102, 255, 0.15);
+  --gray-light: #94A3B8;
   --white: #fff;
   
   /* Functional Colors */
@@ -60,12 +63,12 @@
   --shadow-md: 0 4px 8px rgb(0 0 0 / 20%);
   --shadow-lg: 0 8px 16px rgb(0 0 0 / 30%);
   
-  /* Card Gradients */
-  --gradient-card-1: linear-gradient(135deg, #00a8ff, #00bcd4);
-  --gradient-card-2: linear-gradient(135deg, #9c27b0, #673ab7);
-  --gradient-card-3: linear-gradient(135deg, #f44336, #ff9800);
-  --gradient-card-4: linear-gradient(135deg, #4caf50, #8bc34a);
-  --gradient-card-5: linear-gradient(135deg, #3f51b5, #2196f3);
+  /* Card Gradients - unified blue palette */
+  --gradient-card-1: linear-gradient(135deg, #0066FF, #00C2FF);
+  --gradient-card-2: linear-gradient(135deg, #0052CC, #0099FF);
+  --gradient-card-3: linear-gradient(135deg, #00C2FF, #0066FF);
+  --gradient-card-4: linear-gradient(135deg, #005CE6, #00B4FF);
+  --gradient-card-5: linear-gradient(135deg, #0047B3, #00A3FF);
 }
 
 /* ===== Global Styles ===== */

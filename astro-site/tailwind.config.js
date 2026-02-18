@@ -23,13 +23,13 @@ export default {
         'gold-dark': '#B8860B',
 
         // Neutrals
-        'dark-bg': '#121212',
-        'dark-surface': '#1e1e1e',
+        'dark-bg': '#080C14',
+        'dark-surface': '#0E1420',
         'dark-color': '#0a1020',     // Footer/header background
-        'dark-border': 'rgba(255, 255, 255, 0.1)',
-        'darker-bg': '#0a0a0a',
-        'gray-light': '#a0a0a0',
-        'text-light': '#a0a0a0',
+        'dark-border': 'rgba(255, 255, 255, 0.06)',
+        'darker-bg': '#080C14',
+        'gray-light': '#94A3B8',
+        'text-light': '#94A3B8',
         'white': '#ffffff',
 
         // Functional

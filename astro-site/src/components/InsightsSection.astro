@@ -13,7 +13,7 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             <!-- Insight Card 1 -->
-            <div class="insight-card group bg-dark-surface rounded-xl border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] hover:border-primary-color h-full">
+            <div class="insight-card group bg-dark-surface rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] h-full">
                 <div class="insight-img relative h-48 overflow-hidden">
                     <img src="/assets/images/insights/insight1.svg" alt="AI in Enterprise" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="insight-ai-pattern absolute inset-0 opacity-20 bg-gradient-to-br from-primary-color/30 to-transparent"></div>
@@ -40,7 +40,7 @@
             </div>
             
             <!-- Insight Card 2 -->
-            <div class="insight-card group bg-dark-surface rounded-xl border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] hover:border-primary-color h-full">
+            <div class="insight-card group bg-dark-surface rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] h-full">
                 <div class="insight-img relative h-48 overflow-hidden">
                     <img src="/assets/images/insights/insight2.svg" alt="Machine Learning Models" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="insight-ai-pattern absolute inset-0 opacity-20 bg-gradient-to-br from-primary-color/30 to-transparent"></div>
@@ -67,7 +67,7 @@
             </div>
             
             <!-- Insight Card 3 -->
-            <div class="insight-card group bg-dark-surface rounded-xl border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] hover:border-primary-color h-full">
+            <div class="insight-card group bg-dark-surface rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] h-full">
                 <div class="insight-img relative h-48 overflow-hidden">
                     <img src="/assets/images/insights/insight3.svg" alt="AI Implementation" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="insight-ai-pattern absolute inset-0 opacity-20 bg-gradient-to-br from-primary-color/30 to-transparent"></div>
@@ -102,32 +102,16 @@
 
 <style>
     :root {
-        --dark-bg: #121212;
-        --dark-surface: #1e1e1e;
+        --dark-bg: #080C14;
+        --dark-surface: rgba(14, 20, 32, 0.8);
         --primary-color: #0066FF;
         --accent-color: #00C2FF;
-        --insights-bg: #0F172A;
+        --insights-bg: #080C14;
     }
-    
-    /* Insights Section Background - matches original */
+
+    /* Insights Section Background */
     .insights-section {
-        background-color: #0F172A;
-        background-image: 
-            linear-gradient(135deg, rgba(0, 102, 255, 0.02) 0%, transparent 50%),
-            linear-gradient(45deg, rgba(0, 194, 255, 0.02) 0%, transparent 50%);
-    }
-    
-    .insights-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%230066FF' fill-opacity='0.03' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
-        background-size: 20px 20px;
-        opacity: 0.4;
-        z-index: 0;
+        background-color: #080C14;
     }
     
     .section-title::after {
@@ -139,6 +123,19 @@
         width: 60px;
         height: 3px;
         background: var(--primary-color);
+    }
+
+    /* Card glassmorphism overrides */
+    .insight-card {
+        background: rgba(14, 20, 32, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .insight-card:hover {
+        border-color: var(--primary-color);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 102, 255, 0.1);
     }
 </style>
 
