@@ -1,0 +1,526 @@
+---
+// Hero Section Component - Converted to Tailwind with preserved styling
+---
+
+<section class="hero-section ai-circuit-bg pt-[120px] pb-[140px] relative bg-dark-bg text-white" style="overflow: visible;">
+    <div class="hero-particles absolute top-0 left-0 w-full h-full z-[1] pointer-events-none" id="hero-particles"></div>
+    
+    <div class="w-full px-4">
+        <div class="flex items-center justify-center flex-wrap lg:flex-nowrap hero-row">
+            <!-- Hero Text Column -->
+            <div class="w-full md:w-10/12 lg:w-5/12 lg:ml-0 hero-text-col animate-fade-right">
+                <div class="hero-content relative z-[2] pr-4">
+                    <h1 class="hero-title display-4 fw-bold text-gradient mb-4 leading-tight" style="background: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 10px rgba(255, 184, 0, 0.2);" data-i18n="hero.title">Empowering Enterprises with AI Innovation</h1>
+                    <p class="hero-subtitle text-[1.3rem] font-normal text-gray-light mb-6" data-i18n="hero.subtitle">Custom AI solutions, education, and consultation services to transform your business</p>
+                    <div class="hero-buttons mt-8 relative z-[999]" style="pointer-events: auto;">
+                        <a href="#services" class="btn btn-primary smooth-scroll relative z-[999]" style="pointer-events: auto;" data-i18n="hero.exploreServices">Explore Services</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Hero Image Column -->
+            <div class="w-full md:w-10/12 lg:w-5/12 lg:ml-[8.333333%] hero-image-col mt-8 lg:mt-0 animate-fade-left">
+                <div class="hero-image-container relative z-[2] pl-4">
+                    <div class="hero-image">
+                        <img src="/assets/images/hero-ai-illustration.svg" alt="AI Innovation" class="max-w-full h-auto" width="600" height="450">
+                    </div>
+                    
+                    <!-- Mobile-specific floating cards -->
+                    <div class="floating-card-mobile floating-card-mobile-1">
+                        <i class="fas fa-brain"></i>
+                        <span data-i18n="hero.floatingCard1">Specialized AI Models</span>
+                    </div>
+                    <div class="floating-card-mobile floating-card-mobile-2">
+                        <i class="fas fa-chart-line"></i>
+                        <span data-i18n="hero.floatingCard2">AI Data Solutions</span>
+                    </div>
+                    <div class="floating-card-mobile floating-card-mobile-3">
+                        <i class="fas fa-robot"></i>
+                        <span data-i18n="hero.floatingCard3">AI Agents</span>
+                    </div>
+                    <div class="floating-card-mobile floating-card-mobile-4">
+                        <i class="fas fa-lightbulb"></i>
+                        <span data-i18n="hero.floatingCard4">Custom AI Strategy</span>
+                    </div>
+                    <div class="floating-card-mobile floating-card-mobile-5">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span data-i18n="hero.floatingCard5">AI Education</span>
+                    </div>
+                    
+                    <!-- Desktop floating cards -->
+                    <div class="floating-card floating-card-1">
+                        <div class="floating-card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="floating-card-text">
+                            <span data-i18n="hero.floatingCard1">Specialized AI Models</span>
+                            <div class="floating-card-progress">
+                                <div class="progress-bar" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card floating-card-2">
+                        <div class="floating-card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="floating-card-text">
+                            <span data-i18n="hero.floatingCard2">AI Data Solutions</span>
+                            <div class="floating-card-progress">
+                                <div class="progress-bar" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card floating-card-3">
+                        <div class="floating-card-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="floating-card-text">
+                            <span data-i18n="hero.floatingCard3">AI Agents</span>
+                            <div class="floating-card-progress">
+                                <div class="progress-bar" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card floating-card-4">
+                        <div class="floating-card-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="floating-card-text">
+                            <span data-i18n="hero.floatingCard4">Custom AI Strategy</span>
+                            <div class="floating-card-progress">
+                                <div class="progress-bar" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-card floating-card-5">
+                        <div class="floating-card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="floating-card-text">
+                            <span data-i18n="hero.floatingCard5">AI Education</span>
+                            <div class="floating-card-progress">
+                                <div class="progress-bar" style="width: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empowered By Section -->
+    <div class="empowered-by-section absolute bottom-2.5 left-0 right-0 z-[3] bg-transparent p-0">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center">
+                <div class="w-full text-center">
+                    <div class="empowered-by-content flex items-center justify-center flex-wrap">
+                        <span class="empowered-by-text text-white text-xl font-bold mr-5" data-i18n="hero.empoweredBy">Empowered by</span>
+                        <span class="ai-model deepseek text-[22px] font-bold mx-4 text-[#3498db]" style="text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);">DEEPSEEK</span>
+                        <span class="ai-model qwen text-[22px] font-bold mx-4 text-[#f1c40f]" style="text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);">QWEN</span>
+                        <span class="ai-model llama text-[22px] font-bold mx-4 text-[#2ecc71]" style="text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);">LLAMA</span>
+                        <span class="ai-model chatgpt text-[22px] font-bold mx-4 text-[#9b59b6]" style="text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);">CHATGPT</span>
+                        <span class="ai-model claude text-[22px] font-bold mx-4 text-[#1abc9c]" style="text-shadow: 0 0 10px rgba(26, 188, 156, 0.5);">CLAUDE</span>
+                        <span class="ai-model gemini text-[22px] font-bold mx-4 text-[#16a085]" style="text-shadow: 0 0 10px rgba(22, 160, 133, 0.5);">GEMINI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Wave Shape - Section Boundary Visual -->
+    <!-- This wave creates a visual transition from hero section to services section -->
+    <div class="hero-shape">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200" preserveAspectRatio="none" style="display: block; width: 100%; height: 200px; position: relative;">
+            <path fill="#0a0a0a" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,90.7C384,85,480,107,576,117.3C672,128,768,128,864,122.7C960,117,1056,107,1152,96C1248,85,1344,75,1392,69.3L1440,64L1440,200L1392,200C1344,200,1248,200,1152,200C1056,200,960,200,864,200C768,200,672,200,576,200C480,200,384,200,288,200C192,200,96,200,48,200L0,200Z"></path>
+        </svg>
+    </div>
+</section>
+
+<script>
+    const appWindow = window as Window & {
+        particlesJS?: (containerId: string, config: unknown) => void;
+        pJSDom?: Array<{ pJS: { particles?: { move?: { enable: boolean } } } }>;
+    };
+    const particlesJS = appWindow.particlesJS;
+
+    // Optimized particles.js loading - with mobile optimization and visibility pause
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof particlesJS !== 'undefined') {
+            const particlesEl = document.getElementById('hero-particles');
+            if (particlesEl) {
+                // Determine particle count based on viewport width
+                // Desktop: 80 particles, Tablet: 50, Mobile: 30
+                function getParticleCount() {
+                    const width = window.innerWidth;
+                    if (width <= 576) return 30;  // Mobile
+                    if (width <= 992) return 50;  // Tablet
+                    return 80;  // Desktop
+                }
+                
+                // Store reference to particles instance for pause/resume
+                let pJSInstance = null;
+                
+                // Use Intersection Observer for lazy loading
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const particleCount = getParticleCount();
+                            
+                            particlesJS('hero-particles', {
+                                "particles": {
+                                    "number": {
+                                        "value": particleCount,
+                                        "density": {
+                                            "enable": true,
+                                            "value_area": 800
+                                        }
+                                    },
+                                    "color": {
+                                        "value": "#5ce1e6"
+                                    },
+                                    "shape": {
+                                        "type": "circle",
+                                        "stroke": {
+                                            "width": 0,
+                                            "color": "#000000"
+                                        },
+                                        "polygon": {
+                                            "nb_sides": 5
+                                        }
+                                    },
+                                    "opacity": {
+                                        "value": 0.3,
+                                        "random": true,
+                                        "anim": {
+                                            "enable": false,
+                                            "speed": 1,
+                                            "opacity_min": 0.1,
+                                            "sync": false
+                                        }
+                                    },
+                                    "size": {
+                                        "value": 3,
+                                        "random": true,
+                                        "anim": {
+                                            "enable": false,
+                                            "speed": 40,
+                                            "size_min": 0.1,
+                                            "sync": false
+                                        }
+                                    },
+                                    "line_linked": {
+                                        "enable": true,
+                                        "distance": 150,
+                                        "color": "#5ce1e6",
+                                        "opacity": 0.2,
+                                        "width": 1
+                                    },
+                                    "move": {
+                                        "enable": true,
+                                        "speed": 2,
+                                        "direction": "none",
+                                        "random": false,
+                                        "straight": false,
+                                        "out_mode": "out",
+                                        "bounce": false,
+                                        "attract": {
+                                            "enable": false,
+                                            "rotateX": 600,
+                                            "rotateY": 1200
+                                        }
+                                    }
+                                },
+                                "interactivity": {
+                                    "detect_on": "canvas",
+                                    "events": {
+                                        "onhover": {
+                                            "enable": true,
+                                            "mode": "grab"
+                                        },
+                                        "onclick": {
+                                            "enable": true,
+                                            "mode": "push"
+                                        },
+                                        "resize": true
+                                    },
+                                    "modes": {
+                                        "grab": {
+                                            "distance": 140,
+                                            "line_linked": {
+                                                "opacity": 0.5
+                                            }
+                                        },
+                                        "bubble": {
+                                            "distance": 400,
+                                            "size": 40,
+                                            "duration": 2,
+                                            "opacity": 8,
+                                            "speed": 3
+                                        },
+                                        "repulse": {
+                                            "distance": 200,
+                                            "duration": 0.4
+                                        },
+                                        "push": {
+                                            "particles_nb": 4
+                                        },
+                                        "remove": {
+                                            "particles_nb": 2
+                                        }
+                                    }
+                                },
+                                "retina_detect": true
+                            });
+                            
+                            // Store reference to pJS instance for pause/resume
+                            pJSInstance = appWindow.pJSDom && appWindow.pJSDom[0] ? appWindow.pJSDom[0].pJS : null;
+                            
+                            observer.disconnect(); // Stop observing after initialization
+                        }
+                    });
+                }, { rootMargin: '50px' });
+                
+                observer.observe(particlesEl);
+                
+                // Tab visibility change handler - pause animation when tab not visible
+                document.addEventListener('visibilitychange', function() {
+                    if (!pJSInstance) {
+                        pJSInstance = appWindow.pJSDom && appWindow.pJSDom[0] ? appWindow.pJSDom[0].pJS : null;
+                    }
+                    
+                    if (pJSInstance && pJSInstance.particles && pJSInstance.particles.move) {
+                        if (document.hidden) {
+                            // Pause particles when tab is hidden
+                            pJSInstance.particles.move.enable = false;
+                        } else {
+                            // Resume particles when tab is visible
+                            pJSInstance.particles.move.enable = true;
+                        }
+                    }
+                });
+            }
+        }
+    });
+</script>
+
+<style>
+    :root {
+        --dark-bg: #121212;
+        --white: #ffffff;
+        --gray-light: #a0a0a0;
+        --gradient-gold: linear-gradient(135deg, #FFD700, #FF8C00, #FFA500);
+        --gradient-card-1: linear-gradient(135deg, #0066FF, #00C2FF);
+        --gradient-card-2: linear-gradient(135deg, #9c27b0, #e040fb);
+        --gradient-card-3: linear-gradient(135deg, #00bcd4, #00e5ff);
+        --gradient-card-4: linear-gradient(135deg, #ff9800, #ffb74d);
+        --gradient-card-5: linear-gradient(135deg, #4caf50, #81c784);
+        --radius-md: 8px;
+        --radius-full: 9999px;
+        --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Hero Section Container */
+    .hero-section {
+        overflow: visible !important;
+        position: relative;
+        background: var(--dark-bg);
+    }
+    
+    .hero-section::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 150px;
+        background: linear-gradient(to bottom, transparent, var(--dark-bg));
+        z-index: 1;
+    }
+    
+    .hero-particles {
+        pointer-events: none;
+    }
+    
+    .hero-buttons {
+        pointer-events: auto;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .hero-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        line-height: 1.2;
+    }
+    
+    /* Hero Wave Shape */
+    .hero-shape {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        line-height: 0;
+        z-index: 2;
+        transform: translateY(10px);
+    }
+    
+    /* Floating Cards - Desktop */
+    .floating-card {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--radius-md);
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: float 3s ease-in-out infinite;
+        z-index: 3;
+        max-width: 200px;
+    }
+    
+    .floating-card-1 { top: 15%; left: 5%; animation-delay: 0s; }
+    .floating-card-2 { bottom: 15%; right: 0%; animation-delay: 1.5s; }
+    .floating-card-3 { top: 10%; right: 10%; animation-delay: 0.8s; }
+    .floating-card-4 { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-name: float-centered; animation-delay: 2.2s; }
+    .floating-card-5 { bottom: 0%; left: 25%; animation-delay: 1.2s; }
+    
+    .floating-card-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 1.2rem;
+        color: var(--white);
+    }
+    
+    .floating-card-1 .floating-card-icon { background: var(--gradient-card-1); }
+    .floating-card-2 .floating-card-icon { background: var(--gradient-card-2); }
+    .floating-card-3 .floating-card-icon { background: var(--gradient-card-3); }
+    .floating-card-4 .floating-card-icon { background: var(--gradient-card-4); }
+    .floating-card-5 .floating-card-icon { background: var(--gradient-card-5); }
+    
+    .floating-card-text { flex: 1; }
+    .floating-card-text span { display: block; font-size: 0.9rem; font-weight: 500; margin-bottom: 5px; }
+    
+    .floating-card-progress {
+        height: 4px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-full);
+        overflow: hidden;
+        width: 100px;
+    }
+    
+    .floating-card-progress .progress-bar { height: 100%; border-radius: var(--radius-full); }
+    .floating-card-1 .progress-bar { background: var(--gradient-card-1); }
+    .floating-card-2 .progress-bar { background: var(--gradient-card-2); }
+    .floating-card-3 .progress-bar { background: var(--gradient-card-3); }
+    .floating-card-4 .progress-bar { background: var(--gradient-card-4); }
+    .floating-card-5 .progress-bar { background: var(--gradient-card-5); }
+    
+    /* Mobile floating cards */
+    .floating-card-mobile { display: none; }
+    
+    @media (max-width: 768px) {
+        .floating-card { display: none; }
+        
+        .floating-card-mobile {
+            display: inline-flex;
+            align-items: center;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 4px 8px;
+            font-size: 12px;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: float-mobile 3s ease-in-out infinite;
+            z-index: 3;
+        }
+        
+        .floating-card-mobile i {
+            font-size: 12px;
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .floating-card-mobile-1 { top: 15%; left: 15%; animation-delay: 0s; }
+        .floating-card-mobile-2 { top: 20%; right: 20%; animation-delay: 0.5s; }
+        .floating-card-mobile-3 { bottom: 20%; left: 20%; animation-delay: 0.8s; }
+        .floating-card-mobile-4 { top: 50%; left: 50%; transform: translate(-50%, -50%); animation-delay: 1.5s; animation-name: float-mobile-center; }
+        .floating-card-mobile-5 { bottom: 25%; right: 25%; animation-delay: 1.2s; }
+    }
+    
+    @media (min-width: 769px) {
+        .floating-card-mobile { display: none !important; }
+    }
+    
+    /* Animations */
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+    
+    @keyframes float-centered {
+        0% { transform: translate(-50%, -50%); }
+        50% { transform: translate(-50%, -60%); }
+        100% { transform: translate(-50%, -50%); }
+    }
+    
+    @keyframes float-mobile {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-5px); }
+        100% { transform: translateY(0); }
+    }
+    
+    @keyframes float-mobile-center {
+        0% { transform: translate(-50%, -50%); }
+        50% { transform: translate(-50%, -55%); }
+        100% { transform: translate(-50%, -50%); }
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+        .hero-section { padding-top: 50px; padding-bottom: 50px; }
+        .hero-content { padding-right: 0; text-align: center; margin-bottom: 3rem; }
+        .hero-image-container { padding-left: 0; display: flex; flex-wrap: wrap; justify-content: center; }
+    }
+    
+    @media (max-width: 768px) {
+        .hero-section { padding-top: 80px; padding-bottom: 80px; text-align: center; }
+        .hero-row { display: flex; flex-direction: column; }
+        .hero-image-col { order: 1; margin-bottom: 1rem; }
+        .hero-text-col { order: 2; }
+        .hero-content { margin-bottom: 0; margin-top: 0; }
+        .hero-title { margin-bottom: 0.5rem; }
+        .hero-subtitle { margin-bottom: 1rem; }
+        .empowered-by-section { position: relative; bottom: auto; margin-top: 1.5rem; padding: 1rem 0; }
+        .empowered-by-content { flex-direction: column; gap: 0.5rem; }
+        .empowered-by-text { margin-right: 0; margin-bottom: 0.5rem; }
+        .ai-model { font-size: 16px !important; margin: 0.25rem !important; }
+    }
+    
+    @media (max-width: 576px) {
+        .hero-section { padding-bottom: 140px; }
+        .hero-title { font-size: 2rem; }
+        .hero-buttons { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-top: 1rem; }
+        .hero-buttons .btn { margin: 0; width: 80%; }
+        .empowered-by-section { margin-top: 1.5rem; }
+        .ai-model { font-size: 14px !important; }
+    }
+</style>

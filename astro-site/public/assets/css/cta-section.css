@@ -1,0 +1,214 @@
+/* 
+ * CTA Section Styles - Bixing Technology
+ * Modern, sleek AI-themed call-to-action section
+ */
+
+/* Main CTA section container */
+.cta-section {
+  position: relative;
+  background: var(--gradient-primary);
+  height: 420px; /* Increased by 40% from 300px */
+  min-height: 0; /* Override any min-height */
+  max-height: 420px; /* Enforce maximum height */
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--white);
+  margin: -15px auto; /* Negative margin to pull surrounding content closer */
+  transform: none; /* Remove scaling */
+  transform-origin: center center;
+}
+
+/* Container for content */
+.cta-section .container {
+  position: relative;
+  z-index: 5;
+  margin-top: -10px; /* Increased negative margin */
+  margin-bottom: -10px; /* Increased negative margin */
+  transform: scaleY(1.15); /* Counter-scale to preserve content height */
+  transform-origin: center center;
+}
+
+/* Border with gradient effect */
+.cta-border {
+  background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0), rgba(255,255,255,0.2));
+  border-radius: 16px;
+  padding: 2px; /* Slightly increased padding */
+  animation: rotate 4s linear infinite;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: scale(0.95); /* Less aggressive scaling */
+}
+
+/* Inner container with glass effect */
+.cta-inner {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 40px 30px; /* Increased vertical padding for better spacing */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Content container */
+.cta-content {
+  text-align: center;
+  transform: none;
+  transform-origin: center center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Heading styles */
+.cta-section h2 {
+  color: #ffffff;
+  font-size: 2.2rem; /* Slightly larger for better hierarchy */
+  font-weight: 700;
+  margin: 0 0 20px 0; /* Increased bottom margin */
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+/* Paragraph styles */
+.cta-section p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem; /* Increased for better readability */
+  line-height: 1.5;
+  margin: 0 auto 30px auto; /* Increased bottom margin */
+  max-width: 700px;
+}
+
+/* Button styles */
+.cta-button {
+  background-color: #ffffff;
+  color: var(--primary-blue);
+  font-weight: 600;
+  padding: 14px 32px; /* Increased padding for better touch target */
+  font-size: 1.1rem;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  letter-spacing: 0.5px;
+  margin-top: 10px; /* Added top margin */
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #f8f9fa;
+}
+
+/* Background elements */
+.cta-circuit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M10 10h80v80H10z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M20 10v10h10' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M40 10v30h30' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M70 10v60h20' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M10 30h30v30H10z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Cpath d='M50 50h40v40H50z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.1'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%23ffffff' fill-opacity='0.2'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23ffffff' fill-opacity='0.2'/%3E%3Ccircle cx='60' cy='60' r='2' fill='%23ffffff' fill-opacity='0.2'/%3E%3Ccircle cx='80' cy='80' r='2' fill='%23ffffff' fill-opacity='0.2'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+/* Floating elements */
+.cta-floating-element {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  transform: scale(0.8); /* Make floating elements smaller */
+}
+
+.cta-floating-1 {
+  width: 200px;
+  height: 200px;
+  top: -120px; /* Move further off-screen */
+  left: -120px; /* Move further off-screen */
+  animation: float 8s ease-in-out infinite;
+}
+
+.cta-floating-2 {
+  width: 150px;
+  height: 150px;
+  bottom: -80px; /* Move further off-screen */
+  right: 10%;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.cta-floating-3 {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  right: -60px; /* Move further off-screen */
+  animation: float 10s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+  100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes rotate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .cta-section {
+    height: 364px; /* Increased by 40% from 260px */
+    max-height: 364px;
+  }
+  
+  .cta-inner {
+    padding: 30px 25px; /* Adjusted for tablets */
+  }
+  
+  .cta-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 576px) {
+  .cta-section {
+    height: 336px; /* Increased by 40% from 240px */
+    max-height: 336px;
+  }
+  
+  .cta-inner {
+    padding: 25px 20px; /* Adjusted for mobile */
+  }
+  
+  .cta-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+  
+  .cta-section p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-button {
+    padding: 12px 28px;
+    font-size: 1rem;
+  }
+}

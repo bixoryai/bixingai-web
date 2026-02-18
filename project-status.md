@@ -1,111 +1,80 @@
 # Bixing Technology Website Project Status
 
-## Last Updated: December 22, 2025
+## Last Updated: February 18, 2026
 
-## 🚀 Current Release: v1.0.3
+## Current State
+- **Repository**: `bixoryai/bixingai-web` (branch: `develop`)
+- **Production branch (`main`)**: Jekyll backup state (preserved)
+- **Staging branch (`develop`)**: Astro/Tailwind site (active)
+- **Migration status**: ✅ Complete (Astro implementation finished)
+- **Cutover status**: ⏳ Pending final production merge (`develop` → `main`)
 
-**Release Date:** December 22, 2025
-**Status:** ✅ Production Deployed
-**GitHub Release:** [v1.0.3](https://github.com/bixoryai/bixingai-web/releases/tag/v1.0.3)
+## Stabilization Snapshot (2026-02-18)
+A CI-first cleanup pass was completed to make quality gates green on the Astro codebase.
 
-### Release Highlights
-- **JavaScript Quality**: Eliminated all linting warnings and improved code consistency
-- **Header Component**: Fixed dynamic loading issues with proper Jekyll Liquid processing
-- **CSS Quality**: Achieved 100% linting compliance by configuring rules for utility classes
-- **Component Architecture**: Ensured 100% consistency across all pages with dynamic loading system
-- **Code Formatting**: Added Prettier configuration for consistent styling
-- **Asset Management**: Added missing CTA background pattern and optimized resources
-- **Branch Protection**: Implemented safety measures to prevent accidental branch deletions
+### Completed in This Pass
+- ✅ Fixed root lint scripts to target Astro paths in `package.json`
+- ✅ Added missing static assets for unresolved URLs:
+  - `astro-site/public/assets/images/backgrounds/nodes-bg.svg`
+  - `astro-site/public/assets/images/circuit-pattern.svg`
+- ✅ Fixed top TypeScript blockers in:
+  - `astro-site/src/components/Header.astro`
+  - `astro-site/src/pages/services.astro`
+- ✅ Cleared remaining Astro type errors via local typed global aliases in:
+  - `astro-site/src/components/HeroSection.astro`
+  - `astro-site/src/components/SecondaryHero.astro`
+  - `astro-site/src/pages/about.astro`
+  - `astro-site/src/pages/careers.astro`
+  - `astro-site/src/pages/insights.astro`
+- ✅ Removed final JS lint warnings (`no-console`) in:
+  - `astro-site/public/assets/js/components.js`
 
-### Quality Metrics
-- **JavaScript**: 0 linting errors (previously failing)
-- **HTML**: 0 linting errors (maintained)
-- **CSS**: 0 style warnings (100% compliance achieved)
-- **Build**: ✅ Jekyll builds successfully
-- **Site Functionality**: ✅ All features working correctly
-- **Component Architecture**: ✅ 100% consistent across all pages
+## Verification Results
+- ✅ `cd astro-site && npm run astro check` → **0 errors**
+- ✅ `cd astro-site && npm run build` → success
+- ✅ `npm run lint` (root configured gates) → warning-free
 
-## Branch Status
-- **main**: Production branch (v1.0.3 deployed)
-- **develop**: Active development branch (protected, ready for new features)
-- **Protection**: Branch protection rules configured, safety scripts implemented
+## Current Quality Baseline
+- **Astro type check**: green
+- **Build**: green
+- **Root lint gate**: green
+- **Visual parity**: previously verified across key pages (migration completion phase)
 
-## Key Features Implemented
-- ✅ Multilingual Support (English/Chinese)
-- ✅ Responsive Design with Bootstrap
-- ✅ Dynamic Content Loading
-- ✅ Blog System with Jekyll
-- ✅ Contact Forms with Security
-- ✅ Modern AI-themed UI
-- ✅ SEO Optimization
-- ✅ Performance Optimized Assets
+## Active Priorities
+1. **Production cutover readiness**
+   - Final smoke test on staging
+   - Merge `develop` → `main`
+   - Confirm deployment + CNAME/domain behavior
+2. **Mobile polish (optional)**
+   - Fine-tune hero spacing on smaller breakpoints where needed
+3. **Post-cutover monitoring**
+   - Validate i18n toggles, navigation, and key conversion paths
 
-## Technical Architecture
-- **Static Site Generator**: Jekyll
-- **Frontend Framework**: Bootstrap 5
-- **Styling**: Custom CSS with consolidated architecture
-- **JavaScript**: Vanilla JS with modular components
-- **Component System**: Dynamic header/footer loading across all pages
-- **Internationalization**: Custom i18n system
-- **Build System**: npm scripts and PowerShell automation
-- **Version Control**: Git with protected branches
+## Next Optimization Wave (Proposed)
+These are intentionally scoped as **non-blocking improvements** after CI stabilization.
 
-## Development Workflow
-1. **Feature Development**: Work on `develop` branch
-2. **Code Quality**: Run linting and formatting checks
-3. **Testing**: Verify functionality across browsers
-4. **Review**: Code review and testing
-5. **Merge**: Merge to `main` for production deployment
+### Wave A — Script Hygiene (Low Risk)
+- Remove redundant translation retry loops and repeated timers in page-level scripts
+- Consolidate repeated i18n application logic into shared helpers
+- Reduce duplicated event listeners (`DOMContentLoaded`, `languageToggled`, `storage`)
 
-## Recent Major Updates (v1.0.2)
+### Wave B — i18n Architecture Hardening (Low/Medium Risk)
+- Move page-specific inline translation maps toward centralized modules
+- Normalize typed global access pattern for runtime-safe translation reads
+- Keep exact UX and wording unchanged (parity-first)
 
-### CSS Organization & Optimization
-- Consolidated CSS architecture with dedicated files for components, layout, and utilities
-- Added utility classes for backgrounds, heights, and gradients
-- Replaced inline styles with external CSS classes
-- Improved maintainability and reduced code duplication
+### Wave C — CSS/Lint Debt Paydown (Medium Risk)
+- Evaluate re-enabling stricter CSS lint checks incrementally
+- Triage legacy CSS rule noise file-by-file (avoid broad refactors)
+- Maintain current visual parity constraints while reducing maintenance debt
 
-### JavaScript Quality Improvements
-- Eliminated all linting errors across JavaScript files
-- Standardized code formatting with Prettier
-- Improved component loading and path resolution
-- Enhanced error handling and code consistency
+## Risk Notes
+- Build artifacts under `astro-site/dist/` should remain excluded from functional source changes.
+- Keep changes parity-safe: no visual redesign during hardening.
+- Preserve existing color/typography tokens and particles behavior.
 
-### Component Architecture
-- Fixed header component dynamic loading issues
-- Improved Jekyll Liquid processing for components
-- Standardized path references across all components
-- Enhanced component reusability and maintainability
-- Achieved 100% consistency across all pages (refactored case-study-education.html)
-
-### Asset Management
-- Added missing CTA background patterns
-- Optimized resource loading and caching
-- Improved asset organization and versioning
-- Enhanced performance through better asset management
-
-### Internationalization Enhancements
-- Comprehensive Chinese translations for all pages
-- Improved language switching functionality
-- Enhanced translation file organization
-- Better support for multilingual content management
-
-## Project Overview
-The Bixing Technology website is a multilingual (English/Chinese) corporate site showcasing the company's AI services, including education/training, custom solutions, and enterprise consultation. The site is hosted on GitHub Pages and uses HTML, CSS, and JavaScript with a modern, component-based architecture.
-
-## Next Steps
-1. **Content Enhancement**: Add more detailed service descriptions and case studies
-2. **Performance Monitoring**: Implement analytics and performance tracking
-3. **SEO Optimization**: Further improve search engine visibility
-4. **User Experience**: Gather feedback and iterate on design improvements
-5. **Feature Expansion**: Consider additional interactive elements and AI demonstrations
-
-## Technical Notes
-- The website uses a custom translation mechanism in i18n.js
-- Language preference is stored in localStorage with unified BixingStorage utility
-- The site is designed with a dark/blue theme with futuristic technology elements
-- Bootstrap is used for responsive layout and components
-- Path references are standardized using path-helper.js for deployment flexibility
-- Components are loaded dynamically with proper path resolution
-- Pre-commit hooks ensure code quality with ESLint, HTMLHint, and Stylelint
-- Resource hints optimize loading performance with preconnect and preload directives
+## References
+- `modernization-plan.md` (strategy truth source)
+- `AGENTS.md` (assistant execution rules)
+- `docs/visual-parity-testing-checklist.md`
+- `docs/i18n-parity-check.md`

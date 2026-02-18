@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SecondaryHero from '../../components/SecondaryHero.astro';
+
+const title = "AI Education & Training - Bixing Technology";
+const description = "Empower your team with the knowledge and skills needed to leverage AI effectively in your organization";
+---
+
+<BaseLayout title={title} description={description}>
+	<main>
+		<SecondaryHero 
+			title="AI Education & Training" 
+			subtitle="Empower your team with the knowledge and skills needed to leverage AI effectively in your organization"
+			dataI18nTitle="education.hero.title"
+			dataI18nSubtitle="education.hero.subtitle"
+		/>
+		
+		<!-- Overview Section -->
+		<section class="section-padding bg-dark-bg py-20">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-12">
+					<h2 class="section-title text-4xl font-bold text-white mb-4" data-i18n="education.overview.title">Bridging the AI Knowledge Gap</h2>
+					<p class="section-subtitle text-xl text-gray-400" data-i18n="education.overview.subtitle">Comprehensive AI education tailored to your organization's needs</p>
+				</div>
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+					<div class="animate-fade-right">
+						<p class="text-gray-300 mb-4" data-i18n="education.overview.paragraph1">In today's rapidly evolving technological landscape, AI literacy has become a critical competitive advantage. Bixing Technology's AI Education and Training programs are designed to empower your teams with the practical knowledge and skills needed to leverage AI effectively in your specific industry context.</p>
+						<p class="text-gray-300 mb-4" data-i18n="education.overview.paragraph2">Whether you're looking to upskill technical teams, help business leaders make informed AI decisions, or create organization-wide AI literacy, our customized programs deliver practical, actionable knowledge that can be immediately applied to real-world challenges.</p>
+						<p class="text-gray-300" data-i18n="education.overview.paragraph3">Our approach combines theoretical foundations with hands-on experience, ensuring participants not only understand AI concepts but can apply them confidently in their daily work.</p>
+					</div>
+					<div class="animate-fade-left flex items-center justify-center">
+						<img src="/assets/images/ai-education-overview.svg" alt="AI Education Overview" class="max-w-full h-auto" loading="lazy" data-i18n-alt="education.overview.imageAlt">
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Benefits Section -->
+		<section class="section-padding bg-dark-surface py-20">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-12">
+					<h2 class="section-title text-4xl font-bold text-white mb-4" data-i18n="education.benefits.title">Key Benefits</h2>
+					<p class="section-subtitle text-xl text-gray-400" data-i18n="education.benefits.subtitle">Why choose our AI education and training programs</p>
+				</div>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+					<div class="benefit-card bg-dark-bg rounded-xl p-8 border border-dark-border hover:border-primary-color transition-all duration-300">
+						<div class="benefit-icon w-16 h-16 bg-gradient-to-r from-primary-color to-accent-color rounded-full flex items-center justify-center mb-6 mx-auto">
+							<svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6l9-4.91V17h2V9L12 3z"/>
+							</svg>
+						</div>
+						<h3 class="text-2xl font-bold text-white mb-4 text-center" data-i18n="education.benefits.card1.title">Customized Learning Paths</h3>
+						<p class="text-gray-400 text-center" data-i18n="education.benefits.card1.text">Tailored programs designed to meet the specific needs and goals of your organization, from AI fundamentals to advanced applications.</p>
+					</div>
+					<div class="benefit-card bg-dark-bg rounded-xl p-8 border border-dark-border hover:border-primary-color transition-all duration-300">
+						<div class="benefit-icon w-16 h-16 bg-gradient-to-r from-primary-color to-accent-color rounded-full flex items-center justify-center mb-6 mx-auto">
+							<svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+							</svg>
+						</div>
+						<h3 class="text-2xl font-bold text-white mb-4 text-center" data-i18n="education.benefits.card2.title">Industry Expert Instructors</h3>
+						<p class="text-gray-400 text-center" data-i18n="education.benefits.card2.text">Learn from seasoned AI practitioners with real-world experience in implementing AI solutions across various industries.</p>
+					</div>
+					<div class="benefit-card bg-dark-bg rounded-xl p-8 border border-dark-border hover:border-primary-color transition-all duration-300">
+						<div class="benefit-icon w-16 h-16 bg-gradient-to-r from-primary-color to-accent-color rounded-full flex items-center justify-center mb-6 mx-auto">
+							<svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+								<path d="M20 6h-2.18c.11-.31.18-.65.18-1a2.996 2.996 0 0 0-5.5-1.65l-.5.67-.5-.68C10.96 2.54 10 2 9 2 7.34 2 6 3.34 6 5c0 .35.07.69.18 1H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-5-2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zM9 4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm11 15H4v-2h16v2zm0-5H4V8h5.08L7 10.83 8.62 12 11 8.76l1-1.36 1 1.36L15.38 12 17 10.83 14.92 8H20v6z"/>
+							</svg>
+						</div>
+						<h3 class="text-2xl font-bold text-white mb-4 text-center" data-i18n="education.benefits.card3.title">Practical, Hands-On Learning</h3>
+						<p class="text-gray-400 text-center" data-i18n="education.benefits.card3.text">Focus on practical applications and real-world scenarios to ensure your team can immediately apply their new AI skills.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="py-20 bg-dark-surface">
+			<div class="container mx-auto px-4 text-center">
+				<h2 class="text-3xl font-bold text-white mb-4" data-i18n="education.cta.title">Ready to Transform Your Team with AI Education?</h2>
+				<p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto" data-i18n="education.cta.subtitle">Contact us today to discuss how our AI training programs can benefit your organization.</p>
+				<a href="/contact" class="inline-block px-8 py-3 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300" data-i18n="education.cta.button" style="background: linear-gradient(135deg, #00a8ff, #0e4377); border: none;">Get Started</a>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<script is:inline src="/assets/js/i18n-services.js"></script>
+<script is:inline>
+	// Function to apply translations once they're loaded
+	function applyPageTranslations() {
+		const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+		if (typeof applyTranslations === 'function' && window.translations && window.translations[currentLang]) {
+			applyTranslations(currentLang);
+			// Mark as initialized only after translations are successfully applied
+			window.pageTranslationsInitialized = true;
+			return true;
+		}
+		return false;
+	}
+	
+	// Try to apply translations immediately if scripts are ready
+	if (!applyPageTranslations()) {
+		// If not ready, wait for DOM and retry
+		function initPageTranslations() {
+			if (!applyPageTranslations()) {
+				// Retry after a short delay if translations aren't ready
+				setTimeout(initPageTranslations, 100);
+			}
+		}
+		
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initPageTranslations);
+		} else {
+			setTimeout(initPageTranslations, 50);
+		}
+	}
+	
+	// Listen for language toggle events
+	document.addEventListener('languageToggled', function(e) {
+		const lang = e.detail ? e.detail.language : localStorage.getItem('bixingLanguage') || 'en';
+		if (typeof applyTranslations === 'function') {
+			applyTranslations(lang);
+		}
+	});
+	
+	// Also listen for storage events (language changes from other tabs)
+	window.addEventListener('storage', function(e) {
+		if (e.key === 'bixingLanguage') {
+			const lang = e.newValue || 'en';
+			if (typeof applyTranslations === 'function') {
+				applyTranslations(lang);
+			}
+		}
+	});
+</script>
+
+<style>
+	:root {
+		--dark-bg: #121212;
+		--dark-surface: #1e1e1e;
+		--dark-border: rgba(255, 255, 255, 0.1);
+		--primary-color: #0066FF;
+		--accent-color: #00C2FF;
+	}
+	
+	.section-padding {
+		padding: 80px 0;
+	}
+	
+	.benefit-card:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+	}
+</style>
+
+

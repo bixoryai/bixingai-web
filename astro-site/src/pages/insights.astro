@@ -1,0 +1,367 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SecondaryHero from '../components/SecondaryHero.astro';
+import FeaturedInsightSection from '../components/FeaturedInsightSection.astro';
+import InsightsGridSection from '../components/InsightsGridSection.astro';
+
+const title = "Industry Insights - Bixing Technology";
+const description = "Stay updated with the latest insights, trends, and developments in AI technology. Explore our collection of articles and resources.";
+---
+
+<BaseLayout title={title} description={description}>
+	<main>
+		<SecondaryHero 
+			title="AI Industry Insights" 
+			subtitle="Explore the latest developments, strategies, and applications in AI"
+			dataI18nTitle="insights.hero.title"
+			dataI18nSubtitle="insights.hero.subtitle"
+		/>
+		
+		<FeaturedInsightSection />
+		<InsightsGridSection />
+		
+		<!-- Newsletter/Subscribe Section -->
+		<section class="newsletter-section">
+			<div class="container mx-auto px-4">
+				<div class="newsletter-content max-w-4xl mx-auto text-center animate-fade-up">
+					<h2 class="section-title text-3xl font-bold text-white mb-4" data-i18n="insights.newsletter.title">Stay Updated with AI Trends</h2>
+					<p class="section-subtitle text-xl text-gray-400 mb-8" data-i18n="insights.newsletter.subtitle">Subscribe to our newsletter to receive the latest insights, articles, and updates in the world of AI</p>
+					
+					<div class="newsletter-form max-w-md mx-auto">
+						<div class="input-group flex gap-4">
+							<input type="email" class="newsletter-input flex-1 px-4 py-3 rounded-lg text-white focus:outline-none transition-colors" placeholder="Your Email Address" aria-label="Your Email Address" data-i18n-placeholder="insights.newsletter.emailPlaceholder">
+							<button class="newsletter-button px-8 py-3 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300" type="button" data-i18n="insights.newsletter.subscribe">Subscribe</button>
+						</div>
+						<div class="form-text text-white/50 mt-2 text-sm" data-i18n="insights.newsletter.privacyNotice">We respect your privacy. Unsubscribe at any time.</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<script>
+    const appWindow = window as Window & {
+        translations?: Record<string, Record<string, string>>;
+        insightsTranslations?: Record<string, Record<string, string | { title: string; excerpt: string }>>;
+    };
+
+    console.log('Insights page loaded');
+
+    // Keep global translations available but add page-specific overrides
+    if (!appWindow.translations) {
+        appWindow.translations = { en: {}, zh: {} };
+    }
+
+    // Isolated Insights page translations to prevent corruption
+    // Make it available globally for components
+    appWindow.insightsTranslations = {
+        en: {
+            // Header Navigation
+            'nav.services': 'Products & Services',
+            'nav.aiEducation': 'AI Education & Training',
+            'nav.customSolutions': 'AI Custom Solutions',
+            'nav.aiConsultation': 'Enterprise AI Consultation',
+            'nav.industryInsights': 'Industry Insights',
+            'nav.about': 'About Us',
+            'nav.careers': 'Careers',
+            'nav.contact': 'Contact',
+
+            // Hero section
+            'insights.hero.title': 'AI Industry Insights',
+            'insights.hero.subtitle': 'Explore the latest developments, strategies, and applications in AI',
+
+            // Featured insight
+            'insights.featured.badge': 'Featured Insight',
+            'insights.featured.title': '2025 Outlook: The Future of AI in Enterprise',
+            'insights.featured.excerpt': 'As AI rapidly evolves, enterprises face new opportunities and challenges in implementation. Discover the key trends shaping the next year of AI adoption.',
+            'insights.featured.link': 'Read Full Article',
+
+            // Latest insights
+            'insights.latest.title': 'Latest Insights',
+            'insights.filter.all': 'All Topics',
+
+            // Newsletter section
+            'insights.newsletter.title': 'Stay Updated with AI Trends',
+            'insights.newsletter.subtitle': 'Subscribe to our newsletter to receive the latest insights, articles, and updates in the world of AI',
+            'insights.newsletter.emailPlaceholder': 'Your Email Address',
+            'insights.newsletter.subscribe': 'Subscribe',
+            'insights.newsletter.privacyNotice': 'We respect your privacy. Unsubscribe at any time.',
+
+            // Read More link
+            'insights.read.more': 'Read More',
+
+            // Blog post translations
+            "The Future of AI in Enterprise: Trends and Predictions": {
+                title: "The Future of AI in Enterprise: Trends and Predictions",
+                excerpt: "Explore the emerging trends and future predictions for AI adoption in enterprise environments, and how businesses can prepare for the AI-driven future."
+            },
+            "Machine Learning for Business: Practical Applications": {
+                title: "Machine Learning for Business: Practical Applications",
+                excerpt: "Discover practical applications of machine learning that are transforming businesses today and how you can implement these solutions in your organization."
+            },
+            "Implementing AI Solutions: A Step-by-Step Guide": {
+                title: "Implementing AI Solutions: A Step-by-Step Guide",
+                excerpt: "A comprehensive guide to implementing AI solutions in your organization, from planning to deployment and optimization."
+            },
+            "AI Transformation in Healthcare: A Case Study": {
+                title: "AI Transformation in Healthcare: A Case Study",
+                excerpt: "How a leading healthcare provider leveraged AI to improve patient outcomes and operational efficiency."
+            },
+            "Building AI Literacy in Your Organization": {
+                title: "Building AI Literacy in Your Organization",
+                excerpt: "Strategies for developing AI knowledge and skills across different levels of your company."
+            },
+            "AI Ethics and Governance: Best Practices": {
+                title: "AI Ethics and Governance: Best Practices",
+                excerpt: "Establishing responsible AI practices and governance frameworks for enterprise implementation."
+            }
+        },
+        zh: {
+            // Header Navigation
+            'nav.services': '产品与服务',
+            'nav.aiEducation': 'AI教育与培训',
+            'nav.customSolutions': 'AI定制解决方案',
+            'nav.aiConsultation': '企业AI咨询',
+            'nav.industryInsights': '行业洞察',
+            'nav.about': '关于我们',
+            'nav.careers': '职业发展',
+            'nav.contact': '联系我们',
+
+            // Hero section
+            'insights.hero.title': 'AI行业洞察',
+            'insights.hero.subtitle': '探索AI的最新发展、策略和应用',
+
+            // Featured insight
+            'insights.featured.badge': '精选洞察',
+            'insights.featured.title': '2025展望：企业AI的未来',
+            'insights.featured.excerpt': '随着AI的快速发展，企业面临着新的机遇和挑战。发现塑造下一年AI采用的关键趋势。',
+            'insights.featured.link': '阅读全文',
+
+            // Latest insights
+            'insights.latest.title': '最新洞察',
+            'insights.filter.all': '所有主题',
+
+            // Newsletter section
+            'insights.newsletter.title': '保持AI趋势更新',
+            'insights.newsletter.subtitle': '订阅我们的通讯，接收AI世界的最新洞察、文章和更新',
+            'insights.newsletter.emailPlaceholder': '您的电子邮件地址',
+            'insights.newsletter.subscribe': '订阅',
+            'insights.newsletter.privacyNotice': '我们尊重您的隐私。随时可以退订。',
+
+            // Read More link
+            'insights.read.more': '阅读更多',
+
+            // Category translations
+            'AI Trends': 'AI趋势',
+            'Machine Learning': '机器学习',
+            'AI Implementation': 'AI实施',
+            'Case Studies': '案例研究',
+            'AI Education': 'AI教育',
+
+            // Blog post translations
+            "The Future of AI in Enterprise: Trends and Predictions": {
+                title: "企业AI的未来：趋势与预测",
+                excerpt: "探索企业环境中AI采用的新兴趋势和未来预测，以及企业如何为AI驱动的未来做好准备。"
+            },
+            "Machine Learning for Business: Practical Applications": {
+                title: "商业机器学习：实用应用",
+                excerpt: "发现正在改变当今商业的机器学习实用应用，以及如何在您的组织中实施这些解决方案。"
+            },
+            "Implementing AI Solutions: A Step-by-Step Guide": {
+                title: "实施AI解决方案：逐步指南",
+                excerpt: "在您的组织中实施AI解决方案的综合指南，从规划到部署和优化。"
+            },
+            "AI Transformation in Healthcare: A Case Study": {
+                title: "医疗保健中的AI转型：案例研究",
+                excerpt: "领先的医疗保健提供商如何利用AI改善患者预后和运营效率。"
+            },
+            "Building AI Literacy in Your Organization": {
+                title: "在您的组织中构建AI素养",
+                excerpt: "在公司各个层面开发AI知识和技能的策略。"
+            },
+            "AI Ethics and Governance: Best Practices": {
+                title: "AI伦理与治理：最佳实践",
+                excerpt: "为企业实施建立负责任的AI实践和治理框架。"
+            }
+        }
+    };
+
+    // Close the window assignment
+    console.log('Insights translations loaded globally');
+
+    // Apply page-specific translations for Insights page
+	function applyInsightsTranslations() {
+		const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+		
+        // Apply page-specific translations (these override global translations)
+        if (appWindow.insightsTranslations?.[currentLang]) {
+            Object.keys(appWindow.insightsTranslations[currentLang]).forEach(key => {
+                const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
+                elements.forEach(element => {
+                    const translation = appWindow.insightsTranslations?.[currentLang]?.[key];
+                    if (typeof translation === 'string') {
+                        element.textContent = translation;
+                    }
+                });
+            });
+        }
+    }
+
+    // Apply translations immediately and on language changes
+	document.addEventListener('DOMContentLoaded', function() {
+        console.log('Insights page loaded');
+        // Apply page-specific translations after global translations
+        setTimeout(applyInsightsTranslations, 100);
+        setTimeout(applyInsightsTranslations, 200);
+    });
+
+    // Listen for language toggle events and reapply page translations
+		document.addEventListener('languageToggled', function(e) {
+        console.log('Language toggled event received - applying Insights page translations');
+        setTimeout(applyInsightsTranslations, 50);
+    });
+
+    // Also listen for storage events
+		window.addEventListener('storage', function(e) {
+			if (e.key === 'bixingLanguage') {
+            console.log('Language storage event received - applying Insights page translations');
+            setTimeout(applyInsightsTranslations, 50);
+        }
+	});
+</script>
+
+<style>
+	:root {
+		--dark-surface: #1e1e1e;
+		--dark-bg: #121212;
+		--darker-bg: #0a1020;
+		--primary-color: #0066FF;
+		--accent-color: #00C2FF;
+	}
+	
+	.newsletter-section {
+		background: linear-gradient(135deg, var(--dark-bg), var(--darker-bg));
+		padding: 60px 0;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.newsletter-section::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('/assets/images/circuit-pattern.svg');
+		background-size: cover;
+		opacity: 0.1;
+		z-index: 1;
+	}
+	
+	.newsletter-content {
+		position: relative;
+		z-index: 2;
+	}
+	
+	.newsletter-form {
+		max-width: 500px;
+		margin: 30px auto 0;
+	}
+	
+	.input-group {
+		display: flex;
+		gap: 1rem;
+	}
+	
+	.newsletter-input {
+		background: rgba(255, 255, 255, 0.1);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		color: white;
+		border-radius: 30px;
+		padding: 12px 25px;
+		height: auto;
+	}
+	
+	.newsletter-input:focus {
+		background: rgba(255, 255, 255, 0.15);
+		border-color: var(--primary-color);
+		color: white;
+		box-shadow: none;
+		outline: none;
+	}
+	
+	.newsletter-button {
+		background: linear-gradient(to right, #FFD700, #FFA07A);
+		border: none;
+		border-radius: 30px;
+		padding: 12px 30px;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		cursor: pointer;
+		color: #121212;
+	}
+	
+	.newsletter-button:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 20px rgba(255, 184, 0, 0.3);
+	}
+	
+	.form-text {
+		color: rgba(255, 255, 255, 0.5);
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+	}
+	
+	.section-title {
+		position: relative;
+		display: inline-block;
+	}
+	
+	.section-subtitle {
+		color: rgba(255, 255, 255, 0.7);
+	}
+	
+	.text-center {
+		text-align: center;
+	}
+	
+	.max-w-md {
+		max-width: 28rem;
+	}
+	
+	.max-w-4xl {
+		max-width: 56rem;
+	}
+	
+	.mx-auto {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.mb-4 {
+		margin-bottom: 1rem;
+	}
+	
+	.mb-8 {
+		margin-bottom: 2rem;
+	}
+	
+	.mt-2 {
+		margin-top: 0.5rem;
+	}
+	
+	.flex {
+		display: flex;
+	}
+	
+	.gap-4 {
+		gap: 1rem;
+	}
+	
+	.flex-1 {
+		flex: 1 1 0%;
+	}
+</style>
+

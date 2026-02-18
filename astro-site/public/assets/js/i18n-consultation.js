@@ -1,0 +1,204 @@
+// i18n-consultation.js
+// Consultation page translations
+window.translations = window.translations || {};
+window.translations.en = Object.assign({}, window.translations.en, {
+  'consultation.page.title': 'Enterprise AI Consultation | Bixing Technology',
+  'consultation.hero.title': 'Enterprise AI Consultation',
+  'consultation.hero.subtitle':
+    'Strategic guidance for implementing AI across your organization to drive innovation, efficiency, and competitive advantage.',
+  'consultation.overview.title': 'Strategic AI Implementation',
+  'consultation.overview.subtitle': 'Transforming your business with a comprehensive AI strategy',
+  'consultation.overview.paragraph1':
+    'In today\'s rapidly evolving technological landscape, implementing AI effectively requires more than just technical expertise—it demands a strategic approach that aligns with your business objectives and organizational culture.',
+  'consultation.overview.paragraph2':
+    'Bixing Technology\'s Enterprise AI Consultation services provide comprehensive guidance to help your organization navigate the complexities of AI adoption and implementation. Our team of experienced consultants combines deep technical knowledge with business acumen to develop tailored strategies that drive measurable results.',
+  'consultation.overview.paragraph3':
+    'Whether you\'re just beginning your AI journey or looking to optimize existing initiatives, our consultative approach ensures that your AI investments deliver maximum value and competitive advantage.',
+  'consultation.overview.image.alt': 'AI Strategy Framework',
+  'consultation.services.title': 'Our Consultation Services',
+  'consultation.services.subtitle': 'Comprehensive support for your AI journey',
+  'consultation.services.readiness.title': 'AI Readiness Assessment',
+  'consultation.services.readiness.description':
+    'Evaluate your organization\'s current capabilities, infrastructure, and culture to determine AI readiness and identify key opportunity areas.',
+  'consultation.services.readiness.feature1': 'Technical infrastructure evaluation',
+  'consultation.services.readiness.feature2': 'Data maturity assessment',
+  'consultation.services.readiness.feature3': 'Organizational capability analysis',
+  'consultation.services.readiness.feature4': 'Opportunity identification',
+  'consultation.services.strategy.title': 'AI Strategy Development',
+  'consultation.services.strategy.description':
+    'Create a comprehensive roadmap for AI implementation aligned with your business objectives and organizational capabilities.',
+  'consultation.services.strategy.feature1': 'Business objective alignment',
+  'consultation.services.strategy.feature2': 'Use case prioritization',
+  'consultation.services.strategy.feature3': 'Implementation roadmap',
+  'consultation.services.strategy.feature4': 'Resource planning',
+  'consultation.services.technology.title': 'Technology Selection',
+  'consultation.services.technology.description':
+    'Navigate the complex AI technology landscape to identify and select the optimal tools, platforms, and solutions for your specific needs.',
+  'consultation.services.technology.feature1': 'Vendor evaluation',
+  'consultation.services.technology.feature2': 'Technology stack assessment',
+  'consultation.services.technology.feature3': 'Build vs. buy analysis',
+  'consultation.services.technology.feature4': 'Integration planning',
+  'consultation.services.change.title': 'Change Management',
+  'consultation.services.change.description':
+    'Develop strategies to facilitate organizational adoption of AI, addressing cultural challenges and fostering a data-driven mindset.',
+  'consultation.services.change.feature1': 'Stakeholder engagement',
+  'consultation.services.change.feature2': 'Communication planning',
+  'consultation.services.change.feature3': 'Training needs assessment',
+  'consultation.services.change.feature4': 'Adoption measurement',
+  'consultation.services.roi.title': 'ROI & Value Assessment',
+  'consultation.services.roi.description':
+    'Develop frameworks to measure and maximize the return on your AI investments, ensuring tangible business impact.',
+  'consultation.services.roi.feature1': 'Value identification',
+  'consultation.services.roi.feature2': 'KPI development',
+  'consultation.services.roi.feature3': 'ROI modeling',
+  'consultation.services.roi.feature4': 'Performance measurement',
+  'consultation.services.governance.title': 'AI Governance & Ethics',
+  'consultation.services.governance.description':
+    'Establish frameworks for responsible AI use, addressing ethical considerations, regulatory compliance, and risk management.',
+  'consultation.services.governance.feature1': 'Ethical guidelines development',
+  'consultation.services.governance.feature2': 'Regulatory compliance assessment',
+  'consultation.services.governance.feature3': 'Risk management frameworks',
+  'consultation.services.governance.feature4': 'Governance structure design',
+  'consultation.approach.title': 'Our Consultative Approach',
+  'consultation.approach.subtitle': 'A methodical process for successful AI implementation',
+  'consultation.approach.discovery.title': 'Discovery',
+  'consultation.approach.discovery.description':
+    'We begin by understanding your business objectives, challenges, and current state through stakeholder interviews, data assessment, and technical infrastructure evaluation.',
+  'consultation.approach.opportunity.title': 'Opportunity Identification',
+  'consultation.approach.opportunity.description':
+    'Based on our discovery findings, we identify and prioritize AI opportunities that align with your business goals and offer the highest potential value.',
+  'consultation.approach.strategy.title': 'Strategy Development',
+  'consultation.approach.strategy.description':
+    'We develop a comprehensive AI strategy and implementation roadmap tailored to your organization\'s specific needs, capabilities, and objectives.',
+  'consultation.approach.implementation.title': 'Implementation Planning',
+  'consultation.approach.implementation.description':
+    'We create detailed plans for technology selection, resource allocation, change management, and governance to ensure successful execution.',
+  'consultation.approach.execution.title': 'Execution Support',
+  'consultation.approach.execution.description':
+    'We provide ongoing guidance and support during implementation, helping you navigate challenges and adapt to changing circumstances.',
+  'consultation.approach.measurement.title': 'Measurement & Optimization',
+  'consultation.approach.measurement.description':
+    'We help you establish metrics and processes to measure success, identify improvement opportunities, and continuously optimize your AI initiatives.',
+  'consultation.industries.title': 'Industries We Serve',
+  'consultation.industries.subtitle': 'Specialized AI consultation across diverse sectors',
+  'consultation.industries.healthcare': 'Healthcare',
+  'consultation.industries.finance': 'Finance',
+  'consultation.industries.retail': 'Retail',
+  'consultation.industries.manufacturing': 'Manufacturing',
+  'consultation.industries.logistics': 'Logistics',
+  'consultation.industries.energy': 'Energy',
+  'consultation.testimonials.title': 'Client Success Stories',
+  'consultation.testimonials.subtitle': 'Hear from organizations we\'ve helped transform',
+  'consultation.testimonials.quote1':
+    'Bixing Technology\'s consultation services were instrumental in helping us develop a comprehensive AI strategy. Their methodical approach, deep expertise, and focus on business outcomes enabled us to identify high-value opportunities and implement AI solutions that have significantly improved our operational efficiency.',
+  'consultation.testimonials.author1': 'David Wilson',
+  'consultation.testimonials.position1': 'CIO, Global Manufacturing Corp',
+  'consultation.testimonials.quote2':
+    'The AI readiness assessment conducted by Bixing Technology provided invaluable insights into our organization\'s capabilities and gaps. Their strategic guidance helped us prioritize initiatives, allocate resources effectively, and establish a governance framework that ensures responsible AI use. We\'re now seeing tangible results from our AI investments.',
+  'consultation.testimonials.author2': 'Jennifer Lee',
+  'consultation.testimonials.position2': 'VP of Innovation, Financial Services Inc.',
+  'consultation.cta.title': 'Ready to Transform Your Organization with AI?',
+  'consultation.cta.subtitle':
+    'Get in touch with our experts to discuss your specific needs and challenges',
+  'consultation.cta.button': 'Contact Us Today'
+});
+
+window.translations.zh = Object.assign({}, window.translations.zh, {
+  'consultation.page.title': '企业AI咨询 | 毕行科技',
+  'consultation.hero.title': '企业AI咨询',
+  'consultation.hero.subtitle': '为您的组织实施AI提供战略指导，推动创新、效率和竞争优势。',
+  'consultation.overview.title': '战略性AI实施',
+  'consultation.overview.subtitle': '通过全面的AI战略转变您的业务',
+  'consultation.overview.paragraph1':
+    '在当今快速发展的技术环境中，有效实施AI需要的不仅仅是技术专业知识—它需要一种与您的业务目标和组织文化相一致的战略方法。',
+  'consultation.overview.paragraph2':
+    '毕行科技的企业AI咨询服务提供全面指导，帮助您的组织应对AI采用和实施的复杂性。我们经验丰富的顾问团队将深厚的技术知识与商业敏锐度相结合，制定能够带来可衡量结果的定制策略。',
+  'consultation.overview.paragraph3':
+    '无论您是刚刚开始AI之旅，还是希望优化现有举措，我们的咨询方法确保您的AI投资能够带来最大价值和竞争优势。',
+  'consultation.overview.image.alt': 'AI战略框架',
+  'consultation.services.title': '我们的咨询服务',
+  'consultation.services.subtitle': '为您的AI之旅提供全面支持',
+  'consultation.services.readiness.title': 'AI就序评估',
+  'consultation.services.readiness.description':
+    '评估您组织的当前能力、基础设施和文化，确定AI就绪程度并识别关键机会领域。',
+  'consultation.services.readiness.feature1': '技术基础设施评估',
+  'consultation.services.readiness.feature2': '数据成熟度评估',
+  'consultation.services.readiness.feature3': '组织能力分析',
+  'consultation.services.readiness.feature4': '机会识别',
+  'consultation.services.strategy.title': 'AI战略开发',
+  'consultation.services.strategy.description':
+    '创建与您的业务目标和组织能力相一致的全面AI实施路线图。',
+  'consultation.services.strategy.feature1': '业务目标对齐',
+  'consultation.services.strategy.feature2': '用例优先级排序',
+  'consultation.services.strategy.feature3': '实施路线图',
+  'consultation.services.strategy.feature4': '资源规划',
+  'consultation.services.technology.title': '技术选择',
+  'consultation.services.technology.description':
+    '在复杂的AI技术环境中导航，识别并选择最适合您特定需求的工具、平台和解决方案。',
+  'consultation.services.technology.feature1': '供应商评估',
+  'consultation.services.technology.feature2': '技术栈评估',
+  'consultation.services.technology.feature3': '自建与购买分析',
+  'consultation.services.technology.feature4': '集成规划',
+  'consultation.services.change.title': '变革管理',
+  'consultation.services.change.description':
+    '制定策略以促进组织采用AI，解决文化挑战并培养数据驱动的思维方式。',
+  'consultation.services.change.feature1': '利益相关者参与',
+  'consultation.services.change.feature2': '沟通规划',
+  'consultation.services.change.feature3': '培训需求评估',
+  'consultation.services.change.feature4': '采用度量',
+  'consultation.services.roi.title': '投资回报率与价值评估',
+  'consultation.services.roi.description':
+    '开发框架来衡量和最大化您的AI投资回报，确保切实的业务影响。',
+  'consultation.services.roi.feature1': '价值识别',
+  'consultation.services.roi.feature2': 'KPI开发',
+  'consultation.services.roi.feature3': 'ROI建模',
+  'consultation.services.roi.feature4': '绩效衡量',
+  'consultation.services.governance.title': 'AI治理与伦理',
+  'consultation.services.governance.description':
+    '建立负责任AI使用的框架，解决伦理考虑、监管合规和风险管理。',
+  'consultation.services.governance.feature1': '伦理指南制定',
+  'consultation.services.governance.feature2': '监管合规评估',
+  'consultation.services.governance.feature3': '风险管理框架',
+  'consultation.services.governance.feature4': '治理结构设计',
+  'consultation.approach.title': '我们的咨询方法',
+  'consultation.approach.subtitle': '成功实施AI的系统化流程',
+  'consultation.approach.discovery.title': '发现',
+  'consultation.approach.discovery.description':
+    '我们通过利益相关者访谈、数据评估和技术基础设施评估，开始了解您的业务目标、挑战和当前状态。',
+  'consultation.approach.opportunity.title': '机会识别',
+  'consultation.approach.opportunity.description':
+    '基于我们的发现结果，我们识别并优先考虑与您的业务目标一致并提供最高潜在价值的AI机会。',
+  'consultation.approach.strategy.title': '战略制定',
+  'consultation.approach.strategy.description':
+    '我们制定全面的AI战略和实施路线图，根据您组织的具体需求、能力和目标量身定制。',
+  'consultation.approach.implementation.title': '实施规划',
+  'consultation.approach.implementation.description':
+    '我们为技术选择、资源分配、变革管理和治理创建详细计划，确保成功执行。',
+  'consultation.approach.execution.title': '执行支持',
+  'consultation.approach.execution.description':
+    '我们在实施过程中提供持续的指导和支持，帮助您应对挑战并适应不断变化的环境。',
+  'consultation.approach.measurement.title': '衡量与优化',
+  'consultation.approach.measurement.description':
+    '我们帮助您建立指标和流程，衡量成功、识别改进机会并持续优化您的AI计划。',
+  'consultation.industries.title': '我们服务的行业',
+  'consultation.industries.subtitle': '跨多元化行业的专业AI咨询',
+  'consultation.industries.healthcare': '医疗保健',
+  'consultation.industries.finance': '金融',
+  'consultation.industries.retail': '零售',
+  'consultation.industries.manufacturing': '制造业',
+  'consultation.industries.logistics': '物流',
+  'consultation.industries.energy': '能源',
+  'consultation.testimonials.title': '客户成功案例',
+  'consultation.testimonials.subtitle': '听听我们帮助转型的组织的声音',
+  'consultation.testimonials.quote1':
+    '毕行科技的咨询服务在帮助我们制定全面的AI战略方面发挥了重要作用。他们的系统方法、深厚专业知识和对业务成果的关注使我们能够识别高价值机会并实施显著提高运营效率的AI解决方案。',
+  'consultation.testimonials.author1': 'David Wilson',
+  'consultation.testimonials.position1': '全球制造公司首席信息官',
+  'consultation.testimonials.quote2':
+    '毕行科技进行的AI就绪评估为我们组织的能力和差距提供了宝贵的见解。他们的战略指导帮助我们确定计划优先级、有效分配资源并建立确保负责任AI使用的治理框架。我们现在看到了AI投资的切实成果。',
+  'consultation.testimonials.author2': 'Jennifer Lee',
+  'consultation.testimonials.position2': '金融服务公司创新副总裁',
+  'consultation.cta.title': '准备好用AI转变您的组织了吗？',
+  'consultation.cta.subtitle': '与我们的专家联系，讨论您的具体需求和挑战',
+  'consultation.cta.button': '立即联系我们'
+});

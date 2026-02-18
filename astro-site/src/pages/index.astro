@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import DemoSection from '../components/DemoSection.astro';
+import PortfolioSection from '../components/PortfolioSection.astro';
+import TestimonialsSection from '../components/TestimonialsSection.astro';
+import InsightsSection from '../components/InsightsSection.astro';
+import CTASection from '../components/CTASection.astro';
+
+const title = "Bixing Technology - AI Solutions for Enterprise";
+const description = "Bixing Technology provides comprehensive AI solutions for enterprise, including AI education, custom solutions development, and strategic consultation. Transform your business with cutting-edge AI technology.";
+---
+
+<BaseLayout title={title} description={description}>
+	<main>
+		<HeroSection />
+		<ServicesSection />
+		<DemoSection />
+		<PortfolioSection />
+		<TestimonialsSection />
+		<InsightsSection />
+		<CTASection />
+	</main>
+</BaseLayout>

@@ -1,0 +1,219 @@
+---
+// Footer component - Converted to Tailwind with preserved styling
+---
+
+<footer class="footer relative bg-dark-color text-text-light pt-6 pb-1 overflow-hidden w-full mt-auto flex flex-col">
+    <div class="footer-circuit-bg absolute top-0 left-0 w-full h-full opacity-10 z-0"></div>
+    <div class="container mx-auto px-4 footer-content relative z-[1] flex-1">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <!-- Company Info -->
+            <div class="mb-8 lg:mb-0">
+                <a href="/" class="footer-logo-link inline-block transition-all duration-300 mb-0 -mt-2.5">
+                    <div class="footer-logo mb-2 flex items-center">
+                        <picture>
+                            <source srcset="/assets/images/bixingai-logo.webp" type="image/webp">
+                            <img src="/assets/images/bixingai-logo.png" alt="Bixing Technology" class="footer-logo-img h-10 w-10 mr-2.5 transition-transform duration-300 drop-shadow-[0_0_5px_rgba(0,168,255,0.5)]">
+                        </picture>
+                        <h4 class="company-name m-0 text-xl font-semibold bg-gradient-to-r from-white to-accent-blue bg-clip-text text-transparent tracking-wide transition-all duration-300" data-i18n="footer.company">Bixing Technology</h4>
+                    </div>
+                </a>
+                <p class="company-description text-gray-400 mb-5" data-i18n="footer.companyDescription">A leading provider of AI solutions for businesses. We help organizations leverage the power of artificial intelligence to drive growth and innovation.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="mb-8 lg:mb-0">
+                <h4 class="footer-heading pt-2 text-lg font-semibold mb-4 text-white" data-i18n="footer.quickLinks">Quick Links</h4>
+                <ul class="footer-links list-none p-0 m-0">
+                    <li class="mb-2">
+                        <a href="/" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="Home">
+                            <i class="fas fa-chevron-right mr-2"></i>
+                            <span data-i18n="footer.home">Home</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/about" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="About Us">
+                            <i class="fas fa-chevron-right mr-2"></i>
+                            <span data-i18n="footer.about">About</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/careers" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="Careers">
+                            <i class="fas fa-chevron-right mr-2"></i>
+                            <span data-i18n="footer.careers">Careers</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/insights" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="Industry Insights">
+                            <i class="fas fa-chevron-right mr-2"></i>
+                            <span data-i18n="footer.industryInsights">Industry Insights</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Services -->
+            <div class="mb-8 lg:mb-0">
+                <h4 class="footer-heading pt-2 text-lg font-semibold mb-4 text-white" data-i18n="footer.services">Products & Services</h4>
+                <ul class="footer-links list-none p-0 m-0">
+                    <li class="mb-2">
+                        <a href="/services/education" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="AI Education and Training">
+                            <i class="fas fa-chevron-right mr-2"></i>
+                            <span data-i18n="footer.aiEducation">AI Education & Training</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/services/custom-solutions" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="AI Custom Solutions">
+                            <i class="fas fa-chevron-right mr-2"></i>
+                            <span data-i18n="footer.customSolutions">AI Custom Solutions</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/services/consultation" class="text-gray-400 hover:text-accent-blue transition-colors duration-300 flex items-center" aria-label="AI Strategy Consultation">
+                            <i class="fas fa-chevron-right mr-2"></i>
+                            <span data-i18n="footer.aiConsultation">AI Strategy Consultation</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="mb-8 lg:mb-0">
+                <h4 class="footer-heading pt-2 text-lg font-semibold mb-4 text-white" data-i18n="footer.contactUs">Contact Us</h4>
+                <ul class="contact-info list-none p-0 m-0 mb-4">
+                    <li class="flex items-center text-gray-400">
+                        <span data-i18n="footer.wechat">WeChat</span>
+                        <i class="fab fa-weixin mx-2" aria-hidden="true"></i>
+                        <span id="contact-email" data-i18n="footer.wechatId">bixingai</span>
+                    </li>
+                </ul>
+
+                <div class="wechat-container mt-3 flex flex-col items-center">
+                    <picture>
+                        <source srcset="/assets/images/qrcode/qrcode-wechat.webp" type="image/webp">
+                        <img src="/assets/images/qrcode/qrcode-wechat.jpg" alt="WeChat QR Code" class="wechat-qr w-24 h-24 mb-2 rounded border border-white/20">
+                    </picture>
+                    <span class="wechat-label text-sm text-gray-400 text-center" data-i18n="footer.scanQrCode">Scan to connect on WeChat</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom border-t border-white/10 mt-8 pt-4">
+            <p class="copyright text-center text-sm text-gray-400">
+                <span data-i18n="footer.copyright"> 2023 Bixing Technology. All Rights Reserved.</span>
+                <span class="separator mx-1">|</span>
+                <a href="/pages/menu/privacy-policy.html" class="text-gray-400 hover:text-accent-blue transition-colors duration-300" aria-label="Privacy Policy" data-i18n="footer.privacyPolicy">Privacy Policy</a>
+                <span class="separator mx-1">|</span>
+                <a href="/pages/menu/terms-of-service.html" class="text-gray-400 hover:text-accent-blue transition-colors duration-300" aria-label="Terms of Service" data-i18n="footer.termsOfService">Terms of Service</a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    :root {
+        --gold-light: #FFD700;
+        --gold-dark: #B8860B;
+        --dark-color: #0a1020;
+        --text-light: #a0a0a0;
+        --primary-color: #0066FF;
+    }
+    
+    /* Footer container */
+    .footer {
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--dark-color);
+    }
+    
+    /* Circuit background pattern */
+    .footer-circuit-bg {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='none'/%3E%3Cpath d='M10 10h80v80H10z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M20 10v10h10' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M40 10v30h30' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M70 10v60h20' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M10 30h30v30H10z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Cpath d='M50 50h40v40H50z' fill='none' stroke='%23ffffff' stroke-width='0.5' stroke-opacity='0.05'/%3E%3Ccircle cx='20' cy='20' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3Ccircle cx='40' cy='40' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3Ccircle cx='60' cy='60' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3Ccircle cx='80' cy='80' r='2' fill='%23ffffff' fill-opacity='0.1'/%3E%3C/svg%3E");
+        background-size: 100px 100px;
+    }
+    
+    /* Footer heading underline */
+    .footer-heading {
+        position: relative;
+    }
+    
+    .footer-heading::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+        border-radius: 9999px;
+    }
+    
+    /* Footer link hover effects */
+    .footer-links a {
+        position: relative;
+    }
+    
+    .footer-links a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+        transition: width 0.3s ease;
+        opacity: 0;
+    }
+    
+    .footer-links a:hover::after {
+        width: 100%;
+        opacity: 1;
+    }
+    
+    .footer-links a:hover {
+        color: var(--gold-light);
+        transform: translateX(5px);
+    }
+    
+    /* Logo hover effect */
+    .footer-logo-link:hover .footer-logo-img {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 8px rgba(0, 168, 255, 0.8));
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+        .footer {
+            text-align: center;
+        }
+        
+        .footer-heading::after {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+        }
+        
+        .footer-logo {
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            justify-content: center;
+        }
+        
+        .footer-links a:hover {
+            transform: translateX(0) scale(1.05);
+        }
+        
+        .wechat-container {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .wechat-qr {
+            margin: 0 auto;
+        }
+    }
+</style>

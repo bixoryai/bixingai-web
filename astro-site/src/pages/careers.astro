@@ -1,0 +1,617 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SecondaryHero from '../components/SecondaryHero.astro';
+
+const title = "Careers - Bixing Technology";
+const description = "Join Bixing Technology and be part of the AI revolution. Explore career opportunities and help shape the future of enterprise AI solutions.";
+---
+
+<BaseLayout title={title} description={description}>
+	<main>
+		<SecondaryHero
+			title="Careers"
+			subtitle="Join us in shaping the future of enterprise AI"
+			dataI18nTitle="careers.hero.title"
+			dataI18nSubtitle="careers.hero.subtitle"
+		/>
+
+		<!-- Culture Section -->
+		<section class="py-20 bg-gradient-to-br from-dark-bg to-darker-bg">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-12 animate-fade-up">
+					<div class="max-w-3xl mx-auto">
+						<h2 class="section-title text-4xl font-bold text-white mb-4 inline-block relative" data-i18n="careers.culture.title">Our Culture</h2>
+						<p class="section-subtitle text-xl text-gray-400" data-i18n="careers.culture.subtitle">What makes working at Bixing Technology special</p>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+					<div class="culture-card bg-white/5 rounded-xl p-8 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 animate-fade-up" style="animation-delay: 0.1s;">
+						<div class="text-center">
+							<div class="w-14 h-14 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white text-2xl">
+								<svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/>
+								</svg>
+							</div>
+							<h3 class="text-xl font-bold text-white mb-4" data-i18n="careers.culture.innovation.title">Innovation</h3>
+							<p class="text-gray-400" data-i18n="careers.culture.innovation.desc">We foster a culture of innovation where new ideas are encouraged and celebrated. Our team members are empowered to think creatively and push boundaries.</p>
+						</div>
+					</div>
+
+					<div class="culture-card bg-white/5 rounded-xl p-8 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 animate-fade-up" style="animation-delay: 0.2s;">
+						<div class="text-center">
+							<div class="w-14 h-14 mx-auto mb-6 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center text-white text-2xl">
+								<svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+								</svg>
+							</div>
+							<h3 class="text-xl font-bold text-white mb-4" data-i18n="careers.culture.collaboration.title">Collaboration</h3>
+							<p class="text-gray-400" data-i18n="careers.culture.collaboration.desc">We believe in the power of teamwork. Our collaborative environment brings together diverse perspectives to solve complex problems and deliver exceptional results.</p>
+						</div>
+					</div>
+
+					<div class="culture-card bg-white/5 rounded-xl p-8 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 animate-fade-up" style="animation-delay: 0.3s;">
+						<div class="text-center">
+							<div class="w-14 h-14 mx-auto mb-6 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 flex items-center justify-center text-white text-2xl">
+								<svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M13.35 20.13c-.76.69-1.93.69-2.69-.01l-.11-.1C5.3 15.27 1.87 12.16 2 8.28c.06-1.3.27-2.22.67-2.83.45-.82 1.3-1.45 2.3-1.45.52 0 1.04.2 1.43.54.42.32.93.51 1.44.51.44 0 .88-.13 1.25-.37 1.02-.66 2.11-.66 3.13 0 .37.24.81.37 1.25.37.51 0 1.02-.19 1.44-.51.39-.34.91-.54 1.43-.54 1 0 1.85.63 2.3 1.45.4.61.61 1.53.67 2.83.14 3.88-3.3 6.99-8.55 11.76l-.1.09z"/>
+								</svg>
+							</div>
+							<h3 class="text-xl font-bold text-white mb-4" data-i18n="careers.culture.growth.title">Growth</h3>
+							<p class="text-gray-400" data-i18n="careers.culture.growth.desc">We're committed to the personal and professional growth of our team members. We provide opportunities for learning, development, and advancement.</p>
+						</div>
+					</div>
+
+					<div class="culture-card bg-white/5 rounded-xl p-8 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 animate-fade-up" style="animation-delay: 0.1s;">
+						<div class="text-center">
+							<div class="w-14 h-14 mx-auto mb-6 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center text-white text-2xl">
+								<svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+								</svg>
+							</div>
+							<h3 class="text-xl font-bold text-white mb-4" data-i18n="careers.culture.integrity.title">Integrity</h3>
+							<p class="text-gray-400" data-i18n="careers.culture.integrity.desc">We operate with honesty, transparency, and ethical responsibility. Our commitment to integrity guides our decisions and actions in all aspects of our business.</p>
+						</div>
+					</div>
+
+					<div class="culture-card bg-white/5 rounded-xl p-8 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 animate-fade-up" style="animation-delay: 0.2s;">
+						<div class="text-center">
+							<div class="w-14 h-14 mx-auto mb-6 rounded-full bg-gradient-to-r from-pink-500 to-pink-600 flex items-center justify-center text-white text-2xl">
+								<svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+								</svg>
+							</div>
+							<h3 class="text-xl font-bold text-white mb-4" data-i18n="careers.culture.diversity.title">Diversity</h3>
+							<p class="text-gray-400" data-i18n="careers.culture.diversity.desc">We celebrate diversity and inclusion. Our global team brings together different backgrounds, experiences, and perspectives to drive innovation and excellence.</p>
+						</div>
+					</div>
+
+					<div class="culture-card bg-white/5 rounded-xl p-8 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 animate-fade-up" style="animation-delay: 0.3s;">
+						<div class="text-center">
+							<div class="w-14 h-14 mx-auto mb-6 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white text-2xl">
+								<svg class="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
+									<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+								</svg>
+							</div>
+							<h3 class="text-xl font-bold text-white mb-4" data-i18n="careers.culture.balance.title">Work-Life Balance</h3>
+							<p class="text-gray-400" data-i18n="careers.culture.balance.desc">We value the well-being of our team members and promote a healthy work-life balance. We offer flexible work arrangements and prioritize mental health.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Benefits Section -->
+		<section class="benefits-section py-20 bg-dark-surface">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-12 animate-fade-up">
+					<div class="max-w-3xl mx-auto">
+						<h2 class="section-title text-4xl font-bold text-white mb-4 inline-block relative" data-i18n="careers.benefits.title">Benefits & Perks</h2>
+						<p class="section-subtitle text-xl text-gray-400" data-i18n="careers.benefits.subtitle">We take care of our team with competitive benefits and perks</p>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+					<div class="space-y-6 animate-fade-up">
+						<div class="benefit-item bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+							<div class="flex items-start space-x-4">
+								<div class="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 to-red-600 flex items-center justify-center text-white flex-shrink-0">
+									<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+									</svg>
+								</div>
+								<div>
+									<h4 class="text-xl font-bold text-white mb-2" data-i18n="careers.benefits.health.title">Comprehensive Health Coverage</h4>
+									<p class="text-gray-400" data-i18n="careers.benefits.health.desc">We offer comprehensive medical, dental, and vision insurance plans for you and your dependents.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="benefit-item bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+							<div class="flex items-start space-x-4">
+								<div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white flex-shrink-0">
+									<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+									</svg>
+								</div>
+								<div>
+									<h4 class="text-xl font-bold text-white mb-2" data-i18n="careers.benefits.compensation.title">Competitive Compensation</h4>
+									<p class="text-gray-400" data-i18n="careers.benefits.compensation.desc">We offer competitive salaries, equity options, and performance-based bonuses to reward your contributions.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="benefit-item bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+							<div class="flex items-start space-x-4">
+								<div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white flex-shrink-0">
+									<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+									</svg>
+								</div>
+								<div>
+									<h4 class="text-xl font-bold text-white mb-2" data-i18n="careers.benefits.timeoff.title">Generous Time Off</h4>
+									<p class="text-gray-400" data-i18n="careers.benefits.timeoff.desc">Enjoy generous paid time off, including vacation days, sick leave, and holidays to rest and recharge.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="space-y-6 animate-fade-up" style="animation-delay: 0.1s;">
+						<div class="benefit-item bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+							<div class="flex items-start space-x-4">
+								<div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center text-white flex-shrink-0">
+									<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6l9-4.91V17h2V9L12 3z"/>
+									</svg>
+								</div>
+								<div>
+									<h4 class="text-xl font-bold text-white mb-2" data-i18n="careers.benefits.learning.title">Learning & Development</h4>
+									<p class="text-gray-400" data-i18n="careers.benefits.learning.desc">Access to continuous learning opportunities, including conferences, workshops, and education reimbursement.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="benefit-item bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+							<div class="flex items-start space-x-4">
+								<div class="w-12 h-12 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 flex items-center justify-center text-white flex-shrink-0">
+									<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+									</svg>
+								</div>
+								<div>
+									<h4 class="text-xl font-bold text-white mb-2" data-i18n="careers.benefits.flexible.title">Flexible Work Environment</h4>
+									<p class="text-gray-400" data-i18n="careers.benefits.flexible.desc">Enjoy flexible work hours and remote work options to help you maintain a healthy work-life balance.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="benefit-item bg-white/5 rounded-xl p-6 border border-white/10 hover:bg-white/10 transition-all duration-300">
+							<div class="flex items-start space-x-4">
+								<div class="w-12 h-12 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 flex items-center justify-center text-white flex-shrink-0">
+									<svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+										<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+									</svg>
+								</div>
+								<div>
+									<h4 class="text-xl font-bold text-white mb-2" data-i18n="careers.benefits.perks.title">Office Perks</h4>
+									<p class="text-gray-400" data-i18n="careers.benefits.perks.desc">Enjoy a modern office with catered meals, snacks, coffee, and team-building activities.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Employee Stories Section -->
+		<section class="py-20 ai-nodes-bg bg-gradient-to-br from-darker-bg via-dark-bg to-darker-bg relative overflow-hidden">
+			<div class="absolute inset-0 opacity-10">
+				<div class="absolute top-10 left-10 w-32 h-32 border border-primary-color rounded-full animate-pulse"></div>
+				<div class="absolute top-20 right-20 w-24 h-24 border border-accent-color rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+				<div class="absolute bottom-20 left-1/4 w-20 h-20 border border-gold rounded-full animate-pulse" style="animation-delay: 2s;"></div>
+				<div class="absolute bottom-10 right-10 w-16 h-16 border border-primary-color rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+				<div class="absolute top-1/2 left-1/3 w-12 h-12 border border-accent-color rounded-full animate-pulse" style="animation-delay: 1.5s;"></div>
+				</div>
+				
+			<div class="container mx-auto px-4 relative z-10">
+				<div class="text-center mb-12 animate-fade-up">
+					<div class="max-w-3xl mx-auto">
+						<h2 class="section-title text-4xl font-bold text-white mb-4 inline-block relative" data-i18n="careers.stories.title">Employee Stories</h2>
+						<p class="section-subtitle text-xl text-gray-400" data-i18n="careers.stories.subtitle">Hear from our team members about their experience working at Bixing Technology</p>
+					</div>
+				</div>
+
+				<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+					<div class="employee-testimonial bg-white/5 rounded-xl p-8 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 animate-fade-up" style="animation-delay: 0.1s;">
+						<blockquote class="text-gray-300 text-lg italic mb-6 leading-relaxed" data-i18n="careers.stories.quote1">"Working at Bixing Technology has been an incredible journey. The culture of innovation and continuous learning has helped me grow both professionally and personally. I'm constantly challenged and inspired by the brilliant minds I work with every day."</blockquote>
+						<div class="flex items-center space-x-4">
+							<div class="w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold">
+								S
+							</div>
+							<div>
+								<h4 class="text-white font-bold text-lg" data-i18n="careers.stories.name1">Sarah Chen</h4>
+								<p class="text-primary-color" data-i18n="careers.stories.position1">Machine Learning Engineer</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="employee-testimonial bg-white/5 rounded-xl p-8 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 animate-fade-up" style="animation-delay: 0.2s;">
+						<blockquote class="text-gray-300 text-lg italic mb-6 leading-relaxed" data-i18n="careers.stories.quote2">"What I love most about Bixing Technology is the collaborative environment. Everyone is passionate about what they do and eager to share knowledge. The company truly values work-life balance, which has allowed me to pursue my career while maintaining personal well-being."</blockquote>
+						<div class="flex items-center space-x-4">
+							<div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center text-white font-bold">
+								M
+							</div>
+							<div>
+								<h4 class="text-white font-bold text-lg" data-i18n="careers.stories.name2">Michael Wang</h4>
+								<p class="text-primary-color" data-i18n="careers.stories.position2">AI Research Scientist</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="employee-testimonial bg-white/5 rounded-xl p-8 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-300 animate-fade-up" style="animation-delay: 0.3s;">
+						<blockquote class="text-gray-300 text-lg italic mb-6 leading-relaxed" data-i18n="careers.stories.quote3">"Joining Bixing Technology was one of the best decisions of my career. The company provides ample opportunities for growth and development. I've been able to work on cutting-edge projects that are making a real impact in the world of AI, which is incredibly fulfilling."</blockquote>
+						<div class="flex items-center space-x-4">
+							<div class="w-12 h-12 rounded-full bg-gradient-to-r from-teal-500 to-teal-600 flex items-center justify-center text-white font-bold">
+								E
+							</div>
+							<div>
+								<h4 class="text-white font-bold text-lg" data-i18n="careers.stories.name3">Emily Zhang</h4>
+								<p class="text-primary-color" data-i18n="careers.stories.position3">AI Solutions Consultant</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Open Positions Section -->
+		<section class="py-20 bg-dark-bg">
+			<div class="container mx-auto px-4">
+				<h2 class="text-3xl font-bold text-white text-center mb-12" data-i18n="careers.openPositions.title">Open Positions</h2>
+				<div class="max-w-3xl mx-auto">
+					<div class="bg-dark-surface rounded-xl p-8 border border-white/10 mb-6">
+						<h3 class="text-xl font-bold text-white mb-2" data-i18n="careers.positions.aiEngineer.title">AI Engineer</h3>
+						<p class="text-gray-400 mb-4" data-i18n="careers.positions.aiEngineer.description">We're looking for talented AI engineers to join our team...</p>
+						<a href="/contact" class="text-primary-color hover:text-accent-color transition-colors" data-i18n="careers.positions.apply">Apply Now</a>
+					</div>
+					<div class="bg-dark-surface rounded-xl p-8 border border-white/10 mb-6">
+						<h3 class="text-xl font-bold text-white mb-2" data-i18n="careers.positions.aiConsultant.title">AI Consultant</h3>
+						<p class="text-gray-400 mb-4" data-i18n="careers.positions.aiConsultant.description">Help enterprises implement AI solutions and drive transformation...</p>
+						<a href="/contact" class="text-primary-color hover:text-accent-color transition-colors" data-i18n="careers.positions.apply">Apply Now</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Application Form Section -->
+		<section class="py-20 bg-dark-bg" id="application-form">
+			<div class="container mx-auto px-4">
+				<div class="text-center mb-12 animate-fade-up">
+					<div class="max-w-3xl mx-auto">
+						<h2 class="section-title text-4xl font-bold text-white mb-4 inline-block relative" data-i18n="careers.apply.title">Apply Now</h2>
+						<p class="section-subtitle text-xl text-gray-400" data-i18n="careers.apply.subtitle">Take the first step towards joining our team</p>
+					</div>
+				</div>
+
+				<div class="max-w-4xl mx-auto animate-fade-up">
+					<form class="bg-white/5 rounded-xl p-8 border border-white/10">
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+							<div>
+								<label for="first-name" class="block text-white font-medium mb-2" data-i18n="careers.apply.firstname">First Name</label>
+								<input type="text" id="first-name" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-color focus:ring-1 focus:ring-primary-color transition-colors" required>
+							</div>
+							<div>
+								<label for="last-name" class="block text-white font-medium mb-2" data-i18n="careers.apply.lastname">Last Name</label>
+								<input type="text" id="last-name" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-color focus:ring-1 focus:ring-primary-color transition-colors" required>
+							</div>
+						</div>
+
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+							<div>
+								<label for="email" class="block text-white font-medium mb-2" data-i18n="careers.apply.email">Email</label>
+								<input type="email" id="email" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-color focus:ring-1 focus:ring-primary-color transition-colors" required>
+							</div>
+							<div>
+								<label for="phone" class="block text-white font-medium mb-2" data-i18n="careers.apply.phone">Phone</label>
+								<input type="tel" id="phone" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-color focus:ring-1 focus:ring-primary-color transition-colors">
+							</div>
+						</div>
+
+						<div class="mb-6">
+							<label for="position" class="block text-white font-medium mb-2" data-i18n="careers.apply.position">Position You're Applying For</label>
+							<select id="position" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-primary-color focus:ring-1 focus:ring-primary-color transition-colors" required>
+								<option value="" selected disabled data-i18n="careers.apply.select">Select a position</option>
+								<option value="AI Research Scientist">AI Research Scientist</option>
+								<option value="Machine Learning Engineer">Machine Learning Engineer</option>
+								<option value="AI Education Specialist">AI Education Specialist</option>
+								<option value="AI Solutions Consultant">AI Solutions Consultant</option>
+								<option value="Frontend Developer">Frontend Developer</option>
+								<option value="AI Content Writer">AI Content Writer</option>
+								<option value="Other" data-i18n="careers.apply.other">Other</option>
+							</select>
+						</div>
+
+						<div class="mb-6">
+							<label for="resume" class="block text-white font-medium mb-2" data-i18n="careers.apply.resume">Resume/CV</label>
+							<input type="file" id="resume" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-primary-color file:text-white hover:file:bg-primary-color/80 transition-colors" required>
+						</div>
+
+						<div class="mb-6">
+							<label for="portfolio" class="block text-white font-medium mb-2" data-i18n="careers.apply.portfolio">Portfolio/GitHub/LinkedIn URL (Optional)</label>
+							<input type="url" id="portfolio" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-color focus:ring-1 focus:ring-primary-color transition-colors">
+						</div>
+
+						<div class="mb-8">
+							<label for="cover-letter" class="block text-white font-medium mb-2" data-i18n="careers.apply.coverletter">Cover Letter</label>
+							<textarea id="cover-letter" rows="5" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-color focus:ring-1 focus:ring-primary-color transition-colors resize-none" required></textarea>
+						</div>
+
+						<div class="text-center">
+							<button type="submit" class="btn-primary px-8 py-3 font-semibold rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105" data-i18n="careers.apply.submit">Submit Application</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</section>
+	</main>
+</BaseLayout>
+
+<script is:inline src="/assets/js/i18n-careers.js"></script>
+
+<script>
+	const appWindow = window as Window & {
+		translations?: Record<string, Record<string, string>>;
+		particlesJS?: (containerId: string, config: unknown) => void;
+	};
+	const particlesJS = appWindow.particlesJS;
+
+    console.log('Careers page loaded');
+
+    // Keep global translations available but add page-specific overrides
+	if (!appWindow.translations) {
+		appWindow.translations = { en: {}, zh: {} };
+    }
+
+    // Isolated Careers page translations to prevent corruption
+    const careersTranslations = {
+        en: {
+            // Hero section
+            'careers.hero.title': 'Join Our Team',
+            'careers.hero.subtitle': 'Be part of a team that\'s shaping the future of AI technology and making a real impact',
+
+            // Culture section
+            'careers.culture.title': 'Our Culture',
+            'careers.culture.subtitle': 'What makes working at Bixing Technology special',
+            'careers.culture.innovation.title': 'Innovation',
+            'careers.culture.innovation.desc': 'We foster a culture of innovation where new ideas are encouraged and celebrated. Our team members are empowered to think creatively and push boundaries.',
+            'careers.culture.collaboration.title': 'Collaboration',
+            'careers.culture.collaboration.desc': 'We believe in the power of teamwork. Our collaborative environment brings together diverse perspectives to solve complex problems and deliver exceptional results.',
+            'careers.culture.growth.title': 'Growth',
+            'careers.culture.growth.desc': 'We\'re committed to the personal and professional growth of our team members. We provide opportunities for learning, development, and advancement.',
+            'careers.culture.integrity.title': 'Integrity',
+            'careers.culture.integrity.desc': 'We operate with honesty, transparency, and ethical responsibility. Our commitment to integrity guides our decisions and actions in all aspects of our business.',
+            'careers.culture.diversity.title': 'Diversity',
+            'careers.culture.diversity.desc': 'We celebrate diversity and inclusion. Our global team brings together different backgrounds, experiences, and perspectives to drive innovation and excellence.',
+            'careers.culture.balance.title': 'Work-Life Balance',
+            'careers.culture.balance.desc': 'We value the well-being of our team members and promote a healthy work-life balance. We offer flexible work arrangements and prioritize mental health.',
+
+            // Open Positions section
+            'careers.positions.title': 'Open Positions',
+            'careers.positions.apply': 'Apply Now',
+
+            // Employee Stories section
+            'careers.stories.title': 'Employee Stories',
+            'careers.stories.subtitle': 'Hear from our team members about their experience working at Bixing Technology',
+            'careers.stories.quote1': 'Working at Bixing Technology has been an incredible journey. The culture of innovation and continuous learning has helped me grow both professionally and personally. I\'m constantly challenged and inspired by the brilliant minds I work with every day.',
+            'careers.stories.name1': 'Sarah Chen',
+            'careers.stories.position1': 'Machine Learning Engineer',
+            'careers.stories.quote2': 'What I love most about Bixing Technology is the collaborative environment. Everyone is passionate about what they do and eager to share knowledge. The company truly values work-life balance, which has allowed me to pursue my career while maintaining personal well-being.',
+            'careers.stories.name2': 'Michael Wang',
+            'careers.stories.position2': 'AI Research Scientist',
+            'careers.stories.quote3': 'Joining Bixing Technology was one of the best decisions of my career. The company provides ample opportunities for growth and development. I\'ve been able to work on cutting-edge projects that are making a real impact in the world of AI, which is incredibly fulfilling.',
+            'careers.stories.name3': 'Emily Zhang',
+            'careers.stories.position3': 'AI Solutions Consultant',
+
+            // Benefits section
+            'careers.benefits.title': 'Benefits & Perks',
+            'careers.benefits.subtitle': 'We take care of our team with competitive benefits and perks',
+            'careers.benefits.health.title': 'Comprehensive Health Coverage',
+            'careers.benefits.health.desc': 'We offer comprehensive medical, dental, and vision insurance plans for you and your dependents.',
+            'careers.benefits.compensation.title': 'Competitive Compensation',
+            'careers.benefits.compensation.desc': 'We offer competitive salaries, equity options, and performance-based bonuses to reward your contributions.',
+            'careers.benefits.timeoff.title': 'Generous Time Off',
+            'careers.benefits.timeoff.desc': 'Enjoy generous paid time off, including vacation days, sick leave, and holidays to rest and recharge.',
+            'careers.benefits.learning.title': 'Learning & Development',
+            'careers.benefits.learning.desc': 'Access to continuous learning opportunities, including conferences, workshops, and education reimbursement.',
+            'careers.benefits.flexible.title': 'Flexible Work Environment',
+            'careers.benefits.flexible.desc': 'Enjoy flexible work hours and remote work options to help you maintain a healthy work-life balance.',
+            'careers.benefits.perks.title': 'Office Perks',
+            'careers.benefits.perks.desc': 'Enjoy a modern office with catered meals, snacks, coffee, and team-building activities.',
+
+            // Application form
+            'careers.apply.title': 'Apply Now',
+            'careers.apply.subtitle': 'Take the first step towards joining our team',
+            'careers.apply.firstname': 'First Name',
+            'careers.apply.lastname': 'Last Name',
+            'careers.apply.email': 'Email',
+            'careers.apply.phone': 'Phone',
+            'careers.apply.position': 'Position You\'re Applying For',
+            'careers.apply.select': 'Select a position',
+            'careers.apply.other': 'Other',
+            'careers.apply.resume': 'Resume/CV',
+            'careers.apply.portfolio': 'Portfolio/GitHub/LinkedIn URL (Optional)',
+            'careers.apply.coverletter': 'Cover Letter',
+            'careers.apply.submit': 'Submit Application'
+        },
+        zh: {
+            // Hero section
+            'careers.hero.title': '加入我们的团队',
+            'careers.hero.subtitle': '成为塑造AI技术未来并产生真正影响的团队的一员',
+
+            // Culture section
+            'careers.culture.title': '我们的文化',
+            'careers.culture.subtitle': '在毕行科技工作的特别之处',
+            'careers.culture.innovation.title': '创新',
+            'careers.culture.innovation.desc': '我们培养创新文化，新想法受到鼓励和庆祝。我们的团队成员被授权创造性地思考并突破界限。',
+            'careers.culture.collaboration.title': '合作',
+            'careers.culture.collaboration.desc': '我们相信团队合作的力量。我们的合作环境汇聚不同的观点来解决复杂问题并提供卓越成果。',
+            'careers.culture.growth.title': '成长',
+            'careers.culture.growth.desc': '我们致力于团队成员的个人和职业发展。我们提供学习、发展和晋升的机会。',
+            'careers.culture.integrity.title': '诚信',
+            'careers.culture.integrity.desc': '我们以诚实、透明和道德责任运营。我们对诚信的承诺指导我们在所有业务方面的决策和行动。',
+            'careers.culture.diversity.title': '多元性',
+            'careers.culture.diversity.desc': '我们庆祝多元性和包容性。我们的全球团队汇聚不同的背景、经验和观点来推动创新和卓越。',
+            'careers.culture.balance.title': '工作生活平衡',
+            'careers.culture.balance.desc': '我们重视团队成员的福祉并促进健康的工作生活平衡。我们提供灵活的工作安排并优先考虑心理健康。',
+
+            // Open Positions section
+            'careers.positions.title': '职位空缺',
+            'careers.positions.apply': '立即申请',
+
+            // Employee Stories section
+            'careers.stories.title': '员工故事',
+            'careers.stories.subtitle': '听听我们的团队成员分享他们在毕行科技的工作经历',
+            'careers.stories.quote1': '在毕行科技工作是一段令人难以置信的旅程。创新和持续学习的文化帮助我在专业和个人层面都得到了成长。我每天都受到与我一起工作的优秀人才的挑战和启发。',
+            'careers.stories.name1': '陈莎拉',
+            'careers.stories.position1': '机器学习工程师',
+            'careers.stories.quote2': '我最喜欢毕行科技的是合作环境。每个人都对自己的工作充满热情，并渴望分享知识。公司真正重视工作生活平衡，这让我在追求事业的同时保持个人福祉。',
+            'careers.stories.name2': '王迈克',
+            'careers.stories.position2': 'AI研究科学家',
+            'careers.stories.quote3': '加入毕行科技是我职业生涯中最好的决定之一。公司提供了充足的成长和发展机会。我能够从事前沿项目，在AI领域产生真正的影响，这让我感到非常充实。',
+            'careers.stories.name3': '张艾米丽',
+            'careers.stories.position3': 'AI解决方案顾问',
+
+            // Benefits section
+            'careers.benefits.title': '福利与津贴',
+            'careers.benefits.subtitle': '我们通过具有竞争力的福利和津贴来照顾我们的团队',
+            'careers.benefits.health.title': '全面健康保障',
+            'careers.benefits.health.desc': '我们为您和您的家属提供全面的医疗、牙科和视力保险计划。',
+            'careers.benefits.compensation.title': '具有竞争力的薪酬',
+            'careers.benefits.compensation.desc': '我们提供具有竞争力的薪水、股权期权和基于绩效的奖金来奖励您的贡献。',
+            'careers.benefits.timeoff.title': '慷慨的休假时间',
+            'careers.benefits.timeoff.desc': '享受慷慨的带薪休假，包括假期、病假和节假日，让您休息和充电。',
+            'careers.benefits.learning.title': '学习与发展',
+            'careers.benefits.learning.desc': '访问持续学习机会，包括会议、工作坊和教育报销。',
+            'careers.benefits.flexible.title': '灵活的工作环境',
+            'careers.benefits.flexible.desc': '享受灵活的工作时间和远程工作选项，帮助您保持健康的工作生活平衡。',
+            'careers.benefits.perks.title': '办公室福利',
+            'careers.benefits.perks.desc': '享受现代办公室，提供餐饮、零食、咖啡和团队建设活动。',
+
+            // Application form
+            'careers.apply.title': '立即申请',
+            'careers.apply.subtitle': '迈出加入我们团队的第一步',
+            'careers.apply.firstname': '名',
+            'careers.apply.lastname': '姓',
+            'careers.apply.email': '电子邮件',
+            'careers.apply.phone': '电话',
+            'careers.apply.position': '申请职位',
+            'careers.apply.select': '选择职位',
+            'careers.apply.other': '其他',
+            'careers.apply.resume': '简历/CV',
+            'careers.apply.portfolio': '作品集/GitHub/LinkedIn链接（可选）',
+            'careers.apply.coverletter': '求职信',
+            'careers.apply.submit': '提交申请'
+        }
+    };
+
+    // Apply page-specific translations for Careers page
+    function applyCareersTranslations() {
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+
+        if (careersTranslations[currentLang]) {
+            // Apply translations to all careers page elements
+            Object.keys(careersTranslations[currentLang]).forEach(key => {
+                const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
+                elements.forEach(element => {
+                    element.textContent = careersTranslations[currentLang][key];
+                });
+            });
+        }
+    }
+
+    // Apply translations immediately and on language changes
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Careers page loaded');
+        // Apply page-specific translations after global translations
+        setTimeout(applyCareersTranslations, 100);
+        setTimeout(applyCareersTranslations, 200);
+    });
+
+    // Listen for language toggle events and reapply page translations
+    document.addEventListener('languageToggled', function(e) {
+        console.log('Language toggled event received - applying Careers page translations');
+        setTimeout(applyCareersTranslations, 50);
+    });
+
+    // Also listen for storage events
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'bixingLanguage') {
+            console.log('Language storage event received - applying Careers page translations');
+            setTimeout(applyCareersTranslations, 50);
+        }
+    });
+
+    // Initialize particles for careers hero section
+    if (typeof particlesJS !== 'undefined') {
+        const particlesEl = document.getElementById('secondary-hero-particles');
+        if (particlesEl) {
+            const particlesObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        particlesJS('secondary-hero-particles', {
+                            particles: {
+                                number: { value: 80, density: { enable: true, value_area: 800 } },
+                                color: { value: '#5ce1e6' },
+                                shape: { type: 'circle' },
+                                opacity: { value: 0.3, random: true },
+                                size: { value: 3, random: true },
+                                line_linked: {
+                                    enable: true,
+                                    distance: 150,
+                                    color: '#5ce1e6',
+                                    opacity: 0.2,
+                                    width: 1
+                                },
+                                move: {
+                                    enable: true,
+                                    speed: 2,
+                                    direction: 'none',
+                                    random: true,
+                                    straight: false,
+                                    out_mode: 'out',
+                                    bounce: false
+                                }
+                            },
+                            interactivity: {
+                                detect_on: 'canvas',
+                                events: {
+                                    onhover: { enable: true, mode: 'repulse' },
+                                    onclick: { enable: true, mode: 'push' },
+                                    resize: true
+                                },
+                                modes: {
+                                    repulse: { distance: 100, duration: 0.4 },
+                                    push: { particles_nb: 4 }
+                                }
+                            },
+                            retina_detect: true
+                        });
+                        particlesObserver.unobserve(particlesEl);
+                    }
+                });
+            });
+
+            particlesObserver.observe(particlesEl);
+        }
+    }
+</script>
+
+<style>
+	:root {
+		--dark-surface: #1e1e1e;
+		--dark-bg: #121212;
+		--primary-color: #0066FF;
+		--accent-color: #00C2FF;
+	}
+</style>
+

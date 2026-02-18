@@ -1,0 +1,299 @@
+---
+// Header component converted to Tailwind CSS
+---
+
+<header class="fixed top-0 left-0 w-full z-[1000] m-0 py-1.5 bg-[rgba(10,16,32,0.85)] backdrop-blur-md border-b border-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-300" id="header">
+    <div class="w-full px-4">
+        <nav class="flex items-center justify-between lg:justify-start">
+            <div class="flex items-center justify-between w-full lg:w-auto">
+                <a href="/" class="flex items-center relative z-[2]">
+                    <picture>
+                        <source srcset="/assets/images/bixingai-logo.webp" type="image/webp">
+                        <img src="/assets/images/bixingai-logo.png" alt="Bixing Technology Logo" class="h-12 mr-4 drop-shadow-[0_0_5px_rgba(0,168,255,0.5)] transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(0,168,255,0.8)] hover:scale-105">
+                    </picture>
+                    <span class="font-bold text-[1.8rem] bg-gradient-to-r from-white to-accent-blue bg-clip-text text-transparent relative tracking-wide" data-i18n="footer.company">Bixing Technology</span>
+                </a>
+                <button 
+                    class="lg:hidden border-none bg-transparent relative w-[30px] h-6 focus:outline-none focus:shadow-none" 
+                    type="button" 
+                    id="mobile-menu-toggle"
+                    aria-label="Toggle navigation"
+                    aria-expanded="false"
+                >
+                    <div class="relative w-full h-6">
+                        <span class="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-accent-blue to-accent-purple transition-all duration-300"></span>
+                        <span class="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-accent-blue to-accent-purple transition-all duration-300 -translate-y-1/2"></span>
+                        <span class="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-accent-blue to-accent-purple transition-all duration-300"></span>
+                    </div>
+                </button>
+            </div>
+            <div class="hidden lg:flex lg:ml-auto" id="navbar-menu">
+                <ul class="flex items-center space-x-1">
+                    <li class="relative services-menu-item">
+                        <a href="/services" class="relative block px-4 py-2 font-medium text-white rounded-md transition-all duration-300 z-[1] hover:text-gold after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold after:to-orange-500 after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-4/5" data-i18n="nav.services">
+                            Products & Services
+                        </a>
+                        <ul class="services-dropdown absolute top-full left-0 mt-2.5 py-2.5 px-2.5 bg-[rgba(30,41,59,0.95)] backdrop-blur-md border border-white/5 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.25)] min-w-[200px] z-[1050] transition-all duration-300" style="opacity: 0; visibility: hidden; transform: translateY(10px); display: none;">
+                            <li><a href="/services/education" class="block px-4 py-2 text-white rounded transition-all duration-200 hover:bg-accent-blue/10 hover:text-gold hover:translate-x-1.5" data-i18n="nav.aiEducation">AI Education/Training</a></li>
+                            <li><a href="/services/custom-solutions" class="block px-4 py-2 text-white rounded transition-all duration-200 hover:bg-accent-blue/10 hover:text-gold hover:translate-x-1.5" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                            <li><a href="/services/consultation" class="block px-4 py-2 text-white rounded transition-all duration-200 hover:bg-accent-blue/10 hover:text-gold hover:translate-x-1.5" data-i18n="nav.aiConsultation">Enterprise AI Consultation</a></li>
+                        </ul>
+                    </li>
+                    <li class="relative">
+                        <a href="/insights" class="relative block px-4 py-2 font-medium text-white rounded-md transition-all duration-300 z-[1] hover:text-gold after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold after:to-orange-500 after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-4/5" data-i18n="nav.industryInsights">Industry Insights</a>
+                    </li>
+                    <li class="relative">
+                        <a href="/about" class="relative block px-4 py-2 font-medium text-white rounded-md transition-all duration-300 z-[1] hover:text-gold after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold after:to-orange-500 after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-4/5" data-i18n="nav.about">About Us</a>
+                    </li>
+                    <li class="relative">
+                        <a href="/careers" class="relative block px-4 py-2 font-medium text-white rounded-md transition-all duration-300 z-[1] hover:text-gold after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold after:to-orange-500 after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-4/5" data-i18n="nav.careers">Careers</a>
+                    </li>
+                    <li class="relative">
+                        <a href="/contact" class="relative block px-4 py-2 font-medium text-white rounded-md transition-all duration-300 z-[1] hover:text-gold after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-gold after:to-orange-500 after:transition-all after:duration-300 after:-translate-x-1/2 hover:after:w-4/5" data-i18n="nav.contact">Contact Us</a>
+                    </li>
+                    <li class="ml-4">
+                        <div class="language-selector">
+                            <button 
+                                id="language-toggle" 
+                                onclick="toggleLanguage()" 
+                                class="relative px-3 py-1.5 text-sm text-white rounded-full border border-white/10 bg-gradient-to-br from-[rgba(0,102,255,0.2)] to-[rgba(112,0,255,0.2)] transition-all duration-300 hover:from-[rgba(0,102,255,0.3)] hover:to-[rgba(112,0,255,0.3)] overflow-hidden"
+                            >
+                                <span id="current-language">EN</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Mobile menu (hidden by default, shown via JavaScript) -->
+    <div class="hidden lg:hidden absolute top-full right-0 mt-0 py-4 px-4 bg-[rgba(10,16,32,0.95)] backdrop-blur-md rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.25)] w-auto min-w-[200px] max-w-[300px] z-[1030]" id="mobile-menu">
+        <ul class="space-y-1">
+            <li class="group">
+                <a href="/services" class="block py-2 px-3 text-[15px] font-medium text-white whitespace-nowrap transition-all duration-300 hover:text-gold" data-i18n="nav.services">Products & Services</a>
+                <ul class="mt-0.5 ml-2.5 py-0.5 pl-2.5 border-l border-white/10">
+                    <li><a href="/services/education" class="block py-1.5 px-2.5 text-[14px] text-white/80 rounded transition-all duration-200 hover:text-gold" data-i18n="nav.aiEducation">AI Education/Training</a></li>
+                    <li><a href="/services/custom-solutions" class="block py-1.5 px-2.5 text-[14px] text-white/80 rounded transition-all duration-200 hover:text-gold" data-i18n="nav.customSolutions">AI Custom Solutions</a></li>
+                    <li><a href="/services/consultation" class="block py-1.5 px-2.5 text-[14px] text-white/80 rounded transition-all duration-200 hover:text-gold" data-i18n="nav.aiConsultation">Enterprise AI Consultation</a></li>
+                </ul>
+            </li>
+            <li><a href="/insights" class="block py-2 px-3 text-[15px] font-medium text-white whitespace-nowrap transition-all duration-300 hover:text-gold" data-i18n="nav.industryInsights">Industry Insights</a></li>
+            <li><a href="/about" class="block py-2 px-3 text-[15px] font-medium text-white whitespace-nowrap transition-all duration-300 hover:text-gold" data-i18n="nav.about">About Us</a></li>
+            <li><a href="/careers" class="block py-2 px-3 text-[15px] font-medium text-white whitespace-nowrap transition-all duration-300 hover:text-gold" data-i18n="nav.careers">Careers</a></li>
+            <li><a href="/contact" class="block py-2 px-3 text-[15px] font-medium text-white whitespace-nowrap transition-all duration-300 hover:text-gold" data-i18n="nav.contact">Contact Us</a></li>
+            <li class="mt-2">
+                <div class="text-right">
+                    <button 
+                        id="language-toggle-mobile" 
+                        onclick="toggleLanguage()" 
+                        class="px-3 py-1.5 text-[13px] text-white rounded-full border border-white/10 bg-gradient-to-br from-[rgba(0,102,255,0.2)] to-[rgba(112,0,255,0.2)] transition-all duration-300 hover:from-[rgba(0,102,255,0.3)] hover:to-[rgba(112,0,255,0.3)] min-w-[60px]"
+                    >
+                        <span id="current-language-mobile">EN</span>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<script>
+    const appWindow = window as Window & {
+        toggleLanguage?: () => void;
+        applyTranslations?: (lang: string) => void;
+        translations?: Record<string, Record<string, string>>;
+    };
+
+    // Initialize language toggle based on stored preference
+    function initializeHeaderLanguage() {
+        const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
+        const currentLanguageElement = document.getElementById('current-language');
+        const currentLanguageMobileElement = document.getElementById('current-language-mobile');
+        if (currentLanguageElement) {
+            currentLanguageElement.textContent = storedLanguage === 'en' ? 'EN' : '中文';
+        }
+        if (currentLanguageMobileElement) {
+            currentLanguageMobileElement.textContent = storedLanguage === 'en' ? 'EN' : '中文';
+        }
+
+        // Apply translations to header content
+        if (appWindow.applyTranslations) {
+            setTimeout(function() {
+                appWindow.applyTranslations?.(storedLanguage);
+            }, 10);
+        }
+    }
+
+    // Initialize immediately if DOM is ready, otherwise wait for DOMContentLoaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeHeaderLanguage);
+    } else {
+        initializeHeaderLanguage();
+    }
+
+    // Override the global toggleLanguage function if it doesn't exist
+    if (typeof appWindow.toggleLanguage !== 'function') {
+        appWindow.toggleLanguage = function() {
+            const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
+            const newLanguage = storedLanguage === 'en' ? 'zh' : 'en';
+            localStorage.setItem('bixingLanguage', newLanguage);
+            const currentLanguageElement = document.getElementById('current-language');
+            const currentLanguageMobileElement = document.getElementById('current-language-mobile');
+            if (currentLanguageElement) {
+                currentLanguageElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
+            }
+            if (currentLanguageMobileElement) {
+                currentLanguageMobileElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
+            }
+            if (appWindow.applyTranslations) {
+                appWindow.applyTranslations(newLanguage);
+            }
+            // Also dispatch language toggled event
+            document.dispatchEvent(new CustomEvent('languageToggled', {detail: {language: newLanguage}}));
+        };
+    }
+
+    // Apply initial translations when header is loaded
+    function applyHeaderTranslations() {
+        const currentLang = localStorage.getItem('bixingLanguage') || 'en';
+
+        // Check if translations are available
+        if (appWindow.translations && appWindow.translations[currentLang]) {
+            // Apply translations directly to header elements
+            const headerElements = document.querySelectorAll('#header [data-i18n]');
+
+            headerElements.forEach(function(element) {
+                const key = element.getAttribute('data-i18n');
+                if (!key) {
+                    return;
+                }
+
+                const translation = appWindow.translations?.[currentLang]?.[key];
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Also call global applyTranslations
+            if (appWindow.applyTranslations) {
+                appWindow.applyTranslations(currentLang);
+            }
+        } else {
+            // Retry after a delay if translations aren't loaded yet
+            setTimeout(applyHeaderTranslations, 100);
+        }
+    }
+
+    // Apply translations after a short delay to ensure translations are loaded
+    setTimeout(applyHeaderTranslations, 50);
+
+    // Listen for language toggle events to update dynamically loaded header content
+    document.addEventListener('languageToggled', function(e) {
+        const lang = (e as CustomEvent<{ language?: string }>).detail?.language || localStorage.getItem('bixingLanguage') || 'en';
+
+        // Apply translations immediately when language changes
+        if (appWindow.applyTranslations) {
+            appWindow.applyTranslations(lang);
+
+            // Apply with delays to ensure all dynamic content is translated
+            setTimeout(function() {
+                appWindow.applyTranslations?.(lang);
+            }, 10);
+            setTimeout(function() {
+                appWindow.applyTranslations?.(lang);
+            }, 50);
+            setTimeout(function() {
+                appWindow.applyTranslations?.(lang);
+            }, 100);
+        }
+    });
+
+    // Header scroll effect
+    document.addEventListener('DOMContentLoaded', function() {
+        const header = document.getElementById('header');
+        if (header) {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                    header.style.backgroundColor = 'rgba(10, 16, 32, 0.95)';
+                    header.style.paddingTop = '4px';
+                    header.style.paddingBottom = '4px';
+                } else {
+                    header.classList.remove('scrolled');
+                    header.style.backgroundColor = 'rgba(10, 16, 32, 0.85)';
+                    header.style.paddingTop = '6px';
+                    header.style.paddingBottom = '6px';
+                }
+            });
+        }
+    });
+
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.getElementById('mobile-menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const icon = toggle?.querySelector('div');
+        
+        if (toggle && menu) {
+            toggle.addEventListener('click', function() {
+                const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+                toggle.setAttribute('aria-expanded', String(!isExpanded));
+                menu.classList.toggle('hidden');
+                
+                // Animate hamburger icon
+                if (icon) {
+                    const spans = icon.querySelectorAll('span');
+                    if (!isExpanded) {
+                        spans[0].style.transform = 'translateY(11px) rotate(45deg)';
+                        spans[1].style.opacity = '0';
+                        spans[2].style.transform = 'translateY(-11px) rotate(-45deg)';
+                    } else {
+                        spans[0].style.transform = '';
+                        spans[1].style.opacity = '';
+                        spans[2].style.transform = '';
+                    }
+                }
+            });
+        }
+    });
+</script>
+
+<style>
+    /* Custom styles that can't be expressed in Tailwind */
+    .language-selector button::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transform: rotate(45deg);
+        animation: shimmer 3s infinite;
+        z-index: -1;
+    }
+    
+    @keyframes shimmer {
+        0% {
+            transform: translateX(-100%) rotate(45deg);
+        }
+        100% {
+            transform: translateX(100%) rotate(45deg);
+        }
+    }
+
+    /* Services dropdown hover functionality - pure CSS with high specificity */
+    li.services-menu-item:hover > ul.services-dropdown,
+    .services-menu-item:hover .services-dropdown {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+        display: block !important;
+        z-index: 9999 !important;
+    }
+
+</style>
+
+
+
+

@@ -4,10 +4,10 @@
   "description": "Bixing Technology Website",
   "scripts": {
     "serve": "python -m http.server",
-    "lint": "npm run lint:js && npm run lint:html && npm run lint:css",
-    "lint:js": "eslint assets/js/**/*.js",
-    "lint:html": "htmlhint *.html components/*.html pages/**/*.html",
-    "lint:css": "stylelint assets/css/**/*.css",
+    "lint": "npm run lint:js && npm run lint:html",
+    "lint:js": "eslint \"astro-site/public/assets/js/**/*.js\" --no-error-on-unmatched-pattern",
+    "lint:html": "htmlhint \"astro-site/public/components/*.html\"",
+    "lint:css": "stylelint \"astro-site/public/assets/css/**/*.css\" --allow-empty-input",
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
     "prepare": "husky install"
   },

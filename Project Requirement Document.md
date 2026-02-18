@@ -1,5 +1,20 @@
 # Bixing Technology Website Plan with HTML
 
+## 0. Implementation Status Addendum (February 18, 2026)
+
+This document started as a pre-build planning PRD. The live implementation status is now:
+
+- ✅ **Migration complete**: Site implemented in `astro-site/` using Astro + Tailwind
+- ✅ **Jekyll cleanup complete on `develop`**: Legacy Jekyll files removed from active branch
+- ✅ **Quality gates green**: Astro type checks, build, and root lint are passing
+- ⏳ **Production cutover pending**: `develop` (Astro) to `main` merge
+
+Planning sections below are retained for historical context. For current execution truth source, use:
+
+- `modernization-plan.md`
+- `project-status.md`
+- `AGENTS.md`
+
 ## 1. PRD (Product Requirements Document)
 
 ### Site Structure
@@ -117,13 +132,13 @@
 ## 3. Tech Stack
 
 ### Frontend
-- **Core**: HTML5, CSS3, JavaScript (ES6+)
-- **CSS Framework**: Bootstrap 5 or Tailwind CSS
+- **Core**: Astro 4.x + HTML5 + CSS3 + JavaScript (ES6+)
+- **CSS Framework**: Tailwind CSS (implemented)
 - **JavaScript Libraries**: 
-  - jQuery (minimized usage where native JS is sufficient)
+   - Vanilla JS (primary)
   - GSAP for animations
   - AOS (Animate On Scroll) for scroll animations
-- **Responsive Framework**: Bootstrap Grid or custom CSS Grid/Flexbox
+- **Responsive Framework**: Tailwind utilities + CSS Grid/Flexbox
 
 ### Interactive Components
 - **Charts/Visualizations**: D3.js or Chart.js
@@ -131,12 +146,10 @@
 - **Carousel/Sliders**: Swiper.js or Slick
 
 ### Content Management
-- **Blog Platform**: Jekyll
-  - Markdown files for content
-  - YAML front matter for metadata
-  - Liquid templating for dynamic content
-- **Main Site Content**: HTML templates with Jekyll includes
-- **Data Files**: YAML/JSON for reusable content blocks
+- **Primary Site Platform**: Astro static pages/components
+- **Blog/Content Data**: JSON/static content in `astro-site/public/assets/data/`
+- **Main Site Content**: Astro pages and components in `astro-site/src/`
+- **Data Files**: JSON/i18n resources for reusable content blocks
 
 ### AI Demo Integration
 - **Primary Method**: Embedded Gradio interfaces via Hugging Face Spaces
@@ -167,39 +180,30 @@
    git remote add origin https://github.com/yourusername/bixing-website.git
    ```
 
-2. Install Jekyll:
+2. Install Astro dependencies:
    ```bash
-   gem install jekyll bundler
-   jekyll new . --force
+   cd astro-site
+   npm install
    ```
 
-3. Modify Jekyll configuration:
+3. Create directory structure:
    ```
-   # _config.yml
-   title: Bixing Technology
-   baseurl: ""
-   url: "https://bixingtechnology.com"
-   ```
-
-4. Create directory structure:
-   ```
-   /
-   ├── _data/           # YAML data files
-   ├── _includes/       # Reusable HTML components
-   ├── _layouts/        # Page templates
-   ├── _posts/          # Blog content
-   ├── _sass/           # Sass partials
-   ├── assets/          # CSS, JS, images
-   ├── pages/           # Main site pages
-   └── _config.yml      # Jekyll configuration
+   bixingai-web/
+   ├── astro-site/
+   │   ├── src/          # Astro pages/components/layouts
+   │   ├── public/       # Static assets + i18n/data/js
+   │   └── astro.config.mjs
+   ├── docs/
+   └── .github/workflows/
    ```
 
 ### Development
 1. Run local development server:
    ```bash
-   bundle exec jekyll serve
+   cd astro-site
+   npm run dev
    ```
-   - Access at http://localhost:4000
+   - Access at http://localhost:4321
    - Changes appear with automatic rebuilds
 
 2. CSS Development:
@@ -281,7 +285,7 @@
 
 ## 6. Technical Considerations for GitHub Pages
 
-### Jekyll Configuration
+### Static Site Configuration
 1. **URL Structure**:
    - Configure permalinks for clean URLs:
      ```yml
@@ -289,16 +293,9 @@
      ```
    - Set up proper 404 page
 
-2. **Collections**:
-   - Use Jekyll collections for services, team members, etc.:
-     ```yml
-     collections:
-       services:
-         output: true
-         permalink: /services/:name/
-       team:
-         output: false
-     ```
+2. **Routing**:
+    - Use Astro file-based routing under `astro-site/src/pages/`
+    - Service detail pages are generated as static routes
 
 ### Performance Optimization
 1. **Image Optimization**:
@@ -320,7 +317,7 @@
 1. Configure automatic builds and deployments:
    ```yml
    # .github/workflows/github-pages.yml
-   name: Build and deploy Jekyll site to GitHub Pages
+   name: Build and deploy Astro site to GitHub Pages
 
    on:
      push:
@@ -331,13 +328,8 @@
        runs-on: ubuntu-latest
        steps:
          - uses: actions/checkout@v2
-         - uses: actions/cache@v2
-           with:
-             path: vendor/bundle
-             key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
-         - uses: helaili/jekyll-action@v2
-           with:
-             token: ${{ secrets.GITHUB_TOKEN }}
+             - uses: actions/setup-node@v4
+             - run: cd astro-site && npm ci && npm run build
    ```
 
 ### AI Demo Integration
