@@ -6,7 +6,9 @@
 /* Main CTA section container */
 .cta-section {
   position: relative;
-  background: var(--gradient-primary);
+  background: #0C1424;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   height: 420px; /* Increased by 40% from 300px */
   min-height: 0; /* Override any min-height */
   max-height: 420px; /* Enforce maximum height */
@@ -16,7 +18,7 @@
   justify-content: center;
   overflow: hidden;
   color: var(--white);
-  margin: -15px auto; /* Negative margin to pull surrounding content closer */
+  margin: 0 auto; /* Natural spacing between sections */
   transform: none; /* Remove scaling */
   transform-origin: center center;
 }
@@ -80,14 +82,14 @@
 
 /* Button styles */
 .cta-button {
-  background-color: #ffffff;
-  color: var(--primary-blue);
+  background: linear-gradient(to right, #FFD700, #FFA07A);
+  color: #121212;
   font-weight: 600;
   padding: 14px 32px; /* Increased padding for better touch target */
   font-size: 1.1rem;
   border-radius: 30px;
   border: none;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(255, 184, 0, 0.25);
   transition: all 0.3s ease;
   text-decoration: none;
   display: inline-block;
@@ -97,8 +99,8 @@
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  background-color: #f8f9fa;
+  box-shadow: 0 8px 30px rgba(255, 184, 0, 0.35);
+  color: #121212;
 }
 
 /* Background elements */

@@ -13,7 +13,7 @@
         
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <!-- Testimonial Card 1 -->
-            <div class="testimonial-card bg-dark-surface rounded-xl border border-white/10 p-8 transition-all duration-300 hover:border-primary-color/50">
+            <div class="testimonial-card bg-dark-surface rounded-xl p-8 transition-all duration-300">
                 <div class="testimonial-rating flex gap-1 mb-6">
                     <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
@@ -47,7 +47,7 @@
             </div>
             
             <!-- Testimonial Card 2 -->
-            <div class="testimonial-card bg-dark-surface rounded-xl border border-white/10 p-8 transition-all duration-300 hover:border-primary-color/50">
+            <div class="testimonial-card bg-dark-surface rounded-xl p-8 transition-all duration-300">
                 <div class="testimonial-rating flex gap-1 mb-6">
                     <svg class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
@@ -85,15 +85,18 @@
 
 <style>
     :root {
-        --dark-bg: #121212;
-        --dark-surface: #1e1e1e;
+        --dark-bg: #080C14;
+        --dark-surface: rgba(14, 20, 32, 0.8);
         --primary-color: #0066FF;
-        --testimonials-bg: #192339;
+        --testimonials-bg: #0E1420;
     }
-    
-    /* Testimonials Section Background - matches original */
+
+    /* Testimonials Section Background */
     .testimonials-section {
-        background-color: #192339;
+        background-color: #080C14;
+        background-image:
+            radial-gradient(circle at 10% 50%, rgba(0, 102, 255, 0.04) 0%, transparent 30%),
+            radial-gradient(circle at 90% 50%, rgba(0, 194, 255, 0.04) 0%, transparent 30%);
     }
     
     .testimonials-section::before {
@@ -118,6 +121,19 @@
         width: 60px;
         height: 3px;
         background: var(--primary-color);
+    }
+
+    /* Card glassmorphism overrides */
+    .testimonial-card {
+        background: rgba(14, 20, 32, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+        border-color: rgba(0, 102, 255, 0.5);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 102, 255, 0.1);
     }
 </style>
 

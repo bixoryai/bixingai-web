@@ -13,7 +13,7 @@
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             <!-- Portfolio Card 1: Education -->
-            <div class="portfolio-card group bg-dark-surface rounded-xl border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] hover:border-primary-color h-full">
+            <div class="portfolio-card group bg-dark-surface rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] h-full">
                 <div class="portfolio-img relative h-60 overflow-hidden">
                     <img src="/assets/images/portfolio/education.svg" alt="AI Education Case Study" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="portfolio-category absolute top-4 left-4 px-3 py-1 bg-blue-500/80 backdrop-blur-sm text-white text-xs font-semibold rounded-full">Education</div>
@@ -38,7 +38,7 @@
             </div>
             
             <!-- Portfolio Card 2: Healthcare -->
-            <div class="portfolio-card group bg-dark-surface rounded-xl border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] hover:border-primary-color h-full">
+            <div class="portfolio-card group bg-dark-surface rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] h-full">
                 <div class="portfolio-img relative h-60 overflow-hidden">
                     <img src="/assets/images/portfolio/healthcare.svg" alt="Healthcare AI Case Study" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="portfolio-category absolute top-4 left-4 px-3 py-1 bg-green-500/80 backdrop-blur-sm text-white text-xs font-semibold rounded-full">Healthcare</div>
@@ -63,7 +63,7 @@
             </div>
             
             <!-- Portfolio Card 3: Finance -->
-            <div class="portfolio-card group bg-dark-surface rounded-xl border border-white/10 overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] hover:border-primary-color h-full">
+            <div class="portfolio-card group bg-dark-surface rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3)] h-full">
                 <div class="portfolio-img relative h-60 overflow-hidden">
                     <img src="/assets/images/portfolio/financial.svg" alt="Financial Services AI Case Study" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="portfolio-category absolute top-4 left-4 px-3 py-1 bg-yellow-500/80 backdrop-blur-sm text-white text-xs font-semibold rounded-full">Finance</div>
@@ -96,34 +96,18 @@
 
 <style>
     :root {
-        --dark-bg: #121212;
-        --dark-surface: #1e1e1e;
+        --dark-bg: #080C14;
+        --dark-surface: rgba(14, 20, 32, 0.8);
         --primary-color: #0066FF;
         --accent-color: #00C2FF;
-        --portfolio-bg: #1A1A2E;
+        --portfolio-bg: #0E1420;
     }
-    
-    /* Portfolio Section Background - matches original */
+
+    /* Portfolio Section Background */
     .portfolio-section {
-        background-color: #1A1A2E;
-        background-image: 
-            linear-gradient(135deg, rgba(0, 102, 255, 0.03) 0%, transparent 50%),
-            linear-gradient(225deg, rgba(112, 0, 255, 0.03) 0%, transparent 50%);
+        background-color: #0C1424;
     }
-    
-    .portfolio-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54 22c-1.1 0-2 .9-2 2v32h-2V24c0-1.1-.9-2-2-2s-2 .9-2 2v32h-2V22c0-1.1-.9-2-2-2s-2 .9-2 2v34h-2V24c0-1.1-.9-2-2-2s-2 .9-2 2v32h-2V22c0-1.1-.9-2-2-2s-2 .9-2 2v34h-2V24c0-1.1-.9-2-2-2s-2 .9-2 2v32h-2V22c0-1.1-.9-2-2-2s-2 .9-2 2v34h-2V24c0-1.1-.9-2-2-2s-2 .9-2 2v32h-2V22c0-1.1-.9-2-2-2s-2 .9-2 2v34h-2V24c0-1.1-.9-2-2-2s-2 .9-2 2v32h-2V22c0-1.1-.9-2-2-2s-2 .9-2 2v34H6V24c0-1.1-.9-2-2-2s-2 .9-2 2v34H0v2h60v-2h-2V24c0-1.1-.9-2-2-2z' fill='%237000FF' fill-opacity='0.03'/%3E%3C/svg%3E");
-        background-size: 60px 60px;
-        opacity: 0.5;
-        z-index: 0;
-    }
-    
+
     .section-title::after {
         content: '';
         position: absolute;
@@ -133,6 +117,19 @@
         width: 60px;
         height: 3px;
         background: var(--primary-color);
+    }
+
+    /* Card glassmorphism overrides */
+    .portfolio-card {
+        background: rgba(14, 20, 32, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(12px);
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .portfolio-card:hover {
+        border-color: var(--primary-color);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 102, 255, 0.1);
     }
 </style>
 
