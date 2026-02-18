@@ -86,15 +86,12 @@ jobs:
     steps:
     - name: Deploy notification
       run: |
-        echo "## 🚀 Astro Site Ready for Production Deployment" >> $GITHUB_STEP_SUMMARY
+        echo "## 🚀 Astro Site Automatically Deploying to Production" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "✅ **CI/CD tests passed** - Astro site is ready for production!" >> $GITHUB_STEP_SUMMARY
+        echo "✅ **CI/CD tests passed** - deployment workflow is triggered from main." >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "### Next Steps:" >> $GITHUB_STEP_SUMMARY
-        echo "1. Go to **Actions** tab" >> $GITHUB_STEP_SUMMARY
-        echo "2. Find **'Deploy Astro Site'** workflow" >> $GITHUB_STEP_SUMMARY
-        echo "3. Click **'Run workflow'**" >> $GITHUB_STEP_SUMMARY
-        echo "4. Select **'production'** target" >> $GITHUB_STEP_SUMMARY
-        echo "5. **Deploy to production!** 🎉" >> $GITHUB_STEP_SUMMARY
+        echo "### Policy:" >> $GITHUB_STEP_SUMMARY
+        echo "- Automatic production deployments happen only from **main**." >> $GITHUB_STEP_SUMMARY
+        echo "- **develop** deployments are manual only (exception path)." >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "**Current live site:** https://bixingai.bixory.ai" >> $GITHUB_STEP_SUMMARY
+        echo "**Live site:** https://bixingai.bixory.ai" >> $GITHUB_STEP_SUMMARY
