@@ -1,7 +1,7 @@
 # Bixing Technology Website
 
 [![Version](https://img.shields.io/badge/version-v2.0.0--beta-blue.svg)](https://github.com/bixoryai/bixingai-web/releases)
-[![Status](https://img.shields.io/badge/status-cutover--pending-yellow.svg)]()
+[![Status](https://img.shields.io/badge/status-cutover--complete-brightgreen.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A corporate website for Bixing Technology, showcasing AI solutions, education services, and enterprise consultation.
@@ -14,7 +14,8 @@ A corporate website for Bixing Technology, showcasing AI solutions, education se
 - ✅ **Performance Optimized**: WebP images (66% savings), lazy loading, async CSS/fonts
 - ✅ **i18n Working**: English/Chinese translations functional across all pages
 - ✅ **Quality Gates Green**: `astro check` 0 errors, `astro build` success, root lint warning-free
-- ⏳ **Phase 6**: Deployment in progress (staging live, production cutover pending)
+- ✅ **Phase 6 Complete**: Production cutover merged to `main`
+- ✅ **Deployment Policy**: Automatic production deploys from `main`; `develop` deploys are manual-only
 
 ## Project Overview
 
@@ -43,7 +44,7 @@ This website serves as the digital presence for Bixing Technology, a company spe
 - **i18n**: Custom JavaScript-based translation system
 - **Performance**: HTML compression, CSS purging, lazy loading
 
-### Legacy Jekyll Stack (v1.x - Production)
+### Legacy Jekyll Stack (v1.x - Backup)
 - **Framework**: Jekyll + Bootstrap 5
 - **Styling**: Custom CSS with consolidated architecture
 - **i18n**: Custom JavaScript translation system
@@ -53,7 +54,7 @@ This website serves as the digital presence for Bixing Technology, a company spe
 - **Build Tools**: npm scripts, automated CI/CD pipelines
 - **SEO**: Meta tags, Open Graph, structured data
 - **Version Control**: Git with protected branches
-- **Branch Strategy**: `main` (production Jekyll), `develop` (Astro migration)
+- **Branch Strategy**: `main` (production Astro), `develop` (integration/manual deploy)
 
 ### Recent Improvements (v2.0-beta - February 2026)
 - ✅ **Astro Migration**: Complete Jekyll → Astro + Tailwind conversion
@@ -107,11 +108,11 @@ The website supports both English and Chinese languages with a seamless toggle f
 - ✅ Visual parity verified for all pages
 - ✅ Performance optimizations applied
 - ✅ CI stabilization complete (lint/build/type checks green)
-- ⏳ Phase 6: Production cutover pending
+- ✅ Phase 6: Production cutover complete
 
-**Staging**: Astro site on `develop` at https://bixingai.bixory.ai
+**Develop**: Integration branch on `develop` (manual deploy only when explicitly triggered)
 
-**Production**: `main` currently preserves Jekyll backup state pending cutover from `develop`
+**Production**: Astro site auto-deployed from `main` at https://bixingai.bixory.ai
 
 ## Getting Started
 
@@ -138,9 +139,9 @@ The website supports both English and Chinese languages with a seamless toggle f
    npm run build
    ```
 
-### Legacy Jekyll Development (v1.x)
+### Legacy Jekyll Development (v1.x Backup)
 
-This path is for backup/reference only while production cutover is pending.
+This path is for backup/reference via tag `jekyll-backup-20260118`.
 
 1. Clone and switch to main branch
    ```bash
@@ -208,7 +209,11 @@ npm run lint:fix      # Auto-fix issues
   - HTML linting validation (HTMLHint)
   - CSS linting validation (Stylelint)
   - Basic functionality tests
-  - Automated deployments (preview for develop, production for main)
+   - Deployment policy reporting (production auto from `main`, `develop` manual-only)
+
+- **Astro Deploy Workflow** (`.github/workflows/astro-deploy.yml`):
+   - Automatic production deploy on push to `main`
+   - Manual `workflow_dispatch` deploy option for `develop`
 
 - **Automated Releases** (`.github/workflows/release.yml`): Triggered **only** when PRs are merged from `develop` → `main`
   - Intelligent version bumping based on commit message analysis

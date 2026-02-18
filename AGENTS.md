@@ -19,10 +19,11 @@
 This document provides essential context and guidelines for AI assistants working on the Bixing Technology website modernization project.
 
 ### Current State (Updated February 18, 2026)
-- **Production**: Jekyll + Bootstrap site on GitHub Pages (main branch) - BACKUP ONLY
-- **Staging**: Astro site deployed on develop branch at https://bixingai.bixory.ai
+- **Production**: Astro site on GitHub Pages (`main`) at https://bixingai.bixory.ai
+- **Develop**: Integration branch for updates and testing
 - **Goal**: 50-70% performance improvement while maintaining exact UI/UX
-- **Progress**: Migration COMPLETE. Jekyll cleanup DONE. CI stabilization pass COMPLETE (lint/build/type checks green).
+- **Progress**: Migration COMPLETE. Jekyll cleanup DONE. CI stabilization pass COMPLETE (lint/build/type checks green). Production cutover COMPLETE.
+- **Deployment Policy**: Automatic production deployment from `main` only; `develop` deployments are manual-only when explicitly triggered.
 - **Backup**: Tag `jekyll-backup-20260118` preserves full Jekyll implementation
 
 ### Key Documents
@@ -100,7 +101,7 @@ particlesJS('hero-particles', {
    - HTML compression and CSS purging
    - Vite code splitting and minification
 5. **Phase 5**: ✅ Testing — **COMPLETE** (Visual Parity: 7/7 pages verified)
-6. **Phase 6**: ⏳ Deployment — In Progress (staging live, production cutover pending)
+6. **Phase 6**: ✅ Deployment — COMPLETE (production cutover merged to `main`)
 
 ### What's Been Completed
 - 12 Astro components (Header, Footer, Hero, Services, Demo, Portfolio, Testimonials, Insights, CTA, etc.)
@@ -122,8 +123,8 @@ particlesJS('hero-particles', {
 - ✅ Root lint gate: warning-free (`npm run lint`)
 
 ### Branch Strategy
-- **main**: Production (currently Jekyll - pending cutover)
-- **develop**: Astro site (staging at https://bixingai.bixory.ai)
+- **main**: Production (Astro live deployment source)
+- **develop**: Integration branch for ongoing updates
 - **feature/**: Specific feature branches
 - **Tags**: `jekyll-backup-20260118` - Full Jekyll backup before cleanup
 
@@ -329,9 +330,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 ### Current Priority Tasks
 1. ~~**Jekyll Cleanup**: Remove legacy Jekyll files from develop branch~~ ✅ DONE
-2. **Production Cutover**: Merge develop → main when final smoke checks are complete
-3. **Mobile Fixes**: Fine-tune hero section spacing on mobile (optional)
-4. **Post-Cutover Optimization Wave**: script hygiene, i18n consolidation, staged CSS lint debt paydown
+2. ~~**Production Cutover**: Merge develop → main when final smoke checks are complete~~ ✅ DONE
+3. **Post-Cutover Monitoring**: verify Pages deployment health and runtime smoke checks
+4. **Mobile Fixes**: Fine-tune hero section spacing on mobile (optional)
+5. **Post-Cutover Optimization Wave**: script hygiene, i18n consolidation, staged CSS lint debt paydown
 
 ---
 
