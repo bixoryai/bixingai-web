@@ -4,10 +4,11 @@
 
 ## Current State
 - **Repository**: `bixoryai/bixingai-web` (branch: `develop`)
-- **Production branch (`main`)**: Jekyll backup state (preserved)
-- **Staging branch (`develop`)**: Astro/Tailwind site (active)
+- **Production branch (`main`)**: Astro/Tailwind site (active)
+- **Staging branch (`develop`)**: Integration branch for ongoing updates
 - **Migration status**: ✅ Complete (Astro implementation finished)
-- **Cutover status**: ⏳ Pending final production merge (`develop` → `main`)
+- **Cutover status**: ✅ Complete (merged to `main`)
+- **Deployment policy**: ✅ Automatic production deployment from `main` only; `develop` deploys are manual-only when explicitly triggered
 
 ## Stabilization Snapshot (2026-02-18)
 A CI-first cleanup pass was completed to make quality gates green on the Astro codebase.
@@ -41,14 +42,13 @@ A CI-first cleanup pass was completed to make quality gates green on the Astro c
 - **Visual parity**: previously verified across key pages (migration completion phase)
 
 ## Active Priorities
-1. **Production cutover readiness**
-   - Final smoke test on staging
-   - Merge `develop` → `main`
-   - Confirm deployment + CNAME/domain behavior
+1. **Post-cutover validation**
+  - Confirm latest Pages deployment reflects `main`
+  - Validate i18n toggles, navigation, and key conversion paths
 2. **Mobile polish (optional)**
-   - Fine-tune hero spacing on smaller breakpoints where needed
-3. **Post-cutover monitoring**
-   - Validate i18n toggles, navigation, and key conversion paths
+  - Fine-tune hero spacing on smaller breakpoints where needed
+3. **Optimization wave execution**
+  - Script hygiene, i18n consolidation, and staged CSS lint debt paydown
 
 ## Next Optimization Wave (Proposed)
 These are intentionally scoped as **non-blocking improvements** after CI stabilization.
