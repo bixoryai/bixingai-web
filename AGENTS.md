@@ -18,11 +18,11 @@
 
 This document provides essential context and guidelines for AI assistants working on the Bixing Technology website modernization project.
 
-### Current State (Updated January 18, 2026)
+### Current State (Updated February 18, 2026)
 - **Production**: Jekyll + Bootstrap site on GitHub Pages (main branch) - BACKUP ONLY
 - **Staging**: Astro site deployed on develop branch at https://bixingai.bixory.ai
 - **Goal**: 50-70% performance improvement while maintaining exact UI/UX
-- **Progress**: Migration COMPLETE. Jekyll cleanup DONE. Ready for production cutover.
+- **Progress**: Migration COMPLETE. Jekyll cleanup DONE. CI stabilization pass COMPLETE (lint/build/type checks green).
 - **Backup**: Tag `jekyll-backup-20260118` preserves full Jekyll implementation
 
 ### Key Documents
@@ -89,7 +89,7 @@ particlesJS('hero-particles', {
 
 ## 🚀 Development Workflow
 
-### Phase-Based Development (Updated January 18, 2025)
+### Phase-Based Development (Updated February 18, 2026)
 1. **Phase 1**: ✅ Setup & Planning — **COMPLETE**
 2. **Phase 2**: ✅ Component Migration — **COMPLETE**
 3. **Phase 3**: ✅ Page Migration — **COMPLETE**
@@ -100,7 +100,7 @@ particlesJS('hero-particles', {
    - HTML compression and CSS purging
    - Vite code splitting and minification
 5. **Phase 5**: ✅ Testing — **COMPLETE** (Visual Parity: 7/7 pages verified)
-6. **Phase 6**: ⏳ Deployment — Not Started
+6. **Phase 6**: ⏳ Deployment — In Progress (staging live, production cutover pending)
 
 ### What's Been Completed
 - 12 Astro components (Header, Footer, Hero, Services, Demo, Portfolio, Testimonials, Insights, CTA, etc.)
@@ -114,6 +114,12 @@ particlesJS('hero-particles', {
 - **Visual Parity Verified**: ALL 7 pages (Homepage, About, Insights, Careers, Contact, Services, Service Detail Pages)
 - **Service Detail Pages**: Full Chinese translation support added for Education, Custom Solutions, Consultation
 - **Team Section Updated**: Real team members (Andrew Bi - CEO, Yan Hong - CTO)
+- **CI Stabilization Batch**: Root lint scripts fixed, missing assets added, Astro typing blockers resolved, lint warnings removed
+
+### Current Quality Baseline (2026-02-18)
+- ✅ `astro check`: 0 errors
+- ✅ `astro build`: success
+- ✅ Root lint gate: warning-free (`npm run lint`)
 
 ### Branch Strategy
 - **main**: Production (currently Jekyll - pending cutover)
@@ -323,8 +329,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 ### Current Priority Tasks
 1. ~~**Jekyll Cleanup**: Remove legacy Jekyll files from develop branch~~ ✅ DONE
-2. **Mobile Fixes**: Fine-tune hero section spacing on mobile (optional)
-3. **Production Cutover**: Merge develop → main when ready
+2. **Production Cutover**: Merge develop → main when final smoke checks are complete
+3. **Mobile Fixes**: Fine-tune hero section spacing on mobile (optional)
+4. **Post-Cutover Optimization Wave**: script hygiene, i18n consolidation, staged CSS lint debt paydown
 
 ---
 

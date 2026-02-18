@@ -35,6 +35,10 @@ const { title, subtitle = "", dataI18nTitle, dataI18nSubtitle } = Astro.props;
 </section>
 
 <script>
+    const particlesJS = (window as Window & {
+        particlesJS?: (containerId: string, config: unknown) => void;
+    }).particlesJS;
+
     console.log('SecondaryHero component loaded');
 
     // Translation system removed - handled by parent page/component

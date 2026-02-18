@@ -365,8 +365,8 @@ const description = "Explore Bixing Technology's comprehensive AI services: AI E
 	
 	// Listen for language toggle events - apply our custom translations
 	document.addEventListener('languageToggled', function(e) {
-		console.log('Language toggled event received - applying custom translations');
-		const lang = e.detail ? e.detail.language : localStorage.getItem('bixingLanguage') || 'en';
+		const lang = (e as CustomEvent<{ language?: string }>).detail?.language || localStorage.getItem('bixingLanguage') || 'en';
+		applyServicesTranslations(lang);
 		// Apply our custom translations immediately and repeatedly
 		setTimeout(() => forceCorrectTranslations(), 10);
 		setTimeout(() => forceCorrectTranslations(), 50);
@@ -377,7 +377,8 @@ const description = "Explore Bixing Technology's comprehensive AI services: AI E
 	// Also listen for storage events
 	window.addEventListener('storage', function(e) {
 		if (e.key === 'bixingLanguage') {
-			console.log('Language storage event received - applying custom translations');
+			const lang = localStorage.getItem('bixingLanguage') || 'en';
+			applyServicesTranslations(lang);
 			setTimeout(() => forceCorrectTranslations(), 10);
 			setTimeout(() => forceCorrectTranslations(), 50);
 			setTimeout(() => forceCorrectTranslations(), 100);
@@ -385,7 +386,7 @@ const description = "Explore Bixing Technology's comprehensive AI services: AI E
 		}
 	});
 
-	function applyServicesTranslations(lang) {
+	function applyServicesTranslations(lang: string) {
 		if (!servicesTranslations[lang]) return;
 
 		// Only use our custom translations - bypass the global corrupted system

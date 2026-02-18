@@ -437,11 +437,17 @@ const description = "Learn about Bixing Technology, pioneers in enterprise AI in
 </BaseLayout>
 
 <script>
+	const appWindow = window as Window & {
+		translations?: Record<string, Record<string, string>>;
+		particlesJS?: (containerId: string, config: unknown) => void;
+	};
+	const particlesJS = appWindow.particlesJS;
+
     console.log('About page loaded');
 
     // Keep global translations available but add page-specific overrides
-    if (!window.translations) {
-        window.translations = { en: {}, zh: {} };
+	if (!appWindow.translations) {
+		appWindow.translations = { en: {}, zh: {} };
     }
 
     // Isolated About page translations to prevent corruption

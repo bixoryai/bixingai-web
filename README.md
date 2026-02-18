@@ -1,19 +1,20 @@
 # Bixing Technology Website
 
 [![Version](https://img.shields.io/badge/version-v2.0.0--beta-blue.svg)](https://github.com/bixoryai/bixingai-web/releases)
-[![Status](https://img.shields.io/badge/status-migration--complete-orange.svg)]()
+[![Status](https://img.shields.io/badge/status-cutover--pending-yellow.svg)]()
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 A corporate website for Bixing Technology, showcasing AI solutions, education services, and enterprise consultation.
 
 ## 📋 Current Status
 
-**Migration Status:** Astro + Tailwind migration complete (January 18, 2025)
+**Migration Status:** Astro + Tailwind migration complete (February 18, 2026)
 - ✅ **Phase 1-5 Complete**: Jekyll → Astro migration finished
 - ✅ **Visual Parity**: All 7 pages verified (Homepage, About, Insights, Careers, Contact, Services, Service Details)
 - ✅ **Performance Optimized**: WebP images (66% savings), lazy loading, async CSS/fonts
 - ✅ **i18n Working**: English/Chinese translations functional across all pages
-- ⏳ **Phase 6**: Deployment pending (staging → production cutover)
+- ✅ **Quality Gates Green**: `astro check` 0 errors, `astro build` success, root lint warning-free
+- ⏳ **Phase 6**: Deployment in progress (staging live, production cutover pending)
 
 ## Project Overview
 
@@ -54,12 +55,13 @@ This website serves as the digital presence for Bixing Technology, a company spe
 - **Version Control**: Git with protected branches
 - **Branch Strategy**: `main` (production Jekyll), `develop` (Astro migration)
 
-### Recent Improvements (v2.0-beta - January 2025)
+### Recent Improvements (v2.0-beta - February 2026)
 - ✅ **Astro Migration**: Complete Jekyll → Astro + Tailwind conversion
 - ✅ **Visual Parity**: 7/7 pages verified pixel-perfect match
 - ✅ **WebP Images**: 66% average file size reduction
 - ✅ **Performance**: Lazy loading, async fonts, HTML compression
 - ✅ **Code Splitting**: Vite bundles per-page JS chunks
+- ✅ **CI Stabilization**: Lint paths fixed, missing assets added, TypeScript blockers resolved
 
 ## Pages
 
@@ -99,14 +101,17 @@ The website supports both English and Chinese languages with a seamless toggle f
 
 ## Migration Status
 
-**Astro Migration**: Phases 1-5 Complete (January 18, 2025)
+**Astro Migration**: Phases 1-5 Complete (February 18, 2026)
 - ✅ All 9 pages migrated to Astro + Tailwind
 - ✅ 12 Astro components created
 - ✅ Visual parity verified for all pages
 - ✅ Performance optimizations applied
-- ⏳ Phase 6: Deployment pending
+- ✅ CI stabilization complete (lint/build/type checks green)
+- ⏳ Phase 6: Production cutover pending
 
-**Production**: v1.0.2 (Jekyll + Bootstrap on GitHub Pages)
+**Staging**: Astro site on `develop` at https://bixingai.bixory.ai
+
+**Production**: `main` currently preserves Jekyll backup state pending cutover from `develop`
 
 ## Getting Started
 
@@ -134,6 +139,8 @@ The website supports both English and Chinese languages with a seamless toggle f
    ```
 
 ### Legacy Jekyll Development (v1.x)
+
+This path is for backup/reference only while production cutover is pending.
 
 1. Clone and switch to main branch
    ```bash

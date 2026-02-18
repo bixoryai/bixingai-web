@@ -98,6 +98,12 @@
 </header>
 
 <script>
+    const appWindow = window as Window & {
+        toggleLanguage?: () => void;
+        applyTranslations?: (lang: string) => void;
+        translations?: Record<string, Record<string, string>>;
+    };
+
     // Initialize language toggle based on stored preference
     function initializeHeaderLanguage() {
         const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
@@ -111,9 +117,9 @@
         }
 
         // Apply translations to header content
-        if (window.applyTranslations) {
+        if (appWindow.applyTranslations) {
             setTimeout(function() {
-                window.applyTranslations(storedLanguage);
+                appWindow.applyTranslations?.(storedLanguage);
             }, 10);
         }
     }
@@ -126,8 +132,8 @@
     }
 
     // Override the global toggleLanguage function if it doesn't exist
-    if (typeof window.toggleLanguage !== 'function') {
-        window.toggleLanguage = function() {
+    if (typeof appWindow.toggleLanguage !== 'function') {
+        appWindow.toggleLanguage = function() {
             const storedLanguage = localStorage.getItem('bixingLanguage') || 'en';
             const newLanguage = storedLanguage === 'en' ? 'zh' : 'en';
             localStorage.setItem('bixingLanguage', newLanguage);
@@ -139,8 +145,8 @@
             if (currentLanguageMobileElement) {
                 currentLanguageMobileElement.textContent = newLanguage === 'en' ? 'EN' : '中文';
             }
-            if (window.applyTranslations) {
-                window.applyTranslations(newLanguage);
+            if (appWindow.applyTranslations) {
+                appWindow.applyTranslations(newLanguage);
             }
             // Also dispatch language toggled event
             document.dispatchEvent(new CustomEvent('languageToggled', {detail: {language: newLanguage}}));
@@ -152,21 +158,25 @@
         const currentLang = localStorage.getItem('bixingLanguage') || 'en';
 
         // Check if translations are available
-        if (window.translations && window.translations[currentLang]) {
+        if (appWindow.translations && appWindow.translations[currentLang]) {
             // Apply translations directly to header elements
             const headerElements = document.querySelectorAll('#header [data-i18n]');
 
             headerElements.forEach(function(element) {
                 const key = element.getAttribute('data-i18n');
-                if (window.translations[currentLang][key]) {
-                    const translation = window.translations[currentLang][key];
+                if (!key) {
+                    return;
+                }
+
+                const translation = appWindow.translations?.[currentLang]?.[key];
+                if (translation) {
                     element.textContent = translation;
                 }
             });
 
             // Also call global applyTranslations
-            if (window.applyTranslations) {
-                window.applyTranslations(currentLang);
+            if (appWindow.applyTranslations) {
+                appWindow.applyTranslations(currentLang);
             }
         } else {
             // Retry after a delay if translations aren't loaded yet
@@ -179,23 +189,21 @@
 
     // Listen for language toggle events to update dynamically loaded header content
     document.addEventListener('languageToggled', function(e) {
-        const lang = e.detail ? e.detail.language : localStorage.getItem('bixingLanguage') || 'en';
-        console.log('Header received language toggle event:', lang);
+        const lang = (e as CustomEvent<{ language?: string }>).detail?.language || localStorage.getItem('bixingLanguage') || 'en';
 
         // Apply translations immediately when language changes
-        if (window.applyTranslations) {
-            window.applyTranslations(lang);
+        if (appWindow.applyTranslations) {
+            appWindow.applyTranslations(lang);
 
             // Apply with delays to ensure all dynamic content is translated
             setTimeout(function() {
-                console.log('Applying translations to header content after language toggle:', lang);
-                window.applyTranslations(lang);
+                appWindow.applyTranslations?.(lang);
             }, 10);
             setTimeout(function() {
-                window.applyTranslations(lang);
+                appWindow.applyTranslations?.(lang);
             }, 50);
             setTimeout(function() {
-                window.applyTranslations(lang);
+                appWindow.applyTranslations?.(lang);
             }, 100);
         }
     });
@@ -229,7 +237,7 @@
         if (toggle && menu) {
             toggle.addEventListener('click', function() {
                 const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-                toggle.setAttribute('aria-expanded', !isExpanded);
+                toggle.setAttribute('aria-expanded', String(!isExpanded));
                 menu.classList.toggle('hidden');
                 
                 // Animate hamburger icon

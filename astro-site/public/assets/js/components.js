@@ -13,7 +13,7 @@ function getConsistentPathToRoot() {
   // For Astro pages, always use absolute paths (root is /)
   // Check if we're on an Astro route (starts with /blog/, /insights, /services, etc.)
   const currentPath = window.location.pathname;
-  if (currentPath.startsWith('/blog/') || currentPath.startsWith('/insights') || 
+  if (currentPath.startsWith('/blog/') || currentPath.startsWith('/insights') ||
       currentPath.startsWith('/services') || currentPath.startsWith('/about') ||
       currentPath.startsWith('/contact') || currentPath.startsWith('/careers')) {
     return '/';
@@ -68,18 +68,16 @@ function loadHeader() {
 
   // Ensure we use absolute path for components
   const headerUrl = (currentPathToRoot === '/' ? '/' : (currentPathToRoot || '/')) + 'components/header.html' + cacheBuster;
-  
+
   fetch(headerUrl)
     .then(response => {
       if (!response.ok) {
-        console.warn('Header not found at', headerUrl, '- status:', response.status);
         return null;
       }
       return response.text();
     })
     .then(data => {
       if (!data) {
-        console.warn('No header data, skipping header load');
         return; // Skip if header not found
       }
       // Use path helper to standardize all path references
@@ -188,21 +186,19 @@ function loadFooter() {
 
   // Get a consistent path-to-root value
   const currentPathToRoot = getConsistentPathToRoot();
-  
+
   // Ensure we use absolute path for components
   const footerUrl = (currentPathToRoot === '/' ? '/' : (currentPathToRoot || '/')) + 'components/footer.html' + cacheBuster;
 
   fetch(footerUrl)
     .then(response => {
       if (!response.ok) {
-        console.warn('Footer not found at', footerUrl, '- status:', response.status);
         return null;
       }
       return response.text();
     })
     .then(data => {
       if (!data) {
-        console.warn('No footer data, skipping footer load');
         return; // Skip if footer not found
       }
       // Update paths in the footer
@@ -298,9 +294,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // For Astro pages (data-path-to-root="/"), keep it as "/" for absolute paths
     // For Jekyll pages with relative paths, use as-is
     if (rawPathToRoot === '/') {
-      pathToRoot = '/';  // Keep absolute path for Astro
+      pathToRoot = '/'; // Keep absolute path for Astro
     } else {
-      pathToRoot = rawPathToRoot;  // Use relative path for Jekyll
+      pathToRoot = rawPathToRoot; // Use relative path for Jekyll
     }
   }
 

@@ -359,11 +359,17 @@ const description = "Join Bixing Technology and be part of the AI revolution. Ex
 <script is:inline src="/assets/js/i18n-careers.js"></script>
 
 <script>
+	const appWindow = window as Window & {
+		translations?: Record<string, Record<string, string>>;
+		particlesJS?: (containerId: string, config: unknown) => void;
+	};
+	const particlesJS = appWindow.particlesJS;
+
     console.log('Careers page loaded');
 
     // Keep global translations available but add page-specific overrides
-    if (!window.translations) {
-        window.translations = { en: {}, zh: {} };
+	if (!appWindow.translations) {
+		appWindow.translations = { en: {}, zh: {} };
     }
 
     // Isolated Careers page translations to prevent corruption

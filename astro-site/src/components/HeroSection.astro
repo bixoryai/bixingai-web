@@ -137,6 +137,12 @@
 </section>
 
 <script>
+    const appWindow = window as Window & {
+        particlesJS?: (containerId: string, config: unknown) => void;
+        pJSDom?: Array<{ pJS: { particles?: { move?: { enable: boolean } } } }>;
+    };
+    const particlesJS = appWindow.particlesJS;
+
     // Optimized particles.js loading - with mobile optimization and visibility pause
     document.addEventListener('DOMContentLoaded', function() {
         if (typeof particlesJS !== 'undefined') {
@@ -267,7 +273,7 @@
                             });
                             
                             // Store reference to pJS instance for pause/resume
-                            pJSInstance = window.pJSDom && window.pJSDom[0] ? window.pJSDom[0].pJS : null;
+                            pJSInstance = appWindow.pJSDom && appWindow.pJSDom[0] ? appWindow.pJSDom[0].pJS : null;
                             
                             observer.disconnect(); // Stop observing after initialization
                         }
@@ -279,7 +285,7 @@
                 // Tab visibility change handler - pause animation when tab not visible
                 document.addEventListener('visibilitychange', function() {
                     if (!pJSInstance) {
-                        pJSInstance = window.pJSDom && window.pJSDom[0] ? window.pJSDom[0].pJS : null;
+                        pJSInstance = appWindow.pJSDom && appWindow.pJSDom[0] ? appWindow.pJSDom[0].pJS : null;
                     }
                     
                     if (pJSInstance && pJSInstance.particles && pJSInstance.particles.move) {

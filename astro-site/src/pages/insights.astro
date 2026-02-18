@@ -41,16 +41,21 @@ const description = "Stay updated with the latest insights, trends, and developm
 </BaseLayout>
 
 <script>
+    const appWindow = window as Window & {
+        translations?: Record<string, Record<string, string>>;
+        insightsTranslations?: Record<string, Record<string, string | { title: string; excerpt: string }>>;
+    };
+
     console.log('Insights page loaded');
 
     // Keep global translations available but add page-specific overrides
-    if (!window.translations) {
-        window.translations = { en: {}, zh: {} };
+    if (!appWindow.translations) {
+        appWindow.translations = { en: {}, zh: {} };
     }
 
     // Isolated Insights page translations to prevent corruption
     // Make it available globally for components
-    window.insightsTranslations = {
+    appWindow.insightsTranslations = {
         en: {
             // Header Navigation
             'nav.services': 'Products & Services',
@@ -190,11 +195,14 @@ const description = "Stay updated with the latest insights, trends, and developm
 		const currentLang = localStorage.getItem('bixingLanguage') || 'en';
 		
         // Apply page-specific translations (these override global translations)
-        if (insightsTranslations[currentLang]) {
-            Object.keys(insightsTranslations[currentLang]).forEach(key => {
+        if (appWindow.insightsTranslations?.[currentLang]) {
+            Object.keys(appWindow.insightsTranslations[currentLang]).forEach(key => {
                 const elements = document.querySelectorAll(`[data-i18n="${key}"]`);
                 elements.forEach(element => {
-                    element.textContent = insightsTranslations[currentLang][key];
+                    const translation = appWindow.insightsTranslations?.[currentLang]?.[key];
+                    if (typeof translation === 'string') {
+                        element.textContent = translation;
+                    }
                 });
             });
         }
